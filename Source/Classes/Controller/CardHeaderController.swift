@@ -34,7 +34,7 @@ import UIKit
     }
 
     @discardableResult
-    public func setup(inView: UIView) -> CardHeaderController {
+    public func setUp(inView: UIView) -> CardHeaderController {
         inView.layoutIfNeeded()
         view.frame = CGRect(origin: .zero, size: inView.frame.size)
         inView.addSubview(view)

@@ -49,7 +49,7 @@ cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
 
 ### 4 - Call to setup and show method.
 ```swift
-cardDrawer?.setup(inView: containerView).show()
+cardDrawer?.setUp(inView: containerView).show()
 ```
 
 ## 💡 Advanced features

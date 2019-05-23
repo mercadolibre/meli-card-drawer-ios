@@ -40,7 +40,7 @@ extension ViewController {
     // Example implementation MeliCardDrawer - CardHeaderController.
     private func setupCardExample() {
         cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
-        cardDrawer?.setup(inView: containerView).show()
+        cardDrawer?.setUp(inView: containerView).show()
     }
 
     private func setupDismissGesture() {
