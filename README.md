@@ -1,8 +1,5 @@
 ![Screenshot iOS](https://i.ibb.co/hCsHg7B/libcover.jpg)
 <p align="center">
-    <a href="https://app.bitrise.io/">
-      <img src="https://app.bitrise.io/app/d2d19a45654ed1d8/status.svg?token=TODO">
-    </a>
     <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" />
     <a href="https://cocoapods.org/pods/MeliCardDrawer">
         <img src="https://img.shields.io/cocoapods/v/MeliCardDrawer.svg" alt="CocoaPods" />
