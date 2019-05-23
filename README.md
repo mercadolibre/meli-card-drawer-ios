@@ -108,7 +108,7 @@ Using CardUI protocol to customize: position of security code, card background, 
 This project include an example project using MeliCardDrawer and another target with xCTests test cases.
 
 ### 🕵️‍♂️ Test cases
-![TestCases](https://raw.githubusercontent.com/juansanzone/uicardtest/master/Static/Tests.png)
+![TestCases](https://i.ibb.co/3c0h1wF/Tests.png)
 
 ### 📋 Supported OS & SDK Versions
 * iOS 9.0+
