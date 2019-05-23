@@ -58,6 +58,7 @@ You can highlight the security code location. If the security code is behind, th
 ```swift
 cardDrawer?.showSecurityCode()
 ```
+![Gif](https://media.giphy.com/media/Ma67kJcJ0bl49kFsi3/giphy.gif)
 
 ### Show front card view
 ```swift
