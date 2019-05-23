@@ -104,6 +104,9 @@ Using CardUI protocol to customize: position of security code, card background, 
 }
 ```
 
+### 🔮 Project Example
+This project include an example project using MeliCardDrawer and another target with xCTests test cases.
+
 ### 🕵️‍♂️ Test cases
 ![TestCases](https://raw.githubusercontent.com/juansanzone/uicardtest/master/Static/Tests.png)
 
@@ -112,9 +115,6 @@ Using CardUI protocol to customize: position of security code, card background, 
 * Swift 4.2
 * xCode 9.2+
 * @Objc full compatibility
-
-### 🔮 Project Example
-This project include an example project using MeliCardDrawer and another target with xCTests test cases.
 
 ## ❤️ Feedback
 This is an open source project, so feel free to contribute. How? -> Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
