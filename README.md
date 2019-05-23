@@ -56,7 +56,8 @@ cardDrawer?.setUp(inView: containerView).show()
 ### Show security code
 ![Gif](https://media.giphy.com/media/Ma67kJcJ0bl49kFsi3/giphy.gif)
 ```swift
-// You can highlight the security code location. If the security code is behind, the card will transition with flip animation.
+// You can highlight the security code location. 
+// If the security code is behind, the card will transition with flip animation.
 cardDrawer?.showSecurityCode()
 ```
 
