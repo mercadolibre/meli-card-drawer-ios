@@ -119,7 +119,7 @@ This project include an example project using MeliCardDrawer and another target 
 This is an open source project, so feel free to contribute. How? -> Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
 
 ## 👨🏻‍💻 Author
-Mercado Libre - Mercado Pago
+Juan Sanzone / @juansanzone
 
 ## 👮🏻 License
 
