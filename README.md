@@ -7,6 +7,9 @@
     <a href="https://cocoapods.org/pods/MLCardDrawer">
         <img src="https://img.shields.io/cocoapods/dt/MLCardDrawer.svg?style=flat" alt="CocoaPods downloads" />
     </a>
+    <a href="https://twitter.com/johnsanzo">
+        <img src="https://img.shields.io/badge/twitter-@JohnSanzo-blue.svg?style=flat" alt="Twitter: @JohnSanzo" />
+    </a>
 </p>
 
 ## 📲 How to Install
@@ -39,12 +42,12 @@ import MLCardDrawer
 ```swift
 // You can create your containerView by code or by storyboard/xib (as you like)
 private var containerView: UIView = UIView()
-private var cardDrawer: CardHeaderController?
+private var cardDrawer: MLCardDrawerController?
 ```
 
 ### 3 - Init cardDrawer sending CardUI and CardData protocol as parameters.
 ```swift
-cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
+cardDrawer = MLCardDrawerController(cardUIHandler, cardDataHandler)
 ```
 
 ### 4 - Call to setup and show method.
@@ -102,6 +105,14 @@ Using `CardUI` protocol to customize: position of security code, card background
     @objc optional var cardLogoImage: UIImage? { get }
 }
 ```
+
+### 😉 Next steps
+* [ ] SwiftLint
+* [ ] Migration to Swift 5
+* [ ] Codebeat integration
+* [ ] Shine card effect with motion blur 🔥🔥
+* [ ] Native support to display card in disabled mode (card disabled)
+
 
 ### 🔮 Project Example
 This project include an example project using `MLCardDrawer` and another target with `xCTests` test cases.
