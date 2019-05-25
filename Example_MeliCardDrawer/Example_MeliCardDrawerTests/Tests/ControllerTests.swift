@@ -16,7 +16,7 @@ class CardHeaderControllerTest: XCTestCase {
     func testShow() {
         let cardUI = CardUIMock()
         let model = CardDataMock()
-        let cardController = CardHeaderController(cardUI, model)
+        let cardController = MLCardDrawerController(cardUI, model)
 
         cardController.show()
 
@@ -27,7 +27,7 @@ class CardHeaderControllerTest: XCTestCase {
     func testShowFrontSecurityCode() {
         let cardUI = CardUIMock()
         let model = CardDataMock()
-        let cardController = CardHeaderController(cardUI, model)
+        let cardController = MLCardDrawerController(cardUI, model)
 
         cardController.showSecurityCode()
 
@@ -38,7 +38,7 @@ class CardHeaderControllerTest: XCTestCase {
     func testShowBackSecurityCode() {
         let cardUI = CardUIMock()
         let model = CardDataMock()
-        let cardController = CardHeaderController(cardUI, model)
+        let cardController = MLCardDrawerController(cardUI, model)
 
         cardUI.securityCodeLocation = .back
         cardController.showSecurityCode()
@@ -51,7 +51,7 @@ class CardHeaderControllerTest: XCTestCase {
         let cardUI = CardUIMock()
         let model = CardDataMock()
         cardUI.securityCodeLocation = .back
-        let cardController = CardHeaderController(cardUI, model)
+        let cardController = MLCardDrawerController(cardUI, model)
 
         cardController.show()
         cardController.showSecurityCode()
@@ -62,7 +62,7 @@ class CardHeaderControllerTest: XCTestCase {
     func testOverlayAnimation() {
         let cardUI = CardUIMock()
         let model = CardDataMock()
-        let cardController = CardHeaderController(cardUI, model)
+        let cardController = MLCardDrawerController(cardUI, model)
 
         cardController.show()
         cardController.cardUI = cardUI

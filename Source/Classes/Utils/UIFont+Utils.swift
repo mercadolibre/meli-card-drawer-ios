@@ -6,7 +6,7 @@ internal extension UIFont {
         let type: String = "bundle"
         if let targetPath = Bundle.main.path(forResource: resource, ofType: type) {
             doRegister(targetPath, fontName: fontName, fontExtension: fontExtension)
-        } else if let auxPath = Bundle.init(for: CardHeaderController.self).path(forResource: resource, ofType: type) {
+        } else if let auxPath = Bundle.init(for: MLCardDrawerController.self).path(forResource: resource, ofType: type) {
             doRegister(auxPath, fontName: fontName, fontExtension: fontExtension)
         }
     }

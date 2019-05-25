@@ -1,6 +1,6 @@
 import UIKit
 
-@objcMembers public class CardHeaderController: UIViewController {
+@objcMembers public class MLCardDrawerController: UIViewController {
     private var shouldAnimate: Bool = true
     let cardFont = "RobotoMono-Regular"
     var frontView = FrontView()
@@ -47,7 +47,7 @@ import UIKit
     }
 
     @discardableResult
-    public func setUp(inView: UIView) -> CardHeaderController {
+    public func setUp(inView: UIView) -> MLCardDrawerController {
         inView.layoutIfNeeded()
         view.frame = CGRect(origin: .zero, size: inView.frame.size)
         inView.addSubview(view)
@@ -56,7 +56,7 @@ import UIKit
 }
 
 // MARK: Internals
-extension CardHeaderController {
+extension MLCardDrawerController {
     func transition(from origin: UIView, to destination: UIView, _ options: UIView.AnimationOptions) {
         addSubview(destination)
         Animator.flip(origin, destination, options)
