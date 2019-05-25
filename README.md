@@ -70,7 +70,7 @@ cardDrawer?.show()
 You can customize the data structure and style of your card.
 
 ### 🔠 CardData protocol
-Using CardData protocol to update the card display values.
+Using `CardData` protocol to update the card display values.
 ```swift
 @objc public protocol CardData {
     var name: String { get set }
@@ -82,7 +82,7 @@ Using CardData protocol to update the card display values.
 ```
 
 ### 🎨 CardUI protocol
-Using CardUI protocol to customize: position of security code, card background, font color, place holders, etc.
+Using `CardUI` protocol to customize: position of security code, card background, font color, place holders, etc.
 
 ```swift
 @objc public protocol CardUI {
@@ -91,7 +91,7 @@ Using CardUI protocol to customize: position of security code, card background, 
     var placeholderExpiration: String { get }
     var cardFontColor: UIColor { get }
     var cardBackgroundColor: UIColor { get }
-    var securityCodeLocation: Location { get }
+    var securityCodeLocation: MLCardSecurityCodeLocation { get }
     var defaultUI: Bool { get }
     var securityCodePattern: Int { get }
 
@@ -104,7 +104,9 @@ Using CardUI protocol to customize: position of security code, card background, 
 ```
 
 ### 🔮 Project Example
-This project include an example project using MeliCardDrawer and another target with xCTests test cases.
+This project include an example project using `MLCardDrawer` and another target with `xCTests` test cases.
+Enter to path: `meli-card-drawer-ios/Example_MeliCardDrawer` and run pod install command. After that, you can open `Example_MeliCardDrawer.xcworkspace`
+
 
 ### 🕵️‍♂️ Test cases
 ![TestCases](https://i.ibb.co/3c0h1wF/Tests.png)
