@@ -1,6 +1,6 @@
 import XCTest
 @testable import Example_MeliCardDrawer
-@testable import MeliCardDrawer
+@testable import MLCardDrawer
 
 class BackViewTest: XCTestCase {
     

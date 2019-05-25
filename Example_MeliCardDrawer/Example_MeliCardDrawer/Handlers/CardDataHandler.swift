@@ -1,5 +1,5 @@
 import Foundation
-import MeliCardDrawer
+import MLCardDrawer
 
 // Example - CardDataHandler
 @objc class CardDataHandler: NSObject, CardData {

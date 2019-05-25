@@ -5,16 +5,20 @@ class CardView: UIView {
     @IBOutlet weak var animation: UIView!
     @IBOutlet weak var gradient: UIView!
     @IBOutlet weak var securityCode: CardLabel!
-    @objc var model: CardData?
-    var color: UIColor?
-
+    let disabledGray: UIColor = #colorLiteral(red: 0.2862745098, green: 0.2862745098, blue: 0.2862745098, alpha: 1)
     let cornerRadius: CGFloat = 11
+    var color: UIColor?
+    var disabledMode: Bool = false
+    @objc var model: CardData?
 
-    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect) {
+    private var cardUI: CardUI?
+
+    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false) {
         self.frame = frame
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
         layer.isDoubleSided = false
+        disabledMode = isDisabled
         loadFromNib()
         setupModel(model)
         setupUI(cardUI)
@@ -30,8 +34,12 @@ class CardView: UIView {
     }
 
     func setupUI(_ cardUI: CardUI) {
-        securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])        
-        animation.backgroundColor = cardUI.cardBackgroundColor
+        self.cardUI = cardUI
+        securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
+        if !(cardUI is CustomCardDrawerUI) {
+            let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
+            animation.backgroundColor = mainColor
+        }
     }
 
     func setupModel(_ model: CardData) {
@@ -44,14 +52,29 @@ class CardView: UIView {
     }
 
     func addGradient() {
-        let layer = CAGradientLayer()
-        let end = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1).cgColor
-
-        layer.colors = [UIColor.black.cgColor, end]
-        layer.frame = frame
-        layer.startPoint = CGPoint(x: 0, y: 1)
-        layer.endPoint = CGPoint(x: 1, y: 0)
-        self.gradient.layer.addSublayer(layer)
-        self.gradient.layer.compositingFilter = "overlayBlendMode"
+        if let currentCardUI = cardUI, let customCardUI = currentCardUI as? CustomCardDrawerUI {
+            if let customGradient = customCardUI.ownGradient {
+                self.gradient.layer.addSublayer(customGradient)
+            } else {
+                // Default gradient for custom card.
+                let gradient = CAGradientLayer()
+                gradient.frame = frame
+                let mainColor = disabledMode ? disabledGray.cgColor : customCardUI.cardBackgroundColor.cgColor
+                gradient.colors = [mainColor, UIColor.white.cgColor]
+                gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+                gradient.endPoint = CGPoint(x: 1.6, y: 0.5)
+                self.gradient.layer.addSublayer(gradient)
+            }
+        } else {
+            // Our default card gradients
+            let layer = CAGradientLayer()
+            let end = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1).cgColor
+            layer.colors = [UIColor.black.cgColor, end]
+            layer.frame = frame
+            layer.startPoint = CGPoint(x: 0, y: 1)
+            layer.endPoint = CGPoint(x: 1, y: 0)
+            self.gradient.layer.addSublayer(layer)
+            self.gradient.layer.compositingFilter = "overlayBlendMode"
+        }
     }
 }

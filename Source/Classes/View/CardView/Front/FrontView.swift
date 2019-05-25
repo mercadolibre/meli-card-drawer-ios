@@ -13,8 +13,13 @@ class FrontView: CardView {
 
         securityCodeCircle.alpha = 0
 
-        bank.image = cardUI.bankImage ?? nil
-        logo.image = cardUI.cardLogoImage ?? nil
+        if disabledMode {
+            bank.image = cardUI.bankImage??.imageGreyScale()
+            logo.image = cardUI.cardLogoImage??.imageGreyScale()
+        } else if let bImage = cardUI.bankImage, let lImage = cardUI.cardLogoImage {
+            bank.image = bImage
+            logo.image = lImage
+        }
 
         cardUI.set?(logo: logo)
         cardUI.set?(bank: bank)
@@ -33,12 +38,14 @@ class FrontView: CardView {
     }
 
     func setupAnimated(_ cardUI: CardUI) {
-        Animator.overlay(on: self,
-                         cardUI: cardUI,
-                         views: [bank, expirationDate, logo, name, number, securityCode],
-                         complete: {[weak self] in
-                            self?.setupUI(cardUI)
-        })
+        if !(cardUI is CustomCardDrawerUI) {
+            Animator.overlay(on: self,
+                             cardUI: cardUI,
+                             views: [bank, expirationDate, logo, name, number, securityCode],
+                             complete: {[weak self] in
+                                self?.setupUI(cardUI)
+            })
+        }
     }
 
     func showSecurityCode() {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MeliCardDrawer
+import MLCardDrawer
 
 final class TypeCollectionCell: UICollectionViewCell {
     static let identifier: String = "TypeCollectionCell"

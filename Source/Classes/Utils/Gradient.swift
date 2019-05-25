@@ -1,10 +1,10 @@
 import UIKit
 
-internal class Gradient: NSObject {
+class Gradient: NSObject {
     var top: UIColor
     var bottom: UIColor
 
-    public init(top: UIColor, bottom: UIColor) {
+    init(top: UIColor, bottom: UIColor) {
         self.top = top
         self.bottom = bottom
     }
@@ -30,7 +30,7 @@ extension Gradient {
         context.drawLinearGradient(gradient,
                                    start: CGPoint.zero,
                                    end: CGPoint(x:0, y:size.height),
-                                   options: .drawsBeforeStartLocation);
+                                   options: .drawsBeforeStartLocation)
 
         guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
 

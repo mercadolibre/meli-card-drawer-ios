@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-@objc public enum Location: Int {
+@objc public enum MLCardSecurityCodeLocation: Int {
     case front, back, none
 }
 
@@ -11,7 +11,7 @@ import UIKit
     var placeholderExpiration: String { get }
     var cardFontColor: UIColor { get }
     var cardBackgroundColor: UIColor { get }
-    var securityCodeLocation: Location { get }
+    var securityCodeLocation: MLCardSecurityCodeLocation { get }
     var defaultUI: Bool { get }
     var securityCodePattern: Int { get }
 
@@ -20,4 +20,8 @@ import UIKit
     @objc optional var fontType: String { get }
     @objc optional var bankImage: UIImage? { get }
     @objc optional var cardLogoImage: UIImage? { get }
+}
+
+@objc public protocol CustomCardDrawerUI: CardUI {
+    @objc optional var ownGradient: CAGradientLayer { get }
 }

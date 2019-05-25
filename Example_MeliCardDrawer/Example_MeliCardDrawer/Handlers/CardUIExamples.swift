@@ -1,5 +1,5 @@
 import UIKit
-import MeliCardDrawer
+import MLCardDrawer
 
 struct CardUIExamples {
     // Example - Default CardUI
@@ -11,7 +11,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         var cardLogoImage: UIImage?
         var cardBackgroundColor: UIColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = true
         var securityCodePattern = 3
     }
@@ -25,7 +25,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "amex")
         var cardBackgroundColor: UIColor = UIColor(red: 135/255, green: 171/255, blue: 158/255, alpha: 1)
-        var securityCodeLocation: Location = .front
+        var securityCodeLocation: MLCardSecurityCodeLocation = .front
         var defaultUI = false
         var securityCodePattern = 4
         var fontType: String = "light"
@@ -40,7 +40,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 37/255, green: 97/255, blue: 192/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -55,7 +55,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "debmaestro")
         var cardBackgroundColor: UIColor = UIColor(red: 90/255, green: 117/255, blue: 137/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -70,7 +70,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "debmaestro")
         var cardBackgroundColor: UIColor = UIColor(red: 90/255, green: 117/255, blue: 137/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -85,7 +85,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "amex")
         var cardBackgroundColor: UIColor = UIColor(red: 247/255, green: 149/255, blue: 52/255, alpha: 1)
-        var securityCodeLocation: Location = .front
+        var securityCodeLocation: MLCardSecurityCodeLocation = .front
         var defaultUI = false
         var securityCodePattern = 4
         var fontType: String = "light"
@@ -100,7 +100,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 72/255, green: 150/255, blue: 178/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -115,7 +115,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 86/255, green: 151/255, blue: 54/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -130,7 +130,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 184/255, green: 157/255, blue: 94/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -145,7 +145,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .darkGray
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
@@ -160,7 +160,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .darkGray
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 255/255, green: 223/255, blue: 10/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "dark"
@@ -175,7 +175,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var cardLogoImage: UIImage? = UIImage(named: "visa")
         var cardBackgroundColor: UIColor = UIColor(red: 213/255, green: 56/255, blue: 56/255, alpha: 1)
-        var securityCodeLocation: Location = .back
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"

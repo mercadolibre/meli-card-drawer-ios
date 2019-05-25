@@ -1,11 +1,11 @@
 ![Screenshot iOS](https://i.ibb.co/hCsHg7B/libcover.jpg)
 <p align="center">
     <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" />
-    <a href="https://cocoapods.org/pods/MeliCardDrawer">
-        <img src="https://img.shields.io/cocoapods/v/MeliCardDrawer.svg" alt="CocoaPods" />
+    <a href="https://cocoapods.org/pods/MLCardDrawer">
+        <img src="https://img.shields.io/cocoapods/v/MLCardDrawer.svg" alt="CocoaPods" />
     </a>
-    <a href="https://cocoapods.org/pods/MeliCardDrawer">
-        <img src="https://img.shields.io/cocoapods/dt/MeliCardDrawer.svg?style=flat" alt="CocoaPods downloads" />
+    <a href="https://cocoapods.org/pods/MLCardDrawer">
+        <img src="https://img.shields.io/cocoapods/dt/MLCardDrawer.svg?style=flat" alt="CocoaPods downloads" />
     </a>
 </p>
 
@@ -16,7 +16,7 @@
 Edit your `Podfile` and specify the dependency:
 
 ```ruby
-pod 'MeliCardDrawer'
+pod 'MLCardDrawer'
 ```
 
 ## 🌟 Features
@@ -32,7 +32,7 @@ pod 'MeliCardDrawer'
 
 ### 1 - Import into project
 ```swift
-import MeliCardDrawer
+import MLCardDrawer
 ```
 
 ### 2 - Define CardHeaderController reference & your own container view.

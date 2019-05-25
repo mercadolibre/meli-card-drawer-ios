@@ -8,7 +8,7 @@
 
 import UIKit
 @testable import Example_MeliCardDrawer
-@testable import MeliCardDrawer
+@testable import MLCardDrawer
 
 class CardDataMock: NSObject, CardData {
     var name = ""
@@ -25,7 +25,7 @@ class CardUIMock: NSObject, CardUI {
     var cardFontColor: UIColor = .black
     var cardLogoImage: UIImage? = nil
     var cardBackgroundColor: UIColor = .cyan
-    var securityCodeLocation: Location = .front
+    var securityCodeLocation: MLCardSecurityCodeLocation = .front
     var defaultUI: Bool = true
     var securityCodePattern = 3
 }

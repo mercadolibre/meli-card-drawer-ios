@@ -4,7 +4,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Example_MeliCardDrawer' do
-    pod 'MeliCardDrawer', :path => '../'
+    pod 'MLCardDrawer', :path => '../'
     target 'Example_MeliCardDrawerTests' do
     	inherit! :search_paths
     end
