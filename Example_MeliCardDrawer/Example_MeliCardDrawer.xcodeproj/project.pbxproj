@@ -80,31 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230990D12295752F00FC7A3D /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				230990D22295752F00FC7A3D /* TestMock.swift */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
 		230990D62295776600FC7A3D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				230990DB2295790500FC7A3D /* Views */,
+				230990D22295752F00FC7A3D /* TestMock.swift */,
+				230990DC2295790500FC7A3D /* BackViewTest.swift */,
+				230990DD2295790500FC7A3D /* FrontViewTest.swift */,
 				230990D72295776600FC7A3D /* FormatterTests.swift */,
 				230990D92295782100FC7A3D /* ControllerTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		230990DB2295790500FC7A3D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				230990DC2295790500FC7A3D /* BackViewTest.swift */,
-				230990DD2295790500FC7A3D /* FrontViewTest.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		230990E22295A0E200FC7A3D /* Cells */ = {
@@ -153,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				230990D62295776600FC7A3D /* Tests */,
-				230990D12295752F00FC7A3D /* Mock */,
 				236522252294A88200FA6F2D /* Info.plist */,
 			);
 			path = Example_MeliCardDrawerTests;

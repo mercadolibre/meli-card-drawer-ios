@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MLCardDrawer"
-  s.version          = "1.0"
+  s.version          = "1.0.1"
   s.summary          = "MLCardDrawer for iOS"
   s.homepage         = "https://www.mercadolibre.com"
   s.license          = { :type => "MIT", :file => "LICENSE" }
@@ -13,4 +13,9 @@ Pod::Spec.new do |s|
   s.resources        = "Source/Classes/**/*.xib",
   "Source/Assets/*.bundle",
   "Source/Assets/*.xcassets"
+
+  s.test_spec do |test_spec|
+    test_spec.source_files = 'Example_MeliCardDrawer/Example_MeliCardDrawerTests/Tests/*'
+    test_spec.frameworks = 'XCTest'
+  end
 end
