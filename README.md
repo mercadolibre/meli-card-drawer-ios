@@ -3,7 +3,6 @@
     <a href="https://app.bitrise.io/app/769306824c08dd17">
         <img src="https://app.bitrise.io/app/769306824c08dd17/status.svg?token=4F8Ib-Y-8u3tLWtebEr2gA&branch=master" alt="Bitrise" />
     </a>
-      <a href="https://codebeat.co/projects/github-com-mercadolibre-meli-card-drawer-ios-master"><img alt="codebeat badge" src="https://codebeat.co/badges/4ec76fcc-f06d-41a9-b6d8-08f6065e289f" /></a>
     <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" />
     <a href="https://cocoapods.org/pods/MLCardDrawer">
         <img src="https://img.shields.io/cocoapods/v/MLCardDrawer.svg" alt="CocoaPods" />
