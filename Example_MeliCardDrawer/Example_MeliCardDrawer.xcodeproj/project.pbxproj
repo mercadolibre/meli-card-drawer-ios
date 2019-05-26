@@ -80,31 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		230990D12295752F00FC7A3D /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				230990D22295752F00FC7A3D /* TestMock.swift */,
-			);
-			path = Mock;
-			sourceTree = "<group>";
-		};
 		230990D62295776600FC7A3D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				230990DB2295790500FC7A3D /* Views */,
+				230990D22295752F00FC7A3D /* TestMock.swift */,
+				230990DC2295790500FC7A3D /* BackViewTest.swift */,
+				230990DD2295790500FC7A3D /* FrontViewTest.swift */,
 				230990D72295776600FC7A3D /* FormatterTests.swift */,
 				230990D92295782100FC7A3D /* ControllerTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		230990DB2295790500FC7A3D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				230990DC2295790500FC7A3D /* BackViewTest.swift */,
-				230990DD2295790500FC7A3D /* FrontViewTest.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		230990E22295A0E200FC7A3D /* Cells */ = {
@@ -153,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				230990D62295776600FC7A3D /* Tests */,
-				230990D12295752F00FC7A3D /* Mock */,
 				236522252294A88200FA6F2D /* Info.plist */,
 			);
 			path = Example_MeliCardDrawerTests;
@@ -569,8 +553,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G3C6XQTJW2;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example_MeliCardDrawerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,6 +563,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Meli.Example-MeliCardDrawerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example_MeliCardDrawer.app/Example_MeliCardDrawer";
@@ -591,8 +576,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G3C6XQTJW2;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example_MeliCardDrawerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -601,6 +586,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Meli.Example-MeliCardDrawerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example_MeliCardDrawer.app/Example_MeliCardDrawer";
