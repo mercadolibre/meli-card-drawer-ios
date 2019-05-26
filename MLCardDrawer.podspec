@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   "Source/Assets/*.bundle",
   "Source/Assets/*.xcassets"
 
-  s.test_spec do |test_spec|
-    test_spec.source_files = 'Example_MeliCardDrawer/Example_MeliCardDrawerTests/Tests/*'
-    test_spec.frameworks = 'XCTest'
-  end
+  #s.test_spec do |test_spec|
+    #test_spec.source_files = 'Example_MeliCardDrawer/Example_MeliCardDrawerTests/Tests/*'
+    #test_spec.frameworks = 'XCTest'
+  #end
 end
