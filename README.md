@@ -110,9 +110,10 @@ Using `CardUI` protocol to customize: position of security code, card background
 ```
 
 ### 😉 Next steps
+* [x] Bitrise for releases
+* [x] Codebeat integration
 * [ ] SwiftLint
 * [ ] Migration to Swift 5
-* [ ] Codebeat integration
 * [ ] Shine card effect with motion blur 🔥🔥
 * [ ] Native support to display card in disabled mode (card disabled)
 
