@@ -17,6 +17,9 @@ import UIKit
             } else {
                 frontView.setupUI(value)
             }
+            if isShineCardEnabled() {
+                addShine()
+            }
             backView.setupUI(value)
         }
     }
@@ -52,6 +55,32 @@ import UIKit
         view.frame = CGRect(origin: .zero, size: inView.frame.size)
         inView.addSubview(view)
         return self
+    }
+}
+
+// MARK: Shine card feature.
+extension MLCardDrawerController {
+    public func setShineCard(enabled: Bool) {
+        if enabled {
+            addShine()
+        } else {
+            removeShine()
+        }
+    }
+
+    public func isShineCardEnabled() -> Bool {
+        return frontView.isShineEnabled()
+    }
+
+    private func addShine() {
+        removeShine()
+        frontView.removeGradient()
+        frontView.addShineView()
+    }
+
+    private func removeShine() {
+        frontView.addGradient()
+        frontView.removeShineView()
     }
 }
 

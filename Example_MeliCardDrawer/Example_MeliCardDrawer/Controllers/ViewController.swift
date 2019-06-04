@@ -117,3 +117,27 @@ extension ViewController {
         view.endEditing(true)
     }
 }
+
+// MARK: Toggle shine card feature.
+extension ViewController {
+    @IBAction func didChangeShineToggle(_ sender: UISwitch) {
+        cardDrawer?.setShineCard(enabled: sender.isOn)
+    }
+
+    @IBAction func didCHangeUISwitch(_ sender: UISwitch) {
+        changeTheme(backgroundColor: sender.isOn ? .black : .white, fontColor: sender.isOn ? .white : .black)
+    }
+
+    private func changeTheme(backgroundColor: UIColor, fontColor: UIColor) {
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.view.backgroundColor = backgroundColor
+            if let tView = self?.view {
+                for tLabel in tView.subviews {
+                    if let targetLabel = tLabel as? UILabel {
+                        targetLabel.textColor = fontColor
+                    }
+                }
+            }
+        }
+    }
+}

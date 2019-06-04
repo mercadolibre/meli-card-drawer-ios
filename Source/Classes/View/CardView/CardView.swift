@@ -10,7 +10,6 @@ class CardView: UIView {
     var color: UIColor?
     var disabledMode: Bool = false
     @objc var model: CardData?
-
     private var cardUI: CardUI?
 
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false) {
@@ -49,6 +48,14 @@ class CardView: UIView {
 
     func addObservers() {
         addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
+    }
+
+    func removeGradient() {
+        guard let sublayers = gradient.layer.sublayers else { return }
+        for targetSubLayer in sublayers {
+            targetSubLayer.removeFromSuperlayer()
+            targetSubLayer.removeAllAnimations()
+        }
     }
 
     func addGradient() {
