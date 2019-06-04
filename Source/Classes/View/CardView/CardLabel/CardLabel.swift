@@ -12,7 +12,6 @@ class CardLabel: UILabel {
     }
 
     func setup(_ text: String?, _ textType: Font? = nil) {
-
         typeFont = textType ?? typeFont
         textColor = typeFont.color
         let color = typeFont.gradient.getGradient(frame)
