@@ -31,6 +31,7 @@ pod 'MLCardDrawer'
 - [x] Card left and right image customization (CardUI protocol)
 - [x] CVV support at front & back view
 - [x] Card flip animation integrated
+- [x] Shine card effect with MotionEffect 🔥🔥
 - [x] Live card view updated while CardData protocol is edited
 - [x] PCI compliance (We do not save anything)
 
@@ -70,6 +71,11 @@ cardDrawer?.showSecurityCode()
 ### Show front card view
 ```swift
 cardDrawer?.show()
+```
+
+### 🔥 Shine card support based on MotionEffect 🔥
+```swift
+cardDrawer?.setShineCard(enabled: true)
 ```
 
 ## 💳 Card data structure and style customization
@@ -112,10 +118,11 @@ Using `CardUI` protocol to customize: position of security code, card background
 ### 😉 Next steps
 * [x] Bitrise for releases
 * [x] Codebeat integration
+* [x] Shine card effect with MotionEffect 🔥🔥
 * [ ] SwiftLint
 * [ ] Migration to Swift 5
-* [ ] Shine card effect with motion blur 🔥🔥
 * [ ] Native support to display card in disabled mode (card disabled)
+* [ ] Version 2.0 based on SwiftUI 😈
 
 
 ### 🔮 Project Example
