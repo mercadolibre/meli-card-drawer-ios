@@ -27,7 +27,7 @@ pod 'MLCardDrawer'
 
 #### Using [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-Add `MLCardDrawer` as a dependency. Addingto the following line in `dependencies`value of your `Package.swift`.
+Add `MLCardDrawer` as a dependency. Adding the following line in `dependencies`value of your `Package.swift`.
 
 ```swift
   dependencies: [
