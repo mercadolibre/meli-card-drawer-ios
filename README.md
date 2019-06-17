@@ -25,6 +25,16 @@ Edit your `Podfile` and specify the dependency:
 pod 'MLCardDrawer'
 ```
 
+#### Using [Swift Package Manager] (https://github.com/apple/swift-package-manager)
+
+Add `MLCardDrawer` as a dependency. Addingto the following line in `dependencies`value of your `Package.swift`.
+
+```swift
+  dependencies: [
+    .package(url: "https://github.com/mercadolibre/meli-card-drawer-ios.git", from: "1.0")
+  ]
+```
+
 ## 🌟 Features
 - [x] Easy to integrate
 - [x] Card number, name, expiration date and CVV support (CardData protocol)
