@@ -26,6 +26,15 @@ final class ViewController: UIViewController {
         super.viewDidAppear(animated)
         setupUI()
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.userInterfaceStyle == .dark {
+            changeTheme(backgroundColor: .black, fontColor: .white)
+        } else {
+            changeTheme(backgroundColor: .white, fontColor: .black)
+        }
+    }
 }
 
 // MARK: UI Setup.

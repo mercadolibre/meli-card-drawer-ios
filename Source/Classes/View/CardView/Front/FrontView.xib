@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FrontView" customModule="uicardtest" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FrontView" customModule="MLCardDrawer" customModuleProvider="target">
             <connections>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="bank" destination="DT6-XG-kaD" id="18S-hZ-7H3"/>
@@ -18,6 +18,7 @@
                 <outlet property="logo" destination="oQQ-DA-UJ9" id="kdc-rZ-a1f"/>
                 <outlet property="name" destination="ZMN-U6-Lcy" id="YHC-Uc-QhK"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
+                <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
                 <outlet property="securityCode" destination="K3c-vy-wcQ" id="ghT-Qi-ZGO"/>
                 <outlet property="securityCodeCircle" destination="89T-PX-cWX" id="Edb-BS-E6z"/>
             </connections>
@@ -78,13 +79,13 @@
                         <constraint firstAttribute="trailing" secondItem="DT6-XG-kaD" secondAttribute="trailing" id="uUY-jM-4mL"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/AA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMu-xJ-OI6" customClass="CardLabel" customModule="uicardtest" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/AA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMu-xJ-OI6" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="199" y="120" width="41" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89T-PX-cWX" userLabel="circleFronSecurityCodeView" customClass="CircleView" customModule="uicardtest" customModuleProvider="target">
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89T-PX-cWX" userLabel="circleFronSecurityCodeView" customClass="CircleView" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="211" y="46" width="39" height="39"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -103,12 +104,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="***" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-vy-wcQ" userLabel="FrontSecurityCodeLabel" customClass="CardLabel" customModule="uicardtest" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="***" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-vy-wcQ" userLabel="FrontSecurityCodeLabel" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="223" y="58.5" width="17" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE Y APELLIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-U6-Lcy" customClass="CardLabel" customModule="uicardtest" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE Y APELLIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-U6-Lcy" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="16" y="120" width="166" height="14"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="166" id="FBH-we-hcG"/>
@@ -117,7 +118,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** ****" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="uicardtest" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** ****" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="16" y="82" width="224" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="cXL-fC-pUa"/>
