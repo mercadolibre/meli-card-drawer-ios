@@ -44,6 +44,7 @@ Add `MLCardDrawer` as a dependency. Adding the following line in `dependencies`v
 - [x] Shine card effect with MotionEffect 🔥🔥
 - [x] Live card view updated while CardData protocol is edited
 - [x] PCI compliance (We do not save anything)
+- [x] Support for custom overlay background image
 
 ## 🐒 How to use
 
@@ -122,6 +123,7 @@ Using `CardUI` protocol to customize: position of security code, card background
     @objc optional var fontType: String { get }
     @objc optional var bankImage: UIImage? { get }
     @objc optional var cardLogoImage: UIImage? { get }
+    @objc optional var ownOverlayImage: UIImage? { get }
 }
 ```
 
@@ -132,7 +134,7 @@ Using `CardUI` protocol to customize: position of security code, card background
 * [ ] SwiftLint
 * [ ] Migration to Swift 5
 * [ ] Native support to display card in disabled mode (card disabled)
-* [ ] Version 2.0 based on SwiftUI 😈
+* [ ] Version 2.0 SwiftUI compatible 😈
 
 
 ### 🔮 Project Example
