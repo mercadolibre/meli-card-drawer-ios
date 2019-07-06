@@ -7,6 +7,7 @@ class FrontView: CardView {
     @IBOutlet weak var bank: UIImageView!
     @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var securityCodeCircle: CircleView!
+    @IBOutlet weak var overlayImage: UIImageView!
 
     private var cardBackground: UIColor = .clear
     private var shineView: ShineView?
@@ -40,12 +41,30 @@ class FrontView: CardView {
         })
 
         cardBackground = cardUI.cardBackgroundColor
+        setupCustomOverlayImage(cardUI)
 
         if isShineEnabled() {
             addShineView()
         }
     }
 
+    override func addObservers() {
+        addObserver(name, forKeyPath: #keyPath(model.name), options: .new, context: nil)
+        addObserver(number, forKeyPath: #keyPath(model.number), options: .new, context: nil)
+        addObserver(expirationDate, forKeyPath: #keyPath(model.expiration), options: .new, context: nil)
+        addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
+    }
+
+    deinit {
+        removeObserver(name, forKeyPath: #keyPath(model.name))
+        removeObserver(number, forKeyPath: #keyPath(model.number))
+        removeObserver(expirationDate, forKeyPath: #keyPath(model.expiration))
+        removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
+    }
+}
+
+// MARK: Publics
+extension FrontView {
     func setupAnimated(_ cardUI: CardUI) {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
@@ -86,18 +105,13 @@ class FrontView: CardView {
     func isShineEnabled() -> Bool {
         return shineView != nil
     }
+}
 
-    override func addObservers() {
-        addObserver(name, forKeyPath: #keyPath(model.name), options: .new, context: nil)
-        addObserver(number, forKeyPath: #keyPath(model.number), options: .new, context: nil)
-        addObserver(expirationDate, forKeyPath: #keyPath(model.expiration), options: .new, context: nil)
-        addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
-    }
-
-    deinit {
-        removeObserver(name, forKeyPath: #keyPath(model.name))
-        removeObserver(number, forKeyPath: #keyPath(model.number))
-        removeObserver(expirationDate, forKeyPath: #keyPath(model.expiration))
-        removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
+// MARK: Privates
+extension FrontView {
+    private func setupCustomOverlayImage(_ cardUI: CardUI) {
+        if let customOverlayImage = cardUI.ownOverlayImage {
+            overlayImage.image = customOverlayImage
+        }
     }
 }

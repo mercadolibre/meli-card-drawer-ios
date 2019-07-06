@@ -62,6 +62,7 @@ class CardView: UIView {
         if let currentCardUI = cardUI, let customCardUI = currentCardUI as? CustomCardDrawerUI {
             if let customGradient = customCardUI.ownGradient {
                 self.gradient.layer.addSublayer(customGradient)
+                self.gradient.layer.frame = frame
             } else {
                 // Default gradient for custom card.
                 let gradient = CAGradientLayer()
