@@ -45,6 +45,7 @@ Add `MLCardDrawer` as a dependency. Adding the following line in `dependencies`v
 - [x] Live card view updated while CardData protocol is edited
 - [x] PCI compliance (We do not save anything)
 - [x] Support for custom overlay background image
+- [x] Support for custom gradient
 
 ## 🐒 How to use
 
