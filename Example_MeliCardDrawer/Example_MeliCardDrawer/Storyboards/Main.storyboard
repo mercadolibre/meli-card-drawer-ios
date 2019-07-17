@@ -201,6 +201,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFC-f5-0Pe">
+                                <rect key="frame" x="92" y="481" width="191" height="29"/>
+                                <segments>
+                                    <segment title="Large"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Small"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qot-9T-s5s"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -220,17 +231,21 @@
                             <constraint firstItem="7Ge-ld-a7R" firstAttribute="top" secondItem="H4v-jI-QID" secondAttribute="bottom" constant="24" id="atA-cu-o7y"/>
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c39-jB-IBn"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="leading" secondItem="fnz-oe-xwh" secondAttribute="leading" id="c8y-di-yqM"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hx9-Mh-gEx"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="top" secondItem="fnz-oe-xwh" secondAttribute="bottom" constant="12" id="jDu-9X-a0Z"/>
                             <constraint firstItem="Aba-wa-YXR" firstAttribute="centerY" secondItem="7Ge-ld-a7R" secondAttribute="centerY" constant="-2" id="qWc-qD-iQj"/>
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="top" secondItem="RcP-n3-xIP" secondAttribute="bottom" constant="16" id="swQ-jF-Jm7"/>
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="t1W-zC-jPQ"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="top" secondItem="mKO-Bt-ll9" secondAttribute="bottom" constant="8" id="uTV-Cl-HpL"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="zOH-v8-UpJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="aspectLayoutConstraint" destination="Exy-CN-Vr8" id="f8c-xd-Og3"/>
                         <outlet property="cardTypesCollectionView" destination="lBW-Vi-3Bx" id="tzk-9e-DoF"/>
                         <outlet property="containerView" destination="fnz-oe-xwh" id="FCS-SM-WuE"/>
+                        <outlet property="segmentedControl" destination="bFC-f5-0Pe" id="Pfx-zQ-s5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

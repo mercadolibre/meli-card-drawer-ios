@@ -1,10 +1,15 @@
 import UIKit
 
+@objc public enum MLDCardDrawerType: Int {
+    case small, medium, large
+}
+
 @objcMembers public class MLCardDrawerController: UIViewController {
     private var shouldAnimate: Bool = true
     let cardFont = "RobotoMono-Regular"
-    var frontView = FrontView()
-    var backView = BackView()
+    var frontView: CardView!
+    var backView: CardView!
+    var model: CardData
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -24,12 +29,40 @@ import UIKit
         }
     }
 
-    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false) {
+    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLDCardDrawerType = .large) {
         self.cardUI = cardUI
         UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
+        self.model = model
         super.init(nibName: nil, bundle: nil)
+        setupViews(type, disabledMode)
+    }
+    
+    public func setupViews(_ type: MLDCardDrawerType, _ disabledMode: Bool = false) {
+        
+        if let frontView = frontView, frontView.isDescendant(of: view) {
+            frontView.removeFromSuperview()
+        }
+        
+        if let backView = backView, backView.isDescendant(of: view) {
+            backView.removeFromSuperview()
+        }
+        
+        switch type {
+        case .large:
+            backView = BackView()
+            frontView = FrontView()
+        case .medium:
+            frontView = MediumFrontView()
+            backView = MediumBackView()
+        case .small:
+            backView = SmallBackView()
+            frontView = SmallFrontView()
+        }
+        
         backView.setup(cardUI, model, view.frame, disabledMode)
         frontView.setup(cardUI, model, view.frame, disabledMode)
+        
+        setShineCard(enabled: isShineCardEnabled())
     }
 
     public func show() {

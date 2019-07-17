@@ -69,7 +69,7 @@ class Mask {
 
         guard pattern.count > 1 else { return current }
 
-        let slice = max((totalPad - length) / (pattern.count - 1), 1)
+        let slice = 1 //max((totalPad - length) / (pattern.count - 1), 1)
 
         return pattern.map({
             let group = "\(current.prefix($0))"

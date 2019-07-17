@@ -1,10 +1,21 @@
 import UIKit
 
+@objc protocol CardViewInteractProtocol {
+    @objc func setupAnimated(_ cardUI: CardUI)
+    
+    @objc optional func showSecurityCode()
+    @objc optional func isShineEnabled() -> Bool
+    @objc optional func addShineView()
+    @objc optional func removeShineView()
+}
+
 class CardView: UIView {
 
     @IBOutlet weak var animation: UIView!
     @IBOutlet weak var gradient: UIView!
     @IBOutlet weak var securityCode: CardLabel!
+    @IBOutlet weak var overlayImage: UIImageView!
+    
     let disabledGray: UIColor = #colorLiteral(red: 0.2862745098, green: 0.2862745098, blue: 0.2862745098, alpha: 1)
     let cornerRadius: CGFloat = 11
     var color: UIColor?
@@ -34,7 +45,6 @@ class CardView: UIView {
 
     func setupUI(_ cardUI: CardUI) {
         self.cardUI = cardUI
-        securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
         if !(cardUI is CustomCardDrawerUI) {
             let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
             animation.backgroundColor = mainColor
@@ -86,3 +96,20 @@ class CardView: UIView {
         }
     }
 }
+
+extension CardView: CardViewInteractProtocol {
+    func setupAnimated(_ cardUI: CardUI) {}
+    public func showSecurityCode() {}
+    public func isShineEnabled() -> Bool { return false }
+    public func addShineView() {}
+    public func removeShineView() {}
+}
+
+extension CardView {
+    func setupCustomOverlayImage(_ cardUI: CardUI) {
+        if let customOverlayImage = cardUI.ownOverlayImage {
+            overlayImage.image = customOverlayImage
+        }
+    }
+}
+
