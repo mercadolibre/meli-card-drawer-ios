@@ -27,15 +27,15 @@ import UIKit
         }
     }
 
-    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large, _ defaultSize: Bool = false) {
+    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large) {
         self.cardUI = cardUI
         UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
         self.model = model
         super.init(nibName: nil, bundle: nil)
-        setupViews(type, disabledMode, defaultSize)
+        setupViews(type, disabledMode)
     }
     
-    public func setupViews(_ type: MLCardDrawerType, _ disabledMode: Bool = false, _ defaultSize: Bool = false) {
+    public func setupViews(_ type: MLCardDrawerType, _ disabledMode: Bool = false) {
         
         if let frontView = frontView, frontView.isDescendant(of: view) {
             frontView.removeFromSuperview()
@@ -87,7 +87,7 @@ import UIKit
     }
 
     @discardableResult
-    public func setUp(inView: UIView, automaticSize: Bool = false) -> MLCardDrawerController {
+    public func setUp(inView: UIView) -> MLCardDrawerController {
         self.aspectLayoutConstraint?.isActive = false
         inView.layoutIfNeeded()
         view.frame = CGRect(origin: .zero, size: inView.frame.size)
