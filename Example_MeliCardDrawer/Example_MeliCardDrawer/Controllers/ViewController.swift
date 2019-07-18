@@ -17,8 +17,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var aspectLayoutConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var aspectRatioConstraint: NSLayoutConstraint!
     // MARK: Private Vars
     // Example implementation CardHeaderController - MeliCardDrawer.
     private var cardDrawer: MLCardDrawerController?
@@ -135,20 +134,20 @@ extension ViewController {
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            setupCardView(type: .large, relation: 1.608)
+            setupCardView(type: .large)
         case 1:
-            setupCardView(type: .medium, relation: 3)
+            setupCardView(type: .medium)
         case 2:
-            setupCardView(type: .small, relation: 4)
+            setupCardView(type: .small)
         default:
             break
         }
     }
     
-    private func setupCardView(type: MLDCardDrawerType, relation: CGFloat) {
-        aspectLayoutConstraint.isActive = false
-        aspectLayoutConstraint = containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1/relation)
-        aspectLayoutConstraint.isActive = true
+    private func setupCardView(type: MLCardDrawerType) {
+        aspectRatioConstraint.isActive = false
+        aspectRatioConstraint = containerView.widthAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: CardSizeManager.getGoldenRatio(from: type))
+        aspectRatioConstraint.isActive = true
         view.layoutIfNeeded()
         cardDrawer?.setupViews(type)
         cardDrawer?.setUp(inView: containerView).show()

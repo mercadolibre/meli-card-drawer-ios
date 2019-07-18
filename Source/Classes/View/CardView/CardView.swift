@@ -23,6 +23,7 @@ class CardView: UIView {
     @objc var model: CardData?
     private var cardUI: CardUI?
 
+
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false) {
         self.frame = frame
         layer.cornerRadius = cornerRadius
