@@ -8,9 +8,6 @@ class FrontView: CardView {
     @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var securityCodeCircle: CircleView!
 
-    private var cardBackground: UIColor = .clear
-    private var shineView: ShineView?
-
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         
@@ -79,31 +76,5 @@ extension FrontView {
 
     override func showSecurityCode() {
         securityCodeCircle.alpha = 1
-    }
-
-    override func addShineView() {
-        if let shinedView = shineView {
-            shinedView.color = cardBackground
-        } else {
-            shineView = ShineView()
-            if let shinedView = shineView {
-                shinedView.clipsToBounds = true
-                shinedView.color = cardBackground
-                shinedView.frame = CGRect(x: self.gradient.frame.origin.x, y: self.gradient.frame.origin.y, width: self.gradient.frame.width * 2, height: self.gradient.frame.height * 6)
-                shinedView.center = self.gradient.center
-                self.gradient.addSubview(shinedView)
-                shinedView.addMotionEffect()
-            }
-        }
-    }
-
-    override func removeShineView() {
-        shineView?.removeMotionEffects()
-        shineView?.removeFromSuperview()
-        shineView = nil
-    }
-
-    override func isShineEnabled() -> Bool {
-        return shineView != nil
     }
 }
