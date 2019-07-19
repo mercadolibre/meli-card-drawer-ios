@@ -154,7 +154,6 @@ extension ViewController {
         default:
             break
         }
-        
         setupCardExample()
     }
 }
