@@ -149,12 +149,16 @@ extension MLCardDrawerController {
     }
 
     func addSubview(_ subview: UIView) {
-        //subview.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
-        subview.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(subview)
-        subview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        subview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        subview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        if let aspectConstraint = aspectLayoutConstraint, aspectConstraint.isActive == true {
+            subview.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(subview)
+            subview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            subview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            subview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        } else {
+            subview.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+            view.addSubview(subview)
+        }
     }
 }

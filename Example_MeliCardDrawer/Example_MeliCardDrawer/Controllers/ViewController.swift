@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBOutlet weak var aspectRatioConstraint: NSLayoutConstraint!
+    var type: MLCardDrawerType = .large
     // MARK: Private Vars
     // Example implementation CardHeaderController - MeliCardDrawer.
     private var cardDrawer: MLCardDrawerController?
@@ -50,7 +51,9 @@ extension ViewController {
 
     // Example implementation MeliCardDrawer - CardHeaderController.
     private func setupCardExample() {
-        cardDrawer = MLCardDrawerController(cardUIHandler, cardDataHandler, false, .large)
+        containerView.subviews.forEach { $0.removeFromSuperview() }
+        
+        cardDrawer = MLCardDrawerController(cardUIHandler, cardDataHandler, false, type)
         if let cardDrawerInstance = cardDrawer {
             let cardView = cardDrawerInstance.getCardView()
             cardView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,9 +64,6 @@ extension ViewController {
             cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
             cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         }
-        
-        
-        //cardDrawer?.setUp(inView: containerView).show()
     }
 
     private func setupDismissGesture() {
@@ -144,46 +144,19 @@ extension ViewController {
 // MARK: Card Type Segmented Control
 extension ViewController {
     @IBAction func indexChanged(_ sender: Any) {
-        
-        containerView.subviews.forEach { $0.removeFromSuperview() }
-        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cardDrawer = makeCardDrawer(with: .large)
+            type = .large
         case 1:
-            cardDrawer = makeCardDrawer(with: .medium)
+            type = .medium
         case 2:
-            cardDrawer = makeCardDrawer(with: .small)
+            type = .small
         default:
             break
         }
         
-        if let cardDrawerInstance = cardDrawer {
-            let cardView = cardDrawerInstance.getCardView()
-            cardView.translatesAutoresizingMaskIntoConstraints = false
-            containerView.translatesAutoresizingMaskIntoConstraints = false
-            containerView.addSubview(cardView)
-            cardView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-            cardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-            cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-            cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-            
-        }
-
+        setupCardExample()
     }
-    
-    private func makeCardDrawer(with type: MLCardDrawerType) -> MLCardDrawerController {
-        return MLCardDrawerController(cardUIHandler, cardDataHandler, false, type)
-    }
-    
-//    private func setupCardView(type: MLCardDrawerType) {
-//        aspectRatioConstraint.isActive = false
-//        aspectRatioConstraint = containerView.widthAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: CardSizeManager.getGoldenRatio(from: type))
-//        aspectRatioConstraint.isActive = true
-//        view.layoutIfNeeded()
-//        cardDrawer?.setupViews(type)
-//        cardDrawer?.setUp(inView: containerView).show()
-//    }
 }
 
 // MARK: Toggle shine card feature.
