@@ -28,6 +28,10 @@ import UIKit
             backView.setupUI(value)
         }
     }
+    
+    public convenience init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false) {
+        self.init(cardUI, model, disabledMode, .large)
+    }
 
     public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large) {
         self.cardUI = cardUI
