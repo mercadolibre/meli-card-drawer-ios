@@ -24,11 +24,8 @@
                                 <color key="textColor" red="0.10953362944162437" green="0.10953362944162437" blue="0.10953362944162437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-oe-xwh">
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="216" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-oe-xwh">
                                 <rect key="frame" x="16" y="76" width="343" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fnz-oe-xwh" secondAttribute="height" multiplier="343:216" id="SrT-0y-97k"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-jI-QID">
                                 <rect key="frame" x="16" y="304" width="343" height="85"/>
@@ -242,7 +239,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="aspectRatioConstraint" destination="SrT-0y-97k" id="vhP-Kx-bF8"/>
                         <outlet property="cardTypesCollectionView" destination="lBW-Vi-3Bx" id="tzk-9e-DoF"/>
                         <outlet property="containerView" destination="fnz-oe-xwh" id="FCS-SM-WuE"/>
                         <outlet property="segmentedControl" destination="bFC-f5-0Pe" id="Pfx-zQ-s5x"/>

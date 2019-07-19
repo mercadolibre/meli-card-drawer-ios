@@ -6,6 +6,8 @@ import UIKit
     var frontView: CardView!
     var backView: CardView!
     var model: CardData
+    private var type: MLCardDrawerType = .large
+    private var disabledMode = false
     
     private var aspectLayoutConstraint: NSLayoutConstraint?
 
@@ -31,11 +33,13 @@ import UIKit
         self.cardUI = cardUI
         UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
         self.model = model
+        self.type = type
+        self.disabledMode = false
         super.init(nibName: nil, bundle: nil)
-        setupViews(type, disabledMode)
+        setupViews()
     }
     
-    public func setupViews(_ type: MLCardDrawerType, _ disabledMode: Bool = false) {
+    public func setupViews() {
         
         if let frontView = frontView, frontView.isDescendant(of: view) {
             frontView.removeFromSuperview()
@@ -95,11 +99,12 @@ import UIKit
         return self
     }
     
-    public func getCard(by type: MLCardDrawerType = .large) -> UIView {
+    
+    public func getCardView() -> UIView {
         self.aspectLayoutConstraint?.isActive = false
         let aspectLayoutConstraint = view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: CardSizeManager.getGoldenRatio(from: type))
         aspectLayoutConstraint.isActive = true
-        setupViews(type)
+        setupViews()
         self.aspectLayoutConstraint = aspectLayoutConstraint
         show()
         return view
@@ -140,7 +145,12 @@ extension MLCardDrawerController {
     }
 
     func addSubview(_ subview: UIView) {
-        subview.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+        //subview.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+        subview.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(subview)
+        subview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        subview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        subview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 }

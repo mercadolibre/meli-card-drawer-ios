@@ -4,9 +4,6 @@ import UIKit
     @objc func setupAnimated(_ cardUI: CardUI)
     
     @objc optional func showSecurityCode()
-    @objc optional func isShineEnabled() -> Bool
-    @objc optional func addShineView()
-    @objc optional func removeShineView()
 }
 
 class CardView: UIView {
@@ -99,11 +96,6 @@ class CardView: UIView {
             self.gradient.layer.compositingFilter = "overlayBlendMode"
         }
     }
-}
-
-extension CardView: CardViewInteractProtocol {
-    func setupAnimated(_ cardUI: CardUI) {}
-    public func showSecurityCode() {}
     
     public func isShineEnabled() -> Bool {
         return shineView != nil
@@ -129,6 +121,11 @@ extension CardView: CardViewInteractProtocol {
         shineView?.removeFromSuperview()
         shineView = nil
     }
+}
+
+extension CardView: CardViewInteractProtocol {
+    func setupAnimated(_ cardUI: CardUI) {}
+    public func showSecurityCode() {}
 }
 
 extension CardView {
