@@ -7,10 +7,8 @@ class SmallFrontView: CardView {
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
 
-        if disabledMode {
-            logo.image = cardUI.cardLogoImage??.imageGreyScale()
-        } else if let lImage = cardUI.cardLogoImage {
-            logo.image = lImage
+        if let cardLogoImage = cardUI.cardLogoImage{
+            logo.image = setupImage(image: cardLogoImage, disabledMode: disabledMode)
         }
 
         cardUI.set?(logo: logo)

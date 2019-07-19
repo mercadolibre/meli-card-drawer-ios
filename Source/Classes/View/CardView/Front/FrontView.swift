@@ -14,13 +14,13 @@ class FrontView: CardView {
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
 
         securityCodeCircle.alpha = 0
-
-        if disabledMode {
-            bank.image = cardUI.bankImage??.imageGreyScale()
-            logo.image = cardUI.cardLogoImage??.imageGreyScale()
-        } else if let bImage = cardUI.bankImage, let lImage = cardUI.cardLogoImage {
-            bank.image = bImage
-            logo.image = lImage
+        
+        if let bankImage = cardUI.bankImage {
+            bank.image = setupImage(image: bankImage, disabledMode: disabledMode)
+        }
+        
+        if let cardLogoImage = cardUI.cardLogoImage{
+            logo.image = setupImage(image: cardLogoImage, disabledMode: disabledMode)
         }
 
         cardUI.set?(logo: logo)

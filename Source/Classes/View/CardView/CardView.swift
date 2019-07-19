@@ -60,6 +60,13 @@ class CardView: UIView {
     func addObservers() {
         addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
     }
+    
+    func setupImage(image: UIImage?, disabledMode: Bool) -> UIImage? {
+        if disabledMode {
+            return image?.imageGreyScale()
+        }
+        return image
+    }
 
     func removeGradient() {
         guard let sublayers = gradient.layer.sublayers else { return }
