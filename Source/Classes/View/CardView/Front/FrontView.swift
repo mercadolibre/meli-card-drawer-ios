@@ -11,39 +11,35 @@ class FrontView: CardView {
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         
+        setupSecurityCode(cardUI)
+        setupCardLogo(in: logo)
+        setupBankImage(in: bank)
+        
+        setupFormatters(cardUI)
+        setupCardElements(cardUI)
+        
+        cardBackground = cardUI.cardBackgroundColor
+        setupCustomOverlayImage(cardUI)
+    }
+    
+    private func setupFormatters(_ cardUI: CardUI) {
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
-
-        securityCodeCircle.alpha = 0
-        
-        if let bankImage = cardUI.bankImage {
-            bank.image = setupImage(image: bankImage, disabledMode: disabledMode)
-        }
-        
-        if let cardLogoImage = cardUI.cardLogoImage{
-            logo.image = setupImage(image: cardLogoImage, disabledMode: disabledMode)
-        }
-
-        cardUI.set?(logo: logo)
-        cardUI.set?(bank: bank)
-
-        securityCode.textColor = cardUI.cardFontColor
-        let input = [model?.name, model?.number, model?.expiration, model?.securityCode]
-        securityCode.isHidden = cardUI.securityCodeLocation == .back
-
         name.formatter = Mask(placeholder: cardUI.placeholderName)
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
         expirationDate.formatter = Mask(placeholder: cardUI.placeholderExpiration)
-
+    }
+    
+    private func setupCardElements(_ cardUI: CardUI) {
+        let input = [model?.name, model?.number, model?.expiration, model?.securityCode]
         [name, number, expirationDate, securityCode].enumerated().forEach({
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI))
         })
-
-        cardBackground = cardUI.cardBackgroundColor
-        setupCustomOverlayImage(cardUI)
-
-        if isShineEnabled() {
-            addShineView()
-        }
+    }
+    
+    private func setupSecurityCode(_ cardUI: CardUI) {
+        securityCodeCircle.alpha = 0
+        securityCode.textColor = cardUI.cardFontColor
+        securityCode.isHidden = cardUI.securityCodeLocation == .back
     }
 
     override func addObservers() {

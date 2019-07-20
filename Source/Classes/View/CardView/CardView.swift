@@ -34,6 +34,10 @@ class CardView: UIView {
         setupModel(model)
         setupUI(cardUI)
         addGradient()
+        
+        if isShineEnabled() {
+            addShineView()
+        }
     }
 
     init() {
@@ -61,13 +65,33 @@ class CardView: UIView {
         addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
     }
     
-    func setupImage(image: UIImage?, disabledMode: Bool) -> UIImage? {
+    private func setupImage(image: UIImage?, disabledMode: Bool) -> UIImage? {
         if disabledMode {
             return image?.imageGreyScale()
         }
         return image
     }
+    
+    func setupCardLogo(in container: UIImageView) {
+        if let cardLogoImage = cardUI?.cardLogoImage {
+            container.image = setupImage(image: cardLogoImage, disabledMode: disabledMode)
+        }
+        
+        cardUI?.set?(logo: container)
+    }
+    
+    func setupBankImage(in container: UIImageView) {
+        if let bankImage = cardUI?.bankImage {
+            container.image = setupImage(image: bankImage, disabledMode: disabledMode)
+        }
+        
+        cardUI?.set?(bank: container)
+    }
+}
 
+// MARK: Card View Effects
+
+extension CardView {
     func removeGradient() {
         guard let sublayers = gradient.layer.sublayers else { return }
         for targetSubLayer in sublayers {
@@ -128,14 +152,7 @@ class CardView: UIView {
         shineView?.removeFromSuperview()
         shineView = nil
     }
-}
-
-extension CardView: CardViewInteractProtocol {
-    func setupAnimated(_ cardUI: CardUI) {}
-    public func showSecurityCode() {}
-}
-
-extension CardView {
+    
     func setupCustomOverlayImage(_ cardUI: CardUI) {
         if let customOverlayImage = cardUI.ownOverlayImage {
             overlayImage.image = customOverlayImage
@@ -143,3 +160,7 @@ extension CardView {
     }
 }
 
+extension CardView: CardViewInteractProtocol {
+    func setupAnimated(_ cardUI: CardUI) {}
+    public func showSecurityCode() {}
+}

@@ -9,30 +9,17 @@ class MediumFrontView: CardView {
 
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
-
-        if let bankImage = cardUI.bankImage {
-            bank.image = setupImage(image: bankImage, disabledMode: disabledMode)
-        }
         
-        if let cardLogoImage = cardUI.cardLogoImage{
-            logo.image = setupImage(image: cardLogoImage, disabledMode: disabledMode)
-        }
-
-        cardUI.set?(logo: logo)
-        cardUI.set?(bank: bank)
+        setupCardLogo(in: logo)
+        setupBankImage(in: bank)
 
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
-
         number.setup(model?.number, FontFactory.font(cardUI))
 
         cardBackground = cardUI.cardBackgroundColor
         setupCustomOverlayImage(cardUI)
-
-        if isShineEnabled() {
-            addShineView()
-        }
     }
-
+    
     override func addObservers() {
         addObserver(number, forKeyPath: #keyPath(model.number), options: .new, context: nil)
     }
