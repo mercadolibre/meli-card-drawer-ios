@@ -1,3 +1,7 @@
+## [Release (1.0.5)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.0.5)
+### 🚀 Support remote images url 🚀
+- Support remote images url with cache
+
 ## [Release (1.0.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.0.4)
 ### 🚀 Custom gradient support 🚀
 - Support for custom gradient
