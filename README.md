@@ -46,6 +46,7 @@ Add `MLCardDrawer` as a dependency. Adding the following line in `dependencies`v
 - [x] PCI compliance (We do not save anything)
 - [x] Support for custom overlay background image
 - [x] Support for custom gradient
+- [x] Support remote images (optional)
 
 ## 🐒 How to use
 
