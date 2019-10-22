@@ -180,4 +180,33 @@ struct CardUIExamples {
         var securityCodePattern = 3
         var fontType: String = "light"
     }
+
+    // Example - Visa 6
+    class VisaRemoteImages: NSObject, CardUI {
+        var placeholderName = "NOMBRE Y APELLIDO"
+        var placeholderExpiration = "MM/AA"
+        var cardPattern = [4, 4, 4, 4]
+        var cardFontColor: UIColor = .white
+        var cardBackgroundColor: UIColor = #colorLiteral(red: 0.02923904359, green: 0.08856200427, blue: 0.0886611715, alpha: 1)
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
+        var defaultUI = false
+        var securityCodePattern = 3
+        var fontType: String = "light"
+        var cardLogoImageUrl: String? = "https://mobile.mercadolibre.com/remote_resources/image/buflo_payment_card_visa-debito-white?density=xxhdpi&locale=es_AR"
+        var bankImageUrl: String? = "https://mobile.mercadolibre.com/remote_resources/image/buflo_payment_card_naranja?density=xxhdpi&locale=es_AR"
+    }
+
+    class PatagoniaRemoteImages: NSObject, CardUI {
+        var placeholderName = "NOMBRE Y APELLIDO"
+        var placeholderExpiration = "MM/AA"
+        var cardPattern = [4, 4, 4, 4]
+        var cardFontColor: UIColor = .white
+        var cardBackgroundColor: UIColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
+        var securityCodeLocation: MLCardSecurityCodeLocation = .back
+        var defaultUI = false
+        var securityCodePattern = 3
+        var fontType: String = "light"
+        var cardLogoImageUrl: String? = "https://mobile.mercadolibre.com/remote_resources/image/buflo_payment_card_banco-patagonia?density=xxhdpi&locale=es_AR"
+        var bankImageUrl: String? = "https://mobile.mercadolibre.com/remote_resources/image/buflo_payment_card_banco-frances?density=xxhdpi&locale=es_AR"
+    }
 }

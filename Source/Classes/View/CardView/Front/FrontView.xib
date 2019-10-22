@@ -19,6 +19,8 @@
                 <outlet property="name" destination="ZMN-U6-Lcy" id="YHC-Uc-QhK"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
+                <outlet property="remoteBankImage" destination="iqG-Eo-eGS" id="OQn-yr-FpB"/>
+                <outlet property="remotePaymentMethodImage" destination="hVB-2M-iYt" id="Tr2-It-Ho8"/>
                 <outlet property="securityCode" destination="K3c-vy-wcQ" id="ghT-Qi-ZGO"/>
                 <outlet property="securityCodeCircle" destination="89T-PX-cWX" id="Edb-BS-E6z"/>
             </connections>
@@ -64,6 +66,13 @@
                         <constraint firstAttribute="height" constant="44" id="nXL-am-y6R"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage">
+                    <rect key="frame" x="16" y="23" width="55" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3wp-Qm-Vp5"/>
+                        <constraint firstAttribute="width" constant="55" id="ePO-Yx-MNi"/>
+                    </constraints>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
                     <rect key="frame" x="132" y="16" width="108" height="44"/>
                     <subviews>
@@ -79,6 +88,13 @@
                         <constraint firstAttribute="trailing" secondItem="DT6-XG-kaD" secondAttribute="trailing" id="uUY-jM-4mL"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remotePaymentMethodImage">
+                    <rect key="frame" x="185" y="23" width="55" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="Yok-kB-Xw6"/>
+                        <constraint firstAttribute="height" constant="30" id="ooY-WT-yGo"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/AA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMu-xJ-OI6" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="199" y="120" width="41" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -138,6 +154,9 @@
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="top" secondItem="eki-qS-IGB" secondAttribute="bottom" constant="-44" id="9Ct-vW-n6C"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
+                <constraint firstItem="hVB-2M-iYt" firstAttribute="leading" secondItem="eki-qS-IGB" secondAttribute="leading" id="EWm-gj-O1e"/>
+                <constraint firstItem="iqG-Eo-eGS" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="FWA-Zr-C3W"/>
+                <constraint firstItem="hVB-2M-iYt" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="Gzt-cn-GEL"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="IZx-jY-Fec"/>
                 <constraint firstAttribute="bottom" secondItem="ZMN-U6-Lcy" secondAttribute="bottom" constant="24" id="JBg-7G-omn"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" id="KUQ-8c-YKk"/>
@@ -152,6 +171,7 @@
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" secondItem="ZMN-U6-Lcy" secondAttribute="leading" id="gPR-jP-sT0"/>
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="centerY" secondItem="89T-PX-cWX" secondAttribute="centerY" id="goL-C4-4Ge"/>
                 <constraint firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" constant="16" id="mQC-Xx-HlH"/>
+                <constraint firstItem="iqG-Eo-eGS" firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" id="n6U-51-Iw9"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="ZMN-U6-Lcy" secondAttribute="leading" id="qwy-YV-L6X"/>
@@ -163,7 +183,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1416" y="-1609"/>
+            <point key="canvasLocation" x="-1416" y="-1609.2953523238382"/>
         </view>
     </objects>
     <resources>
