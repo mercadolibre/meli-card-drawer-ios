@@ -75,8 +75,6 @@ extension FrontView {
     override func showSecurityCode() {
         securityCodeCircle.alpha = 1
     }
-        }
-    }
 
     private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
         setBankImage(cardUI)
