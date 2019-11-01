@@ -22,6 +22,9 @@ import UIKit
     @objc optional var cardLogoImage: UIImage? { get }
 
     @objc optional var ownOverlayImage: UIImage? { get }
+
+    @objc optional var cardLogoImageUrl: String? { get }
+    @objc optional var bankImageUrl: String? { get }
 }
 
 @objc public protocol CustomCardDrawerUI: CardUI {

@@ -54,11 +54,7 @@
 		236522362294A99400FA6F2D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		236522392294AB3500FA6F2D /* CardUIExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUIExamples.swift; sourceTree = "<group>"; };
 		2365223A2294AB3500FA6F2D /* CardDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDataHandler.swift; sourceTree = "<group>"; };
-		64314154AE74FA663E7E068E /* Pods-Example_MeliCardDrawerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example_MeliCardDrawerTests/Pods-Example_MeliCardDrawerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6562C40582F2DF42559965CB /* Pods_Example_MeliCardDrawerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MeliCardDrawerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67604DD6AD76E6893DE46BE1 /* Pods-Example_MeliCardDrawer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer.debug.xcconfig"; sourceTree = "<group>"; };
-		680D5C292ED0A65514915CDF /* Pods-Example_MeliCardDrawerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example_MeliCardDrawerTests/Pods-Example_MeliCardDrawerTests.release.xcconfig"; sourceTree = "<group>"; };
-		68146F2B083CFA637DD41429 /* Pods-Example_MeliCardDrawer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer.release.xcconfig"; sourceTree = "<group>"; };
 		81FC1E459B38E8B2C79074C1 /* Pods_Example_MeliCardDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MeliCardDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44792A615F1C405DC90FE66 /* Pods-Example_MeliCardDrawer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawer.release.xcconfig"; path = "Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer.release.xcconfig"; sourceTree = "<group>"; };
 		E75E15CA70102C4EDBBDD740 /* Pods-Example_MeliCardDrawerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawerTests.debug.xcconfig"; path = "Target Support Files/Pods-Example_MeliCardDrawerTests/Pods-Example_MeliCardDrawerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,10 +176,6 @@
 				D44792A615F1C405DC90FE66 /* Pods-Example_MeliCardDrawer.release.xcconfig */,
 				E75E15CA70102C4EDBBDD740 /* Pods-Example_MeliCardDrawerTests.debug.xcconfig */,
 				0559ECF777B4BD3000D7E767 /* Pods-Example_MeliCardDrawerTests.release.xcconfig */,
-				67604DD6AD76E6893DE46BE1 /* Pods-Example_MeliCardDrawer.debug.xcconfig */,
-				68146F2B083CFA637DD41429 /* Pods-Example_MeliCardDrawer.release.xcconfig */,
-				64314154AE74FA663E7E068E /* Pods-Example_MeliCardDrawerTests.debug.xcconfig */,
-				680D5C292ED0A65514915CDF /* Pods-Example_MeliCardDrawerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -303,20 +295,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MLCardDrawer/MLCardDrawer.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLCardDrawer.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		96006D57A25F89F9F1387C43 /* [CP] Check Pods Manifest.lock */ = {

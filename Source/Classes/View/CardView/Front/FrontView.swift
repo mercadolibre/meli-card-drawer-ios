@@ -5,6 +5,8 @@ class FrontView: CardView {
     @IBOutlet weak var name: CardLabel!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var bank: UIImageView!
+    @IBOutlet weak var remotePaymentMethodImage: UIImageView!
+    @IBOutlet weak var remoteBankImage: UIImageView!
     @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var securityCodeCircle: CircleView!
 
@@ -13,7 +15,7 @@ class FrontView: CardView {
         
         setupSecurityCode(cardUI)
         setupCardLogo(in: logo)
-        setupBankImage(in: bank)
+        setupRemoteOrLocalImages(cardUI)
         
         setupFormatters(cardUI)
         setupCardElements(cardUI)
@@ -72,5 +74,50 @@ extension FrontView {
 
     override func showSecurityCode() {
         securityCodeCircle.alpha = 1
+    }
+        }
+    }
+
+    private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
+        setBankImage(cardUI)
+        setPaymentMethodImage(cardUI)
+    }
+
+    private func setPaymentMethodImage(_ cardUI: CardUI) {
+        logo.image = nil
+        remotePaymentMethodImage.image = nil
+        if let logoImage = cardUI.cardLogoImageUrl, let logoImageUrl = logoImage {
+            UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
+                DispatchQueue.main.async { [weak self] in
+                    guard let weakSelf = self else { return }
+                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage)
+                }
+            }
+        } else if let lImage = cardUI.cardLogoImage {
+            setImage(lImage, inImageView: logo)
+        }
+    }
+
+    private func setBankImage(_ cardUI: CardUI) {
+        bank.image = nil
+        remoteBankImage.image = nil
+        if let bankImage = cardUI.bankImageUrl, let bankImageUrl = bankImage {
+            UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
+                DispatchQueue.main.async { [weak self] in
+                    guard let weakSelf = self else { return }
+                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage)
+                }
+            }
+        } else if let bImage = cardUI.bankImage {
+            setImage(bImage, inImageView: bank)
+        }
+    }
+
+    private func setImage(_ tImage: UIImage?, inImageView: UIImageView) {
+        if disabledMode {
+            inImageView.image = tImage?.imageGreyScale()
+        } else {
+            inImageView.image = tImage
+        }
     }
 }

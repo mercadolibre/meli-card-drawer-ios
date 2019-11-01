@@ -9,6 +9,7 @@
 import UIKit
 import MLCardDrawer
 
+// codebeat:disable
 final class ViewController: UIViewController {
 
     // MARK: Outlets.
