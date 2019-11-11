@@ -194,6 +194,7 @@ struct CardUIExamples {
         var defaultUI = false
         var securityCodePattern = 3
         var fontType: String = "light"
+        var debitImageUrl: String? = "https://mobile.mercadolibre.com/remote_resources/image/buflo_payment_card_visa-debito-white?density=xxhdpi&locale=es_AR"
     }
 
     // Example - Visa 6
