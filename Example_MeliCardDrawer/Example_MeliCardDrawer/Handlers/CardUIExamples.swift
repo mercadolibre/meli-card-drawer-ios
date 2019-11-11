@@ -3,7 +3,7 @@ import MLCardDrawer
 
 struct CardUIExamples {
     
-    static let cardUILists: [CardUI] = [CardUIExamples.AmericanExpress(), CardUIExamples.Visa(), CardUIExamples.Maestro19(), CardUIExamples.GaliciaAmex(), CardUIExamples.VisaSantander(), CardUIExamples.Maestro18(),  CardUIExamples.Visa(), CardUIExamples.Visa1(), CardUIExamples.Visa2(), CardUIExamples.Visa3(), CardUIExamples.Visa4(), CardUIExamples.Visa5()]
+    static let cardUILists: [CardUI] = [CardUIExamples.AmericanExpress(), CardUIExamples.Visa(), CardUIExamples.Maestro19(), CardUIExamples.GaliciaAmex(), CardUIExamples.VisaSantander(), CardUIExamples.Maestro18(),  CardUIExamples.Visa(), CardUIExamples.Visa1(), CardUIExamples.Visa2(), CardUIExamples.Visa3(), CardUIExamples.Visa4(), CardUIExamples.Visa5(), CardUIExamples.PatagoniaRemoteImages(), CardUIExamples.VisaRemoteImages()]
     
     // Example - Default CardUI
     // codebeat:disable
