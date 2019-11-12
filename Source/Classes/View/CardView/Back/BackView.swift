@@ -4,6 +4,8 @@ class BackView: CardView {
 
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
+        layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
+        
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
         securityCode.setup(model?.securityCode, Default(UIColor.gray))
         setupCustomOverlayImage(cardUI)

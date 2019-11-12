@@ -17,7 +17,6 @@ class CardView: UIView {
     var cardBackground: UIColor = .clear
     
     let disabledGray: UIColor = #colorLiteral(red: 0.2862745098, green: 0.2862745098, blue: 0.2862745098, alpha: 1)
-    let cornerRadius: CGFloat = 11
     var color: UIColor?
     var disabledMode: Bool = false
     @objc var model: CardData?
@@ -26,7 +25,6 @@ class CardView: UIView {
 
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false) {
         self.frame = frame
-        layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
         layer.isDoubleSided = false
         disabledMode = isDisabled

@@ -14,6 +14,7 @@ class SmallFrontView: CardView {
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
+        layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .small)
         
         setupRemoteOrLocalImages(cardUI)
         
