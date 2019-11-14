@@ -10,7 +10,7 @@ import Foundation
 public class CardSizeManager {
     
     static let goldenRatio: CGFloat = 1.586
-    static let mediumGoldenRatio: CGFloat = 3.5
+    static let mediumGoldenRatio: CGFloat = 343/88
     static let smallGoldenRatio: CGFloat = 7
     
     public static func getSizeByGoldenAspectRatio(width: CGFloat, type: MLCardDrawerType = .large) -> CGSize {
