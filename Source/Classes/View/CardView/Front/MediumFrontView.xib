@@ -48,10 +48,12 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon">
                             <rect key="frame" x="0.0" y="14" width="16" height="16"/>
                             <constraints>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="Jns-Tx-L0e"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="Jns-Tx-L0e"/>
                                 <constraint firstAttribute="width" constant="62" id="MbH-js-AOD"/>
+                                <constraint firstAttribute="width" priority="250" id="asU-Os-uLy"/>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="cDb-d5-IEH"/>
                                 <constraint firstAttribute="height" constant="45" id="iEE-Rp-WlX"/>
+                                <constraint firstAttribute="height" priority="250" id="myv-g1-EIb"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
@@ -70,8 +72,8 @@
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="tEd-am-Dms"/>
                                     <exclude reference="qbq-bq-fKE"/>
+                                    <exclude reference="tEd-am-Dms"/>
                                 </mask>
                             </variation>
                         </imageView>
@@ -94,7 +96,7 @@
                             <rect key="frame" x="92" y="14" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="6GX-xk-PL8"/>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="Bx5-hG-BQB"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="Bx5-hG-BQB"/>
                                 <constraint firstAttribute="width" priority="250" id="FO2-ej-L2y"/>
                                 <constraint firstAttribute="height" priority="250" id="Tph-b1-QFh"/>
                             </constraints>
@@ -155,6 +157,7 @@
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="jHm-dQ-yxg" secondAttribute="trailing" constant="8" id="gsO-ph-O7d"/>
                 <constraint firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" constant="16" id="kz9-Gy-UCb"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="bottom" secondItem="Fle-ET-bnW" secondAttribute="bottom" id="nK7-PN-T6Z"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="rTM-5K-tvz" secondAttribute="centerY" id="wEm-ht-3fR"/>
             </constraints>
