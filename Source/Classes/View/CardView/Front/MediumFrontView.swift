@@ -8,12 +8,6 @@ class MediumFrontView: CardView {
     @IBOutlet weak var nameLabel: CardLabel!
     @IBOutlet weak var chevronIcon: UIImageView!
     
-    @IBOutlet weak var remotePaymentMethodImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var remotePaymentMethodImageWidthConstraint: NSLayoutConstraint!
-
-    @IBOutlet weak var remoteBankImageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var remoteBankImageWidthConstraint: NSLayoutConstraint!
-    
     private var shineView: ShineView?
 
     override func setupUI(_ cardUI: CardUI) {
@@ -71,14 +65,10 @@ extension MediumFrontView {
             UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.remotePaymentMethodImageWidthConstraint.constant = Constants.imageWidthContraint
-                    weakSelf.remotePaymentMethodImageHeightConstraint.constant = Constants.imageHeightContraint
                     weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage)
                 }
             }
         } else if let lImage = cardUI.cardLogoImage {
-            remotePaymentMethodImageWidthConstraint.constant = Constants.noLimitContraint
-            remotePaymentMethodImageHeightConstraint.constant = Constants.noLimitContraint
             setImage(lImage, inImageView: remotePaymentMethodImage)
         }
     }
@@ -89,14 +79,10 @@ extension MediumFrontView {
             UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.remoteBankImageWidthConstraint.constant = Constants.imageWidthContraint
-                    weakSelf.remoteBankImageHeightConstraint.constant = Constants.imageHeightContraint
                     weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage)
                 }
             }
         } else if let bImage = cardUI.bankImage {
-            remoteBankImageWidthConstraint.constant = Constants.noLimitContraint
-            remoteBankImageHeightConstraint.constant = Constants.noLimitContraint
             setImage(bImage, inImageView: remoteBankImage)
         }
     }
@@ -127,14 +113,5 @@ extension MediumFrontView {
         
         number.setup(model?.number, FontFactory.font(cardUI))
         number.font = number.font.withSize(12)
-    }
-}
-
-
-extension MediumFrontView {
-    struct Constants {
-        static let imageHeightContraint = CGFloat(30)
-        static let imageWidthContraint = CGFloat(55)
-        static let noLimitContraint = CGFloat(1000)
     }
 }

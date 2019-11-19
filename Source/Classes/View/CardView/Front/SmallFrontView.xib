@@ -17,11 +17,7 @@
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
                 <outlet property="remoteBankImage" destination="MHc-UA-zmV" id="hgL-xP-V91"/>
-                <outlet property="remoteBankImageHeightConstraint" destination="VUO-ZI-RSO" id="PN6-9j-9ni"/>
-                <outlet property="remoteBankImageWidthConstraint" destination="x7P-FA-6M9" id="DaS-Lk-Di2"/>
                 <outlet property="remotePaymentMethodImage" destination="oQQ-DA-UJ9" id="rRq-WH-HTh"/>
-                <outlet property="remotePaymentMethodImageHeightConstraint" destination="vms-GG-0M0" id="K6U-qe-gpl"/>
-                <outlet property="remotePaymentMethodImageWidthConstraint" destination="mCn-90-44M" id="oGk-Zn-4Ve"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -43,17 +39,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKm-vr-2tX" userLabel="IssuerContainer">
                     <rect key="frame" x="191" y="32.5" width="108" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MHc-UA-zmV" userLabel="remoteIssuerIcon">
-                            <rect key="frame" x="92" y="14" width="16" height="16"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MHc-UA-zmV" userLabel="remoteIssuerIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="12" width="108" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" priority="250" id="6Q0-z0-NsY"/>
-                                <constraint firstAttribute="height" priority="250" id="8At-A8-dDq"/>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="VUO-ZI-RSO"/>
-                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="x7P-FA-6M9"/>
+                                <constraint firstAttribute="height" priority="250" constant="20" id="8At-A8-dDq"/>
+                                <constraint firstAttribute="width" constant="108" id="x7P-FA-6M9"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignBottom" value="NO"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** ****" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                            <rect key="frame" x="15" y="13" width="71" height="18"/>
+                            <rect key="frame" x="-77" y="13" width="71" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="18" id="cXL-fC-pUa"/>
                             </constraints>
@@ -76,14 +77,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
                     <rect key="frame" x="16" y="32.5" width="160" height="44"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="paymentOptionIcon">
-                            <rect key="frame" x="0.0" y="14" width="16" height="16"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="paymentOptionIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="12" width="108" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="62" id="MbH-js-AOD"/>
                                 <constraint firstAttribute="height" constant="45" id="iEE-Rp-WlX"/>
-                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="mCn-90-44M"/>
-                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="33" id="vms-GG-0M0"/>
+                                <constraint firstAttribute="width" constant="108" id="mCn-90-44M"/>
+                                <constraint firstAttribute="height" constant="20" id="vms-GG-0M0"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignBottom" value="NO"/>
+                            </userDefinedRuntimeAttributes>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="MbH-js-AOD"/>
@@ -92,7 +99,7 @@
                             </variation>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sT8-5F-zy4" userLabel="debitImage">
-                            <rect key="frame" x="24" y="14" width="16" height="16"/>
+                            <rect key="frame" x="116" y="14" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" priority="250" id="Mu2-9f-eot"/>
                                 <constraint firstAttribute="height" constant="16" id="dnV-gb-8HE"/>
