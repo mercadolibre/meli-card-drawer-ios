@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,15 +37,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="335" height="109"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="12" y="8" width="160" height="40"/>
+                    <rect key="frame" x="12" y="8" width="8" height="28"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="10" width="140" height="20"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon">
+                            <rect key="frame" x="0.0" y="6" width="0.0" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="62" id="MbH-js-AOD"/>
-                                <constraint firstAttribute="width" constant="140" id="asU-Os-uLy"/>
+                                <constraint firstAttribute="width" priority="250" id="UcB-cb-Yzl"/>
                                 <constraint firstAttribute="height" constant="45" id="iEE-Rp-WlX"/>
-                                <constraint firstAttribute="height" constant="20" id="myv-g1-EIb"/>
+                                <constraint firstAttribute="height" constant="16" id="myv-g1-EIb"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
@@ -62,11 +60,11 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-d9-ED7" userLabel="debitImage">
-                            <rect key="frame" x="148" y="12" width="12" height="16"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-d9-ED7" userLabel="debitImage">
+                            <rect key="frame" x="8" y="4" width="0.0" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="16" id="8CQ-hA-BZc"/>
-                                <constraint firstAttribute="width" priority="250" id="XMi-R2-og7"/>
+                                <constraint firstAttribute="height" constant="20" id="8CQ-hA-BZc"/>
+                                <constraint firstAttribute="width" priority="250" id="PFE-ub-zFu"/>
                                 <constraint firstAttribute="height" constant="45" id="qbq-bq-fKE"/>
                                 <constraint firstAttribute="width" constant="62" id="tEd-am-Dms"/>
                             </constraints>
@@ -84,22 +82,21 @@
                         <constraint firstItem="Rno-d9-ED7" firstAttribute="centerY" secondItem="oQQ-DA-UJ9" secondAttribute="centerY" id="PwD-US-ZI3"/>
                         <constraint firstItem="Rno-d9-ED7" firstAttribute="leading" secondItem="oQQ-DA-UJ9" secondAttribute="trailing" constant="8" id="cbO-wz-76f"/>
                         <constraint firstItem="oQQ-DA-UJ9" firstAttribute="leading" secondItem="eki-qS-IGB" secondAttribute="leading" id="eml-Dl-we2"/>
-                        <constraint firstAttribute="width" constant="160" id="n0A-sz-NzO"/>
-                        <constraint firstAttribute="height" constant="40" id="nXL-am-y6R"/>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rno-d9-ED7" secondAttribute="trailing" id="yQL-3C-ks0"/>
+                        <constraint firstAttribute="height" constant="28" id="nXL-am-y6R"/>
+                        <constraint firstAttribute="trailing" secondItem="Rno-d9-ED7" secondAttribute="trailing" priority="250" id="yQL-3C-ks0"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="179" y="8" width="140" height="40"/>
+                    <rect key="frame" x="319" y="8" width="0.0" height="28"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="MLCheckoutMethodLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="remoteIssuerIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="10" width="140" height="20"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="remoteIssuerIcon">
+                            <rect key="frame" x="0.0" y="4" width="0.0" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="140" id="6GX-xk-PL8"/>
                                 <constraint firstAttribute="height" constant="20" id="Tph-b1-QFh"/>
+                                <constraint firstAttribute="width" priority="250" id="m47-dL-SRi"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="NO"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="NO"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="NO"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignBottom" value="NO"/>
@@ -109,13 +106,13 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="DT6-XG-kaD" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="BT5-rW-LgL"/>
-                        <constraint firstAttribute="width" constant="140" id="Rc4-oG-oEO"/>
-                        <constraint firstAttribute="height" constant="40" id="tVL-Wf-KZV"/>
+                        <constraint firstItem="DT6-XG-kaD" firstAttribute="leading" secondItem="Fle-ET-bnW" secondAttribute="leading" priority="250" id="cY1-h8-Umf"/>
+                        <constraint firstAttribute="height" constant="28" id="tVL-Wf-KZV"/>
                         <constraint firstAttribute="trailing" secondItem="DT6-XG-kaD" secondAttribute="trailing" id="uUY-jM-4mL"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="**** 1234" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="207" y="78" width="94" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="**** 1234" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
+                    <rect key="frame" x="220.5" y="78" width="80.5" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="cXL-fC-pUa"/>
                     </constraints>
@@ -156,9 +153,9 @@
                 <constraint firstItem="rTM-5K-tvz" firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" constant="-14" id="R8U-JB-mLP"/>
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="jHm-dQ-yxg" secondAttribute="leading" id="VnO-eA-Kqy"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
-                <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="jHm-dQ-yxg" secondAttribute="trailing" constant="8" id="gsO-ph-O7d"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fTX-vW-38x"/>
+                <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jHm-dQ-yxg" secondAttribute="trailing" constant="8" id="gsO-ph-O7d"/>
                 <constraint firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" constant="16" id="kz9-Gy-UCb"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
@@ -172,7 +169,6 @@
         </view>
     </objects>
     <resources>
-        <image name="MLCheckoutMethodLogo" width="16" height="16"/>
         <image name="MPCLChevron" width="7" height="12"/>
         <image name="Overlay" width="256" height="158"/>
     </resources>

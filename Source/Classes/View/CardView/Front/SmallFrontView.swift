@@ -43,7 +43,6 @@ extension SmallFrontView {
     }
     
     private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
-        setBankImage(cardUI)
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
     }
@@ -54,25 +53,11 @@ extension SmallFrontView {
             UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage)
+                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage, scaleHeight: true)
                 }
             }
         } else if let lImage = cardUI.cardLogoImage {
             setImage(lImage, inImageView: remotePaymentMethodImage)
-        }
-    }
-    
-    private func setBankImage(_ cardUI: CardUI) {
-        remoteBankImage.image = nil
-        if let bankImage = cardUI.bankImageUrl, let bankImageUrl = bankImage {
-            UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
-                DispatchQueue.main.async { [weak self] in
-                    guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage)
-                }
-            }
-        } else if let bImage = cardUI.bankImage {
-            setImage(bImage, inImageView: remoteBankImage)
         }
     }
     
@@ -88,11 +73,11 @@ extension SmallFrontView {
         }
     }
     
-    private func setImage(_ tImage: UIImage?, inImageView: UIImageView) {
+    private func setImage(_ tImage: UIImage?, inImageView: UIImageView, scaleHeight: Bool = false) {
         if disabledMode {
             inImageView.image = tImage?.imageGreyScale()
         } else {
-            inImageView.image = tImage
+            inImageView.image = scaleHeight ? UIImage.scale(image: tImage!, by: inImageView.bounds.size.height/tImage!.size.height) : tImage
         }
     }
     

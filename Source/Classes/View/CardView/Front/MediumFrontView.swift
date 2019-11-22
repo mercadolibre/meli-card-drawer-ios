@@ -56,7 +56,7 @@ extension MediumFrontView {
     
     private func setupChevron(_ cardUI: CardUI) {
         chevronIcon.image = chevronIcon.image?.withRenderingMode(.alwaysTemplate)
-        chevronIcon.tintColor = cardUI.cardFontColor
+        chevronIcon.tintColor = nameLabel.typeFont.gradient.getGradient(frame)
     }
     
     private func setPaymentMethodImage(_ cardUI: CardUI) {
@@ -65,7 +65,7 @@ extension MediumFrontView {
             UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage)
+                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage, scaleHeight: true)
                 }
             }
         } else if let lImage = cardUI.cardLogoImage {
@@ -79,7 +79,7 @@ extension MediumFrontView {
             UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage)
+                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage, scaleHeight: true)
                 }
             }
         } else if let bImage = cardUI.bankImage {
@@ -99,11 +99,11 @@ extension MediumFrontView {
         }
     }
     
-    private func setImage(_ tImage: UIImage?, inImageView: UIImageView) {
+    private func setImage(_ tImage: UIImage?, inImageView: UIImageView, scaleHeight: Bool = false) {
         if disabledMode {
             inImageView.image = tImage?.imageGreyScale()
         } else {
-            inImageView.image = tImage
+            inImageView.image = scaleHeight ? UIImage.scale(image: tImage!, by: inImageView.bounds.size.height/tImage!.size.height) : tImage
         }
     }
     
@@ -111,7 +111,7 @@ extension MediumFrontView {
         nameLabel.setup(model?.name ?? "", FontFactory.font(cardUI))
         nameLabel.font = nameLabel.font.withSize(12)
         
-        number.setup(model?.number, FontFactory.font(cardUI))
+        number.setup(model?.number ?? "", FontFactory.font(cardUI))
         number.font = number.font.withSize(12)
     }
 }
