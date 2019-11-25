@@ -13,11 +13,11 @@
                 <outlet property="chevronIcon" destination="rTM-5K-tvz" id="mNa-K8-bpb"/>
                 <outlet property="debitImage" destination="Rno-d9-ED7" id="Hmg-aH-aAi"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
+                <outlet property="issuerImage" destination="DT6-XG-kaD" id="e3a-8s-cug"/>
                 <outlet property="nameLabel" destination="jHm-dQ-yxg" id="uPG-Zu-22n"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
-                <outlet property="remoteBankImage" destination="DT6-XG-kaD" id="yCQ-6l-bI3"/>
-                <outlet property="remotePaymentMethodImage" destination="oQQ-DA-UJ9" id="I9r-JV-Oak"/>
+                <outlet property="paymentMethodImage" destination="oQQ-DA-UJ9" id="WyN-hY-utV"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

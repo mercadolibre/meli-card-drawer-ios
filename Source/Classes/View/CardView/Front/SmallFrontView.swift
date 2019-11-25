@@ -5,7 +5,6 @@ class SmallFrontView: CardView {
     @IBOutlet weak var number: CardLabel!
 
     @IBOutlet weak var debitImage: UIImageView!
-    @IBOutlet weak var remoteBankImage: UIImageView!
     @IBOutlet weak var remotePaymentMethodImage: UIImageView!
     
     override func setupUI(_ cardUI: CardUI) {
@@ -35,7 +34,7 @@ extension SmallFrontView {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
-                             views: [remotePaymentMethodImage, debitImage, number, remoteBankImage],
+                             views: [remotePaymentMethodImage, debitImage, number],
                              complete: {[weak self] in
                                 self?.setupUI(cardUI)
             })
@@ -63,13 +62,9 @@ extension SmallFrontView {
     
     private func setDebitImage(_ cardUI: CardUI) {
         debitImage.image = nil
-        if let debitImage = cardUI.debitImageUrl, let debitImageUrl = debitImage {
-            UIImageView().getRemoteImage(imageUrl: debitImageUrl) { debitImage in
-                DispatchQueue.main.async { [weak self] in
-                    guard let weakSelf = self else { return }
-                    weakSelf.setImage(debitImage, inImageView: weakSelf.debitImage)
-                }
-            }
+        if let image = cardUI.debitImage,
+            let dImage = image {
+            setImage(dImage, inImageView: debitImage)
         }
     }
     

@@ -54,10 +54,10 @@ extension ViewController {
         containerView.subviews.forEach { $0.removeFromSuperview() }
         
         cardDrawer = MLCardDrawerController(cardUIHandler, cardDataHandler, false, type)
+        
         if let cardDrawerInstance = cardDrawer {
             let cardView = cardDrawerInstance.getCardView()
             cardView.translatesAutoresizingMaskIntoConstraints = false
-            
             containerView.addSubview(cardView)
             
             NSLayoutConstraint.activate([cardView.topAnchor.constraint(equalTo: containerView.topAnchor),

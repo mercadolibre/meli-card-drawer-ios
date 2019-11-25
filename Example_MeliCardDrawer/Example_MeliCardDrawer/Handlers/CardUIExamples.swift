@@ -186,9 +186,9 @@ struct CardUIExamples {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
-        var cardPattern = [4, 4, 4, 4]
+        var cardPattern = [0, 0, 3, 4]
         var cardFontColor: UIColor = .white
-        var cardLogoImage: UIImage? = UIImage(named: "visa")
+        var cardLogoImage: UIImage? = UIImage(named: "visaLight")
         var cardBackgroundColor: UIColor = UIColor(red: 213/255, green: 56/255, blue: 56/255, alpha: 1)
         var securityCodeLocation: MLCardSecurityCodeLocation = .back
         var defaultUI = false
