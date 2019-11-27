@@ -89,11 +89,11 @@ extension FrontView {
             UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage)
+                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage, scaleHeight: true)
                 }
             }
-        } else if let lImage = cardUI.cardLogoImage {
-            setImage(lImage, inImageView: logo)
+        } else if let lImage = cardUI.cardLogoImage, let image = lImage {
+            setImage(image, inImageView: logo)
         }
     }
 
@@ -104,19 +104,19 @@ extension FrontView {
             UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage)
+                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage, scaleHeight: true)
                 }
             }
-        } else if let bImage = cardUI.bankImage {
-            setImage(bImage, inImageView: bank)
+        } else if let bImage = cardUI.bankImage, let image = bImage {
+            setImage(image, inImageView: bank)
         }
     }
 
-    private func setImage(_ tImage: UIImage?, inImageView: UIImageView) {
+    private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
         if disabledMode {
-            inImageView.image = tImage?.imageGreyScale()
+            inImageView.image = tImage.imageGreyScale()
         } else {
-            inImageView.image = tImage
+            inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: inImageView.bounds.size.height/tImage.size.height) : tImage
         }
     }
 }

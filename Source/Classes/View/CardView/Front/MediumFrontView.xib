@@ -133,6 +133,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-Kv-9qv">
+                    <rect key="frame" x="137.5" y="21" width="60" height="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="Gsh-cC-U6M"/>
+                        <constraint firstAttribute="width" constant="60" id="tfw-ns-ePd"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -141,8 +149,10 @@
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
                 <constraint firstItem="jHm-dQ-yxg" firstAttribute="centerY" secondItem="EUo-1b-VQe" secondAttribute="centerY" id="211-Ov-idZ"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
+                <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="7Zg-3b-Pi0"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="Fle-ET-bnW" secondAttribute="top" id="9Ct-vW-n6C"/>
+                <constraint firstItem="Fle-ET-bnW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="trailing" id="Be9-gl-Kp9"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
                 <constraint firstItem="jHm-dQ-yxg" firstAttribute="leading" secondItem="HLQ-m9-78F" secondAttribute="leading" constant="12" id="EFD-Yi-q9b"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="bottom" secondItem="eki-qS-IGB" secondAttribute="bottom" id="HwX-bO-MnW"/>
@@ -153,6 +163,7 @@
                 <constraint firstItem="rTM-5K-tvz" firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" constant="-14" id="R8U-JB-mLP"/>
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
+                <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YL9-xQ-wJB"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fTX-vW-38x"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jHm-dQ-yxg" secondAttribute="trailing" constant="8" id="gsO-ph-O7d"/>
@@ -160,6 +171,7 @@
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="rTM-5K-tvz" secondAttribute="centerY" id="wEm-ht-3fR"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="leading" id="yRo-9y-aW9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

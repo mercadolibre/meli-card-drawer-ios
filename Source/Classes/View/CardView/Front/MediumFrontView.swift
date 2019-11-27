@@ -40,14 +40,12 @@ class MediumFrontView: CardView {
 // MARK: Publics
 extension MediumFrontView {
     override func setupAnimated(_ cardUI: CardUI) {
-        if !(cardUI is CustomCardDrawerUI) {
-            Animator.overlay(on: self,
-                             cardUI: cardUI,
-                             views: [issuerImage, paymentMethodImage, debitImage, nameLabel, number, chevronIcon],
-                             complete: {[weak self] in
-                                self?.setupUI(cardUI)
-            })
-        }
+        Animator.overlay(on: self,
+                         cardUI: cardUI,
+                         views: [issuerImage, paymentMethodImage, debitImage, nameLabel, number, chevronIcon],
+                         complete: {[weak self] in
+                            self?.setupUI(cardUI)
+        })
     }
     
     private func setupChevron(_ cardUI: CardUI) {

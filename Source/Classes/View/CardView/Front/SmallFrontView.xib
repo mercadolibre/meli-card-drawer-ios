@@ -14,7 +14,7 @@
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
-                <outlet property="remotePaymentMethodImage" destination="oQQ-DA-UJ9" id="rRq-WH-HTh"/>
+                <outlet property="paymentMethodImage" destination="oQQ-DA-UJ9" id="DsU-Ul-cIU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
