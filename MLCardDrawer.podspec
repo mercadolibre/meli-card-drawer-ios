@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MLCardDrawer"
-  s.version          = "1.0.5"
+  s.version          = "1.1"
   s.summary          = "MLCardDrawer for iOS"
   s.homepage         = "https://www.mercadolibre.com"
   s.license          = { :type => "MIT", :file => "LICENSE" }
