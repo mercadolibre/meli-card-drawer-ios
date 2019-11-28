@@ -24,14 +24,11 @@
                                 <color key="textColor" red="0.10953362944162437" green="0.10953362944162437" blue="0.10953362944162437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-oe-xwh">
-                                <rect key="frame" x="16" y="76" width="343" height="212"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fnz-oe-xwh" secondAttribute="height" multiplier="1.618" id="Exy-CN-Vr8"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="216" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-oe-xwh">
+                                <rect key="frame" x="16" y="76" width="343" height="216"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-jI-QID">
-                                <rect key="frame" x="16" y="300" width="343" height="85"/>
+                                <rect key="frame" x="16" y="304" width="343" height="85"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eVD-8F-V6j">
                                         <rect key="frame" x="8" y="8" width="239" height="30"/>
@@ -176,31 +173,42 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shine effect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ge-ld-a7R">
-                                <rect key="frame" x="16" y="409" width="90.5" height="20"/>
+                                <rect key="frame" x="16" y="413" width="90.5" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-wa-YXR">
-                                <rect key="frame" x="310" y="401.5" width="51" height="31"/>
+                                <rect key="frame" x="310" y="405.5" width="51" height="31"/>
                                 <color key="onTintColor" red="0.21176470588235294" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="didChangeShineToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="uFI-du-NZb"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f2w-Kh-IVu">
-                                <rect key="frame" x="310" y="447.5" width="51" height="31"/>
+                                <rect key="frame" x="310" y="451.5" width="51" height="31"/>
                                 <color key="onTintColor" red="0.21176470588235294" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="didCHangeUISwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="PZs-Ex-dHi"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark UI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKO-Bt-ll9">
-                                <rect key="frame" x="16" y="453" width="57" height="20"/>
+                                <rect key="frame" x="16" y="457" width="57" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFC-f5-0Pe">
+                                <rect key="frame" x="92" y="485" width="191" height="29"/>
+                                <segments>
+                                    <segment title="Large"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Small"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qot-9T-s5s"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -220,10 +228,12 @@
                             <constraint firstItem="7Ge-ld-a7R" firstAttribute="top" secondItem="H4v-jI-QID" secondAttribute="bottom" constant="24" id="atA-cu-o7y"/>
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c39-jB-IBn"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="leading" secondItem="fnz-oe-xwh" secondAttribute="leading" id="c8y-di-yqM"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hx9-Mh-gEx"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="top" secondItem="fnz-oe-xwh" secondAttribute="bottom" constant="12" id="jDu-9X-a0Z"/>
                             <constraint firstItem="Aba-wa-YXR" firstAttribute="centerY" secondItem="7Ge-ld-a7R" secondAttribute="centerY" constant="-2" id="qWc-qD-iQj"/>
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="top" secondItem="RcP-n3-xIP" secondAttribute="bottom" constant="16" id="swQ-jF-Jm7"/>
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="t1W-zC-jPQ"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="top" secondItem="mKO-Bt-ll9" secondAttribute="bottom" constant="8" id="uTV-Cl-HpL"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="zOH-v8-UpJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -231,6 +241,7 @@
                     <connections>
                         <outlet property="cardTypesCollectionView" destination="lBW-Vi-3Bx" id="tzk-9e-DoF"/>
                         <outlet property="containerView" destination="fnz-oe-xwh" id="FCS-SM-WuE"/>
+                        <outlet property="segmentedControl" destination="bFC-f5-0Pe" id="Pfx-zQ-s5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -11,12 +11,14 @@ import MLCardDrawer
 
 // codebeat:disable
 final class ViewController: UIViewController {
-    private var cardUILists: [CardUI] = [CardUIExamples.AmericanExpress(), CardUIExamples.Visa(), CardUIExamples.Maestro19(), CardUIExamples.GaliciaAmex(), CardUIExamples.VisaSantander(), CardUIExamples.Maestro18(),  CardUIExamples.Visa(), CardUIExamples.Visa1(), CardUIExamples.Visa2(), CardUIExamples.Visa3(), CardUIExamples.Visa4(), CardUIExamples.Visa5(), CardUIExamples.VisaRemoteImages(), CardUIExamples.PatagoniaRemoteImages()]
 
     // MARK: Outlets.
     @IBOutlet weak var cardTypesCollectionView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
-
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    var type: MLCardDrawerType = .large
+    
     // MARK: Private Vars
     // Example implementation CardHeaderController - MeliCardDrawer.
     private var cardDrawer: MLCardDrawerController?
@@ -49,8 +51,20 @@ extension ViewController {
 
     // Example implementation MeliCardDrawer - CardHeaderController.
     private func setupCardExample() {
-        cardDrawer = MLCardDrawerController(cardUIHandler, cardDataHandler)
-        cardDrawer?.setUp(inView: containerView).show()
+        containerView.subviews.forEach { $0.removeFromSuperview() }
+        
+        cardDrawer = MLCardDrawerController(cardUIHandler, cardDataHandler, false, type)
+        
+        if let cardDrawerInstance = cardDrawer {
+            let cardView = cardDrawerInstance.getCardView()
+            cardView.translatesAutoresizingMaskIntoConstraints = false
+            containerView.addSubview(cardView)
+            
+            NSLayoutConstraint.activate([cardView.topAnchor.constraint(equalTo: containerView.topAnchor),
+                                         cardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                                         cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+                                         cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
+        }
     }
 
     private func setupDismissGesture() {
@@ -101,13 +115,13 @@ extension ViewController {
 // MARK: CollectionView.
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cardUILists.count
+        return CardUIExamples.cardUILists.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let targetIndex = indexPath.item
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TypeCollectionCell.identifier, for: indexPath) as? TypeCollectionCell, cardUILists.indices.contains(targetIndex) {
-            cell.setup(cardUILists[targetIndex])
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TypeCollectionCell.identifier, for: indexPath) as? TypeCollectionCell, CardUIExamples.cardUILists.indices.contains(targetIndex) {
+            cell.setup(CardUIExamples.cardUILists[targetIndex])
             return cell
         }
         return UICollectionViewCell()
@@ -115,8 +129,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let targetIndex = indexPath.item
-        if cardUILists.indices.contains(targetIndex) {
-            cardDrawer?.cardUI = cardUILists[targetIndex]
+        if CardUIExamples.cardUILists.indices.contains(targetIndex) {
+            cardDrawer?.cardUI = CardUIExamples.cardUILists[targetIndex]
         }
     }
 }
@@ -125,6 +139,23 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 extension ViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+// MARK: Card Type Segmented Control
+extension ViewController {
+    @IBAction func indexChanged(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            type = .large
+        case 1:
+            type = .medium
+        case 2:
+            type = .small
+        default:
+            break
+        }
+        setupCardExample()
     }
 }
 

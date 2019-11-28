@@ -20,6 +20,7 @@ import UIKit
     @objc optional var fontType: String { get }
     @objc optional var bankImage: UIImage? { get }
     @objc optional var cardLogoImage: UIImage? { get }
+    @objc optional var debitImage: UIImage? { get }
 
     @objc optional var ownOverlayImage: UIImage? { get }
 

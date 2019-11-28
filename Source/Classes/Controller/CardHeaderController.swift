@@ -3,8 +3,13 @@ import UIKit
 @objcMembers public class MLCardDrawerController: UIViewController {
     private var shouldAnimate: Bool = true
     let cardFont = "RobotoMono-Regular"
-    var frontView = FrontView()
-    var backView = BackView()
+    var frontView: CardView!
+    var backView: CardView!
+    var model: CardData
+    private var type: MLCardDrawerType = .large
+    private var disabledMode = false
+    
+    private var aspectLayoutConstraint: NSLayoutConstraint?
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,13 +28,53 @@ import UIKit
             backView.setupUI(value)
         }
     }
+    
+    public convenience init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false) {
+        self.init(cardUI, model, disabledMode, .large)
+    }
 
-    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false) {
+    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large) {
         self.cardUI = cardUI
         UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
+        self.model = model
+        self.type = type
+        self.disabledMode = false
         super.init(nibName: nil, bundle: nil)
+        setupViews()
+    }
+    
+    public func setupViews() {
+        
+        if let frontView = frontView, frontView.isDescendant(of: view) {
+            frontView.removeFromSuperview()
+        }
+        
+        if let backView = backView, backView.isDescendant(of: view) {
+            backView.removeFromSuperview()
+        }
+    
+        setupView(type)
+        
         backView.setup(cardUI, model, view.frame, disabledMode)
         frontView.setup(cardUI, model, view.frame, disabledMode)
+        
+        setShineCard(enabled: isShineCardEnabled())
+    }
+    
+    
+    private func setupView(_ type: MLCardDrawerType) {
+        switch type {
+        case .large:
+            backView = BackView()
+            frontView = FrontView()
+        case .medium:
+            backView = MediumBackView()
+            frontView = MediumFrontView()
+            
+        case .small:
+            backView = SmallBackView()
+            frontView = SmallFrontView()
+        }
     }
 
     public func show() {
@@ -51,10 +96,22 @@ import UIKit
 
     @discardableResult
     public func setUp(inView: UIView) -> MLCardDrawerController {
+        self.aspectLayoutConstraint?.isActive = false
         inView.layoutIfNeeded()
         view.frame = CGRect(origin: .zero, size: inView.frame.size)
         inView.addSubview(view)
         return self
+    }
+    
+    
+    public func getCardView() -> UIView {
+        self.aspectLayoutConstraint?.isActive = false
+        let aspectLayoutConstraint = view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: CardSizeManager.getGoldenRatio(from: type))
+        aspectLayoutConstraint.isActive = true
+        setupViews()
+        self.aspectLayoutConstraint = aspectLayoutConstraint
+        show()
+        return view
     }
 }
 
@@ -92,7 +149,16 @@ extension MLCardDrawerController {
     }
 
     func addSubview(_ subview: UIView) {
-        subview.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
-        view.addSubview(subview)
+        if let aspectConstraint = aspectLayoutConstraint, aspectConstraint.isActive == true {
+            subview.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(subview)
+            subview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            subview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            subview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        } else {
+            subview.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+            view.addSubview(subview)
+        }
     }
 }
