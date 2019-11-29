@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="chevronIcon" destination="rTM-5K-tvz" id="mNa-K8-bpb"/>
+                <outlet property="chevronTrailingConstraint" destination="Pxi-XN-EGY" id="L88-Sz-i0G"/>
                 <outlet property="debitImage" destination="Rno-d9-ED7" id="Hmg-aH-aAi"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="issuerImage" destination="DT6-XG-kaD" id="e3a-8s-cug"/>
