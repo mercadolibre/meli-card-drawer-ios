@@ -9,39 +9,40 @@ class FrontView: CardView {
     @IBOutlet weak var remoteBankImage: UIImageView!
     @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var securityCodeCircle: CircleView!
-    @IBOutlet weak var overlayImage: UIImageView!
-
-    private var cardBackground: UIColor = .clear
-    private var shineView: ShineView?
 
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
-
-        securityCodeCircle.alpha = 0
-
+        layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
+        
+        setupSecurityCode(cardUI)
+        setupCardLogo(in: logo)
         setupRemoteOrLocalImages(cardUI)
-
-        cardUI.set?(logo: logo)
-        cardUI.set?(bank: bank)
-
-        securityCode.textColor = cardUI.cardFontColor
-        let input = [model?.name, model?.number, model?.expiration, model?.securityCode]
-        securityCode.isHidden = cardUI.securityCodeLocation == .back
-
+        
+        setupFormatters(cardUI)
+        setupCardElements(cardUI)
+        
+        cardBackground = cardUI.cardBackgroundColor
+        setupCustomOverlayImage(cardUI)
+    }
+    
+    private func setupFormatters(_ cardUI: CardUI) {
+        securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
         name.formatter = Mask(placeholder: cardUI.placeholderName)
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
         expirationDate.formatter = Mask(placeholder: cardUI.placeholderExpiration)
-
+    }
+    
+    private func setupCardElements(_ cardUI: CardUI) {
+        let input = [model?.name, model?.number, model?.expiration, model?.securityCode]
         [name, number, expirationDate, securityCode].enumerated().forEach({
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI))
         })
-
-        cardBackground = cardUI.cardBackgroundColor
-        setupCustomOverlayImage(cardUI)
-
-        if isShineEnabled() {
-            addShineView()
-        }
+    }
+    
+    private func setupSecurityCode(_ cardUI: CardUI) {
+        securityCodeCircle.alpha = 0
+        securityCode.textColor = cardUI.cardFontColor
+        securityCode.isHidden = cardUI.securityCodeLocation == .back
     }
 
     override func addObservers() {
@@ -61,7 +62,7 @@ class FrontView: CardView {
 
 // MARK: Publics
 extension FrontView {
-    func setupAnimated(_ cardUI: CardUI) {
+    override func setupAnimated(_ cardUI: CardUI) {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
@@ -72,43 +73,8 @@ extension FrontView {
         }
     }
 
-    func showSecurityCode() {
+    override func showSecurityCode() {
         securityCodeCircle.alpha = 1
-    }
-
-    func addShineView() {
-        if let shinedView = shineView {
-            shinedView.color = cardBackground
-        } else {
-            shineView = ShineView()
-            if let shinedView = shineView {
-                shinedView.clipsToBounds = true
-                shinedView.color = cardBackground
-                shinedView.frame = CGRect(x: self.gradient.frame.origin.x, y: self.gradient.frame.origin.y, width: self.gradient.frame.width * 2, height: self.gradient.frame.height * 6)
-                shinedView.center = self.gradient.center
-                self.gradient.addSubview(shinedView)
-                shinedView.addMotionEffect()
-            }
-        }
-    }
-
-    func removeShineView() {
-        shineView?.removeMotionEffects()
-        shineView?.removeFromSuperview()
-        shineView = nil
-    }
-
-    func isShineEnabled() -> Bool {
-        return shineView != nil
-    }
-}
-
-// MARK: Privates
-extension FrontView {
-    private func setupCustomOverlayImage(_ cardUI: CardUI) {
-        if let customOverlayImage = cardUI.ownOverlayImage {
-            overlayImage.image = customOverlayImage
-        }
     }
 
     private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
@@ -123,11 +89,11 @@ extension FrontView {
             UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage)
+                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage, scaleHeight: true)
                 }
             }
-        } else if let lImage = cardUI.cardLogoImage {
-            setImage(lImage, inImageView: logo)
+        } else if let lImage = cardUI.cardLogoImage, let image = lImage {
+            setImage(image, inImageView: logo)
         }
     }
 
@@ -138,19 +104,19 @@ extension FrontView {
             UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage)
+                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage, scaleHeight: true)
                 }
             }
-        } else if let bImage = cardUI.bankImage {
-            setImage(bImage, inImageView: bank)
+        } else if let bImage = cardUI.bankImage, let image = bImage {
+            setImage(image, inImageView: bank)
         }
     }
 
-    private func setImage(_ tImage: UIImage?, inImageView: UIImageView) {
+    private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
         if disabledMode {
-            inImageView.image = tImage?.imageGreyScale()
+            inImageView.image = tImage.imageGreyScale()
         } else {
-            inImageView.image = tImage
+            inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: inImageView.bounds.size.height/tImage.size.height) : tImage
         }
     }
 }
