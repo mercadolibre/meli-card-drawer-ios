@@ -8,7 +8,7 @@ class MediumFrontView: CardView {
     @IBOutlet weak var nameLabel: CardLabel!
     @IBOutlet weak var chevronIcon: UIImageView!
     
-    @IBOutlet weak var chevronTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var numberTrailingConstraint: NSLayoutConstraint!
     
     private var shineView: ShineView?
 
@@ -51,13 +51,15 @@ extension MediumFrontView {
     }
     
     private func setupChevron(_ cardUI: CardUI) {
-        let showChevron = (cardUI.showChevron == true)
-        
-        chevronTrailingConstraint.constant = showChevron ? -14 : 2
-        chevronIcon.isHidden = !showChevron
+        showChevron(cardUI.showChevron == true)
         
         chevronIcon.image = chevronIcon.image?.withRenderingMode(.alwaysTemplate)
         chevronIcon.tintColor = nameLabel.typeFont.gradient.getGradient(frame)
+    }
+    
+    private func showChevron(_ value: Bool) {
+        numberTrailingConstraint.priority = value ? .required : .defaultLow
+        chevronIcon.isHidden = !value
     }
     
     private func setupFormatters(_ cardUI: CardUI) {

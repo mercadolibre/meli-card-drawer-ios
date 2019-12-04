@@ -11,12 +11,12 @@
             <connections>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="chevronIcon" destination="rTM-5K-tvz" id="mNa-K8-bpb"/>
-                <outlet property="chevronTrailingConstraint" destination="Pxi-XN-EGY" id="L88-Sz-i0G"/>
                 <outlet property="debitImage" destination="Rno-d9-ED7" id="Hmg-aH-aAi"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="issuerImage" destination="DT6-XG-kaD" id="e3a-8s-cug"/>
                 <outlet property="nameLabel" destination="jHm-dQ-yxg" id="uPG-Zu-22n"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
+                <outlet property="numberTrailingConstraint" destination="0zC-ui-NlW" id="yTN-2H-VV6"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
                 <outlet property="paymentMethodImage" destination="oQQ-DA-UJ9" id="WyN-hY-utV"/>
             </connections>
@@ -165,6 +165,7 @@
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
                 <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YL9-xQ-wJB"/>
+                <constraint firstItem="EUo-1b-VQe" firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" priority="750" constant="-14" id="Yr7-ne-knU"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fTX-vW-38x"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jHm-dQ-yxg" secondAttribute="trailing" constant="8" id="gsO-ph-O7d"/>
