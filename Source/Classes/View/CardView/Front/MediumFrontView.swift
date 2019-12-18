@@ -21,7 +21,6 @@ class MediumFrontView: CardView {
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
         setupCardLabels(cardUI)
-        //setupChevron(cardUI)
         setupFormatters(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
@@ -49,16 +48,6 @@ extension MediumFrontView {
                          complete: {[weak self] in
                             self?.setupUI(cardUI)
         })
-    }
-    
-    private func setupChevron(_ cardUI: CardUI) {
-        let showChevron = (cardUI.showChevron == true)
-        
-        chevronTrailingConstraint.constant = showChevron ? -14 : 2
-        chevronIcon.isHidden = !showChevron
-        
-        chevronIcon.image = chevronIcon.image?.withRenderingMode(.alwaysTemplate)
-        chevronIcon.tintColor = cardUI.cardFontColor
     }
     
     private func setupFormatters(_ cardUI: CardUI) {
