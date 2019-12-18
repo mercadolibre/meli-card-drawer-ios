@@ -38,7 +38,7 @@ import UIKit
         UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
         self.model = model
         self.type = type
-        self.disabledMode = false
+        self.disabledMode = disabledMode
         super.init(nibName: nil, bundle: nil)
         setupViews()
     }

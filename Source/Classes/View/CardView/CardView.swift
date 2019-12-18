@@ -16,7 +16,7 @@ class CardView: UIView {
     private var shineView: ShineView?
     var cardBackground: UIColor = .clear
     
-    let disabledGray: UIColor = #colorLiteral(red: 0.2862745098, green: 0.2862745098, blue: 0.2862745098, alpha: 1)
+    let disabledGray: UIColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
     var color: UIColor?
     var disabledMode: Bool = false
     @objc var model: CardData?
