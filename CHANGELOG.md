@@ -1,3 +1,6 @@
+## [Release (1.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.3)
+### 🚀 Cards - Final release for Small & medium 🚀
+
 ## [Release (1.2.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.2.1)
 ### 🚀 Disabled color changed & minor fixes 🚀
 
