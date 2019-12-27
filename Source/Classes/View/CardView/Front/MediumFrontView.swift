@@ -8,8 +8,7 @@ class MediumFrontView: CardView {
     @IBOutlet weak var nameLabel: CardLabel!
     @IBOutlet weak var chevronIcon: UIImageView!
     
-    @IBOutlet weak var chevronLabel: ChevronLabel!
-    @IBOutlet weak var chevronTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var numberTrailingConstraint: NSLayoutConstraint!
     
     private var shineView: ShineView?
 
@@ -21,6 +20,7 @@ class MediumFrontView: CardView {
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
         setupCardLabels(cardUI)
+        setupChevron(cardUI)
         setupFormatters(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
@@ -78,6 +78,14 @@ extension MediumFrontView {
         }
     }
     
+    
+    private func setupChevron(_ cardUI: CardUI) {
+        showChevron(cardUI.showChevron == true)
+        
+        chevronIcon.image = chevronIcon.image?.withRenderingMode(.alwaysTemplate)
+        chevronIcon.tintColor = getChevronColor(cardUI)
+    }
+    
     private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
         if disabledMode {
             inImageView.image = tImage.imageGreyScale()
@@ -92,8 +100,25 @@ extension MediumFrontView {
         
         number.setup(model?.number ?? "", FontFactory.font(cardUI))
         number.font = number.font.withSize(12)
-        
-        chevronLabel.setup(FontFactory.font(cardUI))
-        chevronLabel.font = chevronLabel.font.withSize(16)
     }
+}
+
+//MARK: Chevron config
+private extension MediumFrontView {
+    private func getChevronColor(_ cardUI: CardUI) -> UIColor {
+        switch cardUI.fontType {
+        case "light":
+            return #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
+        case "dark":
+            return #colorLiteral(red: 0.4509803922, green: 0.4509803922, blue: 0.4509803922, alpha: 1)
+        default:
+            return cardUI.cardFontColor
+        }
+    }
+    
+    func showChevron(_ value: Bool) {
+        numberTrailingConstraint.priority = value ? .defaultLow : .required
+        chevronIcon.isHidden = !value
+    }
+    
 }
