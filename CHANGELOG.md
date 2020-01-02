@@ -1,3 +1,6 @@
+## [Release (1.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4)
+### 🚀 New chevron style 🚀
+
 ## [Release (1.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.3)
 ### 🚀 Cards - Final release for Small & medium 🚀
 
