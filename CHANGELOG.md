@@ -1,3 +1,9 @@
+## [Release (1.4.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.1)
+### 🚀 Fix numbers group interspacing for medium card. 🚀
+
+## [Release (1.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4)
+### 🚀 Chevron flat style. 🚀
+
 ## [Release (1.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.3)
 ### 🚀 Cards - Final release for Small & medium 🚀
 

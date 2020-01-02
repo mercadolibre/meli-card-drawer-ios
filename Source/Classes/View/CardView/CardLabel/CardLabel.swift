@@ -5,6 +5,7 @@ class CardLabel: UILabel {
     let fontName = "Roboto Mono"
     var formatter = Mask(pattern: [])
     var typeFont: Font = Light()
+    var dynamicSlice = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +20,7 @@ class CardLabel: UILabel {
     }
 
     func totalPad() -> Int {
-        return Int(frame.width / font.size(" ").width)        
+        return dynamicSlice ? Int(frame.width / font.size(" ").width) : 0
     }
 
     override func observeValue(forKeyPath keyPath: String?,
