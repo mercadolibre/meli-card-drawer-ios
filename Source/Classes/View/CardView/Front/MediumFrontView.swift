@@ -98,6 +98,7 @@ extension MediumFrontView {
         nameLabel.setup(model?.name ?? "", FontFactory.font(cardUI))
         nameLabel.font = nameLabel.font.withSize(12)
         
+        number.dynamicSlice = false
         number.setup(model?.number ?? "", FontFactory.font(cardUI))
         number.font = number.font.withSize(12)
     }
