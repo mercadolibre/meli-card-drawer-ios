@@ -34,6 +34,8 @@ extension Gradient {
 
         guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
 
+        UIGraphicsEndImageContext()
+        
         return UIColor(patternImage: gradientImage)
     }
 }
