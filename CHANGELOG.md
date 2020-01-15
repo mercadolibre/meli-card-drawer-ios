@@ -1,3 +1,6 @@
+## [Release (1.4.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.2)
+### 🚀 Fix memory leak. 🚀
+
 ## [Release (1.4.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.1)
 ### 🚀 Fix numbers group interspacing for medium card. 🚀
 

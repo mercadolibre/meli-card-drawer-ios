@@ -16,6 +16,7 @@ class Gradient: NSObject {
 
 extension Gradient {
     func getGradient(_ frame: CGRect) -> UIColor? {
+        
         let size = frame.size
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
 
@@ -24,6 +25,7 @@ extension Gradient {
             let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
                                       colors: [top.cgColor, bottom.cgColor] as CFArray,
                                       locations: [0.0, 1.0]) else {
+            UIGraphicsEndImageContext()
             return nil
         }
 
@@ -32,8 +34,13 @@ extension Gradient {
                                    end: CGPoint(x:0, y:size.height),
                                    options: .drawsBeforeStartLocation)
 
-        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
 
+        UIGraphicsEndImageContext()
+        
         return UIColor(patternImage: gradientImage)
     }
 }
