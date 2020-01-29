@@ -41,12 +41,12 @@
                     <rect key="frame" x="12" y="8" width="8" height="28"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon">
-                            <rect key="frame" x="0.0" y="4" width="0.0" height="20"/>
+                            <rect key="frame" x="0.0" y="6" width="0.0" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="62" id="MbH-js-AOD"/>
                                 <constraint firstAttribute="width" priority="250" id="UcB-cb-Yzl"/>
                                 <constraint firstAttribute="height" constant="45" id="iEE-Rp-WlX"/>
-                                <constraint firstAttribute="height" constant="20" id="myv-g1-EIb"/>
+                                <constraint firstAttribute="height" constant="16" id="myv-g1-EIb"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
@@ -173,7 +173,7 @@
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="rTM-5K-tvz" secondAttribute="centerY" id="wEm-ht-3fR"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="leading" constant="-80" id="yRo-9y-aW9"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Fle-ET-bnW" secondAttribute="leading" id="yRo-9y-aW9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
