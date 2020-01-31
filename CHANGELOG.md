@@ -1,3 +1,6 @@
+## [Release (1.4.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.3)
+### 🚀 Release de prueba. 🚀
+
 ## [Release (1.4.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.2)
 ### 🚀 Fix memory leak. 🚀
 
