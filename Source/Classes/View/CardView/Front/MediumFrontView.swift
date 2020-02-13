@@ -90,7 +90,8 @@ extension MediumFrontView {
         if disabledMode {
             inImageView.image = tImage.imageGreyScale()
         } else {
-            inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: inImageView.bounds.size.height/tImage.size.height) : tImage
+            let aspectRatio = tImage.size.height/tImage.size.width
+            inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: (inImageView.bounds.size.height+max(-4,min(24*aspectRatio-15,0)))/tImage.size.height) : tImage
         }
     }
     
