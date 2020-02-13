@@ -40,7 +40,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
                     <rect key="frame" x="12" y="8" width="8" height="28"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon">
+                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon">
                             <rect key="frame" x="0.0" y="4" width="0.0" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="62" id="MbH-js-AOD"/>
