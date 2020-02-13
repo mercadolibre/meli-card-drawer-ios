@@ -1,3 +1,6 @@
+## [Release (1.4.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.4)
+### 🚀 Fix logos mini card. 🚀
+
 ## [Release (1.4.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.3)
 ### 🚀 Release de prueba. 🚀
 
