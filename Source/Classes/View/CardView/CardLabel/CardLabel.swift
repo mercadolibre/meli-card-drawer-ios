@@ -4,7 +4,7 @@ class CardLabel: UILabel {
 
     let fontName = "Roboto Mono"
     var formatter = Mask(pattern: [])
-    var typeFont: Font = Light()
+    var typeFont: Font = Light(shadow: false)
     var dynamicSlice = true
 
     override func awakeFromNib() {

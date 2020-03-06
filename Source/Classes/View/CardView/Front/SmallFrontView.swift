@@ -74,7 +74,7 @@ extension SmallFrontView {
     }
     
     private func setupCardLabels(_ cardUI: CardUI) {
-        number.setup(model?.number, FontFactory.font(cardUI))
+        number.setup(model?.number, FontFactory.font(cardUI, shadow: true))
         number.font = number.font.withSize(12)
     }
 }

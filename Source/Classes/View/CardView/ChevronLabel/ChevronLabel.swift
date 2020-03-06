@@ -12,10 +12,10 @@ class ChevronLabel: UILabel {
     fileprivate let chevronImage = UIImage(named: "Chevron", in: Bundle(for: ChevronLabel.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     
     fileprivate var formatter = Mask(pattern: [])
-    fileprivate var typeFont: Font = Light()
+    fileprivate var typeFont: Font = Light(shadow: false)
     
     func setup(_ textType: Font?) {
-        typeFont = textType ?? Light()
+        typeFont = textType ?? Light(shadow: false)
         addAttributes()
     }
     

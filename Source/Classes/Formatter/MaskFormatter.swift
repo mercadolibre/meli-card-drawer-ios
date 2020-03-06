@@ -32,7 +32,7 @@ class Mask {
         var text = text ?? ""
         text = pattern.isEmpty ? placeHolder(text) : pattern(text, total)
 
-        let len = text == placeholder ? 0 : text.index(of: pad)?.encodedOffset ?? text.count
+        let len = text == placeholder ? 0 : text.count
         var range = NSMakeRange(0, len)
 
         if !placeholder.isEmpty && !pattern.isEmpty {

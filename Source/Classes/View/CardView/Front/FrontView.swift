@@ -33,10 +33,12 @@ class FrontView: CardView {
     }
     
     private func setupCardElements(_ cardUI: CardUI) {
-        let input = [model?.name, model?.number, model?.expiration, model?.securityCode]
-        [name, number, expirationDate, securityCode].enumerated().forEach({
+        let input = [model?.name, model?.expiration, model?.securityCode]
+        [name, expirationDate, securityCode].enumerated().forEach({
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI))
         })
+
+        number.setup(model?.number, FontFactory.font(cardUI, shadow: true))
     }
     
     private func setupSecurityCode(_ cardUI: CardUI) {
