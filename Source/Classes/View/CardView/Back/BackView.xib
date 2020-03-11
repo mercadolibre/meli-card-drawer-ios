@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="334" height="222"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKl-Uo-kjm">
-                    <rect key="frame" x="16" y="67" width="302" height="26"/>
+                    <rect key="frame" x="16" y="63" width="302" height="26"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1U-1C-Uv9">
                             <rect key="frame" x="0.0" y="0.0" width="302" height="2"/>
@@ -152,7 +152,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hd-eI-9Ia" userLabel="BarView">
-                    <rect key="frame" x="0.0" y="20" width="334" height="37"/>
+                    <rect key="frame" x="0.0" y="16" width="334" height="37"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="Il0-4z-jX4"/>
@@ -172,7 +172,7 @@
                 <constraint firstAttribute="bottom" secondItem="FDj-VS-2NS" secondAttribute="bottom" id="aOP-iH-SCP"/>
                 <constraint firstItem="gON-mt-a8t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ew2-7p-285"/>
                 <constraint firstItem="0Hd-eI-9Ia" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gue-6F-q8T"/>
-                <constraint firstItem="0Hd-eI-9Ia" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hNL-ts-di9"/>
+                <constraint firstItem="0Hd-eI-9Ia" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="hNL-ts-di9"/>
                 <constraint firstAttribute="trailing" secondItem="FDj-VS-2NS" secondAttribute="trailing" id="hgd-zk-S0m"/>
                 <constraint firstItem="FDj-VS-2NS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="k3H-le-7jz"/>
                 <constraint firstItem="gON-mt-a8t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mQK-n0-QVm"/>
