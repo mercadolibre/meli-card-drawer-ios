@@ -32,66 +32,66 @@
                     <rect key="frame" x="0.0" y="0.0" width="334" height="222"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKl-Uo-kjm">
-                    <rect key="frame" x="20" y="67" width="294" height="26"/>
+                    <rect key="frame" x="16" y="67" width="302" height="26"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1U-1C-Uv9">
-                            <rect key="frame" x="0.0" y="0.0" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="0.0" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="6g9-ec-3Le"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ptq-xV-VEw">
-                            <rect key="frame" x="0.0" y="4" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="4" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="EuY-jQ-AWj"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81c-vc-84f">
-                            <rect key="frame" x="0.0" y="8" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="8" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="2oy-aS-dW1"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAV-R8-lN7">
-                            <rect key="frame" x="0.0" y="12" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="12" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="S2v-Ji-Q9b"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRB-JD-f81">
-                            <rect key="frame" x="0.0" y="16" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="16" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="ust-0t-e4F"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-P4-t8T">
-                            <rect key="frame" x="0.0" y="20" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="20" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="2hf-5I-83h"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVH-bg-BSK">
-                            <rect key="frame" x="0.0" y="24" width="294" height="2"/>
+                            <rect key="frame" x="0.0" y="24" width="302" height="2"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="NT3-hI-6xM"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dml-xR-s5k" userLabel="CircleContainer">
-                            <rect key="frame" x="244" y="0.0" width="50" height="26"/>
+                            <rect key="frame" x="252" y="0.0" width="50" height="26"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="Cyg-iM-Wb7"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaZ-yM-7P1" customClass="CircleView" customModule="MLCardDrawer" customModuleProvider="target">
-                            <rect key="frame" x="250" y="-6" width="38" height="38"/>
+                            <rect key="frame" x="258" y="-6" width="38" height="38"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-vy-wcQ" userLabel="CVVLabel" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
                                     <rect key="frame" x="11.5" y="12" width="17" height="14"/>
@@ -163,11 +163,11 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="HWW-EW-Lt5" secondAttribute="trailing" id="8nq-Uh-EnL"/>
                 <constraint firstItem="HWW-EW-Lt5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Am0-gu-kuD"/>
-                <constraint firstItem="mKl-Uo-kjm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="DqX-nD-yPS"/>
+                <constraint firstItem="mKl-Uo-kjm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="DqX-nD-yPS"/>
                 <constraint firstItem="FDj-VS-2NS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E5r-gH-5gU"/>
                 <constraint firstAttribute="trailing" secondItem="0Hd-eI-9Ia" secondAttribute="trailing" id="F9G-Pr-eE7"/>
                 <constraint firstAttribute="bottom" secondItem="gON-mt-a8t" secondAttribute="bottom" id="GAA-2q-22B"/>
-                <constraint firstAttribute="trailing" secondItem="mKl-Uo-kjm" secondAttribute="trailing" constant="20" id="M7H-33-old"/>
+                <constraint firstAttribute="trailing" secondItem="mKl-Uo-kjm" secondAttribute="trailing" constant="16" id="M7H-33-old"/>
                 <constraint firstAttribute="trailing" secondItem="gON-mt-a8t" secondAttribute="trailing" id="OuR-fx-mYA"/>
                 <constraint firstAttribute="bottom" secondItem="FDj-VS-2NS" secondAttribute="bottom" id="aOP-iH-SCP"/>
                 <constraint firstItem="gON-mt-a8t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ew2-7p-285"/>
