@@ -9,7 +9,7 @@ import Foundation
 
 public class CardCornerRadiusManager {
     
-    static let largeCornerRadius: CGFloat = 11
+    static let largeCornerRadius: CGFloat = 8
     static let mediumCornerRadius: CGFloat = 6
     static let smallCornerRadius: CGFloat = 6
     

@@ -7,7 +7,7 @@ class BackView: CardView {
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
-        securityCode.setup(model?.securityCode, Default(UIColor.gray))
+        securityCode.setup(model?.securityCode, Default(UIColor.black.withAlphaComponent(0.8)))
         setupCustomOverlayImage(cardUI)
     }
 
