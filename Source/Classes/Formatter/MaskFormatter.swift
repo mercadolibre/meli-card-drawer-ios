@@ -10,7 +10,7 @@ class Mask {
 
     init() {
         shadow.shadowOffset = CGSize(width: 0, height: 1)
-        shadow.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
+        shadow.shadowColor = UIColor.black.withAlphaComponent(0.45)
         shadow.shadowBlurRadius = 2
     }
 
