@@ -40,7 +40,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="256" height="158"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="16" y="16" width="108" height="44"/>
+                    <rect key="frame" x="24" y="16" width="108" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="paymentOptionIcon">
                             <rect key="frame" x="0.0" y="6" width="32" height="32"/>
@@ -65,14 +65,14 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage">
-                    <rect key="frame" x="16" y="23" width="0.0" height="30"/>
+                    <rect key="frame" x="24" y="23" width="0.0" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="3wp-Qm-Vp5"/>
                         <constraint firstAttribute="width" priority="250" id="ePO-Yx-MNi"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="132" y="16" width="108" height="44"/>
+                    <rect key="frame" x="124" y="16" width="108" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="IssuerIcon">
                             <rect key="frame" x="76" y="6" width="32" height="32"/>
@@ -87,20 +87,20 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remoteBankImage">
-                    <rect key="frame" x="240" y="23" width="0.0" height="30"/>
+                    <rect key="frame" x="232" y="23" width="0.0" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="250" id="Yok-kB-Xw6"/>
                         <constraint firstAttribute="height" constant="30" id="ooY-WT-yGo"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/AA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMu-xJ-OI6" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="193" y="114.5" width="47" height="17"/>
+                    <rect key="frame" x="185" y="114.5" width="47" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89T-PX-cWX" userLabel="circleFronSecurityCodeView" customClass="CircleView" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="211" y="46" width="39" height="39"/>
+                    <rect key="frame" x="203" y="46" width="39" height="39"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="35R-WB-d8w"/>
@@ -119,12 +119,12 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="***" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-vy-wcQ" userLabel="FrontSecurityCodeLabel" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="223" y="58.5" width="17" height="14.5"/>
+                    <rect key="frame" x="215" y="58.5" width="17" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE Y APELLIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-U6-Lcy" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="16" y="112" width="166" height="22"/>
+                    <rect key="frame" x="24" y="112" width="166" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="166" id="FBH-we-hcG"/>
                     </constraints>
@@ -133,7 +133,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** ****" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="16" y="82" width="224" height="18"/>
+                    <rect key="frame" x="24" y="82" width="208" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="cXL-fC-pUa"/>
                     </constraints>
@@ -155,7 +155,7 @@
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0si-Gj-xOe"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
-                <constraint firstItem="ZMN-U6-Lcy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="47K-ZK-WHj"/>
+                <constraint firstItem="ZMN-U6-Lcy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="47K-ZK-WHj"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="12" id="5aG-Iu-7JU"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="top" secondItem="eki-qS-IGB" secondAttribute="bottom" constant="-44" id="9Ct-vW-n6C"/>
@@ -180,7 +180,7 @@
                 <constraint firstItem="iqG-Eo-eGS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="N94-Fg-ynK" secondAttribute="trailing" id="fb4-Mq-phu"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" secondItem="ZMN-U6-Lcy" secondAttribute="leading" id="gPR-jP-sT0"/>
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="centerY" secondItem="89T-PX-cWX" secondAttribute="centerY" id="goL-C4-4Ge"/>
-                <constraint firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" constant="16" id="mQC-Xx-HlH"/>
+                <constraint firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" constant="24" id="mQC-Xx-HlH"/>
                 <constraint firstItem="iqG-Eo-eGS" firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" id="n6U-51-Iw9"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
