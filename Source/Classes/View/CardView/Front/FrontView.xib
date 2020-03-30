@@ -64,12 +64,15 @@
                         <constraint firstAttribute="height" constant="44" id="nXL-am-y6R"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned">
                     <rect key="frame" x="24" y="23" width="208" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="3wp-Qm-Vp5"/>
                         <constraint firstAttribute="width" priority="250" id="ePO-Yx-MNi"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
                     <rect key="frame" x="124" y="16" width="108" height="44"/>
