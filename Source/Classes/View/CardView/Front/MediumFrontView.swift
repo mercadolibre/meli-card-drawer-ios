@@ -53,20 +53,32 @@ extension MediumFrontView {
     private func setupFormatters(_ cardUI: CardUI) {
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
     }
-    
+
     private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
-        if let image = cardUI.cardLogoImage,
-            let pImage = image {
-            setImage(pImage, inImageView: paymentMethodImage, scaleHeight: true)
+        if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty  {
+            UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.setImage(image, inImageView: self.paymentMethodImage, scaleHeight: true)
+                }
+            }
+        } else if let image = cardUI.cardLogoImage as? UIImage {
+            setImage(image, inImageView: paymentMethodImage, scaleHeight: true)
         }
     }
     
     private func setIssuerImage(_ cardUI: CardUI) {
         issuerImage.image = nil
-        if let image = cardUI.bankImage,
-            let bImage = image  {
-            setImage(bImage, inImageView: issuerImage, scaleHeight: true)
+        if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty  {
+            UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.setImage(image, inImageView: self.issuerImage, scaleHeight: true)
+                }
+            }
+        } else if let image = cardUI.bankImage as? UIImage {
+            setImage(image, inImageView: issuerImage, scaleHeight: true)
         }
     }
     
