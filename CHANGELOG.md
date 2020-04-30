@@ -1,3 +1,6 @@
+## [Release (1.4.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.7)
+### 🚀 ODR support for medium size. 🚀
+
 ## [Release (1.4.6)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.6)
 ### 🚀 New ODR assets support & UI Improvements. 🚀
 
