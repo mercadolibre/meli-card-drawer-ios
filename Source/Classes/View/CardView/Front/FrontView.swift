@@ -87,14 +87,14 @@ extension FrontView {
     private func setPaymentMethodImage(_ cardUI: CardUI) {
         logo.image = nil
         remotePaymentMethodImage.image = nil
-        if let logoImage = cardUI.cardLogoImageUrl, let logoImageUrl = logoImage {
-            UIImageView().getRemoteImage(imageUrl: logoImageUrl) { remoteLogoImage in
+        if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty {
+            UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
                 DispatchQueue.main.async { [weak self] in
-                    guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteLogoImage, inImageView: weakSelf.remotePaymentMethodImage, scaleHeight: true)
+                    guard let self = self else { return }
+                    self.setImage(image, inImageView: self.remotePaymentMethodImage, scaleHeight: true)
                 }
             }
-        } else if let lImage = cardUI.cardLogoImage, let image = lImage {
+        } else if let image = cardUI.cardLogoImage as? UIImage {
             setImage(image, inImageView: logo)
         }
     }
@@ -102,14 +102,14 @@ extension FrontView {
     private func setBankImage(_ cardUI: CardUI) {
         bank.image = nil
         remoteBankImage.image = nil
-        if let bankImage = cardUI.bankImageUrl, let bankImageUrl = bankImage {
-            UIImageView().getRemoteImage(imageUrl: bankImageUrl) { remoteBankImage in
+        if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty {
+            UIImageView().getRemoteImage(imageUrl: imageUrl) { remoteBankImage in
                 DispatchQueue.main.async { [weak self] in
-                    guard let weakSelf = self else { return }
-                    weakSelf.setImage(remoteBankImage, inImageView: weakSelf.remoteBankImage, scaleHeight: true)
+                    guard let self = self else { return }
+                    self.setImage(remoteBankImage, inImageView: self.remoteBankImage, scaleHeight: true)
                 }
             }
-        } else if let bImage = cardUI.bankImage, let image = bImage {
+        } else if let image = cardUI.bankImage as? UIImage {
             setImage(image, inImageView: bank)
         }
     }
