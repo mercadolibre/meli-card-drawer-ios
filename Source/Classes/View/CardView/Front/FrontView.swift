@@ -15,7 +15,12 @@ class FrontView: CardView {
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
         setupSecurityCode(cardUI)
-        setupCardLogo(in: logo)
+        if cardUI.set(logo:) != nil {
+            setupCardLogo(in: logo)
+        }
+        if cardUI.set(bank:) != nil {
+            setupBankImage(in: bank)
+        }
         setupRemoteOrLocalImages(cardUI)
         
         setupFormatters(cardUI)
@@ -112,6 +117,8 @@ extension FrontView {
         } else if let image = cardUI.bankImage as? UIImage {
             setImage(image, inImageView: bank)
         }
+        
+        setupBankImage(in: bank)
     }
 
     private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
