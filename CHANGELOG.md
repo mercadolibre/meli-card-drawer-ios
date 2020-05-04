@@ -1,3 +1,6 @@
+## [Release (1.4.8)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.8)
+### 🚀 Add removed protocol use. 🚀
+
 ## [Release (1.4.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.7)
 ### 🚀 ODR support for medium size. 🚀
 
