@@ -74,7 +74,7 @@ class CardView: UIView {
         if let cardLogoImage = cardUI?.cardLogoImage {
             container.image = setupImage(image: cardLogoImage, disabledMode: disabledMode)
         }
-        
+
         cardUI?.set?(logo: container)
     }
     
@@ -82,7 +82,7 @@ class CardView: UIView {
         if let bankImage = cardUI?.bankImage {
             container.image = setupImage(image: bankImage, disabledMode: disabledMode)
         }
-        
+
         cardUI?.set?(bank: container)
     }
 }
