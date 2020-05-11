@@ -108,11 +108,11 @@ extension MediumFrontView {
     }
     
     private func setupCardLabels(_ cardUI: CardUI) {
-        nameLabel.setup(model?.name ?? "", FontFactory.font(cardUI))
+        nameLabel.setup(model?.name ?? "", FontFactory.font(cardUI), customFont: self.customCardFont)
         nameLabel.font = nameLabel.font.withSize(12)
         
         number.dynamicSlice = false
-        number.setup(model?.number ?? "", FontFactory.font(cardUI, shadow: true))
+        number.setup(model?.number ?? "", FontFactory.font(cardUI, shadow: true), customFont: self.customCardFont)
         number.font = number.font.withSize(12)
     }
 }

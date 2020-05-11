@@ -15,7 +15,7 @@ class CardView: UIView {
     
     private var shineView: ShineView?
     var cardBackground: UIColor = .clear
-    
+    var customCardFont: String?
     let disabledGray: UIColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
     var color: UIColor?
     var disabledMode: Bool = false
@@ -23,11 +23,12 @@ class CardView: UIView {
     private var cardUI: CardUI?
 
 
-    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false) {
+    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customFont: String? = nil) {
         self.frame = frame
         layer.masksToBounds = true
         layer.isDoubleSided = false
         disabledMode = isDisabled
+        customCardFont = customFont
         loadFromNib()
         setupModel(model)
         setupUI(cardUI)

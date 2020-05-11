@@ -3,6 +3,7 @@ import UIKit
 @objcMembers public class MLCardDrawerController: UIViewController {
     private var shouldAnimate: Bool = true
     let cardFont = "RobotoMono-Regular"
+    let customCardFont: String?
     var frontView: CardView!
     var backView: CardView!
     var model: CardData
@@ -33,9 +34,13 @@ import UIKit
         self.init(cardUI, model, disabledMode, .large)
     }
 
-    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large) {
+    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large, _ customFont: String? = nil) {
         self.cardUI = cardUI
-        UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
+        self.customCardFont = customFont
+        if customFont == nil {
+            UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
+        }
+        
         self.model = model
         self.type = type
         self.disabledMode = disabledMode
@@ -56,7 +61,7 @@ import UIKit
         setupView(type)
         
         backView.setup(cardUI, model, view.frame, disabledMode)
-        frontView.setup(cardUI, model, view.frame, disabledMode)
+        frontView.setup(cardUI, model, view.frame, disabledMode, customFont: customCardFont)
         
         setShineCard(enabled: isShineCardEnabled())
     }
