@@ -11,8 +11,8 @@ class CardLabel: UILabel {
         super.awakeFromNib()
     }
 
-    func setup(_ text: String?, _ textType: Font? = nil, customFont: String? = nil) {
-        font = UIFont(name: customFont ?? Constants.fontName, size: font.fontDescriptor.pointSize)
+    func setup(_ text: String?, _ textType: Font? = nil, customLabelFontName: String? = nil) {
+        font = UIFont(name: customLabelFontName ?? Constants.fontName, size: font.fontDescriptor.pointSize)
         typeFont = textType ?? typeFont
         textColor = typeFont.color
         let color = typeFont.gradient.getGradient(frame)
@@ -32,7 +32,7 @@ class CardLabel: UILabel {
                                context: UnsafeMutableRawPointer?) {
 
         guard let change = change, let new = change[.newKey] else { return }
-        setup(new as? String, customFont: self.font.fontName)
+        setup(new as? String, customLabelFontName: self.font.fontName)
     }
 }
 
