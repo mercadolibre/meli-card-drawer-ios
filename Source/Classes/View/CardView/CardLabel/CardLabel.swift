@@ -20,7 +20,8 @@ class CardLabel: UILabel {
     }
 
     func totalPad() -> Int {
-        let value = frame.width / font.size(" ", kerning: formatter.attributes[.kern] as! Double).width
+        let kerning = formatter.attributes[.kern] as? Double ?? 0
+        let value = frame.width / font.size(" ", kerning: kerning).width
         return dynamicSlice ? Int(value) : 0
     }
 
