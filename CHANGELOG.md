@@ -1,3 +1,6 @@
+## [Release (1.4.9)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.9)
+### 🚀 Add custom font support. 🚀
+
 ## [Release (1.4.8)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.4.8)
 ### 🚀 Add removed protocol use. 🚀
 
