@@ -20,7 +20,7 @@ internal extension UIFont {
             CTFontManagerRegisterGraphicsFont(font, nil) else { return }
     }
 
-    func size(_ string: String) -> CGSize {
-        return (string as NSString).size(withAttributes: [.font: self])
+    func size(_ string: String, kerning: Double = 0) -> CGSize {
+        return (string as NSString).size(withAttributes: [.font: self, .kern: kerning])
     }
 }

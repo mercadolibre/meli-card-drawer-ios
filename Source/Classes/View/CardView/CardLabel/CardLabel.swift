@@ -1,18 +1,18 @@
 import UIKit
 
 class CardLabel: UILabel {
-
-    let fontName = "Roboto Mono"
+    // MARK: - Properties
     var formatter = Mask(pattern: [])
     var typeFont: Font = Light(shadow: false)
     var dynamicSlice = true
 
+    // MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
-        font = UIFont(name: fontName, size: font.fontDescriptor.pointSize)
     }
 
-    func setup(_ text: String?, _ textType: Font? = nil) {
+    func setup(_ text: String?, _ textType: Font? = nil, customLabelFontName: String? = nil) {
+        font = UIFont(name: customLabelFontName ?? Constants.fontName, size: font.fontDescriptor.pointSize)
         typeFont = textType ?? typeFont
         textColor = typeFont.color
         let color = typeFont.gradient.getGradient(frame)
@@ -20,15 +20,26 @@ class CardLabel: UILabel {
     }
 
     func totalPad() -> Int {
-        return dynamicSlice ? Int(frame.width / font.size(" ").width) : 0
+        let kerning = formatter.attributes[.kern] as? Double ?? 0
+        let value = frame.width / font.size(" ", kerning: kerning).width
+        return dynamicSlice ? Int(value) : 0
     }
 
+    //MARK: Observers
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,
                                context: UnsafeMutableRawPointer?) {
 
         guard let change = change, let new = change[.newKey] else { return }
-        setup(new as? String)
+        setup(new as? String, customLabelFontName: self.font.fontName)
+    }
+}
+
+// MARK: - Constants
+extension CardLabel {
+    
+    struct Constants {
+        static let fontName = "Roboto Mono"
     }
 }
