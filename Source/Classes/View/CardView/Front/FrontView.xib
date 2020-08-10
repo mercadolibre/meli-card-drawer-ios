@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FrontView" customModule="MLCardDrawer" customModuleProvider="target">
             <connections>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
-                <outlet property="bank" destination="DT6-XG-kaD" id="18S-hZ-7H3"/>
                 <outlet property="expirationDate" destination="AMu-xJ-OI6" id="uGb-Mm-U1i"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
-                <outlet property="logo" destination="oQQ-DA-UJ9" id="kdc-rZ-a1f"/>
                 <outlet property="name" destination="ZMN-U6-Lcy" id="YHC-Uc-QhK"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
@@ -40,42 +38,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="256" height="158"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="24" y="16" width="108" height="44"/>
+                    <rect key="frame" x="24" y="16" width="112" height="40"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="paymentOptionIcon">
-                            <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="5" width="112" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="62" id="MbH-js-AOD"/>
-                                <constraint firstAttribute="height" constant="45" id="iEE-Rp-WlX"/>
+                                <constraint firstAttribute="height" constant="30" id="3wp-Qm-Vp5"/>
                             </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="MbH-js-AOD"/>
-                                    <exclude reference="iEE-Rp-WlX"/>
-                                </mask>
-                            </variation>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="oQQ-DA-UJ9" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="153-tP-xOQ"/>
-                        <constraint firstItem="oQQ-DA-UJ9" firstAttribute="leading" secondItem="eki-qS-IGB" secondAttribute="leading" id="eml-Dl-we2"/>
-                        <constraint firstAttribute="width" constant="108" id="n0A-sz-NzO"/>
-                        <constraint firstAttribute="height" constant="44" id="nXL-am-y6R"/>
+                        <constraint firstItem="hVB-2M-iYt" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="Id4-46-ZQG"/>
+                        <constraint firstAttribute="trailing" secondItem="hVB-2M-iYt" secondAttribute="trailing" id="NVd-Vs-AgW"/>
+                        <constraint firstItem="hVB-2M-iYt" firstAttribute="leading" secondItem="eki-qS-IGB" secondAttribute="leading" id="jbe-j2-z9d"/>
+                        <constraint firstAttribute="height" constant="40" id="nXL-am-y6R"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="24" y="23" width="208" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="3wp-Qm-Vp5"/>
-                        <constraint firstAttribute="width" priority="250" id="ePO-Yx-MNi"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="124" y="16" width="108" height="44"/>
+                    <rect key="frame" x="124" y="12" width="108" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="IssuerIcon">
                             <rect key="frame" x="76" y="6" width="32" height="32"/>
@@ -90,7 +74,7 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remoteBankImage">
-                    <rect key="frame" x="232" y="23" width="0.0" height="30"/>
+                    <rect key="frame" x="232" y="19" width="0.0" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" priority="250" id="Yok-kB-Xw6"/>
                         <constraint firstAttribute="height" constant="30" id="ooY-WT-yGo"/>
@@ -145,10 +129,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N94-Fg-ynK" userLabel="LimitView">
-                    <rect key="frame" x="98" y="33" width="60" height="10"/>
+                    <rect key="frame" x="120" y="31" width="16" height="10"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="Cin-WG-4v2"/>
+                        <constraint firstAttribute="width" constant="16" id="Cin-WG-4v2"/>
                         <constraint firstAttribute="height" constant="10" id="fIi-DD-Mp8"/>
                     </constraints>
                 </view>
@@ -157,16 +141,14 @@
             <constraints>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0si-Gj-xOe"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="N94-Fg-ynK" secondAttribute="trailing" id="3Bk-h4-rS6"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
                 <constraint firstItem="ZMN-U6-Lcy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="47K-ZK-WHj"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="12" id="5aG-Iu-7JU"/>
-                <constraint firstItem="hVB-2M-iYt" firstAttribute="trailing" secondItem="iqG-Eo-eGS" secondAttribute="trailing" id="6gW-4M-KHA"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="top" secondItem="eki-qS-IGB" secondAttribute="bottom" constant="-44" id="9Ct-vW-n6C"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
-                <constraint firstItem="hVB-2M-iYt" firstAttribute="leading" secondItem="eki-qS-IGB" secondAttribute="leading" id="EWm-gj-O1e"/>
                 <constraint firstItem="iqG-Eo-eGS" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="FWA-Zr-C3W"/>
-                <constraint firstItem="hVB-2M-iYt" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="Gzt-cn-GEL"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="IZx-jY-Fec"/>
                 <constraint firstItem="N94-Fg-ynK" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="JAx-5z-yUI"/>
                 <constraint firstAttribute="bottom" secondItem="ZMN-U6-Lcy" secondAttribute="bottom" constant="24" id="JBg-7G-omn"/>
