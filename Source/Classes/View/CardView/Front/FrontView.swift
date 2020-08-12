@@ -3,8 +3,8 @@ import UIKit
 class FrontView: CardView {
     @IBOutlet weak var expirationDate: CardLabel!
     @IBOutlet weak var name: CardLabel!
-    @IBOutlet weak var remotePaymentMethodImage: UIImageView!
-    @IBOutlet weak var remoteBankImage: UIImageView!
+    @IBOutlet weak var paymentMethodImage: UIImageView!
+    @IBOutlet weak var bankImage: UIImageView!
     @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var securityCodeCircle: CircleView!
 
@@ -14,10 +14,10 @@ class FrontView: CardView {
         
         setupSecurityCode(cardUI)
         if cardUI.set(logo:) != nil {
-            setupCardLogo(in: remotePaymentMethodImage)
+            setupCardLogo(in: paymentMethodImage)
         }
         if cardUI.set(bank:) != nil {
-            setupBankImage(in: remoteBankImage)
+            setupBankImage(in: bankImage)
         }
         setupRemoteOrLocalImages(cardUI)
         
@@ -71,7 +71,7 @@ extension FrontView {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
-                             views: [remoteBankImage, expirationDate, remotePaymentMethodImage, name, number, securityCode],
+                             views: [bankImage, expirationDate, paymentMethodImage, name, number, securityCode],
                              complete: {[weak self] in
                                 self?.setupUI(cardUI)
             })
@@ -88,38 +88,38 @@ extension FrontView {
     }
 
     private func setPaymentMethodImage(_ cardUI: CardUI) {
-        remotePaymentMethodImage.image = nil
+        paymentMethodImage.image = nil
         if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.setImage(image, inImageView: self.remotePaymentMethodImage, scaleHeight: true)
+                    self.setImage(image, inImageView: self.paymentMethodImage)
                 }
             }
         } else if let image = cardUI.cardLogoImage as? UIImage {
-            setImage(image, inImageView: remotePaymentMethodImage, scaleHeight: true)
+            setImage(image, inImageView: paymentMethodImage)
         }
     }
 
     private func setBankImage(_ cardUI: CardUI) {
-        remoteBankImage.image = nil
+        bankImage.image = nil
         if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { remoteBankImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.setImage(remoteBankImage, inImageView: self.remoteBankImage, scaleHeight: true)
+                    self.setImage(remoteBankImage, inImageView: self.bankImage)
                 }
             }
         } else if let image = cardUI.bankImage as? UIImage {
-            setImage(image, inImageView: remoteBankImage, scaleHeight: true)
+            setImage(image, inImageView: bankImage)
         }
     }
 
-    private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
+    private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
+        inImageView.image = UIImage.scale(image: tImage,
+                                          by: inImageView.bounds.size.height/tImage.size.height)
         if disabledMode {
             inImageView.image = tImage.imageGreyScale()
-        } else {
-            inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: inImageView.bounds.size.height/tImage.size.height) : tImage
         }
     }
 }
