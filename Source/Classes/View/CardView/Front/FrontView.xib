@@ -50,7 +50,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="hVB-2M-iYt" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="Id4-46-ZQG"/>
                         <constraint firstAttribute="trailing" secondItem="hVB-2M-iYt" secondAttribute="trailing" id="NVd-Vs-AgW"/>
@@ -71,7 +71,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="iqG-Eo-eGS" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="IpL-Hd-bBF"/>
                         <constraint firstItem="iqG-Eo-eGS" firstAttribute="leading" secondItem="Fle-ET-bnW" secondAttribute="leading" id="LuD-zW-VGl"/>
