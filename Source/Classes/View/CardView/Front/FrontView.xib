@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -43,7 +43,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="5" width="96" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="3wp-Qm-Vp5"/>
+                                <constraint firstAttribute="height" constant="32" id="3wp-Qm-Vp5"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
@@ -161,6 +161,7 @@
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" secondItem="ZMN-U6-Lcy" secondAttribute="leading" id="gPR-jP-sT0"/>
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="centerY" secondItem="89T-PX-cWX" secondAttribute="centerY" id="goL-C4-4Ge"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="height" secondItem="eki-qS-IGB" secondAttribute="height" id="l4O-bB-U3b"/>
+                <constraint firstItem="hVB-2M-iYt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.19" id="lzF-pf-ote"/>
                 <constraint firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" constant="24" id="mQC-Xx-HlH"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
@@ -173,6 +174,11 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="heightClass=regular">
+                <mask key="constraints">
+                    <exclude reference="lzF-pf-ote"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="-1416" y="-1609.2953523238382"/>
         </view>
     </objects>
