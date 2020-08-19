@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +41,7 @@
                     <rect key="frame" x="24" y="16" width="96" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="5" width="96" height="30"/>
+                            <rect key="frame" x="0.0" y="4" width="96" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="3wp-Qm-Vp5"/>
                             </constraints>
@@ -62,7 +62,7 @@
                     <rect key="frame" x="136" y="16" width="96" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remoteBankImage" customClass="UIImageViewAligned" customModule="MLCardDrawer" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="5" width="96" height="30"/>
+                            <rect key="frame" x="0.0" y="4" width="96" height="32"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -75,12 +75,6 @@
                         <constraint firstAttribute="trailing" secondItem="iqG-Eo-eGS" secondAttribute="trailing" id="PP4-An-lQe"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/AA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMu-xJ-OI6" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="185" y="114.5" width="47" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89T-PX-cWX" userLabel="circleFronSecurityCodeView" customClass="CircleView" customModule="MLCardDrawer" customModuleProvider="target">
                     <rect key="frame" x="203" y="46" width="39" height="39"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,17 +95,8 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="***" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-vy-wcQ" userLabel="FrontSecurityCodeLabel" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="215" y="58.5" width="17" height="14.5"/>
+                    <rect key="frame" x="215" y="58.333333333333336" width="17" height="14.333333333333336"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE Y APELLIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-U6-Lcy" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
-                    <rect key="frame" x="24" y="112" width="166" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="166" id="FBH-we-hcG"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** ****" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
@@ -120,6 +105,24 @@
                         <constraint firstAttribute="height" constant="18" id="cXL-fC-pUa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE Y APELLIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-U6-Lcy" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
+                    <rect key="frame" x="24" y="114" width="142" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="yAI-uA-q4I"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MM/AA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMu-xJ-OI6" customClass="CardLabel" customModule="MLCardDrawer" customModuleProvider="target">
+                    <rect key="frame" x="184" y="114.66666666666667" width="48" height="17.000000000000014"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="6HL-Ki-gNc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -143,11 +146,12 @@
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="iqG-Eo-eGS" firstAttribute="height" secondItem="hVB-2M-iYt" secondAttribute="height" id="9Yf-sg-dM3"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="ABo-lq-EY8"/>
+                <constraint firstItem="AMu-xJ-OI6" firstAttribute="height" secondItem="ZMN-U6-Lcy" secondAttribute="height" multiplier="0.944444" id="BYS-Z7-qkh"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="leading" secondItem="N94-Fg-ynK" secondAttribute="trailing" id="He0-Y4-rhP"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="IZx-jY-Fec"/>
                 <constraint firstItem="N94-Fg-ynK" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="JAx-5z-yUI"/>
-                <constraint firstAttribute="bottom" secondItem="ZMN-U6-Lcy" secondAttribute="bottom" constant="24" id="JBg-7G-omn"/>
+                <constraint firstAttribute="bottom" secondItem="ZMN-U6-Lcy" secondAttribute="bottom" constant="26" id="JBg-7G-omn"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" id="KUQ-8c-YKk"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OqT-qa-XFw"/>
                 <constraint firstAttribute="trailing" secondItem="OEt-3Q-8ri" secondAttribute="trailing" id="Qc7-uP-wIt"/>
@@ -166,7 +170,8 @@
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="ZMN-U6-Lcy" secondAttribute="leading" id="qwy-YV-L6X"/>
-                <constraint firstItem="ZMN-U6-Lcy" firstAttribute="top" secondItem="EUo-1b-VQe" secondAttribute="bottom" constant="12" id="uAh-2S-u7H"/>
+                <constraint firstItem="AMu-xJ-OI6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZMN-U6-Lcy" secondAttribute="trailing" constant="8" id="smX-By-8il"/>
+                <constraint firstItem="ZMN-U6-Lcy" firstAttribute="top" secondItem="EUo-1b-VQe" secondAttribute="bottom" constant="14" id="uAh-2S-u7H"/>
                 <constraint firstItem="89T-PX-cWX" firstAttribute="centerX" secondItem="K3c-vy-wcQ" secondAttribute="centerX" constant="-1" id="w6D-0s-Beo"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="top" secondItem="89T-PX-cWX" secondAttribute="bottom" constant="-3" id="weF-sf-C3X"/>
             </constraints>
