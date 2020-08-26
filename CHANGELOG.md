@@ -1,3 +1,6 @@
+## [Release (1.5.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.1)
+- Fix name height constraint 🚀
+
 ## [Release (1.5.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.0)
 - Add constraint between name and expiration date 🚀
 - CardDrawer Assets Unification 🚀
