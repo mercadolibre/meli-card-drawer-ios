@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/mercadolibre/meli-card-drawer-ios"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = "Joni Bandoni"
-  s.source           = { :git => "git@github.com:mercadolibre/meli-card-drawer-ios.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/mercadolibre/meli-card-drawer-ios.git", :tag => s.version.to_s }
 
   s.platform         = :ios, '10.0'
   s.ios.deployment_target = '10.0'
