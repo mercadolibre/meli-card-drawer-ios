@@ -9,7 +9,7 @@ import Foundation
 
 class ChevronLabel: UILabel {
     
-    fileprivate let chevronImage = UIImage(named: "Chevron", in: Bundle(for: ChevronLabel.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+    fileprivate let chevronImage = UIImage(named: "Chevron", in: MLCardDrawerBundle.bundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     
     fileprivate var formatter = Mask(pattern: [])
     fileprivate var typeFont: Font = Light(shadow: false)
