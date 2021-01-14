@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Example_MeliCardDrawer.xcodeproj">
+      location = "group:Example_MeliCardDrawer/Example_MeliCardDrawer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
