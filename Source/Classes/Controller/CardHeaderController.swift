@@ -176,8 +176,6 @@ extension MLCardDrawerController {
 
         customView.translatesAutoresizingMaskIntoConstraints = false
         
-        frontView.removeCustomView()
-        
         frontView.addCustomView(customView)
     }
     

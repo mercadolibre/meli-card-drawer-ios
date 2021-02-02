@@ -191,7 +191,7 @@ extension ViewController {
 // MARK: Toggle SafeArea feature
 extension ViewController {
     @IBAction func didChangeSafeArea(_ sender: UISwitch) {
-        if(sender.isOn) {
+        if sender.isOn {
             cardDrawer?.setCustomView(generateComboSwitchView())
         } else {
             cardDrawer?.removeCustomView()
