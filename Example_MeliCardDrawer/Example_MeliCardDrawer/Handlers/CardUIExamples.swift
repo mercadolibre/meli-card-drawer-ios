@@ -37,7 +37,7 @@ struct CardUIExamples {
     }
     
     // Example - SafeArea
-    // codebeat:disable
+    // codebeat:disable[TOO_MANY_IVARS]
     class SafeArea: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
