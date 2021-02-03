@@ -16,6 +16,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var cardTypesCollectionView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var safeAreaSwitch: UISwitch!
     
     var type: MLCardDrawerType = .large
     
@@ -64,6 +65,10 @@ extension ViewController {
                                          cardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
                                          cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
                                          cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
+            
+            if type == .large && safeAreaSwitch.isOn {
+                cardDrawerInstance.setCustomView(generateComboSwitchView())
+            }
         }
     }
 
@@ -180,5 +185,48 @@ extension ViewController {
                 }
             }
         }
+    }
+}
+
+// MARK: Toggle SafeArea feature
+extension ViewController {
+    @IBAction func didChangeSafeArea(_ sender: UISwitch) {
+        if sender.isOn {
+            cardDrawer?.setCustomView(generateComboSwitchView())
+        } else {
+            cardDrawer?.removeCustomView()
+        }
+    }
+    
+    func generateComboSwitchView () -> UIView {
+        // Switch States
+        let checkedState = State(textColor: "", backgroundColor: "", weight: "")
+        let uncheckedState = State(textColor: "", backgroundColor: "", weight: "")
+        let disabledState = State(textColor: "", backgroundColor: "", weight: "")
+        
+        let switchStates = SwitchStates(checkedState: checkedState, uncheckedState: uncheckedState, disabledState: disabledState)
+        
+        // Switch options
+        let debitOption = SwitchOption(id: "debit", name: "Débito", enabled: true)
+        let creditOption = SwitchOption(id: "credit", name: "Crédito", enabled: true)
+        
+        let switchOptions = [debitOption, creditOption]
+        
+        // Description
+        let description = Text(text: "Description", textColor: "", weight: "")
+        
+        // Switch model
+        let switchModel = SwitchModel(description: description, states: switchStates, options: switchOptions, backgroundColor: "", defaultState: "debit")
+        
+        let customView = ComboSwitchView()
+        
+        customView.setSwitchModel(switchModel)
+        
+        // switchDidChange callback
+        customView.setSwitchDidChangeCallback() {
+          print("selected option \($0)")
+        }
+        
+        return customView
     }
 }

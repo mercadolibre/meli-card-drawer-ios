@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSwitchView">
+            <connections>
+                <outlet property="switchControl" destination="SxN-Qo-ov2" id="rPd-Ch-l9w"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pagar con" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-bX-Qga">
+                    <rect key="frame" x="12" y="8" width="77" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="SxN-Qo-ov2">
+                    <rect key="frame" x="12" y="32" width="131" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="Debito"/>
+                        <segment title="Credito"/>
+                    </segments>
+                    <connections>
+                        <action selector="switchDidChange:" destination="-1" eventType="valueChanged" id="mou-up-zAY"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="fXI-bX-Qga" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="2BW-sf-tuI"/>
+                <constraint firstItem="fXI-bX-Qga" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="CLH-Ef-e17"/>
+                <constraint firstItem="SxN-Qo-ov2" firstAttribute="leading" secondItem="fXI-bX-Qga" secondAttribute="leading" id="b8j-iE-LuU"/>
+                <constraint firstItem="SxN-Qo-ov2" firstAttribute="top" secondItem="fXI-bX-Qga" secondAttribute="bottom" constant="12" id="kD9-KY-f3x"/>
+            </constraints>
+            <point key="canvasLocation" x="-196" y="62"/>
+        </view>
+    </objects>
+</document>

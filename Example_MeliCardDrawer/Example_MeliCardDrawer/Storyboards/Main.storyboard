@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meli Card Drawer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcP-n3-xIP">
-                                <rect key="frame" x="16" y="36" width="167" height="24"/>
+                                <rect key="frame" x="16" y="16" width="167" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.10953362944162437" green="0.10953362944162437" blue="0.10953362944162437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="216" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-oe-xwh">
-                                <rect key="frame" x="16" y="76" width="343" height="216"/>
+                                <rect key="frame" x="16" y="56" width="343" height="216"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-jI-QID">
-                                <rect key="frame" x="16" y="304" width="343" height="85"/>
+                                <rect key="frame" x="16" y="284" width="343" height="85"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eVD-8F-V6j">
                                         <rect key="frame" x="8" y="8" width="239" height="30"/>
@@ -36,7 +34,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="mWh-lf-r2v"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" smartDashesType="no" smartQuotesType="no" textContentType="cc-number"/>
                                         <connections>
@@ -49,7 +46,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="wrq-wa-uC6"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                         <connections>
@@ -63,7 +59,6 @@
                                             <constraint firstAttribute="height" constant="30" id="ZVS-vC-wdp"/>
                                             <constraint firstAttribute="width" constant="80" id="lDm-Bj-7vu"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" smartDashesType="no" smartQuotesType="no" textContentType="cc-number"/>
                                         <connections>
@@ -79,7 +74,6 @@
                                             <constraint firstAttribute="height" constant="30" id="ig8-Kj-2cQ"/>
                                             <constraint firstAttribute="width" constant="80" id="mr6-fn-ePC"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" smartDashesType="no" smartQuotesType="no" textContentType="cc-number"/>
                                         <connections>
@@ -173,33 +167,46 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shine effect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ge-ld-a7R">
-                                <rect key="frame" x="16" y="413" width="90.5" height="20"/>
+                                <rect key="frame" x="16" y="417" width="90.5" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-wa-YXR">
-                                <rect key="frame" x="310" y="405.5" width="51" height="31"/>
+                                <rect key="frame" x="310" y="411.5" width="51" height="31"/>
                                 <color key="onTintColor" red="0.21176470588235294" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="didChangeShineToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="uFI-du-NZb"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safe Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAf-u5-LrJ">
+                                <rect key="frame" x="16" y="382" width="74" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="05j-0j-UkX">
+                                <rect key="frame" x="310" y="376.5" width="51" height="31"/>
+                                <color key="onTintColor" red="0.21176470589999999" green="0.53333333329999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="didChangeSafeArea:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gop-Db-BfQ"/>
+                                </connections>
+                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f2w-Kh-IVu">
-                                <rect key="frame" x="310" y="451.5" width="51" height="31"/>
+                                <rect key="frame" x="310" y="446.5" width="51" height="31"/>
                                 <color key="onTintColor" red="0.21176470588235294" green="0.53333333333333333" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="didCHangeUISwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="PZs-Ex-dHi"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark UI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKO-Bt-ll9">
-                                <rect key="frame" x="16" y="457" width="57" height="20"/>
+                                <rect key="frame" x="16" y="452" width="57" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFC-f5-0Pe">
-                                <rect key="frame" x="92" y="485" width="191" height="29"/>
+                                <rect key="frame" x="84.5" y="487" width="206" height="32"/>
                                 <segments>
                                     <segment title="Large"/>
                                     <segment title="Medium"/>
@@ -210,37 +217,42 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RcP-n3-xIP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0TL-jQ-6ja"/>
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="leading" secondItem="fnz-oe-xwh" secondAttribute="leading" id="3qA-JU-Kr7"/>
                             <constraint firstItem="f2w-Kh-IVu" firstAttribute="centerY" secondItem="mKO-Bt-ll9" secondAttribute="centerY" id="4FP-2O-dhY"/>
-                            <constraint firstItem="mKO-Bt-ll9" firstAttribute="top" secondItem="7Ge-ld-a7R" secondAttribute="bottom" constant="24" id="4sZ-BW-WJN"/>
+                            <constraint firstItem="mKO-Bt-ll9" firstAttribute="top" secondItem="7Ge-ld-a7R" secondAttribute="bottom" constant="15" id="4sZ-BW-WJN"/>
                             <constraint firstItem="jXB-56-CHd" firstAttribute="leading" secondItem="lBW-Vi-3Bx" secondAttribute="leading" id="Ahz-LE-V0F"/>
                             <constraint firstItem="Aba-wa-YXR" firstAttribute="trailing" secondItem="H4v-jI-QID" secondAttribute="trailing" id="CVH-B4-qYH"/>
+                            <constraint firstItem="05j-0j-UkX" firstAttribute="centerY" secondItem="QAf-u5-LrJ" secondAttribute="centerY" id="FE2-UV-O67"/>
                             <constraint firstItem="7Ge-ld-a7R" firstAttribute="leading" secondItem="H4v-jI-QID" secondAttribute="leading" id="L6e-IY-vdy"/>
                             <constraint firstItem="f2w-Kh-IVu" firstAttribute="trailing" secondItem="Aba-wa-YXR" secondAttribute="trailing" id="N9z-Ua-OYV"/>
+                            <constraint firstItem="05j-0j-UkX" firstAttribute="trailing" secondItem="Aba-wa-YXR" secondAttribute="trailing" id="PH4-HP-cef"/>
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="top" secondItem="jXB-56-CHd" secondAttribute="bottom" constant="8" id="UCS-44-Vp1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" constant="16" id="YXl-OH-1QX"/>
                             <constraint firstItem="mKO-Bt-ll9" firstAttribute="leading" secondItem="7Ge-ld-a7R" secondAttribute="leading" id="Ytu-9z-u7w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lBW-Vi-3Bx" secondAttribute="bottom" constant="16" id="Z7n-7a-X3I"/>
                             <constraint firstItem="RcP-n3-xIP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="a0E-p7-2Bl"/>
-                            <constraint firstItem="7Ge-ld-a7R" firstAttribute="top" secondItem="H4v-jI-QID" secondAttribute="bottom" constant="24" id="atA-cu-o7y"/>
+                            <constraint firstItem="QAf-u5-LrJ" firstAttribute="top" secondItem="H4v-jI-QID" secondAttribute="bottom" constant="13" id="aAY-H6-fNS"/>
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c39-jB-IBn"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="leading" secondItem="fnz-oe-xwh" secondAttribute="leading" id="c8y-di-yqM"/>
+                            <constraint firstItem="7Ge-ld-a7R" firstAttribute="top" secondItem="QAf-u5-LrJ" secondAttribute="bottom" constant="15" id="e2v-Uc-yMr"/>
+                            <constraint firstItem="QAf-u5-LrJ" firstAttribute="leading" secondItem="H4v-jI-QID" secondAttribute="leading" id="hrO-ic-gBK"/>
                             <constraint firstItem="bFC-f5-0Pe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hx9-Mh-gEx"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="top" secondItem="fnz-oe-xwh" secondAttribute="bottom" constant="12" id="jDu-9X-a0Z"/>
-                            <constraint firstItem="Aba-wa-YXR" firstAttribute="centerY" secondItem="7Ge-ld-a7R" secondAttribute="centerY" constant="-2" id="qWc-qD-iQj"/>
+                            <constraint firstItem="Aba-wa-YXR" firstAttribute="centerY" secondItem="7Ge-ld-a7R" secondAttribute="centerY" id="qWc-qD-iQj"/>
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="top" secondItem="RcP-n3-xIP" secondAttribute="bottom" constant="16" id="swQ-jF-Jm7"/>
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="t1W-zC-jPQ"/>
-                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="top" secondItem="mKO-Bt-ll9" secondAttribute="bottom" constant="8" id="uTV-Cl-HpL"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="top" secondItem="mKO-Bt-ll9" secondAttribute="bottom" constant="15" id="uTV-Cl-HpL"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="zOH-v8-UpJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cardTypesCollectionView" destination="lBW-Vi-3Bx" id="tzk-9e-DoF"/>
                         <outlet property="containerView" destination="fnz-oe-xwh" id="FCS-SM-WuE"/>
+                        <outlet property="safeAreaSwitch" destination="05j-0j-UkX" id="ERK-fB-HWD"/>
                         <outlet property="segmentedControl" destination="bFC-f5-0Pe" id="Pfx-zQ-s5x"/>
                     </connections>
                 </viewController>

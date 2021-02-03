@@ -20,7 +20,7 @@ class CardView: UIView {
     var color: UIColor?
     var disabledMode: Bool = false
     @objc var model: CardData?
-    private var cardUI: CardUI?
+    var cardUI: CardUI?
 
 
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String? = nil) {
@@ -157,6 +157,16 @@ extension CardView {
             overlayImage.image = customOverlayImage
         }
     }
+}
+
+@objc protocol CardViewCustomViewProtocol {
+    @objc optional func removeCustomView()
+    @objc optional func addCustomView(_ customView: UIView)
+}
+
+extension CardView: CardViewCustomViewProtocol{
+    func removeCustomView() {}
+    func addCustomView(_ customView: UIView) {}
 }
 
 extension CardView: CardViewInteractProtocol {

@@ -167,3 +167,19 @@ extension MLCardDrawerController {
         }
     }
 }
+
+// MARK: SafeZone feature
+extension MLCardDrawerController {
+    public func setCustomView(_ customView: UIView) {
+        
+        customView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        
+        frontView.addCustomView(customView)
+    }
+    
+    public func removeCustomView() {
+        frontView.removeCustomView()
+    }
+}
