@@ -40,7 +40,6 @@ public class ComboSwitchView: UIView {
         for (index, option) in switchModel.options.enumerated() {
             
             switchControl.setTitle(option.name, forSegmentAt: index)
-            switchControl.setEnabled(option.enabled, forSegmentAt: index)
             
             if(switchModel.defaultState == option.id) {
                 switchControl.selectedSegmentIndex = index
