@@ -5,14 +5,12 @@
 //  Created by Jonathan Scaramal on 31/01/2021.
 //
 
-public struct SwitchOption {
+public struct SwitchOption: Codable {
     var id: String
     var name: String
-    var enabled: Bool
     
-    public init(id: String, name: String, enabled: Bool) {
+    public init(id: String, name: String) {
         self.id = id
         self.name = name
-        self.enabled = enabled
     }
 }

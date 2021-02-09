@@ -5,7 +5,7 @@
 //  Created by Jonathan Scaramal on 31/01/2021.
 //
 
-public struct Text {
+public struct Text: Codable {
     var text: String?
     var textColor: String?
     var weight: String?
