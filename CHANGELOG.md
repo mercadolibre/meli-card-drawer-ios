@@ -1,3 +1,6 @@
+## [Release (1.5.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.3)
+### 🚀 Add combo switchview. 🚀
+- 
 ## [Release (1.5.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.2)
 - Make lib static 🚀
 
