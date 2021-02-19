@@ -14,6 +14,7 @@
                 <outlet property="expirationDate" destination="AMu-xJ-OI6" id="uGb-Mm-U1i"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="name" destination="ZMN-U6-Lcy" id="YHC-Uc-QhK"/>
+                <outlet property="nameBottomToSuperviewConstraint" destination="Zqi-vG-kju" id="scP-g1-TgR"/>
                 <outlet property="nameLeadingConstraint" destination="47K-ZK-WHj" id="vgY-kj-uiS"/>
                 <outlet property="nameToNumberTopConstraint" destination="uAh-2S-u7H" id="3yg-Lu-kAi"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
@@ -170,6 +171,7 @@
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="trailing" secondItem="AMu-xJ-OI6" secondAttribute="trailing" id="V0X-Zg-lw3"/>
                 <constraint firstItem="AMu-xJ-OI6" firstAttribute="centerY" secondItem="ZMN-U6-Lcy" secondAttribute="centerY" id="YcG-Cp-uXh"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="EUo-1b-VQe" secondAttribute="trailing" id="ZmV-6D-57z"/>
+                <constraint firstAttribute="bottom" secondItem="ZMN-U6-Lcy" secondAttribute="bottom" constant="26" id="Zqi-vG-kju"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" secondItem="ZMN-U6-Lcy" secondAttribute="leading" id="gPR-jP-sT0"/>
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="centerY" secondItem="89T-PX-cWX" secondAttribute="centerY" id="goL-C4-4Ge"/>
