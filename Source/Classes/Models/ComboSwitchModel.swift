@@ -8,9 +8,9 @@
 public struct SwitchModel: Codable {
     var description : Text?
     var states: SwitchStates
-    var options: [SwitchOption]
+    public var options: [SwitchOption]
     var backgroundColor: String
-    var defaultState : String
+    public var defaultState : String
     
     enum CodingKeys: String, CodingKey {
         case description
