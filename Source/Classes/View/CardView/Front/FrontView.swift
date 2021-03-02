@@ -23,6 +23,8 @@ class FrontView: CardView {
     
     var numberWidthAnchorProgConstraint : NSLayoutConstraint?
     
+    @IBOutlet weak var nameBottomToSuperviewConstraint: NSLayoutConstraint!
+    
     private var customView : UIView?
     
     override func setupUI(_ cardUI: CardUI) {
@@ -85,6 +87,9 @@ class FrontView: CardView {
         expirationDate.isHidden = true
         
         securityCode.isHidden = true
+        
+        // Name bottom to Superview constraint
+        nameBottomToSuperviewConstraint.isActive = false
         
         // Number To Name Horizontal Constraint
         numberToNameLeadingConstraint.isActive = false
@@ -155,6 +160,9 @@ class FrontView: CardView {
         
         // Number trailing constraint
         numberTrailingConstraint.constant = 24
+        
+        // Name bottom to Superview constraint
+        nameBottomToSuperviewConstraint.isActive = true
         
         // Make SafeZone hidden
         safeZone.isHidden = true

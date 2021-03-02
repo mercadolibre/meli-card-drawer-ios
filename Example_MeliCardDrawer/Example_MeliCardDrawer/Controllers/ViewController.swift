@@ -207,8 +207,8 @@ extension ViewController {
         let switchStates = SwitchStates(checkedState: checkedState, uncheckedState: uncheckedState, disabledState: disabledState)
         
         // Switch options
-        let debitOption = SwitchOption(id: "debit", name: "Débito", enabled: true)
-        let creditOption = SwitchOption(id: "credit", name: "Crédito", enabled: true)
+        let debitOption = SwitchOption(id: "debit", name: "Débito")
+        let creditOption = SwitchOption(id: "credit", name: "Crédito")
         
         let switchOptions = [debitOption, creditOption]
         
