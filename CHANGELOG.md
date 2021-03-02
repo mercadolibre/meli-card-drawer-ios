@@ -1,3 +1,8 @@
+## [Release (1.5.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.4)
+### 🚀 Combo 🚀
+- Updated combo signature
+- Fixed cardholder name bottom spacing
+
 ## [Release (1.5.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.3)
 ### 🚀 Add combo switchview. 🚀
 

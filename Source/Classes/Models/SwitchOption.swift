@@ -6,7 +6,7 @@
 //
 
 public struct SwitchOption: Codable {
-    var id: String
+    public var id: String
     var name: String
     
     public init(id: String, name: String) {
