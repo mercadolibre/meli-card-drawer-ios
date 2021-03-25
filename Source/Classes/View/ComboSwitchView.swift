@@ -11,14 +11,8 @@ public class ComboSwitchView: UIView {
     
     var switchDidChangeCallback : ((_ selectedOption: String) -> Void)?
     
-    @IBOutlet weak var switchControl: UISegmentedControl!
-    
-    @IBAction func switchDidChange(_ sender: Any) {
-        if let selectedOption = switchModel?.options[switchControl.selectedSegmentIndex], let callback = switchDidChangeCallback {
-            callback(selectedOption.id)
-        }
-    }
-    
+    @IBOutlet weak var switchControl: CustomSwitch!
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -37,19 +31,20 @@ public class ComboSwitchView: UIView {
         
         self.switchModel = switchModel
         
-        for (index, option) in switchModel.options.enumerated() {
-            
-            switchControl.setTitle(option.name, forSegmentAt: index)
-            
-            if(switchModel.defaultState == option.id) {
-                switchControl.selectedSegmentIndex = index
-            }
-            
-        }
+        switchControl.setButtonTitles(buttonTitles: switchModel.options.map { $0.name })
+        switchControl.delegate = self
         
     }
     
     public func setSwitchDidChangeCallback(switchDidChangeCallback: @escaping (_ selectedOption: String) -> Void) {
         self.switchDidChangeCallback = switchDidChangeCallback
+    }
+}
+
+extension ComboSwitchView: CustomSwitchDelegate {
+    func change(to index: Int) {
+        if let name = switchModel?.options[index].name, let callback = switchDidChangeCallback {
+            callback(name)
+        }
     }
 }

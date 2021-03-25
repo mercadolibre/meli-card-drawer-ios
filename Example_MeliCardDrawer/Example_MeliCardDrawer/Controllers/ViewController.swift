@@ -204,7 +204,7 @@ extension ViewController {
         let uncheckedState = State(textColor: "", backgroundColor: "", weight: "")
         let disabledState = State(textColor: "", backgroundColor: "", weight: "")
         
-        let switchStates = SwitchStates(checkedState: checkedState, uncheckedState: uncheckedState, disabledState: disabledState)
+        let switchStates = SwitchStates(checked: checkedState, unchecked: uncheckedState, disabled: disabledState)
         
         // Switch options
         let debitOption = SwitchOption(id: "debit", name: "Débito")
