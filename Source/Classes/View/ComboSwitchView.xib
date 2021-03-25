@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSwitchView">
             <connections>
+                <outlet property="comboLabel" destination="n7d-XQ-pfR" id="JfJ-i0-GK6"/>
                 <outlet property="switchControl" destination="uY1-6r-S5E" id="yfD-MD-5v7"/>
             </connections>
         </placeholder>

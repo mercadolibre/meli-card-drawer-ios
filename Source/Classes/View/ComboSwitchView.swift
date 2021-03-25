@@ -12,7 +12,8 @@ public class ComboSwitchView: UIView {
     var switchDidChangeCallback : ((_ selectedOption: String) -> Void)?
     
     @IBOutlet weak var switchControl: CustomSwitch!
-  
+    @IBOutlet weak var comboLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -28,12 +29,16 @@ public class ComboSwitchView: UIView {
     }
     
     public func setSwitchModel(_ switchModel : SwitchModel) {
-        
         self.switchModel = switchModel
-        
-        switchControl.setButtonTitles(buttonTitles: switchModel.options.map { $0.name })
         switchControl.delegate = self
-        
+        switchControl.setButtonTitles(buttonTitles: switchModel.options.map { $0.name })
+        switchControl.backgroundColor = UIColor(hexaRGB: switchModel.switchBackgroundColor)
+        switchControl.selectorViewColor = UIColor(hexaRGB: switchModel.pillBackgroundColor)!
+        switchControl.selectorTextColor = UIColor(hexaRGB: switchModel.states.checked.textColor)!
+        switchControl.textColor = UIColor(hexaRGB: switchModel.states.unchecked.textColor)!
+        comboLabel.textColor = UIColor(hexaRGB: switchModel.description.textColor!)
+        comboLabel.text = switchModel.description.text
+        backgroundColor = UIColor(hexaARGB: switchModel.safeZoneBackgroundColor)
     }
     
     public func setSwitchDidChangeCallback(switchDidChangeCallback: @escaping (_ selectedOption: String) -> Void) {
