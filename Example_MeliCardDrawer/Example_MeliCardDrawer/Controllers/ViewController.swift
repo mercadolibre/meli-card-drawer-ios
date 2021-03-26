@@ -227,10 +227,6 @@ extension ViewController {
         
         customView.setSwitchModel(switchModel)
         
-        customView.setSwitchDidChangeCallback() {
-          print("selected option \($0)")
-        }
-        
         return customView
     }
 }
