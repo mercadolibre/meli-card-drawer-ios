@@ -217,7 +217,7 @@ extension ViewController {
         // Switch model
         let switchModel = SwitchModel(description: description,
                                       states: switchStates,
-                                      defaultState: "debit_card",
+                                      defaultState: "credit_card",
                                       switchBackgroundColor: "#009ee3",
                                       pillBackgroundColor: "#ffffff",
                                       safeZoneBackgroundColor: "#26000000",

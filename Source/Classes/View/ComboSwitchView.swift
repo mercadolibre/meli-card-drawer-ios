@@ -28,14 +28,15 @@ public class ComboSwitchView: UIView {
         loadFromNib()
     }
     
-    public func setSwitchModel(_ switchModel : SwitchModel) {
+    public func setSwitchModel(_ switchModel: SwitchModel) {
         self.switchModel = switchModel
         switchControl.delegate = self
-        switchControl.setButtonTitles(buttonTitles: switchModel.options.map { $0.name })
         switchControl.backgroundColor = UIColor(hexaRGB: switchModel.switchBackgroundColor)
         switchControl.selectorViewColor = UIColor(hexaRGB: switchModel.pillBackgroundColor)!
         switchControl.selectorTextColor = UIColor(hexaRGB: switchModel.states.checked.textColor)!
         switchControl.textColor = UIColor(hexaRGB: switchModel.states.unchecked.textColor)!
+        switchControl.selectedOption = switchModel.defaultState
+        switchControl.setOptions(options: switchModel.options)
         comboLabel.textColor = UIColor(hexaRGB: switchModel.description.textColor!)
         comboLabel.text = switchModel.description.text
         backgroundColor = UIColor(hexaARGB: switchModel.safeZoneBackgroundColor)
