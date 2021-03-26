@@ -19,6 +19,9 @@ class CustomSwitch: UIView {
     var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = UIColor(displayP3Red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     
+    var buttonFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
+    var buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
+        
     convenience init(frame: CGRect, options: [SwitchOption]) {
         self.init(frame: frame)
         self.options = options
@@ -92,10 +95,11 @@ class CustomSwitch: UIView {
             button.addTarget(self, action: #selector(self.buttonAction(sender:)),
                              for: .touchUpInside)
             button.setTitleColor(textColor, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+            button.titleLabel?.font = buttonFont
             buttons.append(button)
         }
         buttons[0].setTitleColor(selectorTextColor, for: .normal)
+        buttons[0].titleLabel?.font = buttonSelectedFont
     }
     
     @objc func buttonAction(sender: UIButton) {

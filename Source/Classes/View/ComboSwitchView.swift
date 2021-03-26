@@ -33,9 +33,12 @@ public class ComboSwitchView: UIView {
         switchControl.selectorTextColor = UIColor(hexaRGB: switchModel.states.checked.textColor)!
         switchControl.textColor = UIColor(hexaRGB: switchModel.states.unchecked.textColor)!
         switchControl.defaulSelection = switchModel.defaultState
+        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont()
+        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
         switchControl.setOptions(options: switchModel.options)
         comboLabel.textColor = UIColor(hexaRGB: switchModel.description.textColor!)
         comboLabel.text = switchModel.description.text
+        comboLabel.font = switchModel.description.weight?.getFont()
         backgroundColor = UIColor(hexaARGB: switchModel.safeZoneBackgroundColor)
     }
     
