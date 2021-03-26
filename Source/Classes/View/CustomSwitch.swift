@@ -7,14 +7,17 @@
 
 import UIKit
 
+protocol CustomSwitchDelegate: class {
+    func change(to index: Int)
+}
+
 class CustomSwitch: UIView {
 
     private var options: [SwitchOption]!
     private var buttons: [UIButton]!
     private var selectorView: UIView!
-    var selectedOption: SwitchOption?
     
-    var defaulSelection = ""
+    var selectedOption = ""
     var textColor: UIColor = .white
     var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = UIColor(displayP3Red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -22,6 +25,8 @@ class CustomSwitch: UIView {
     var buttonFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
     var buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
         
+    weak var delegate: CustomSwitchDelegate?
+    
     convenience init(frame: CGRect, options: [SwitchOption]) {
         self.init(frame: frame)
         self.options = options
@@ -82,7 +87,7 @@ class CustomSwitch: UIView {
     }
     
     func selectDefault() {
-        let selectedIndex = options.firstIndex { $0.id == defaulSelection } ?? 0
+        let selectedIndex = options.firstIndex { $0.id == selectedOption } ?? 0
         buttonActionNotAnimated(sender: buttons[selectedIndex])
     }
     
@@ -106,7 +111,7 @@ class CustomSwitch: UIView {
         for (buttonIndex, button) in buttons.enumerated() {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                selectedOption = options[buttonIndex]
+                delegate?.change(to: buttonIndex)
                 UIView.animate(withDuration: 0.3) {
                     self.selectorView.center.x = button.center.x
                 }
@@ -119,13 +124,13 @@ class CustomSwitch: UIView {
         for (buttonIndex, button) in buttons.enumerated() {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                selectedOption = options[buttonIndex]
+                delegate?.change(to: buttonIndex)
                 self.selectorView.center.x = button.center.x
                 button.setTitleColor(selectorTextColor, for: .normal)
             }
         }
     }
-    
+
 }
 
 extension UIView {

@@ -9,6 +9,8 @@ public class ComboSwitchView: UIView {
     
     var switchModel : SwitchModel?
     
+    var switchDidChangeCallback : ((_ selectedOption: String) -> Void)?
+    
     @IBOutlet weak var switchControl: CustomSwitch!
     @IBOutlet weak var comboLabel: UILabel!
     
@@ -28,21 +30,30 @@ public class ComboSwitchView: UIView {
     
     public func setSwitchModel(_ switchModel: SwitchModel) {
         self.switchModel = switchModel
+        switchControl.delegate = self
         switchControl.backgroundColor = UIColor(hexaRGB: switchModel.switchBackgroundColor)
         switchControl.selectorViewColor = UIColor(hexaRGB: switchModel.pillBackgroundColor)!
         switchControl.selectorTextColor = UIColor(hexaRGB: switchModel.states.checked.textColor)!
         switchControl.textColor = UIColor(hexaRGB: switchModel.states.unchecked.textColor)!
-        switchControl.defaulSelection = switchModel.defaultState
         switchControl.buttonFont = switchModel.states.unchecked.weight.getFont()
         switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
         switchControl.setOptions(options: switchModel.options)
+        switchControl.selectedOption = switchModel.defaultState
         comboLabel.textColor = UIColor(hexaRGB: switchModel.description.textColor!)
         comboLabel.text = switchModel.description.text
         comboLabel.font = switchModel.description.weight?.getFont()
         backgroundColor = UIColor(hexaARGB: switchModel.safeZoneBackgroundColor)
     }
     
-    public func getSelectedSwitchOption() -> SwitchOption? {
-        return switchControl.selectedOption 
+    public func setSwitchDidChangeCallback(switchDidChangeCallback: @escaping (_ selectedOption: String) -> Void) {
+        self.switchDidChangeCallback = switchDidChangeCallback
+    }
+}
+
+extension ComboSwitchView: CustomSwitchDelegate {
+    func change(to index: Int) {
+        if let name = switchModel?.options[index].name, let callback = switchDidChangeCallback {
+            callback(name)
+        }
     }
 }
