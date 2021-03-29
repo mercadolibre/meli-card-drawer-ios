@@ -8,7 +8,7 @@
 public struct SwitchModel: Codable {
     let description: Text
     let states: SwitchStates
-    let defaultState: String
+    public let defaultState: String
     let switchBackgroundColor: String
     let pillBackgroundColor: String
     let safeZoneBackgroundColor: String

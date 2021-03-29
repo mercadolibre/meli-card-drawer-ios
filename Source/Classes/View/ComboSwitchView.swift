@@ -31,18 +31,18 @@ public class ComboSwitchView: UIView {
     public func setSwitchModel(_ switchModel: SwitchModel) {
         self.switchModel = switchModel
         switchControl.delegate = self
-        switchControl.backgroundColor = UIColor(hexaRGB: switchModel.switchBackgroundColor)
-        switchControl.selectorViewColor = UIColor(hexaRGB: switchModel.pillBackgroundColor)!
-        switchControl.selectorTextColor = UIColor(hexaRGB: switchModel.states.checked.textColor)!
-        switchControl.textColor = UIColor(hexaRGB: switchModel.states.unchecked.textColor)!
+        switchControl.backgroundColor = UIColor.fromHex(switchModel.switchBackgroundColor)
+        switchControl.selectorViewColor = UIColor.fromHex(switchModel.pillBackgroundColor)
+        switchControl.selectorTextColor = UIColor.fromHex(switchModel.states.checked.textColor)
+        switchControl.textColor = UIColor.fromHex(switchModel.states.unchecked.textColor)
         switchControl.buttonFont = switchModel.states.unchecked.weight.getFont()
         switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
-        comboLabel.textColor = UIColor(hexaRGB: switchModel.description.textColor!)
+        comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
         comboLabel.text = switchModel.description.text
         comboLabel.font = switchModel.description.weight?.getFont()
-        backgroundColor = UIColor(hexaARGB: switchModel.safeZoneBackgroundColor)
+        backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
     }
     
     public func setSwitchDidChangeCallback(switchDidChangeCallback: @escaping (_ selectedOption: String) -> Void) {

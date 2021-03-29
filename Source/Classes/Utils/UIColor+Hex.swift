@@ -6,44 +6,18 @@
 //
 
 extension UIColor {
-    convenience init?(hexaRGB: String, alpha: CGFloat = 1) {
-        var chars = Array(hexaRGB.hasPrefix("#") ? hexaRGB.dropFirst() : hexaRGB[...])
-        switch chars.count {
-        case 3: chars = chars.flatMap { [$0, $0] }
-        case 6: break
-        default: return nil
+    class func fromHex(_ hexValue: String) -> UIColor {
+        let hexAlphabet = "0123456789abcdefABCDEF"
+        let hex = hexValue.trimmingCharacters(in: CharacterSet(charactersIn: hexAlphabet).inverted)
+        var hexInt = UInt32()
+        Scanner(string: hex).scanHexInt32(&hexInt)
+        let alpha, red, green, blue: UInt32
+        switch hex.count {
+        case 3: (alpha, red, green, blue) = (255, (hexInt >> 8) * 17, (hexInt >> 4 & 0xF) * 17, (hexInt & 0xF) * 17) // RGB
+        case 6: (alpha, red, green, blue) = (255, hexInt >> 16, hexInt >> 8 & 0xFF, hexInt & 0xFF) // RRGGBB
+        case 8: (alpha, red, green, blue) = (hexInt >> 24, hexInt >> 16 & 0xFF, hexInt >> 8 & 0xFF, hexInt & 0xFF) // AARRGGBB
+        default: return UIColor.black
         }
-        self.init(red: .init(strtoul(String(chars[0...1]), nil, 16)) / 255,
-                green: .init(strtoul(String(chars[2...3]), nil, 16)) / 255,
-                 blue: .init(strtoul(String(chars[4...5]), nil, 16)) / 255,
-                alpha: alpha)
-    }
-
-    convenience init?(hexaRGBA: String) {
-        var chars = Array(hexaRGBA.hasPrefix("#") ? hexaRGBA.dropFirst() : hexaRGBA[...])
-        switch chars.count {
-        case 3: chars = chars.flatMap { [$0, $0] }; fallthrough
-        case 6: chars.append(contentsOf: ["F","F"])
-        case 8: break
-        default: return nil
-        }
-        self.init(red: .init(strtoul(String(chars[0...1]), nil, 16)) / 255,
-                green: .init(strtoul(String(chars[2...3]), nil, 16)) / 255,
-                 blue: .init(strtoul(String(chars[4...5]), nil, 16)) / 255,
-                alpha: .init(strtoul(String(chars[6...7]), nil, 16)) / 255)
-    }
-    
-    convenience init?(hexaARGB: String) {
-        var chars = Array(hexaARGB.hasPrefix("#") ? hexaARGB.dropFirst() : hexaARGB[...])
-        switch chars.count {
-        case 3: chars = chars.flatMap { [$0, $0] }; fallthrough
-        case 6: chars.append(contentsOf: ["F","F"])
-        case 8: break
-        default: return nil
-        }
-        self.init(red: .init(strtoul(String(chars[2...3]), nil, 16)) / 255,
-                green: .init(strtoul(String(chars[4...5]), nil, 16)) / 255,
-                 blue: .init(strtoul(String(chars[6...7]), nil, 16)) / 255,
-                alpha: .init(strtoul(String(chars[0...1]), nil, 16)) / 255)
+        return UIColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: CGFloat(alpha)/255)
     }
 }
