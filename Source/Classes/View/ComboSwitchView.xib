@@ -20,23 +20,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você paga com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-XQ-pfR">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você paga com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-XQ-pfR">
                     <rect key="frame" x="16" y="36" width="114.5" height="19.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="114.5" id="IOi-dJ-bZq"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY1-6r-S5E" customClass="CustomSwitch" customModule="MLCardDrawer">
-                    <rect key="frame" x="178.5" y="16" width="125.5" height="59"/>
+                    <rect key="frame" x="158.5" y="16" width="145.5" height="51"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="uY1-6r-S5E" firstAttribute="leading" secondItem="n7d-XQ-pfR" secondAttribute="trailing" constant="48" id="858-QA-vE4"/>
+                <constraint firstItem="uY1-6r-S5E" firstAttribute="leading" secondItem="n7d-XQ-pfR" secondAttribute="trailing" constant="28" id="858-QA-vE4"/>
                 <constraint firstItem="n7d-XQ-pfR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Iiy-Gt-uZR"/>
-                <constraint firstItem="uY1-6r-S5E" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VX1-JW-ECr"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uY1-6r-S5E" secondAttribute="bottom" constant="16" id="lDX-Ad-Hpy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uY1-6r-S5E" secondAttribute="bottom" constant="24" id="lDX-Ad-Hpy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uY1-6r-S5E" secondAttribute="trailing" constant="16" id="rYb-xj-UXK"/>
                 <constraint firstItem="n7d-XQ-pfR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="w54-dD-5n4"/>
                 <constraint firstItem="uY1-6r-S5E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="xnT-Is-shK"/>
