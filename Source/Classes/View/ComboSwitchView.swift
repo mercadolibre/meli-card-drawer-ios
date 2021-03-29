@@ -52,8 +52,8 @@ public class ComboSwitchView: UIView {
 
 extension ComboSwitchView: CustomSwitchDelegate {
     func change(to index: Int) {
-        if let name = switchModel?.options[index].name, let callback = switchDidChangeCallback {
-            callback(name)
+        if let id = switchModel?.options[index].id, let callback = switchDidChangeCallback {
+            callback(id)
         }
     }
 }
