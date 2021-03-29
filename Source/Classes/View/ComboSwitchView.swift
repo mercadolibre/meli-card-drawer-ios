@@ -40,7 +40,7 @@ public class ComboSwitchView: UIView {
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
         comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
-        comboLabel.text = switchModel.description.text
+        comboLabel.text = switchModel.description.message
         comboLabel.font = switchModel.description.weight?.getFont()
         backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
     }
@@ -52,8 +52,8 @@ public class ComboSwitchView: UIView {
 
 extension ComboSwitchView: CustomSwitchDelegate {
     func change(to index: Int) {
-        if let name = switchModel?.options[index].name, let callback = switchDidChangeCallback {
-            callback(name)
+        if let id = switchModel?.options[index].id, let callback = switchDidChangeCallback {
+            callback(id)
         }
     }
 }
