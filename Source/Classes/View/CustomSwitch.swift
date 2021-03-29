@@ -48,7 +48,6 @@ class CustomSwitch: UIView {
     }
         
     private func updateView() {
-        backgroundColor = UIColor(displayP3Red: 0, green: 0.62, blue: 0.89, alpha: 1)
         layer.cornerRadius = frame.height/2
         layer.masksToBounds = true
         createButton()

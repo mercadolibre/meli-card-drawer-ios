@@ -7,17 +7,17 @@
 
 public struct Text: Codable {
     var textColor: String?
-    var text: String?
+    var message: String?
     var weight: String?
     
     enum CodingKeys: String, CodingKey {
         case textColor = "text_color"
-        case text
+        case message
         case weight
     }
     
-    public init(text: String, textColor: String, weight: String) {
-        self.text = text
+    public init(message: String, textColor: String, weight: String) {
+        self.message = message
         self.textColor = textColor
         self.weight = weight
     }
