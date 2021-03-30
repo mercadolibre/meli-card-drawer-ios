@@ -67,9 +67,9 @@ class CustomSwitch: UIView {
         stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         stackView.layoutMargins = UIEdgeInsets(top: 0,
-                                               left: selectorView.frame.origin.x,
+                                               left: selectorView.frame.origin.y,
                                                bottom: 0,
-                                               right: selectorView.frame.origin.x)
+                                               right: selectorView.frame.origin.y)
         stackView.isLayoutMarginsRelativeArrangement = true
     }
     
@@ -81,7 +81,7 @@ class CustomSwitch: UIView {
                                             height: self.frame.height))
         selectorView.backgroundColor = selectorViewColor
         selectorView.layer.cornerRadius = selectorView.frame.height/2
-        selectorView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        selectorView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         selectorView.layer.borderWidth = 3
         selectorView.layer.borderColor = selectorViewColor.cgColor
         selectorView.addInnerShadow()
