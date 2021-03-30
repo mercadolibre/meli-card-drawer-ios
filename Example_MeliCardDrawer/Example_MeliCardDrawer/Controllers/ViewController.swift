@@ -212,7 +212,7 @@ extension ViewController {
         let switchOptions = [debitOption, creditOption]
         
         // Description
-        let description = Text(text: "Você paga com", textColor: "#ffffff", weight: "semi_bold")
+        let description = Text(message: "Você paga com", textColor: "#ffffff", weight: "semi_bold")
         
         // Switch model
         let switchModel = SwitchModel(description: description,
