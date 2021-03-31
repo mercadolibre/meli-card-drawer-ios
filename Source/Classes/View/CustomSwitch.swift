@@ -66,10 +66,7 @@ class CustomSwitch: UIView {
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        stackView.layoutMargins = UIEdgeInsets(top: 0,
-                                               left: selectorView.frame.origin.y,
-                                               bottom: 0,
-                                               right: selectorView.frame.origin.y)
+        stackView.layoutMargins = .zero
         stackView.isLayoutMarginsRelativeArrangement = true
     }
     
