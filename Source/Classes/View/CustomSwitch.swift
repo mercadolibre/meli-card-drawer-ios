@@ -93,7 +93,7 @@ class CustomSwitch: UIView {
     private func createButton() {
         buttons = []
         subviews.forEach({$0.removeFromSuperview()})
-        for buttonTitle in options.map{ $0.name } {
+        for buttonTitle in options.map({$0.name}) {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.addTarget(self, action: #selector(self.buttonAction(sender:)),
