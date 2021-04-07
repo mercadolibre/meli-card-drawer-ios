@@ -75,7 +75,6 @@ import UIKit
         case .medium:
             backView = MediumBackView()
             frontView = MediumFrontView()
-            
         case .small:
             backView = SmallBackView()
             frontView = SmallFrontView()

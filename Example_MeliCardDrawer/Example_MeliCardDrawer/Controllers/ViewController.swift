@@ -4,7 +4,7 @@
 //
 //  Created by Juan sebastian Sanzone on 5/21/19.
 //  Copyright © 2019 Mercadolibre. All rights reserved.
-//
+// 
 
 import UIKit
 import MLCardDrawer
@@ -200,29 +200,33 @@ extension ViewController {
     
     func generateComboSwitchView () -> UIView {
         // Switch States
-        let checkedState = State(textColor: "", backgroundColor: "", weight: "")
-        let uncheckedState = State(textColor: "", backgroundColor: "", weight: "")
-        let disabledState = State(textColor: "", backgroundColor: "", weight: "")
+        let checkedState = State(textColor: "#333333", weight: "normal")
+        let uncheckedState = State(textColor: "#ffffff", weight: "normal")
         
-        let switchStates = SwitchStates(checkedState: checkedState, uncheckedState: uncheckedState, disabledState: disabledState)
+        let switchStates = SwitchStates(checked: checkedState, unchecked: uncheckedState)
         
         // Switch options
-        let debitOption = SwitchOption(id: "debit", name: "Débito")
-        let creditOption = SwitchOption(id: "credit", name: "Crédito")
+        let debitOption = SwitchOption(id: "debit_card", name: "Débito")
+        let creditOption = SwitchOption(id: "credit_card", name: "Crédito")
         
         let switchOptions = [debitOption, creditOption]
         
         // Description
-        let description = Text(text: "Description", textColor: "", weight: "")
+        let description = Text(message: "Você paga com", textColor: "#ffffff", weight: "semi_bold")
         
         // Switch model
-        let switchModel = SwitchModel(description: description, states: switchStates, options: switchOptions, backgroundColor: "", defaultState: "debit")
+        let switchModel = SwitchModel(description: description,
+                                      states: switchStates,
+                                      defaultState: "credit_card",
+                                      switchBackgroundColor: "#009ee3",
+                                      pillBackgroundColor: "#ffffff",
+                                      safeZoneBackgroundColor: "#26000000",
+                                      options: switchOptions)
         
         let customView = ComboSwitchView()
         
         customView.setSwitchModel(switchModel)
         
-        // switchDidChange callback
         customView.setSwitchDidChangeCallback() {
           print("selected option \($0)")
         }
