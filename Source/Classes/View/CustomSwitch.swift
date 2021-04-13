@@ -106,7 +106,6 @@ class CustomSwitch: UIView {
         for (buttonIndex, button) in buttons.enumerated() {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                delegate?.change(to: buttonIndex)
                 UIView.animate(withDuration: 0.3) { [weak self] in
                     self?.selectorView.center.x = button.center.x
                 } completion: { [weak self] _ in
