@@ -35,16 +35,12 @@ class CustomSwitch: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         updateView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.selectDefault() }
     }
     
     func setOptions(options: [SwitchOption]) {
         self.options = options
         updateView()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        selectDefault()
     }
         
     private func updateView() {
@@ -111,8 +107,10 @@ class CustomSwitch: UIView {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
                 delegate?.change(to: buttonIndex)
-                UIView.animate(withDuration: 0.3) {
-                    self.selectorView.center.x = button.center.x
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    self?.selectorView.center.x = button.center.x
+                } completion: { [weak self] _ in
+                    self?.delegate?.change(to: buttonIndex)
                 }
                 button.setTitleColor(selectorTextColor, for: .normal)
             }
