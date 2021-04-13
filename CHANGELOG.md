@@ -1,3 +1,7 @@
+## [Release (1.5.6)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.6)
+### 🚀 Combo 🚀
+- Switch improvements 
+
 ## [Release (1.5.5)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.5)
 ### 🚀 Combo 🚀
 - New switch design
