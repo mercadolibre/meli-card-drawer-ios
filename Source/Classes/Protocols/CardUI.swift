@@ -6,7 +6,7 @@ import UIKit
 }
 
 @objc public protocol CardUI {
-    var cardPattern: [Int] { get }
+    var cardPattern: [Int] { get set }
     var placeholderName: String { get }
     var placeholderExpiration: String { get }
     var cardFontColor: UIColor { get }

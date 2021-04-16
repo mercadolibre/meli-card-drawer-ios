@@ -4,7 +4,6 @@ import MLCardDrawer
 struct CardUIExamples {
     
     static let cardUILists: [CardUI] = [
-        CardUIExamples.SafeArea(),
         CardUIExamples.AmericanExpress(),
         CardUIExamples.Visa(),
         CardUIExamples.Maestro19(),
@@ -37,21 +36,7 @@ struct CardUIExamples {
         var defaultUI = true
         var securityCodePattern = 3
     }
-    
-    // Example - SafeArea
-    class SafeArea: NSObject, CardUI {
-        var placeholderName = "NOMBRE Y APELLIDO"
-        var placeholderExpiration = "MM/AA"
-        var bankImage: UIImage?
-        var cardPattern = [4, 4]
-        var cardFontColor: UIColor = .white
-        var cardLogoImage: UIImage? = UIImage(named: "visa")
-        var cardBackgroundColor: UIColor = UIColor(red: 135/255, green: 171/255, blue: 158/255, alpha: 1)
-        var securityCodeLocation: MLCardSecurityCodeLocation = .back
-        var defaultUI = false
-        var securityCodePattern = 3
-        var fontType: String = "light"
-    }
+
 
     // Example - American Express
     class AmericanExpress: NSObject, CardUI {

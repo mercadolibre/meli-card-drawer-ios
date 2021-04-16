@@ -117,10 +117,9 @@ class CustomSwitch: UIView {
     }
     
     func buttonActionNotAnimated(sender: UIButton) {
-        for (buttonIndex, button) in buttons.enumerated() {
+        for button in buttons {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                delegate?.change(to: buttonIndex)
                 self.selectorView.center.x = button.center.x
                 button.setTitleColor(selectorTextColor, for: .normal)
             }
