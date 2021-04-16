@@ -113,18 +113,52 @@ class FrontView: CardView {
         
         // Number width change
         
-        if let cardPattern = cardUI?.cardPattern, let font = number.font, let kerning = number.formatter.attributes[.kern] as? Double ?? 0 as Double? {
-            let slices = max(cardPattern.count - 1, 0)
+        if let cardUI = cardUI, cardUI.cardPattern.count > 1 {
+                
+            number.adjustsFontSizeToFitWidth = false
+            number.lineBreakMode = .byClipping
             
-            let charCount = cardPattern.reduce(0, +)
+            number.font = number.font.withSize(14)
+            
+            number.textAlignment = .right
+            
+            let font = number.font
+        
+            // If the last group is bigger than 6 chars use this one only, if not use last two groups
+            let offset = cardUI.cardPattern[cardUI.cardPattern.count - 1] > 6 ? 1 : 2
+            
+            // Get only the last two groups of numbers
+            let range = cardUI.cardPattern.index(cardUI.cardPattern.endIndex, offsetBy: -1 * offset) ..< cardUI.cardPattern.endIndex
+            
+            let modifiedCardPattern = Array(cardUI.cardPattern[range])
+            
+            cardUI.cardPattern = modifiedCardPattern
+            
+            let slices = max(modifiedCardPattern.count - 1, 0)
+            
+            let charCount = modifiedCardPattern.reduce(0, +)
+            
+            var modifiedNumber : String = model?.number ?? ""
+            
+            // Get only the last parts of cardNumber
+            if let cardNumber = model?.number, cardNumber.count > charCount {
+                let numberRange = cardNumber.index(cardNumber.endIndex, offsetBy: charCount * -1) ..< cardNumber.endIndex
+                modifiedNumber = String(cardNumber[numberRange])
+                model?.number = modifiedNumber
+            }
             
             let totalChars = slices + charCount
             
-            let width = totalChars * Int(font.size(" ", kerning: kerning).width)
+            let kerning = number.formatter.attributes[.kern] as? Double ?? 0.0
+            
+            let width = totalChars * Int(number.font.size(" ", kerning: kerning).width)
             
             numberWidthAnchorProgConstraint = number.widthAnchor.constraint(equalToConstant: CGFloat(width))
             
             numberWidthAnchorProgConstraint?.isActive = true
+            
+            number.formatter = Mask(pattern: modifiedCardPattern, digits: modifiedNumber)
+            
         }
         
         // Make SafeZone visible and add customView
