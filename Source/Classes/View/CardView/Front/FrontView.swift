@@ -113,18 +113,68 @@ class FrontView: CardView {
         
         // Number width change
         
-        if let cardPattern = cardUI?.cardPattern, let font = number.font, let kerning = number.formatter.attributes[.kern] as? Double ?? 0 as Double? {
-            let slices = max(cardPattern.count - 1, 0)
+        if let cardUI = cardUI, cardUI.cardPattern.count > 0 {
             
-            let charCount = cardPattern.reduce(0, +)
+            number.adjustsFontSizeToFitWidth = false
+            number.lineBreakMode = .byClipping
+            
+            number.font = number.font.withSize(16)
+            
+            number.textAlignment = .right
+            
+            var modifiedCardPattern : [Int], modifiedNumber : String, charCount : Int
+            
+            if cardUI.cardPattern.count > 2 || (cardUI.cardPattern.count == 2 && cardUI.cardPattern.reduce(0,+) > 12) {
+                
+                let font = number.font
+                // If card pattern is still bigger than two it will be modified
+                // If the last group is bigger than 6 chars use this one only, if not use last two groups
+                let offset = cardUI.cardPattern[cardUI.cardPattern.count - 1] > 6 ? 1 : 2
+                
+                // Get only the last two groups of numbers
+                let range = cardUI.cardPattern.index(cardUI.cardPattern.endIndex, offsetBy: -1 * offset) ..< cardUI.cardPattern.endIndex
+                
+                modifiedCardPattern = Array(cardUI.cardPattern[range])
+                
+                cardUI.cardPattern = modifiedCardPattern
+                
+                modifiedNumber = model?.number ?? ""
+                
+                charCount = modifiedCardPattern.reduce(0, +)
+                
+                // Get only the last parts of cardNumber
+                if let cardNumber = model?.number, cardNumber.count > charCount {
+                    let numberRange = cardNumber.index(cardNumber.endIndex, offsetBy: charCount * -1) ..< cardNumber.endIndex
+                    modifiedNumber = String(cardNumber[numberRange])
+                }
+                
+            } else {
+                modifiedNumber = model?.number ?? ""
+                
+                modifiedCardPattern = cardUI.cardPattern
+                
+                charCount = modifiedCardPattern.reduce(0, +)
+            }
+            
+            let slices = min(max(modifiedCardPattern.count - 1, 0), 1)
             
             let totalChars = slices + charCount
             
-            let width = totalChars * Int(font.size(" ", kerning: kerning).width)
+            let kerning = number.formatter.attributes[.kern] as? Double ?? 0.0
+            
+            let width = CGFloat(totalChars) * number.font.size(" ", kerning: kerning).width
             
             numberWidthAnchorProgConstraint = number.widthAnchor.constraint(equalToConstant: CGFloat(width))
             
             numberWidthAnchorProgConstraint?.isActive = true
+            
+            number.layoutIfNeeded()
+            
+            number.formatter = Mask(pattern: modifiedCardPattern, digits: modifiedNumber)
+            
+            model?.number = modifiedNumber
+            
+            
         }
         
         // Make SafeZone visible and add customView
@@ -142,6 +192,10 @@ class FrontView: CardView {
         expirationDate.isHidden = false
         
         securityCode.isHidden = false
+        
+        number.adjustsFontSizeToFitWidth = true
+        
+        number.lineBreakMode = .byTruncatingTail
         
         // Number width change
         numberWidthAnchorProgConstraint?.isActive = false
