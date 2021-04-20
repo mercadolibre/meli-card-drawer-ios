@@ -34,11 +34,7 @@ class Mask {
 
         let len = text == placeholder ? 0 : text.count
         var range = NSMakeRange(0, len)
-
-        if !placeholder.isEmpty && !pattern.isEmpty {
-            range = NSMakeRange(text.count-placeholder.count, placeholder.count)
-        }
-
+        
         let attributed = NSMutableAttributedString(string: text, attributes: attributes)
 
         attributed.addAttributes(editAtributes(font, color), range: range)
@@ -61,9 +57,11 @@ class Mask {
     func pattern(_ text: String, _ totalPad: Int) -> String {
 
         var current = text.padding(toLength: length, withPad: "\(pad)", startingAt: 0)
+        
+        let offset = max(current.count - placeholder.count, 0)
 
         let range = current.index(current.startIndex,
-                                  offsetBy: current.count - placeholder.count)..<current.endIndex
+                                  offsetBy: offset)..<current.endIndex
 
         current.replaceSubrange(range, with: placeholder)
 
