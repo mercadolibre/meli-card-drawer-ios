@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8r3-dH-kNY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Credit Card-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example_MeliCardDrawer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CardViewController" customModule="Example_MeliCardDrawer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,13 +112,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select CardUI protocol type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXB-56-CHd">
-                                <rect key="frame" x="16" y="543" width="212" height="20"/>
+                                <rect key="frame" x="16" y="494" width="212" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.1095336294" green="0.1095336294" blue="0.1095336294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lBW-Vi-3Bx">
-                                <rect key="frame" x="16" y="571" width="343" height="80"/>
+                                <rect key="frame" x="16" y="522" width="343" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="fCZ-4E-JFj"/>
@@ -249,6 +250,7 @@
                             <constraint firstItem="H4v-jI-QID" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="zOH-v8-UpJ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Credit Card" image="credit-card" id="ucs-6D-Hha"/>
                     <connections>
                         <outlet property="cardTypesCollectionView" destination="lBW-Vi-3Bx" id="tzk-9e-DoF"/>
                         <outlet property="containerView" destination="fnz-oe-xwh" id="FCS-SM-WuE"/>
@@ -258,7 +260,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="926" y="-301"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zB6-Yk-Ggs">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8r3-dH-kNY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JOp-S1-zoi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Knq-tu-I6i"/>
+                        <segue destination="5wF-ml-7fj" kind="relationship" relationship="viewControllers" id="C89-Fj-sSC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57g-Mq-LaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
+        <!--Generic-->
+        <scene sceneID="zxf-FR-ZPL">
+            <objects>
+                <viewController id="5wF-ml-7fj" customClass="GenericViewController" customModule="Example_MeliCardDrawer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fKh-EP-SXL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meli Card Drawer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXe-PM-eQ7">
+                                <rect key="frame" x="16" y="16" width="167" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.1095336294" green="0.1095336294" blue="0.1095336294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="216" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-RX-FbK">
+                                <rect key="frame" x="16" y="56" width="343" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yH2-RX-FbK" secondAttribute="height" multiplier="343:216" id="rAQ-Im-yPO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P5Q-dM-Tvu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QXe-PM-eQ7" firstAttribute="top" secondItem="P5Q-dM-Tvu" secondAttribute="top" constant="16" id="CsD-lK-BNZ"/>
+                            <constraint firstItem="yH2-RX-FbK" firstAttribute="top" secondItem="QXe-PM-eQ7" secondAttribute="bottom" constant="16" id="CyM-vm-nfa"/>
+                            <constraint firstItem="yH2-RX-FbK" firstAttribute="leading" secondItem="P5Q-dM-Tvu" secondAttribute="leading" constant="16" id="PVj-ok-TNI"/>
+                            <constraint firstItem="P5Q-dM-Tvu" firstAttribute="trailing" secondItem="yH2-RX-FbK" secondAttribute="trailing" constant="16" id="hxX-jC-2cL"/>
+                            <constraint firstItem="QXe-PM-eQ7" firstAttribute="leading" secondItem="P5Q-dM-Tvu" secondAttribute="leading" constant="16" id="u8l-kq-AdH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Generic" image="money" id="NsB-5f-XDj"/>
+                    <connections>
+                        <outlet property="containerView" destination="yH2-RX-FbK" id="aPb-n3-m6m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDY-Wy-97P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="926" y="403"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="credit-card" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="money" width="21.333333969116211" height="21.333333969116211"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

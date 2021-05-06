@@ -6,9 +6,11 @@ class BackView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
-        securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
-        securityCode.setup(model?.securityCode, Default(UIColor.black.withAlphaComponent(0.8)))
-        setupCustomOverlayImage(cardUI)
+        if let cardUI = self.cardUI as? CreditCardUI {
+            securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
+            securityCode.setup(model?.securityCode, Default(UIColor.black.withAlphaComponent(0.8)))
+            setupCustomOverlayImage(cardUI)
+        }
     }
 
     deinit {

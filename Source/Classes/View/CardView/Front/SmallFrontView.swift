@@ -11,13 +11,15 @@ class SmallFrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .small)
         
-        setPaymentMethodImage(cardUI)
-        setDebitImage(cardUI)
-        setupCardLabels(cardUI)
-        setupFormatters(cardUI)
-        
-        cardBackground = cardUI.cardBackgroundColor
-        setupCustomOverlayImage(cardUI)
+        if let cardUI = self.cardUI as? CreditCardUI {
+            setPaymentMethodImage(cardUI)
+            setDebitImage(cardUI)
+            setupCardLabels(cardUI)
+            setupFormatters(cardUI)
+            
+            cardBackground = cardUI.cardBackgroundColor
+            setupCustomOverlayImage(cardUI)
+        }
     }
 
     override func addObservers() {
@@ -31,7 +33,7 @@ class SmallFrontView: CardView {
 
 // MARK: Publics
 extension SmallFrontView {
-    override func setupAnimated(_ cardUI: CardUI) {
+    override func setupAnimated(_ cardUI: CreditCardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
                          views: [paymentMethodImage, debitImage, number],
@@ -40,16 +42,16 @@ extension SmallFrontView {
         })
     }
     
-    private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
+    private func setupRemoteOrLocalImages(_ cardUI: CreditCardUI) {
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
     }
     
-    private func setupFormatters(_ cardUI: CardUI) {
+    private func setupFormatters(_ cardUI: CreditCardUI) {
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
     }
     
-    private func setPaymentMethodImage(_ cardUI: CardUI) {
+    private func setPaymentMethodImage(_ cardUI: CreditCardUI) {
         paymentMethodImage.image = nil
         if let image = cardUI.cardLogoImage,
             let pImage = image {
@@ -57,7 +59,7 @@ extension SmallFrontView {
         }
     }
     
-    private func setDebitImage(_ cardUI: CardUI) {
+    private func setDebitImage(_ cardUI: CreditCardUI) {
         debitImage.image = nil
         if let image = cardUI.debitImage,
             let dImage = image {
@@ -73,7 +75,7 @@ extension SmallFrontView {
         }
     }
     
-    private func setupCardLabels(_ cardUI: CardUI) {
+    private func setupCardLabels(_ cardUI: CreditCardUI) {
         number.setup(model?.number, FontFactory.font(cardUI, shadow: true))
         number.font = number.font.withSize(12)
     }

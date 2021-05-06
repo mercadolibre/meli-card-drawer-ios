@@ -6,7 +6,7 @@ class Animator {
     static let duration = 0.6
 
     class func overlay(on view: CardView,
-                       cardUI: CardUI,
+                       cardUI: CreditCardUI,
                        views: [UIView],
                        complete: @escaping ()->()) {
 

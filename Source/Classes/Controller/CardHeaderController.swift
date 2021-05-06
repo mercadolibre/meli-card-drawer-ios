@@ -4,7 +4,7 @@ import UIKit
     private var shouldAnimate: Bool = true
     let cardFont = "RobotoMono-Regular"
     let customLabelFontName: String?
-    var frontView: CardView!
+    var frontView: BasicCard!
     var backView: CardView!
     var model: CardData
     private var type: MLCardDrawerType = .large
@@ -15,18 +15,24 @@ import UIKit
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var isCreditCard: Bool = {
+        return cardUI as? CreditCardUI != nil
+    }()
 
     public var cardUI: CardUI {
         willSet(value) {
-            if shouldAnimate {
-                frontView.setupAnimated(value)
-            } else {
-                frontView.setupUI(value)
+            if let card = value as? CreditCardUI {
+                if shouldAnimate {
+                    frontView.setupAnimated(card)
+                } else {
+                    frontView.setupUI(card)
+                }
+                if isShineCardEnabled() {
+                    addShine()
+                }
+                backView.setupUI(card)
             }
-            if isShineCardEnabled() {
-                addShine()
-            }
-            backView.setupUI(value)
         }
     }
     
@@ -50,20 +56,31 @@ import UIKit
     
     public func setupViews() {
         
-        if let frontView = frontView, frontView.isDescendant(of: view) {
-            frontView.removeFromSuperview()
+        if let card = cardUI as? CreditCardUI {
+            
+            if let frontView = frontView, frontView.isDescendant(of: view) {
+                frontView.removeFromSuperview()
+            }
+            
+            if let backView = backView, backView.isDescendant(of: view) {
+                backView.removeFromSuperview()
+            }
+            
+            setupView(type)
+            
+            backView.setup(card, model, view.frame, disabledMode)
+            frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+            
+            setShineCard(enabled: isShineCardEnabled())
+            
+        } else if let card = cardUI as? GenericCardUI {
+            
+            backView = CardView()
+            frontView = GenericView()
+            
+            frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+            
         }
-        
-        if let backView = backView, backView.isDescendant(of: view) {
-            backView.removeFromSuperview()
-        }
-    
-        setupView(type)
-        
-        backView.setup(cardUI, model, view.frame, disabledMode)
-        frontView.setup(cardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
-        
-        setShineCard(enabled: isShineCardEnabled())
     }
     
     
@@ -90,12 +107,14 @@ import UIKit
     }
 
     public func showSecurityCode() {
-        guard cardUI.securityCodeLocation == .back else {
-            addSubview(frontView)
-            frontView.showSecurityCode()
-            return
+        if let card = cardUI as? CreditCardUI {
+            guard card.securityCodeLocation == .back else {
+                addSubview(frontView)
+                frontView.showSecurityCode!()
+                return
+            }
+            transition(from: frontView, to: backView, .transitionFlipFromLeft)
         }
-        transition(from: frontView, to: backView, .transitionFlipFromLeft)
     }
 
     @discardableResult
@@ -175,10 +194,10 @@ extension MLCardDrawerController {
 
         customView.translatesAutoresizingMaskIntoConstraints = false
         
-        frontView.addCustomView(customView)
+        frontView.addCustomView!(customView)
     }
     
     public func removeCustomView() {
-        frontView.removeCustomView()
+        frontView.removeCustomView!()
     }
 }
