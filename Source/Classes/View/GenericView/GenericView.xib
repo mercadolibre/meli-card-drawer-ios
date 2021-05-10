@@ -9,9 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GenericView" customModule="MLCardDrawerResources" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="LAX-1s-9pg" id="H1Q-hF-WnN"/>
+                <outlet property="subtitleLabel" destination="3Tx-u1-zpd" id="K2X-2k-i6D"/>
+                <outlet property="titleLabel" destination="qBQ-IM-0Vi" id="90Y-hf-QVa"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GenericView" customModule="MLCardDrawer">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="331" height="201"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -50,11 +56,6 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="imageView" destination="LAX-1s-9pg" id="itN-al-etO"/>
-                <outlet property="subtitleLabel" destination="3Tx-u1-zpd" id="EpX-Tl-cNa"/>
-                <outlet property="titleLabel" destination="qBQ-IM-0Vi" id="jjr-GJ-Sqi"/>
-            </connections>
             <point key="canvasLocation" x="-122" y="-15"/>
         </view>
     </objects>

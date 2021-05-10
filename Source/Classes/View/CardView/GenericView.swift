@@ -25,8 +25,8 @@ public class GenericView: UIView, BasicCard  {
         if let genericUI = cardUI as? GenericCardUI {
             backgroundColor = genericUI.cardBackgroundColor
             layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
-//            titleLabel.text = genericUI.titleName
-//            subtitleLabel.text = genericUI.subtitleName
+            titleLabel.text = genericUI.titleName
+            subtitleLabel.text = genericUI.subtitleName
         }
     }
     
