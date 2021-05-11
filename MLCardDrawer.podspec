@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   s.name             = "MLCardDrawer"
   s.version          = "1.5.7"
   s.summary          = "MLCardDrawer for iOS"
-  s.homepage         = "https://github.com/mercadolibre/meli-card-drawer-ios"
+  s.homepage         = "http://github.com/mercadolibre/meli-card-drawer-ios"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = "Joni Bandoni"
-  s.source           = { :git => "https://github.com/mercadolibre/meli-card-drawer-ios.git", :tag => s.version.to_s }
+  s.source           = { :git => "http://github.com/mercadolibre/meli-card-drawer-ios.git", :tag => s.version.to_s }
 
   s.platform         = :ios, '10.0'
   s.ios.deployment_target = '10.0'
