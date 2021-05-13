@@ -1,3 +1,7 @@
+## [Release (1.5.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.7)
+### 🚀 Combo 🚀
+- Cut combo numbers
+
 ## [Release (1.5.6)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.6)
 ### 🚀 Combo 🚀
 - Switch improvements 
