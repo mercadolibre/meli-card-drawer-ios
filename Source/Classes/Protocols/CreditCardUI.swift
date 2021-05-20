@@ -7,16 +7,11 @@
 
 import Foundation
 
-@objc public enum MLCardSecurityCodeLocation: Int {
-    case front, back, none
-}
-
 @objc public protocol CreditCardUI: CardUI {
     var cardPattern: [Int] { get set }
     var placeholderName: String { get }
     var placeholderExpiration: String { get }
     var cardFontColor: UIColor { get }
-    var securityCodeLocation: MLCardSecurityCodeLocation { get }
     var defaultUI: Bool { get }
     var securityCodePattern: Int { get }
 

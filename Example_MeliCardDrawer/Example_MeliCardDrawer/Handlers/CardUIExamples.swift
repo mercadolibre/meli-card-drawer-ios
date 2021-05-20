@@ -234,9 +234,11 @@ struct CardUIExamples {
     }
     
     class Pix: NSObject, GenericCardUI {
-        var titleName = "PIXIE"
-        var subtitleName = "Aprovação Imediataça"
+        var securityCodeLocation = MLCardSecurityCodeLocation.none
+        var titleName = "PIX"
+        var subtitleName = "Aprovação Imediata"
         var cardBackgroundColor = UIColor.white
+        var logoImageURL = "https://mobile.mercadolibre.com/remote_resources/image/card_drawer_mlb_pm_pix_normal?density=xhdpi&locale=pt_BR&version=1"
     }
     
     // codebeat:enable[TOO_MANY_IVARS]

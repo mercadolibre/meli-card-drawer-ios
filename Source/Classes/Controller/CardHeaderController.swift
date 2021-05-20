@@ -56,7 +56,14 @@ import UIKit
     
     public func setupViews() {
         
-        if let card = cardUI as? CreditCardUI {
+        if  let card = cardUI as? GenericCardUI {
+            
+            backView = CardView()
+            frontView = GenericView()
+            
+            frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+            
+        } else {
             
             if let frontView = frontView, frontView.isDescendant(of: view) {
                 frontView.removeFromSuperview()
@@ -68,17 +75,10 @@ import UIKit
             
             setupView(type)
             
-            backView.setup(card, model, view.frame, disabledMode)
-            frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+            backView.setup(cardUI, model, view.frame, disabledMode)
+            frontView.setup(cardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
             
             setShineCard(enabled: isShineCardEnabled())
-            
-        } else if let card = cardUI as? GenericCardUI {
-            
-            backView = CardView()
-            frontView = GenericView()
-            
-            frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
             
         }
     }

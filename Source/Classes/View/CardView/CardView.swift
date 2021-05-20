@@ -25,7 +25,7 @@ class CardView: UIView, BasicCard {
         self.customLabelFontName = customLabelFontName
         loadFromNib()
         setupModel(model)
-        setupUI(cardUI as! CreditCardUI)
+        setupUI(cardUI)
         addGradient()
         
         if isShineEnabled() {

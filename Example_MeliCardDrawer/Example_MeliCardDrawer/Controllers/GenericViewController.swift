@@ -21,6 +21,7 @@ class GenericViewController: UIViewController {
         let cardView = cardDrawer.getCardView()
         
         cardView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.layer.masksToBounds = true
         
         containerView.addSubview(cardView)
         

@@ -9,5 +9,10 @@ import Foundation
 
 @objc public protocol GenericCardUI: CardUI {
     var titleName: String { get }
+    var titleTextColor: String { get }
+    var titleWeight: String { get }
     var subtitleName: String { get }
+    var subtitleTextColor: String { get }
+    var subtitleWeight: String { get }
+    var logoImageURL: String { get }
 }
