@@ -234,6 +234,14 @@ struct CardUIExamples {
     }
     
     class Pix: NSObject, GenericCardUI {
+        var labelName = "Novo"
+        var labelTextColor = "#8DC0B6"
+        var labelBackgroundColor = "#1A479AD1"
+        var labelWeight = "bold"
+        var titleTextColor = "#CC000000"
+        var titleWeight = "bold"
+        var subtitleTextColor = "#8DC0B6"
+        var subtitleWeight = "regular"
         var securityCodeLocation = MLCardSecurityCodeLocation.none
         var titleName = "PIX"
         var subtitleName = "Aprovação Imediata"

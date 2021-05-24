@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GenericView" customModule="MLCardDrawerResources" customModuleProvider="target">
             <connections>
+                <outlet property="highlightLabel" destination="VJy-dg-7uq" id="ytu-g0-DxE"/>
                 <outlet property="imageContainerView" destination="7eo-cX-cpU" id="2mT-gX-vGg"/>
                 <outlet property="imageView" destination="LAX-1s-9pg" id="H1Q-hF-WnN"/>
                 <outlet property="subtitleLabel" destination="3Tx-u1-zpd" id="K2X-2k-i6D"/>
@@ -49,16 +50,29 @@
                         <constraint firstItem="LAX-1s-9pg" firstAttribute="leading" secondItem="7eo-cX-cpU" secondAttribute="leading" constant="16" id="ieW-yT-kIy"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJy-dg-7uq">
+                    <rect key="frame" x="281" y="0.0" width="50" height="30"/>
+                    <color key="backgroundColor" red="0.92500668760000004" green="0.95200949909999999" blue="0.98817485569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="VJy-dg-7uq" secondAttribute="height" multiplier="5:3" id="LFg-I3-b48"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.27803280949999998" green="0.55781114099999995" blue="0.98204308750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="3Tx-u1-zpd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0qX-no-rdZ"/>
+                <constraint firstItem="VJy-dg-7uq" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.149254" id="1Cx-2A-3iM"/>
                 <constraint firstItem="3Tx-u1-zpd" firstAttribute="top" secondItem="qBQ-IM-0Vi" secondAttribute="bottom" constant="4" id="F6Z-5h-daI"/>
+                <constraint firstAttribute="trailing" secondItem="VJy-dg-7uq" secondAttribute="trailing" id="F9m-mn-w1D"/>
                 <constraint firstItem="7eo-cX-cpU" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="HU1-hA-8Vx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3Tx-u1-zpd" secondAttribute="bottom" constant="28" id="VMy-7Q-NjV"/>
                 <constraint firstItem="7eo-cX-cpU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="28" id="VRD-cp-gxw"/>
                 <constraint firstItem="7eo-cX-cpU" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="64:201" id="bvc-8h-dto"/>
+                <constraint firstItem="VJy-dg-7uq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jN0-f7-rl5"/>
                 <constraint firstItem="qBQ-IM-0Vi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uDM-sJ-4Vp"/>
                 <constraint firstItem="qBQ-IM-0Vi" firstAttribute="top" secondItem="7eo-cX-cpU" secondAttribute="bottom" constant="16" id="uP7-u2-Bva"/>
             </constraints>

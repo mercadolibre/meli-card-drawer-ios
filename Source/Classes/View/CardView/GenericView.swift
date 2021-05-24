@@ -13,6 +13,7 @@ public class GenericView: UIView, BasicCard  {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var highlightLabel: UILabel!
     
     
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
@@ -36,6 +37,19 @@ public class GenericView: UIView, BasicCard  {
             subtitleLabel.text = genericUI.subtitleName
             subtitleLabel.font = genericUI.subtitleWeight.getFont(size: 14)
             subtitleLabel.textColor = UIColor.fromHex(genericUI.subtitleTextColor)
+            
+            highlightLabel.isHidden = genericUI.labelName.isEmpty
+            highlightLabel.text = genericUI.labelName
+            highlightLabel.font = genericUI.labelWeight.getFont(size: 14)
+            highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
+            highlightLabel.backgroundColor = UIColor.fromHex(genericUI.labelBackgroundColor)
+            let path = UIBezierPath(roundedRect: highlightLabel.bounds,
+                                    byRoundingCorners: [.bottomLeft],
+                                    cornerRadii: CGSize(width: highlightLabel.frame.height/2,
+                                                        height: highlightLabel.frame.height/2))
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            highlightLabel.layer.mask = mask
             
             setPaymentMethodImage(genericUI)
         }
