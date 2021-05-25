@@ -38,6 +38,7 @@ public class GenericView: UIView, BasicCard  {
             subtitleLabel.font = genericUI.subtitleWeight.getFont(size: 14)
             subtitleLabel.textColor = UIColor.fromHex(genericUI.subtitleTextColor)
             
+            highlightLabel.layer.masksToBounds = true
             highlightLabel.isHidden = genericUI.labelName.isEmpty
             highlightLabel.text = genericUI.labelName
             highlightLabel.font = genericUI.labelWeight.getFont(size: 14)

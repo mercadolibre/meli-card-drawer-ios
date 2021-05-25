@@ -54,7 +54,8 @@
                     <rect key="frame" x="281" y="0.0" width="50" height="30"/>
                     <color key="backgroundColor" red="0.92500668760000004" green="0.95200949909999999" blue="0.98817485569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="VJy-dg-7uq" secondAttribute="height" multiplier="5:3" id="LFg-I3-b48"/>
+                        <constraint firstAttribute="width" constant="50" id="cQd-V9-58Q"/>
+                        <constraint firstAttribute="height" constant="30" id="rom-hh-tae"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.27803280949999998" green="0.55781114099999995" blue="0.98204308750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,7 +66,6 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="3Tx-u1-zpd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0qX-no-rdZ"/>
-                <constraint firstItem="VJy-dg-7uq" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.149254" id="1Cx-2A-3iM"/>
                 <constraint firstItem="3Tx-u1-zpd" firstAttribute="top" secondItem="qBQ-IM-0Vi" secondAttribute="bottom" constant="4" id="F6Z-5h-daI"/>
                 <constraint firstAttribute="trailing" secondItem="VJy-dg-7uq" secondAttribute="trailing" id="F9m-mn-w1D"/>
                 <constraint firstItem="7eo-cX-cpU" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="HU1-hA-8Vx"/>
