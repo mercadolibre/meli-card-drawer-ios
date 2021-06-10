@@ -6,6 +6,7 @@ import UIKit
 }
 
 @objc public protocol CardUI {
+    var cardPattern: [Int] { get set }
     var cardBackgroundColor: UIColor { get }
     var securityCodeLocation: MLCardSecurityCodeLocation { get }
     
