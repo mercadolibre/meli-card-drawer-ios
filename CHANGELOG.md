@@ -1,3 +1,7 @@
+## [Release (1.6.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.6.1)
+### 🚀 Fix 🚀
+- Adjust protocols to avoid change implementation on third parties
+
 ## [Release (1.6.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.6.0)
 ### 🚀 GenericCard 🚀
 - New protocols CreditCardUI and GenericCardUI
