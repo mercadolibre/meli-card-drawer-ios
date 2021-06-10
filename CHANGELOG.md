@@ -1,3 +1,8 @@
+## [Release (1.6.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.6.0)
+### 🚀 GenericCard 🚀
+- New protocols CreditCardUI and GenericCardUI
+- Added new design for generic payment methods
+
 ## [Release (1.5.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.5.7)
 ### 🚀 Combo 🚀
 - Cut combo numbers
