@@ -8,7 +8,6 @@
 import Foundation
 
 @objc public protocol CreditCardUI: CardUI {
-    var cardPattern: [Int] { get set }
     var placeholderName: String { get }
     var placeholderExpiration: String { get }
     var cardFontColor: UIColor { get }
