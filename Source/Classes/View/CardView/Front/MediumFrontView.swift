@@ -16,15 +16,17 @@ class MediumFrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .medium)
         
-        setIssuerImage(cardUI)
-        setPaymentMethodImage(cardUI)
-        setDebitImage(cardUI)
-        setupCardLabels(cardUI)
-        setupChevron(cardUI)
-        setupFormatters(cardUI)
-        
-        cardBackground = cardUI.cardBackgroundColor
-        setupCustomOverlayImage(cardUI)
+        if let cardUI = self.cardUI as? CreditCardUI {
+            setIssuerImage(cardUI)
+            setPaymentMethodImage(cardUI)
+            setDebitImage(cardUI)
+            setupCardLabels(cardUI)
+            setupChevron(cardUI)
+            setupFormatters(cardUI)
+            
+            cardBackground = cardUI.cardBackgroundColor
+            setupCustomOverlayImage(cardUI)
+        }
         
     }
     
@@ -41,7 +43,7 @@ class MediumFrontView: CardView {
 
 // MARK: Publics
 extension MediumFrontView {
-    override func setupAnimated(_ cardUI: CardUI) {
+    override func setupAnimated(_ cardUI: CreditCardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
                          views: [issuerImage, paymentMethodImage, debitImage, nameLabel, number, chevronIcon],
@@ -50,11 +52,11 @@ extension MediumFrontView {
         })
     }
     
-    private func setupFormatters(_ cardUI: CardUI) {
+    private func setupFormatters(_ cardUI: CreditCardUI) {
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
     }
 
-    private func setPaymentMethodImage(_ cardUI: CardUI) {
+    private func setPaymentMethodImage(_ cardUI: CreditCardUI) {
         paymentMethodImage.image = nil
         if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty  {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
@@ -68,7 +70,7 @@ extension MediumFrontView {
         }
     }
     
-    private func setIssuerImage(_ cardUI: CardUI) {
+    private func setIssuerImage(_ cardUI: CreditCardUI) {
         issuerImage.image = nil
         if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty  {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
@@ -82,7 +84,7 @@ extension MediumFrontView {
         }
     }
     
-    private func setDebitImage(_ cardUI: CardUI) {
+    private func setDebitImage(_ cardUI: CreditCardUI) {
         debitImage.image = nil
         if let image = cardUI.debitImage,
             let dImage = image {
@@ -91,7 +93,7 @@ extension MediumFrontView {
     }
     
     
-    private func setupChevron(_ cardUI: CardUI) {
+    private func setupChevron(_ cardUI: CreditCardUI) {
         showChevron(cardUI.showChevron == true)
         
         chevronIcon.image = chevronIcon.image?.withRenderingMode(.alwaysTemplate)
@@ -107,7 +109,7 @@ extension MediumFrontView {
         }
     }
     
-    private func setupCardLabels(_ cardUI: CardUI) {
+    private func setupCardLabels(_ cardUI: CreditCardUI) {
         nameLabel.setup(model?.name ?? "", FontFactory.font(cardUI), customLabelFontName: self.customLabelFontName)
         nameLabel.font = nameLabel.font.withSize(12)
         
@@ -119,7 +121,7 @@ extension MediumFrontView {
 
 //MARK: Chevron config
 private extension MediumFrontView {
-    private func getChevronColor(_ cardUI: CardUI) -> UIColor {
+    private func getChevronColor(_ cardUI: CreditCardUI) -> UIColor {
         switch cardUI.fontType {
         case "light":
             return #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)

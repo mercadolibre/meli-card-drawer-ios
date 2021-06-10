@@ -1,12 +1,6 @@
 import UIKit
 
-@objc protocol CardViewInteractProtocol {
-    @objc func setupAnimated(_ cardUI: CardUI)
-    
-    @objc optional func showSecurityCode()
-}
-
-class CardView: UIView {
+class CardView: UIView, BasicCard {
 
     @IBOutlet weak var animation: UIView!
     @IBOutlet weak var gradient: UIView!
@@ -20,7 +14,7 @@ class CardView: UIView {
     var color: UIColor?
     var disabledMode: Bool = false
     @objc var model: CardData?
-    var cardUI: CardUI?
+    var cardUI: CreditCardUI?
 
 
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String? = nil) {
@@ -48,10 +42,12 @@ class CardView: UIView {
     }
 
     func setupUI(_ cardUI: CardUI) {
-        self.cardUI = cardUI
-        if !(cardUI is CustomCardDrawerUI) {
-            let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
-            animation.backgroundColor = mainColor
+        if let creditCardUI = cardUI as? CreditCardUI {
+            self.cardUI = creditCardUI
+            if !(cardUI is CustomCardDrawerUI) {
+                let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
+                animation.backgroundColor = mainColor
+            }
         }
     }
 
@@ -152,16 +148,11 @@ extension CardView {
         shineView = nil
     }
     
-    func setupCustomOverlayImage(_ cardUI: CardUI) {
+    func setupCustomOverlayImage(_ cardUI: CreditCardUI) {
         if let customOverlayImage = cardUI.ownOverlayImage {
             overlayImage.image = customOverlayImage
         }
     }
-}
-
-@objc protocol CardViewCustomViewProtocol {
-    @objc optional func removeCustomView()
-    @objc optional func addCustomView(_ customView: UIView)
 }
 
 extension CardView: CardViewCustomViewProtocol{
@@ -170,6 +161,6 @@ extension CardView: CardViewCustomViewProtocol{
 }
 
 extension CardView: CardViewInteractProtocol {
-    func setupAnimated(_ cardUI: CardUI) {}
+    func setupAnimated(_ cardUI: CreditCardUI) {}
     public func showSecurityCode() {}
 }

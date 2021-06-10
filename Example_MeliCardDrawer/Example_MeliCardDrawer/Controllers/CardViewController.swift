@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CardViewController.swift
 //  Example_MeliCardDrawer
 //
 //  Created by Juan sebastian Sanzone on 5/21/19.
@@ -10,7 +10,7 @@ import UIKit
 import MLCardDrawer
 
 // codebeat:disable
-final class ViewController: UIViewController {
+final class CardViewController: UIViewController {
 
     // MARK: Outlets.
     @IBOutlet weak var cardTypesCollectionView: UICollectionView!
@@ -42,7 +42,7 @@ final class ViewController: UIViewController {
 }
 
 // MARK: UI Setup.
-extension ViewController {
+extension CardViewController {
     private func setupUI() {
         setupCardExample()
         setupDismissGesture()
@@ -80,7 +80,7 @@ extension ViewController {
 }
 
 // MARK: Update card data handler protocol.
-extension ViewController {
+extension CardViewController {
     @IBAction func cardNumberChange(_ sender: UITextField) {
         if let txt = sender.text {
             cardDataHandler.number = txt
@@ -101,7 +101,7 @@ extension ViewController {
 }
 
 // MARK: SecurityCode managment.
-extension ViewController {
+extension CardViewController {
     @IBAction func ccvChange(_ sender: UITextField) {
         if let txt = sender.text {
             cardDataHandler.securityCode = txt
@@ -118,7 +118,7 @@ extension ViewController {
 }
 
 // MARK: CollectionView.
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension CardViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CardUIExamples.cardUILists.count
     }
@@ -141,14 +141,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 // MARK: Keyboard.
-extension ViewController {
+extension CardViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
 
 // MARK: Card Type Segmented Control
-extension ViewController {
+extension CardViewController {
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -165,7 +165,7 @@ extension ViewController {
 }
 
 // MARK: Toggle shine card feature.
-extension ViewController {
+extension CardViewController {
     @IBAction func didChangeShineToggle(_ sender: UISwitch) {
         cardDrawer?.setShineCard(enabled: sender.isOn)
     }
@@ -189,7 +189,7 @@ extension ViewController {
 }
 
 // MARK: Toggle SafeArea feature
-extension ViewController {
+extension CardViewController {
     @IBAction func didChangeSafeArea(_ sender: UISwitch) {
         if sender.isOn {
             cardDrawer?.setCustomView(generateComboSwitchView())
