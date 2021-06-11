@@ -14,7 +14,7 @@ class CardView: UIView, BasicCard {
     var color: UIColor?
     var disabledMode: Bool = false
     @objc var model: CardData?
-    var cardUI: CreditCardUI?
+    var cardUI: CardUI?
 
 
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String? = nil) {
@@ -42,12 +42,10 @@ class CardView: UIView, BasicCard {
     }
 
     func setupUI(_ cardUI: CardUI) {
-        if let creditCardUI = cardUI as? CreditCardUI {
-            self.cardUI = creditCardUI
-            if !(cardUI is CustomCardDrawerUI) {
-                let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
-                animation.backgroundColor = mainColor
-            }
+        self.cardUI = cardUI
+        if !(cardUI is CustomCardDrawerUI) {
+            let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
+            animation.backgroundColor = mainColor
         }
     }
 
@@ -148,7 +146,7 @@ extension CardView {
         shineView = nil
     }
     
-    func setupCustomOverlayImage(_ cardUI: CreditCardUI) {
+    func setupCustomOverlayImage(_ cardUI: CardUI) {
         if let customOverlayImage = cardUI.ownOverlayImage {
             overlayImage.image = customOverlayImage
         }
@@ -161,6 +159,6 @@ extension CardView: CardViewCustomViewProtocol{
 }
 
 extension CardView: CardViewInteractProtocol {
-    func setupAnimated(_ cardUI: CreditCardUI) {}
+    func setupAnimated(_ cardUI: CardUI) {}
     public func showSecurityCode() {}
 }

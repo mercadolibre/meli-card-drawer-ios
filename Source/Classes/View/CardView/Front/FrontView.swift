@@ -31,33 +31,30 @@ class FrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
-        if let cardUI = self.cardUI as? CreditCardUI {
-            
-            setupSecurityCode(cardUI)
-            if cardUI.set(logo:) != nil {
-                setupCardLogo(in: paymentMethodImage)
-            }
-            if cardUI.set(bank:) != nil {
-                setupBankImage(in: bankImage)
-            }
-            setupRemoteOrLocalImages(cardUI)
-            
-            setupFormatters(cardUI)
-            setupCardElements(cardUI)
-            
-            cardBackground = cardUI.cardBackgroundColor
-            setupCustomOverlayImage(cardUI)
+        setupSecurityCode(cardUI)
+        if cardUI.set(logo:) != nil {
+            setupCardLogo(in: paymentMethodImage)
         }
+        if cardUI.set(bank:) != nil {
+            setupBankImage(in: bankImage)
+        }
+        setupRemoteOrLocalImages(cardUI)
+        
+        setupFormatters(cardUI)
+        setupCardElements(cardUI)
+        
+        cardBackground = cardUI.cardBackgroundColor
+        setupCustomOverlayImage(cardUI)
     }
     
-    private func setupFormatters(_ cardUI: CreditCardUI) {
+    private func setupFormatters(_ cardUI: CardUI) {
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
         name.formatter = Mask(placeholder: cardUI.placeholderName)
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
         expirationDate.formatter = Mask(placeholder: cardUI.placeholderExpiration)
     }
     
-    private func setupCardElements(_ cardUI: CreditCardUI) {
+    private func setupCardElements(_ cardUI: CardUI) {
         let input = [model?.name, model?.expiration, model?.securityCode]
         [name, expirationDate, securityCode].enumerated().forEach({
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI), customLabelFontName: customLabelFontName)
@@ -66,7 +63,7 @@ class FrontView: CardView {
         number.setup(model?.number, FontFactory.font(cardUI, shadow: true), customLabelFontName: customLabelFontName)
     }
     
-    private func setupSecurityCode(_ cardUI: CreditCardUI) {
+    private func setupSecurityCode(_ cardUI: CardUI) {
         securityCodeCircle.alpha = 0
         securityCode.textColor = cardUI.cardFontColor
         securityCode.isHidden = cardUI.securityCodeLocation == .back
@@ -234,7 +231,7 @@ class FrontView: CardView {
 
 // MARK: Publics
 extension FrontView {
-    override func setupAnimated(_ cardUI: CreditCardUI) {
+    override func setupAnimated(_ cardUI: CardUI) {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
@@ -249,12 +246,12 @@ extension FrontView {
         securityCodeCircle.alpha = 1
     }
 
-    private func setupRemoteOrLocalImages(_ cardUI: CreditCardUI) {
+    private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
         setBankImage(cardUI)
         setPaymentMethodImage(cardUI)
     }
 
-    private func setPaymentMethodImage(_ cardUI: CreditCardUI) {
+    private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
         if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
@@ -268,7 +265,7 @@ extension FrontView {
         }
     }
 
-    private func setBankImage(_ cardUI: CreditCardUI) {
+    private func setBankImage(_ cardUI: CardUI) {
         bankImage.image = nil
         if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { remoteBankImage in

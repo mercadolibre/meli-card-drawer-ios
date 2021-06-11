@@ -11,7 +11,7 @@ class SmallFrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .small)
         
-        if let cardUI = self.cardUI as? CreditCardUI {
+        if let cardUI = self.cardUI as? CardUI {
             setPaymentMethodImage(cardUI)
             setDebitImage(cardUI)
             setupCardLabels(cardUI)
@@ -33,7 +33,7 @@ class SmallFrontView: CardView {
 
 // MARK: Publics
 extension SmallFrontView {
-    override func setupAnimated(_ cardUI: CreditCardUI) {
+    override func setupAnimated(_ cardUI: CardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
                          views: [paymentMethodImage, debitImage, number],
@@ -42,16 +42,16 @@ extension SmallFrontView {
         })
     }
     
-    private func setupRemoteOrLocalImages(_ cardUI: CreditCardUI) {
+    private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
     }
     
-    private func setupFormatters(_ cardUI: CreditCardUI) {
+    private func setupFormatters(_ cardUI: CardUI) {
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
     }
     
-    private func setPaymentMethodImage(_ cardUI: CreditCardUI) {
+    private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
         if let image = cardUI.cardLogoImage,
             let pImage = image {
@@ -59,7 +59,7 @@ extension SmallFrontView {
         }
     }
     
-    private func setDebitImage(_ cardUI: CreditCardUI) {
+    private func setDebitImage(_ cardUI: CardUI) {
         debitImage.image = nil
         if let image = cardUI.debitImage,
             let dImage = image {
@@ -75,7 +75,7 @@ extension SmallFrontView {
         }
     }
     
-    private func setupCardLabels(_ cardUI: CreditCardUI) {
+    private func setupCardLabels(_ cardUI: CardUI) {
         number.setup(model?.number, FontFactory.font(cardUI, shadow: true))
         number.font = number.font.withSize(12)
     }

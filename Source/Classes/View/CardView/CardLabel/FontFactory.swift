@@ -8,7 +8,7 @@ protocol Font {
 }
 
 class FontFactory {
-    class func font(_ cardUI: CreditCardUI, shadow: Bool = false) -> Font? {
+    class func font(_ cardUI: CardUI, shadow: Bool = false) -> Font? {
 
         guard let fontType = cardUI.fontType else {
             return Default(cardUI.cardFontColor)
