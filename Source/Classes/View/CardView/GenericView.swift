@@ -93,7 +93,7 @@ public class GenericView: UIView, BasicCard  {
         
     }
     
-    func setupAnimated(_ cardUI: CreditCardUI) {
+    func setupAnimated(_ cardUI: CardUI) {
         
     }
 }

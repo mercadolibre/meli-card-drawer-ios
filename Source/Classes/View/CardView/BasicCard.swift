@@ -13,7 +13,7 @@ import Foundation
 }
 
 @objc protocol CardViewInteractProtocol {
-    @objc func setupAnimated(_ cardUI: CreditCardUI)
+    @objc func setupAnimated(_ cardUI: CardUI)
     
     @objc optional func showSecurityCode()
 }

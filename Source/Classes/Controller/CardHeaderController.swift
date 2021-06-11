@@ -15,24 +15,18 @@ import UIKit
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    lazy var isCreditCard: Bool = {
-        return cardUI as? CreditCardUI != nil
-    }()
 
     public var cardUI: CardUI {
         willSet(value) {
-            if let card = value as? CreditCardUI {
-                if shouldAnimate {
-                    frontView.setupAnimated(card)
-                } else {
-                    frontView.setupUI(card)
-                }
-                if isShineCardEnabled() {
-                    addShine()
-                }
-                backView.setupUI(card)
+            if shouldAnimate {
+                frontView.setupAnimated(value)
+            } else {
+                frontView.setupUI(value)
             }
+            if isShineCardEnabled() {
+                addShine()
+            }
+            backView.setupUI(value)
         }
     }
     
@@ -105,16 +99,14 @@ import UIKit
     public func animated(_ animated: Bool) {
         shouldAnimate = animated
     }
-
+    
     public func showSecurityCode() {
-        if let card = cardUI as? CreditCardUI {
-            guard card.securityCodeLocation == .back else {
-                addSubview(frontView)
-                frontView.showSecurityCode!()
-                return
-            }
-            transition(from: frontView, to: backView, .transitionFlipFromLeft)
+        guard cardUI.securityCodeLocation == .back else {
+            addSubview(frontView)
+            frontView.showSecurityCode!()
+            return
         }
+        transition(from: frontView, to: backView, .transitionFlipFromLeft)
     }
 
     @discardableResult
