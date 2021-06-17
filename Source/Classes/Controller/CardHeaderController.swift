@@ -52,8 +52,7 @@ import UIKit
         
         if  let card = cardUI as? GenericCardUI {
             
-            backView = CardView()
-            frontView = GenericView()
+            setupGenericView(type)
             
             frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
             
@@ -77,6 +76,19 @@ import UIKit
         }
     }
     
+    
+    private func setupGenericView(_ type: MLCardDrawerType) {
+        switch type {
+        case .large:
+            backView = CardView()
+            frontView = GenericView()
+        case .medium, .small:
+            backView = CardView()
+            let smallCard = SmallGenericView()
+            smallCard.type = type
+            frontView = smallCard
+        }
+    }
     
     private func setupView(_ type: MLCardDrawerType) {
         switch type {

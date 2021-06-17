@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8r3-dH-kNY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8r3-dH-kNY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -297,24 +297,39 @@
                             </label>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="216" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-RX-FbK">
                                 <rect key="frame" x="16" y="56" width="343" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="yH2-RX-FbK" secondAttribute="height" multiplier="343:216" id="rAQ-Im-yPO"/>
-                                </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BOy-Jy-Tt7">
+                                <rect key="frame" x="84.5" y="322" width="206" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="7oF-Jr-Uwv"/>
+                                    <constraint firstAttribute="height" constant="31" id="hJY-Zf-qcM"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Large"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Small"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="5wF-ml-7fj" eventType="valueChanged" id="EM5-SX-y2p"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P5Q-dM-Tvu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BOy-Jy-Tt7" firstAttribute="centerX" secondItem="P5Q-dM-Tvu" secondAttribute="centerX" id="Bg4-WZ-AWK"/>
                             <constraint firstItem="QXe-PM-eQ7" firstAttribute="top" secondItem="P5Q-dM-Tvu" secondAttribute="top" constant="16" id="CsD-lK-BNZ"/>
                             <constraint firstItem="yH2-RX-FbK" firstAttribute="top" secondItem="QXe-PM-eQ7" secondAttribute="bottom" constant="16" id="CyM-vm-nfa"/>
                             <constraint firstItem="yH2-RX-FbK" firstAttribute="leading" secondItem="P5Q-dM-Tvu" secondAttribute="leading" constant="16" id="PVj-ok-TNI"/>
                             <constraint firstItem="P5Q-dM-Tvu" firstAttribute="trailing" secondItem="yH2-RX-FbK" secondAttribute="trailing" constant="16" id="hxX-jC-2cL"/>
+                            <constraint firstItem="BOy-Jy-Tt7" firstAttribute="top" secondItem="yH2-RX-FbK" secondAttribute="bottom" constant="50" id="ogt-MJ-4pE"/>
                             <constraint firstItem="QXe-PM-eQ7" firstAttribute="leading" secondItem="P5Q-dM-Tvu" secondAttribute="leading" constant="16" id="u8l-kq-AdH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Generic" image="money" id="NsB-5f-XDj"/>
                     <connections>
                         <outlet property="containerView" destination="yH2-RX-FbK" id="aPb-n3-m6m"/>
+                        <outlet property="segmentedControl" destination="BOy-Jy-Tt7" id="tMc-I5-XQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDY-Wy-97P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
