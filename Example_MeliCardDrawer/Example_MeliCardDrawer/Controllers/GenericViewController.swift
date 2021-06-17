@@ -12,11 +12,20 @@ import MLCardDrawer
 class GenericViewController: UIViewController {
 
     @IBOutlet var containerView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    var type: MLCardDrawerType = .large
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cardDrawer = MLCardDrawerController(CardUIExamples.Pix(), CardDataHandler())
+        setupExample()
+    }
+    
+    func setupExample() {
+        containerView.subviews.forEach { $0.removeFromSuperview() }
+        
+        let cardDrawer = MLCardDrawerController(CardUIExamples.Pix(), CardDataHandler(), false, type)
         
         let cardView = cardDrawer.getCardView()
         
@@ -32,18 +41,19 @@ class GenericViewController: UIViewController {
                                      cardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
                                      cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
                                      cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func indexChanged(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            type = .large
+        case 1:
+            type = .medium
+        case 2:
+            type = .small
+        default:
+            break
+        }
+        setupExample()
     }
-    */
-
 }
