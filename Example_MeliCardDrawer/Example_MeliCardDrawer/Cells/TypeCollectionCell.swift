@@ -25,7 +25,7 @@ final class TypeCollectionCell: UICollectionViewCell {
 }
 
 extension TypeCollectionCell {
-    func setup(_ cardUIProtocol: CreditCardUI) {
+    func setup(_ cardUIProtocol: CardUI) {
         colorIndicador.backgroundColor = cardUIProtocol.cardBackgroundColor
         image.image = cardUIProtocol.cardLogoImage as? UIImage
     }

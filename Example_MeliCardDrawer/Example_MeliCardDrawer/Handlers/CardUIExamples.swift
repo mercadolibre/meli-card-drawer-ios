@@ -3,7 +3,7 @@ import MLCardDrawer
 
 struct CardUIExamples {
     
-    static let cardUILists: [CreditCardUI] = [
+    static let cardUILists: [CardUI] = [
         CardUIExamples.AmericanExpress(),
         CardUIExamples.Visa(),
         CardUIExamples.Maestro19(),
@@ -24,7 +24,7 @@ struct CardUIExamples {
     // codebeat:disable[TOO_MANY_IVARS]
     
     // Example - Default CardUI
-    class CardDefaultUI: NSObject, CreditCardUI {
+    class CardDefaultUI: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -39,7 +39,7 @@ struct CardUIExamples {
 
 
     // Example - American Express
-    class AmericanExpress: NSObject, CreditCardUI {
+    class AmericanExpress: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -54,7 +54,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa
-    class Visa: NSObject, CreditCardUI {
+    class Visa: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -69,7 +69,7 @@ struct CardUIExamples {
     }
 
     // Example - Maestro (18)
-    class Maestro18: NSObject, CreditCardUI {
+    class Maestro18: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -84,7 +84,7 @@ struct CardUIExamples {
     }
 
     // Example - Maestro (19)
-    class Maestro19: NSObject, CreditCardUI {
+    class Maestro19: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -99,7 +99,7 @@ struct CardUIExamples {
     }
 
     // Example - Galicia Amex
-    class GaliciaAmex: NSObject, CreditCardUI {
+    class GaliciaAmex: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage? = UIImage(named: "galicia")
@@ -114,7 +114,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 1
-    class Visa1: NSObject, CreditCardUI {
+    class Visa1: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -129,7 +129,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 2
-    class Visa2: NSObject, CreditCardUI {
+    class Visa2: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -144,7 +144,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 3
-    class Visa3: NSObject, CreditCardUI {
+    class Visa3: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -159,7 +159,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 4
-    class Visa4: NSObject, CreditCardUI {
+    class Visa4: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -174,7 +174,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 5
-    class Visa5: NSObject, CreditCardUI {
+    class Visa5: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -189,7 +189,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 6
-    class VisaSantander: NSObject, CreditCardUI {
+    class VisaSantander: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var bankImage: UIImage?
@@ -205,7 +205,7 @@ struct CardUIExamples {
     }
 
     // Example - Visa 6
-    class VisaRemoteImages: NSObject, CreditCardUI {
+    class VisaRemoteImages: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var cardPattern = [4, 4, 4, 4]
@@ -219,7 +219,7 @@ struct CardUIExamples {
         var bankImageUrl: String? = "https://mobile.mercadolibre.com/remote_resources/image/buflo_payment_card_naranja?density=xxhdpi&locale=es_AR"
     }
 
-    class PatagoniaRemoteImages: NSObject, CreditCardUI {
+    class PatagoniaRemoteImages: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
         var placeholderExpiration = "MM/AA"
         var cardPattern = [4, 4, 4, 4]
@@ -234,6 +234,12 @@ struct CardUIExamples {
     }
     
     class Pix: NSObject, GenericCardUI {
+        var cardPattern = [4, 4, 4, 4]
+        var placeholderName = ""
+        var placeholderExpiration = ""
+        var cardFontColor: UIColor = .white
+        var defaultUI = false
+        var securityCodePattern = 0
         var labelName = "Novo"
         var labelTextColor = "#8DC0B6"
         var labelBackgroundColor = "#1A479AD1"
