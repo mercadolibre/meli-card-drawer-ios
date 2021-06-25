@@ -1,3 +1,7 @@
+## [Release (1.6.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.6.3)
+### 🚀 Fix 🚀
+- Changing access level of loadFromNib()
+
 ## [Release (1.6.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.6.2)
 ### 🚀 Fix 🚀
 - Rollback on protocol CardUI
