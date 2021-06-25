@@ -1,6 +1,6 @@
 import UIKit
 
-public extension UIView {
+internal extension UIView {
     func loadFromNib() {
         guard let view = MLCardDrawerBundle.bundle().loadNibNamed(String(describing: type(of: self)),
                                                                   owner: self,
