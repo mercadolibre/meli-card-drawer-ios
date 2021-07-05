@@ -22,8 +22,8 @@ class CustomSwitch: UIView {
     var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = UIColor(displayP3Red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     
-    var buttonFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
-    var buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
+    var buttonFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+    var buttonSelectedFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         
     weak var delegate: CustomSwitchDelegate?
     

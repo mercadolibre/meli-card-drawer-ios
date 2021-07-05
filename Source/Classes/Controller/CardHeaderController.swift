@@ -7,7 +7,7 @@ import UIKit
     var frontView: BasicCard!
     var backView: CardView!
     var model: CardData
-    private var type: MLCardDrawerType = .large
+    private var type: MLCardDrawerTypeV3 = .large
     private var disabledMode = false
     
     private var aspectLayoutConstraint: NSLayoutConstraint?
@@ -31,10 +31,30 @@ import UIKit
     }
     
     public convenience init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false) {
-        self.init(cardUI, model, disabledMode, .large)
+        self.init(cardUI: cardUI, .large, model, disabledMode)
     }
 
-    public init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large, _ customLabelFontName: String? = nil) {
+    
+    @available(*, deprecated, message: "Please use MLCardDrawerTypeV3")
+    public convenience init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large, _ customLabelFontName: String? = nil) {
+        
+        var newType : MLCardDrawerTypeV3
+        
+        switch type {
+        case .small:
+            newType = .mini
+        case .medium:
+            newType = .xSmall
+        case .large:
+            newType = .large
+        }
+        
+        self.init(cardUI: cardUI, newType, model, disabledMode, customLabelFontName)
+    }
+    
+    
+
+    public init(cardUI: CardUI, _ type: MLCardDrawerTypeV3 = .large, _ model: CardData, _ disabledMode: Bool = false, _ customLabelFontName: String? = nil) {
         self.cardUI = cardUI
         self.customLabelFontName = customLabelFontName
         if customLabelFontName == nil {
@@ -78,7 +98,7 @@ import UIKit
     }
     
     
-    private func setupView(_ type: MLCardDrawerType) {
+    private func setupView(_ type: MLCardDrawerTypeV3) {
         switch type {
         case .large:
             backView = BackView()
@@ -89,6 +109,12 @@ import UIKit
         case .small:
             backView = SmallBackView()
             frontView = SmallFrontView()
+        case .xSmall:
+            backView = MediumBackView()
+            frontView = MediumFrontView()
+        case .mini:
+            backView = MediumBackView()
+            frontView = MediumFrontView()
         }
     }
 
