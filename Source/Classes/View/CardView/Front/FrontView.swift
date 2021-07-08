@@ -25,8 +25,6 @@ class FrontView: CardView {
     
     @IBOutlet weak var nameBottomToSuperviewConstraint: NSLayoutConstraint!
     
-    private var customView : UIView?
-    
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
@@ -179,7 +177,7 @@ class FrontView: CardView {
         
         // Make SafeZone visible and add customView
         
-        if let customView = customView {
+        if let customView = self.customView {
             safeZone.addSubview(customView)
             
             customView.pinEdges(to: safeZone)

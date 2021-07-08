@@ -1,18 +1,15 @@
 //
-//  ComboSwitch.swift
+//  ComboSwitchSmallView.swift
 //  MLCardDrawer
 //
-//  Created by Jonathan Scaramal on 29/01/2021.
+//  Created by Jonathan Scaramal on 01/07/2021.
 //
 
-public class ComboSwitchView: UIView {
+public class ComboSwitchSmallView: ComboSwitchView {
     
     var switchModel : SwitchModel?
     
-    var switchDidChangeCallback : ((_ selectedOption: String) -> Void)?
-    
     @IBOutlet weak var switchControl: CustomSwitch!
-    @IBOutlet weak var comboLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +25,7 @@ public class ComboSwitchView: UIView {
         loadFromNib()
     }
     
-    public func setSwitchModel(_ switchModel: SwitchModel) {
+    override public func setSwitchModel(_ switchModel: SwitchModel) {
         self.switchModel = switchModel
         switchControl.delegate = self
         switchControl.backgroundColor = UIColor.fromHex(switchModel.switchBackgroundColor)
@@ -39,20 +36,10 @@ public class ComboSwitchView: UIView {
         switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
-        comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
-        comboLabel.text = switchModel.description.message
-        comboLabel.font = switchModel.description.weight?.getFont()
-        backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
+        backgroundColor = UIColor.clear
     }
     
-    public func setSwitchDidChangeCallback(switchDidChangeCallback: @escaping (_ selectedOption: String) -> Void) {
-        self.switchDidChangeCallback = switchDidChangeCallback
-    }
-}
-
-
-extension ComboSwitchView: CustomSwitchDelegate {
-    func change(to index: Int) {
+    override func change(to index: Int) {
         if let id = switchModel?.options[index].id, let callback = switchDidChangeCallback {
             switchControl.selectedOption = id
             callback(id)

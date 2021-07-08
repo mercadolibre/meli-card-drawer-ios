@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSwitchSmallView">
+            <connections>
+                <outlet property="switchControl" destination="uY1-6r-S5E" id="yfD-MD-5v7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY1-6r-S5E" customClass="CustomSwitch" customModule="MLCardDrawer">
+                    <rect key="frame" x="0.0" y="0.0" width="308" height="52"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="uY1-6r-S5E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2gh-MK-Wsm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uY1-6r-S5E" secondAttribute="trailing" constant="12" id="fQf-8o-SFO"/>
+                <constraint firstItem="uY1-6r-S5E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nCU-LA-SRS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uY1-6r-S5E" secondAttribute="bottom" constant="12" id="rRe-DD-UGW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-298.125" y="-95.070422535211264"/>
+        </view>
+    </objects>
+</document>

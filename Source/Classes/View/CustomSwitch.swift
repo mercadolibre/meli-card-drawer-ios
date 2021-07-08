@@ -11,7 +11,7 @@ protocol CustomSwitchDelegate: class {
     func change(to index: Int)
 }
 
-class CustomSwitch: UIView {
+public class CustomSwitch: UIView {
 
     private var options: [SwitchOption]!
     private var buttons: [UIButton]!
@@ -22,8 +22,8 @@ class CustomSwitch: UIView {
     var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = UIColor(displayP3Red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     
-    var buttonFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
-    var buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: .regular)
+    var buttonFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+    var buttonSelectedFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         
     weak var delegate: CustomSwitchDelegate?
     
@@ -32,7 +32,7 @@ class CustomSwitch: UIView {
         self.options = options
     }
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         super.draw(rect)
         updateView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.selectDefault() }
