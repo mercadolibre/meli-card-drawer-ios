@@ -1,3 +1,8 @@
+## [Release (1.7.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.7.0)
+### 🚀 Fix 🚀
+- Added support for MLCardDrawerTypeV3
+- Added safe-zone compatibility for small type
+ 
 ## [Release (1.6.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.6.3)
 ### 🚀 Fix 🚀
 - Changing access level of loadFromNib()
