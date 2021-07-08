@@ -36,10 +36,6 @@ public class ComboSwitchSmallView: ComboSwitchView {
         switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
-//        comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
-//        comboLabel.text = switchModel.description.message
-//        comboLabel.font = switchModel.description.weight?.getFont()
-//        backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
         backgroundColor = UIColor.clear
     }
     
