@@ -1,6 +1,6 @@
 import UIKit
 
-class CardView: UIView, BasicCard {
+public class CardView: UIView, BasicCard {
 
     @IBOutlet weak var animation: UIView!
     @IBOutlet weak var gradient: UIView!
@@ -15,7 +15,8 @@ class CardView: UIView, BasicCard {
     var disabledMode: Bool = false
     @objc var model: CardData?
     var cardUI: CardUI?
-
+    
+    public var customView : UIView?
 
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String? = nil) {
         self.frame = frame

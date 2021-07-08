@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SmallFrontView: CardView {
+public class SmallFrontView: CardView {
     @IBOutlet weak var expirationDate: CardLabel!
     @IBOutlet weak var name: CardLabel!
     @IBOutlet weak var paymentMethodImage: UIImageView!
@@ -35,8 +35,6 @@ class SmallFrontView: CardView {
     @IBOutlet weak var nameBottomToSuperviewConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var safeZoneWidthConstraint: NSLayoutConstraint!
-    
-    private var customView : UIView?
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
@@ -221,7 +219,7 @@ extension SmallFrontView {
         }
     }
 
-    override func showSecurityCode() {
+    public override func showSecurityCode() {
         securityCodeCircle.alpha = 1
     }
 

@@ -11,7 +11,7 @@ protocol CustomSwitchDelegate: class {
     func change(to index: Int)
 }
 
-class CustomSwitch: UIView {
+public class CustomSwitch: UIView {
 
     private var options: [SwitchOption]!
     private var buttons: [UIButton]!
@@ -32,7 +32,7 @@ class CustomSwitch: UIView {
         self.options = options
     }
     
-    override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         super.draw(rect)
         updateView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.selectDefault() }

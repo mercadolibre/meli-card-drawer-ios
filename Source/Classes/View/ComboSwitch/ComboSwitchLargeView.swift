@@ -1,15 +1,16 @@
 //
-//  ComboSwitchSmallView.swift
+//  ComboSwitch.swift
 //  MLCardDrawer
 //
-//  Created by Jonathan Scaramal on 01/07/2021.
+//  Created by Jonathan Scaramal on 29/01/2021.
 //
 
-public class ComboSwitchSmallView: ComboSwitchView {
+public class ComboSwitchLargeView: ComboSwitchView {
     
     var switchModel : SwitchModel?
     
     @IBOutlet weak var switchControl: CustomSwitch!
+    @IBOutlet weak var comboLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,11 +37,10 @@ public class ComboSwitchSmallView: ComboSwitchView {
         switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
-//        comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
-//        comboLabel.text = switchModel.description.message
-//        comboLabel.font = switchModel.description.weight?.getFont()
-//        backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
-        backgroundColor = UIColor.clear
+        comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
+        comboLabel.text = switchModel.description.message
+        comboLabel.font = switchModel.description.weight?.getFont()
+        backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
     }
     
     override func change(to index: Int) {

@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY1-6r-S5E" customClass="CustomSwitch" customModule="MLCardDrawer">
-                    <rect key="frame" x="0.0" y="0.0" width="308" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="308" height="52"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -27,7 +27,7 @@
                 <constraint firstItem="uY1-6r-S5E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2gh-MK-Wsm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uY1-6r-S5E" secondAttribute="trailing" constant="12" id="fQf-8o-SFO"/>
                 <constraint firstItem="uY1-6r-S5E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nCU-LA-SRS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uY1-6r-S5E" secondAttribute="bottom" constant="4" id="rRe-DD-UGW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uY1-6r-S5E" secondAttribute="bottom" constant="12" id="rRe-DD-UGW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-298.125" y="-95.070422535211264"/>
