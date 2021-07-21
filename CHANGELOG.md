@@ -1,3 +1,7 @@
+## [Release (1.7.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.7.1)
+### 🚀 Fix 🚀
+- Adjusted aspect ratio for small cards and combo switch
+
 ## [Release (1.7.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.7.0)
 ### 🚀 Fix 🚀
 - Added support for MLCardDrawerTypeV3

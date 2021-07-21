@@ -95,7 +95,14 @@ public class CustomSwitch: UIView {
             button.addTarget(self, action: #selector(self.buttonAction(sender:)),
                              for: .touchUpInside)
             button.setTitleColor(textColor, for: .normal)
+            
             button.titleLabel?.font = buttonFont
+            button.titleLabel?.numberOfLines = 1
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.titleLabel?.lineBreakMode = .byClipping
+            
+            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+            
             buttons.append(button)
         }
         buttons[0].setTitleColor(selectorTextColor, for: .normal)

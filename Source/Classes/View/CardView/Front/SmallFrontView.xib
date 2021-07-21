@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,6 +23,7 @@
                 <outlet property="numberTrailingConstraint" destination="7Fn-mR-gxB" id="sNk-Hl-Krn"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
                 <outlet property="paymentMethodImage" destination="hVB-2M-iYt" id="Tr2-It-Ho8"/>
+                <outlet property="paymentMethodImageWidthConstraint" destination="hD1-07-weO" id="eYN-ug-Jtw"/>
                 <outlet property="safeZone" destination="L4o-xR-CfT" id="l7R-Vk-asA"/>
                 <outlet property="safeZoneWidthConstraint" destination="QwL-eM-RI0" id="J72-Va-RDY"/>
                 <outlet property="securityCode" destination="K3c-vy-wcQ" id="ghT-Qi-ZGO"/>
@@ -46,14 +47,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="256" height="158"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="8" y="4" width="112" height="40"/>
+                    <rect key="frame" x="12" y="4" width="108" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned" customModule="MLCardDrawerResources" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="10" width="40" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="3wp-Qm-Vp5"/>
                                 <constraint firstAttribute="width" secondItem="hVB-2M-iYt" secondAttribute="height" multiplier="2:1" id="68G-zh-niA"/>
+                                <constraint firstAttribute="width" constant="40" id="hD1-07-weO"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="68G-zh-niA"/>
+                                </mask>
+                            </variation>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,10 +71,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="136" y="4" width="112" height="40"/>
+                    <rect key="frame" x="136" y="4" width="108" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remoteBankImage" customClass="UIImageViewAligned" customModule="MLCardDrawer">
-                            <rect key="frame" x="0.0" y="10" width="112" height="20"/>
+                            <rect key="frame" x="0.0" y="10" width="108" height="20"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -105,17 +112,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** ****" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-1b-VQe" customClass="CardLabel" customModule="MLCardDrawer">
-                    <rect key="frame" x="99" y="82" width="149" height="18"/>
+                    <rect key="frame" x="129" y="82" width="115" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="cXL-fC-pUa"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="NOMBRE Y APELLIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-U6-Lcy" customClass="CardLabel" customModule="MLCardDrawer">
-                    <rect key="frame" x="8" y="82" width="83" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="12" y="82" width="109" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -146,11 +153,11 @@
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0si-Gj-xOe"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="N94-Fg-ynK" secondAttribute="leading" id="3Bk-h4-rS6"/>
-                <constraint firstItem="L4o-xR-CfT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EUo-1b-VQe" secondAttribute="trailing" constant="8" id="3tQ-5Q-dQp"/>
+                <constraint firstItem="L4o-xR-CfT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EUo-1b-VQe" secondAttribute="trailing" constant="12" id="3tQ-5Q-dQp"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
-                <constraint firstItem="ZMN-U6-Lcy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="47K-ZK-WHj"/>
+                <constraint firstItem="ZMN-U6-Lcy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="47K-ZK-WHj"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="12" id="5aG-Iu-7JU"/>
-                <constraint firstAttribute="trailing" secondItem="EUo-1b-VQe" secondAttribute="trailing" constant="8" id="7Fn-mR-gxB"/>
+                <constraint firstAttribute="trailing" secondItem="EUo-1b-VQe" secondAttribute="trailing" constant="12" id="7Fn-mR-gxB"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="iqG-Eo-eGS" firstAttribute="height" secondItem="hVB-2M-iYt" secondAttribute="height" id="9Yf-sg-dM3"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="ABo-lq-EY8"/>
