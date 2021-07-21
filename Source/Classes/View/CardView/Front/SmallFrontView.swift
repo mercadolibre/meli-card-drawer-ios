@@ -36,6 +36,8 @@ public class SmallFrontView: CardView {
     
     @IBOutlet weak var safeZoneWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var paymentMethodImageWidthConstraint: NSLayoutConstraint!
+    
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
@@ -79,7 +81,7 @@ public class SmallFrontView: CardView {
     private func setupSecurityCode(_ cardUI: CardUI) {
         securityCodeCircle.alpha = 0
         securityCode.textColor = cardUI.cardFontColor
-        securityCode.isHidden = cardUI.securityCodeLocation == .back
+        securityCode.isHidden = true
     }
 
     override func addObservers() {
@@ -230,18 +232,20 @@ extension SmallFrontView {
 
     private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
+        
         if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty {
             UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.setImage(image, inImageView: self.paymentMethodImage)
-                    if let paymentMethodImage = self.paymentMethodImage as? UIImageViewAligned {
-                        paymentMethodImage.alignLeft = true
-                    }
+                    self.setImageScalingImageView(image, inImageView: self.paymentMethodImage)
                 }
             }
         } else if let image = cardUI.cardLogoImage as? UIImage {
-            setImage(image, inImageView: paymentMethodImage)
+            setImageScalingImageView(image, inImageView: paymentMethodImage)
+        }
+        
+        if let paymentMethodImage = self.paymentMethodImage as? UIImageViewAligned {
+            paymentMethodImage.alignLeft = true
         }
     }
 
@@ -262,9 +266,23 @@ extension SmallFrontView {
     private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
         inImageView.image = UIImage.scale(image: tImage,
                                           by: inImageView.bounds.size.height/tImage.size.height)
+        
         if disabledMode {
             inImageView.image = tImage.imageGreyScale()
         }
+    }
+    
+    private func setImageScalingImageView(_ tImage: UIImage, inImageView: UIImageView) {
+        
+        if disabledMode {
+            inImageView.image = tImage.imageGreyScale()
+        } else {
+            inImageView.image = tImage
+        }
+
+        let ratio = tImage.size.width / tImage.size.height
+        let newWidth = inImageView.frame.height * ratio
+        paymentMethodImageWidthConstraint.constant = newWidth
     }
 }
 

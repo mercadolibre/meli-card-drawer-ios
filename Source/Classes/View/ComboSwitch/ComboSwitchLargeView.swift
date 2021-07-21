@@ -33,8 +33,8 @@ public class ComboSwitchLargeView: ComboSwitchView {
         switchControl.selectorViewColor = UIColor.fromHex(switchModel.pillBackgroundColor)
         switchControl.selectorTextColor = UIColor.fromHex(switchModel.states.checked.textColor)
         switchControl.textColor = UIColor.fromHex(switchModel.states.unchecked.textColor)
-        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont()
-        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
+        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont().withSize(18)
+        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont().withSize(18)
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
         comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
