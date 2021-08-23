@@ -12,6 +12,7 @@
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="chevronIcon" destination="rTM-5K-tvz" id="mNa-K8-bpb"/>
                 <outlet property="debitImage" destination="Rno-d9-ED7" id="Hmg-aH-aAi"/>
+                <outlet property="disclaimer" destination="8Sm-pj-7B1" id="cIY-dG-mPV"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="issuerImage" destination="DT6-XG-kaD" id="e3a-8s-cug"/>
                 <outlet property="nameLabel" destination="jHm-dQ-yxg" id="uPG-Zu-22n"/>
@@ -132,6 +133,12 @@
                         <constraint firstAttribute="width" constant="16" id="tfw-ns-ePd"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-pj-7B1" customClass="CardLabel" customModule="MLCardDrawer">
+                    <rect key="frame" x="12" y="58" width="311" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -155,10 +162,12 @@
                 <constraint firstItem="rTM-5K-tvz" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-14" id="R8U-JB-mLP"/>
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
+                <constraint firstAttribute="trailing" secondItem="8Sm-pj-7B1" secondAttribute="trailing" constant="12" id="Ss7-Dy-v8V"/>
                 <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YL9-xQ-wJB"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fTX-vW-38x"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jHm-dQ-yxg" secondAttribute="trailing" constant="8" id="gsO-ph-O7d"/>
+                <constraint firstItem="8Sm-pj-7B1" firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" constant="-30" id="iDP-4u-O7T"/>
                 <constraint firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" constant="16" id="kz9-Gy-UCb"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="height" secondItem="eki-qS-IGB" secondAttribute="height" id="n6u-9H-J8B"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
@@ -166,6 +175,7 @@
                 <constraint firstItem="DT6-XG-kaD" firstAttribute="height" secondItem="oQQ-DA-UJ9" secondAttribute="height" id="qYJ-pT-6yJ"/>
                 <constraint firstItem="EUo-1b-VQe" firstAttribute="centerY" secondItem="rTM-5K-tvz" secondAttribute="centerY" id="wEm-ht-3fR"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="leading" constant="-80" id="yRo-9y-aW9"/>
+                <constraint firstItem="8Sm-pj-7B1" firstAttribute="leading" secondItem="HLQ-m9-78F" secondAttribute="leading" constant="12" id="zDf-pg-gkh"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

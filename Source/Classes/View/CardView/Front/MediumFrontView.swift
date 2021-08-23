@@ -7,6 +7,7 @@ class MediumFrontView: CardView {
     @IBOutlet weak var debitImage: UIImageView!
     @IBOutlet weak var nameLabel: CardLabel!
     @IBOutlet weak var chevronIcon: UIImageView!
+    @IBOutlet weak var disclaimer: CardLabel!
     
     @IBOutlet weak var numberTrailingConstraint: NSLayoutConstraint!
     
@@ -113,6 +114,10 @@ extension MediumFrontView {
         number.dynamicSlice = false
         number.setup(model?.number ?? "", FontFactory.font(cardUI, shadow: true), customLabelFontName: self.customLabelFontName)
         number.font = number.font.withSize(12)
+        
+        disclaimer.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        disclaimer.textColor = .white
+        disclaimer.text = model?.disclaimer ?? ""
     }
 }
 
