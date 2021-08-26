@@ -1,4 +1,4 @@
-## [Release (1.7.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.7.1)
+## [Release (1.7.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.7.2)
 ### 🚀 Feature 🚀
 - Added a disclaimer label in MediumFrontView
 
