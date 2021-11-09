@@ -21,6 +21,7 @@ require 'fastlane_core/ui/ui.rb'
 platform :ios do
   desc "PR Check lane"
   lane :pr_check do
+    cocoapods()
     tests()
     # build()
   end
