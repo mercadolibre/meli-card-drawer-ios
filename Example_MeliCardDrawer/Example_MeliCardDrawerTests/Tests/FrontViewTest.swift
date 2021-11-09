@@ -17,7 +17,7 @@ class FrontViewTest: XCTestCase {
         
         XCTAssertNotNil(frontView.model)
         XCTAssert(frontView.name.text! == "JOHN")
-        XCTAssert(frontView.number.text! == "123*   ****   ****")
+        XCTAssert(frontView.number.text! == "123* **** ****")
         XCTAssert(frontView.securityCode.text! == "1**")
         XCTAssert(frontView.expirationDate.text! == "10/19")
         XCTAssert(frontView.securityCode.alpha == 1)
@@ -32,7 +32,7 @@ class FrontViewTest: XCTestCase {
         cardUI.cardPattern = [3, 3]
         frontView.setupUI(cardUI)
 
-        XCTAssert(frontView.number.text! == "***             ***")
+        XCTAssert(frontView.number.text! == "***         ***")
     }
 
     func testShowCVV() {

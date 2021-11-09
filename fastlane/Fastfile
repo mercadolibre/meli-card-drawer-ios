@@ -1,0 +1,38 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+# Require Fastlane's UI to handle log messages. To be sure which method you should use check: https://github.com/fastlane/fastlane/blob/master/fastlane_core/lib/fastlane_core/ui/interface.rb
+require 'fastlane_core/ui/ui.rb'
+
+platform :ios do
+  desc "PR Check lane"
+  lane :pr_check do
+    tests()
+    # build()
+  end
+
+  desc "Tests lane"
+  lane :tests do
+    run_tests(scheme: "Example_MeliCardDrawerTests")
+  end
+
+  desc "Build app"
+  lane :build do
+    build_app(scheme: "Example_MeliCardDrawer")
+  end
+end
+

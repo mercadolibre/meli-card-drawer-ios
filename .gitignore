@@ -26,3 +26,8 @@ Pods/
 
 Podfile.lock
 MeliCardDrawer.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# Fastlane
+
+fastlane/test_output
+fastlane/report.xml
