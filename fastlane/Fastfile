@@ -23,7 +23,7 @@ platform :ios do
   lane :pr_check do
     cocoapods(use_bundle_exec: false)
     tests()
-    # build() 
+    # build()
   end
 
   desc "Tests lane"
