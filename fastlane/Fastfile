@@ -30,7 +30,7 @@ platform :ios do
 
     tests
 
-    if CIHelper::is_release_branch
+    if CIHelper::is_release_branch?
       release
     end
 
