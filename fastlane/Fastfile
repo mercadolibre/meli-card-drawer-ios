@@ -55,6 +55,8 @@ platform :ios do
 
     unless CIHelper::get_lib_version == pod_version
       UI.error 'Branch and podspec versions don\'t match'
+      UI.message CIHelper::get_lib_version
+      UI.message pod_version
     end
 
     UI.message 'Publishing public pod'
