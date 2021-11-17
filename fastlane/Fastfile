@@ -26,11 +26,9 @@ platform :ios do
 
   desc "Primary lane"
   lane :primary do
-    # cocoapods(use_bundle_exec: false)
+    cocoapods(use_bundle_exec: false)
 
-    # tests
-
-    UI.message CIHelper::MERGE_BRANCH
+    tests
 
     if CIHelper::is_release_branch?
       release
@@ -55,8 +53,6 @@ platform :ios do
 
     unless CIHelper::get_lib_version == pod_version
       UI.error 'Branch and podspec versions don\'t match'
-      UI.message CIHelper::get_lib_version
-      UI.message pod_version
     end
 
     UI.message 'Publishing public pod'
