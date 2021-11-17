@@ -63,6 +63,8 @@ platform :ios do
     # Create release
     UI.message 'Creating GitHub Release'
 
+    UI.message CIHelper::GITHUB_TOKEN
+
     set_github_release(
       repository_name: CIHelper::get_repository_name,
       api_token: CIHelper::GITHUB_TOKEN,
