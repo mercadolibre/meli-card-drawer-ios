@@ -28,7 +28,9 @@ platform :ios do
   lane :primary do
     cocoapods(use_bundle_exec: false)
 
-    tests
+    # tests
+
+    UI.message CIHelper::BASE_BRANCH
 
     if CIHelper::is_release_branch?
       release
