@@ -26,11 +26,11 @@ platform :ios do
 
   desc "Primary lane"
   lane :primary do
-    cocoapods(use_bundle_exec: false)
+    # cocoapods(use_bundle_exec: false)
 
     # tests
 
-    UI.message CIHelper::BASE_BRANCH
+    UI.message CIHelper::MERGE_BRANCH
 
     if CIHelper::is_release_branch?
       release
