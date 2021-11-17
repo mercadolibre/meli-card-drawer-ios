@@ -55,8 +55,22 @@ platform :ios do
       UI.error 'Branch and podspec versions don\'t match'
     end
 
+    # Publish pod
     UI.message 'Publishing public pod'
+
     # pod_push(path: "#{CIHelper::LIB_NAME}.podspec", allow_warnings: true)
+
+    # Create release
+    UI.message 'Creating GitHub Release'
+
+    set_github_release(
+      repository_name: CIHelper::REPOSITORY_NAME,
+      api_token: CIHelper::GITHUB_TOKEN,
+      name: "Release - " pod_version,
+      tag_name: "v" pod_version,
+      description: (File.read("changelog") rescue "No changelog provided"),
+      commitish: CIHelper::MERGE_BRANCH
+    )
 
   end
 end
