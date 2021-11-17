@@ -18,22 +18,46 @@ default_platform(:ios)
 # Require Fastlane's UI to handle log messages. To be sure which method you should use check: https://github.com/fastlane/fastlane/blob/master/fastlane_core/lib/fastlane_core/ui/interface.rb
 require 'fastlane_core/ui/ui.rb'
 
+before_all do
+  require_relative 'helper/ci_helper.rb'
+end
+
 platform :ios do
-  desc "PR Check lane"
-  lane :pr_check do
+
+  desc "Primary lane"
+  lane :primary do
     cocoapods(use_bundle_exec: false)
-    tests()
-    # build()
+
+    tests
+
+    if CIHelper::is_release_branch
+      release
+    end
+
   end
 
   desc "Tests lane"
   lane :tests do
-    run_tests(scheme: "Example_MeliCardDrawerTests")
+    run_tests(scheme: CIHelper::TEST_SCHEME)
   end
 
   desc "Build app"
   lane :build do
-    build_app(scheme: "Example_MeliCardDrawer")
+    build_app(scheme: CIHelper::SCHEME)
+  end
+
+  desc "Release lane"
+  lane :release do
+
+    pod_version = CIHelper::get_spec_version
+
+    unless CIHelper::get_lib_version == pod_version
+      UI.error 'Branch and podspec versions don\'t match'
+    end
+
+    UI.message 'Publishing public pod'
+    # pod_push(path: "#{CIHelper::LIB_NAME}.podspec", allow_warnings: true)
+
   end
 end
 
