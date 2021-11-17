@@ -66,8 +66,8 @@ platform :ios do
     set_github_release(
       repository_name: CIHelper::REPOSITORY_NAME,
       api_token: CIHelper::GITHUB_TOKEN,
-      name: "Release - " pod_version,
-      tag_name: "v" pod_version,
+      name: 'Release - ' pod_version,
+      tag_name: 'v' pod_version,
       description: (File.read("changelog") rescue "No changelog provided"),
       commitish: CIHelper::MERGE_BRANCH
     )
