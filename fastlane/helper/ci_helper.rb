@@ -8,7 +8,6 @@ module CIHelper
         BUILD_DIR = ENV['BITRISE_SOURCE_DIR']
         SCHEME = ENV['PX_BITRISE_SCHEME']
         TEST_SCHEME = ENV['PX_BITRISE_TEST_SCHEME']
-        REPOSITORY_NAME = ENV['GIT_REPOSITORY_URL']
     end
 
     def self.is_release_branch?
@@ -25,6 +24,10 @@ module CIHelper
         podspec_path = "#{CIHelper::BUILD_DIR}/#{CIHelper::LIB_NAME}.podspec"
         spec = Pod::Specification.from_file(podspec_path)
         spec.version.to_s()
+    end
+
+    def self.get_repository_name
+        return ENV['GIT_REPOSITORY_URL'].match(/github.com\/(.*).git/)[1]
     end
 
 end

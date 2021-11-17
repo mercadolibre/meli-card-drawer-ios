@@ -64,10 +64,10 @@ platform :ios do
     UI.message 'Creating GitHub Release'
 
     set_github_release(
-      repository_name: CIHelper::REPOSITORY_NAME,
+      repository_name: CIHelper::get_repository_name,
       api_token: CIHelper::GITHUB_TOKEN,
       name: 'Release - ' + pod_version,
-      tag_name: 'v' + pod_version,
+      tag_name: pod_version,
       description: (File.read('changelog') rescue 'No changelog provided'),
       commitish: CIHelper::MERGE_BRANCH
     )
