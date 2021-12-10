@@ -117,7 +117,7 @@ extension MediumFrontView {
         
         disclaimer.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         disclaimer.textColor = cardUI.cardFontColor
-        disclaimer.text = model?.disclaimer ?? ""
+        disclaimer.attributedText = model?.disclaimer
     }
 }
 
