@@ -16,12 +16,11 @@ public class MediumGenericView: UIView, BasicCard {
     @IBOutlet weak var highlightLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    private struct Sizes {
-        static let titleFont: CGFloat = 14
-        static let subtitleFont: CGFloat = 14
-        static let descriptionFont: CGFloat = 12
-        static let tagFont: CGFloat = 11
-        static let imageContainerBorderWith: CGFloat = 2
+    private struct FontSizes {
+        static let title: CGFloat = 14
+        static let subtitle: CGFloat = 14
+        static let description: CGFloat = 12
+        static let badge: CGFloat = 11
     }
     
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
@@ -37,8 +36,6 @@ public class MediumGenericView: UIView, BasicCard {
     
     func setupUI(_ cardUI: CardUI) {
         if let genericUI = cardUI as? GenericCardUI {
-            backgroundColor = genericUI.cardBackgroundColor
-
             setTitle(with: genericUI)
             setSubtitle(with: genericUI)
             
@@ -47,7 +44,10 @@ public class MediumGenericView: UIView, BasicCard {
             }
             
             setDescription(with: genericUI)
+            backgroundColor = genericUI.cardBackgroundColor
+            
             setHighlightLabel(with: genericUI)
+            
             setPaymentMethodImage(genericUI)
         }
         
@@ -56,7 +56,7 @@ public class MediumGenericView: UIView, BasicCard {
     }
     
     private func setImageContainer() {
-        imageContainerView.layer.borderWidth = Sizes.imageContainerBorderWith
+        imageContainerView.layer.borderWidth = 2
         imageContainerView.backgroundColor = .clear
         imageContainerView.layer.borderColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1).cgColor
         imageContainerView.layer.cornerRadius = imageContainerView.frame.height/2
@@ -64,25 +64,23 @@ public class MediumGenericView: UIView, BasicCard {
     
     private func setTitle(with genericUI: GenericCardUI) {
         titleLabel.text = genericUI.titleName
-        titleLabel.font = genericUI.titleWeight.getFont(size: Sizes.titleFont)
+        titleLabel.font = genericUI.titleWeight.getFont(size: FontSizes.title)
         titleLabel.textColor = UIColor.fromHex(genericUI.titleTextColor)
     }
     
     private func setSubtitle(with genericUI: GenericCardUI) {
         subtitleLabel.text = genericUI.subtitleName
-        subtitleLabel.font = genericUI.subtitleWeight.getFont(size: Sizes.subtitleFont)
+        subtitleLabel.font = genericUI.subtitleWeight.getFont(size: FontSizes.subtitle)
         subtitleLabel.textColor = UIColor.fromHex(genericUI.subtitleTextColor)
     }
     
     private func setDescription(with genericUI: GenericCardUI) {
-        guard let name = genericUI.descriptionName, let weight = genericUI.descriptionWeight, let descriptionTextColor = genericUI.descriptionTextColor else {
-            return
-        }
-        
         descriptionLabel.isHidden = false
-        descriptionLabel.text = name
-        descriptionLabel.font = weight.getFont(size: Sizes.descriptionFont)
-        descriptionLabel.textColor = UIColor.fromHex(descriptionTextColor)
+        descriptionLabel.text = genericUI.descriptionName
+        descriptionLabel.font = genericUI.descriptionWeight?.getFont(size: FontSizes.description)
+        if let descriptionTextColor = genericUI.descriptionTextColor {
+            descriptionLabel.textColor = UIColor.fromHex(descriptionTextColor)
+        }
     }
     
     private func addGradientLayer(colors: [CGColor]) {
@@ -99,7 +97,7 @@ public class MediumGenericView: UIView, BasicCard {
         highlightLabel.layer.masksToBounds = true
         highlightLabel.isHidden = genericUI.labelName.isEmpty
         highlightLabel.text = genericUI.labelName
-        highlightLabel.font = genericUI.labelWeight.getFont(size: Sizes.tagFont)
+        highlightLabel.font = genericUI.labelWeight.getFont(size: FontSizes.badge)
         highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
         highlightLabel.backgroundColor = UIColor.fromHex(genericUI.labelBackgroundColor)
         let path = UIBezierPath(roundedRect: highlightLabel.bounds,
