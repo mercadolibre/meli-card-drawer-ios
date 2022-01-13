@@ -43,7 +43,10 @@ public class MediumGenericView: UIView, BasicCard {
                 addGradientLayer(colors: gradientColors)
             }
             
-            setDescription(with: genericUI)
+            if genericUI.descriptionName != nil {
+                setDescription(with: genericUI)
+            }
+        
             backgroundColor = genericUI.cardBackgroundColor
             
             setHighlightLabel(with: genericUI)
