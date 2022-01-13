@@ -29,13 +29,13 @@ class Mask {
 
     func format(_ text: String?, _ font: Font, _ total: Int, _ color: UIColor? = nil) -> NSAttributedString {
 
-        var text = text ?? ""
-        text = pattern.isEmpty ? placeHolder(text) : pattern(text, total)
+        var string = text?.replacingOccurrences(of: " ", with: "") ?? ""
+        string = pattern.isEmpty ? placeHolder(string) : pattern(string, total)
 
-        let len = text == placeholder ? 0 : text.count
+        let len = string == placeholder ? 0 : string.count
         var range = NSMakeRange(0, len)
         
-        let attributed = NSMutableAttributedString(string: text, attributes: attributes)
+        let attributed = NSMutableAttributedString(string: string, attributes: attributes)
 
         attributed.addAttributes(editAtributes(font, color), range: range)
 
