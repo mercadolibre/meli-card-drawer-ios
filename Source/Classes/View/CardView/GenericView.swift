@@ -69,11 +69,12 @@ public class GenericView: UIView, BasicCard  {
     
     private func addGradientLayer(colors: [CGColor]) {
         let gradient = CAGradientLayer()
-        gradient.frame = bounds
+        gradient.frame = self.frame
         gradient.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
-        gradient.colors = colors
+        
         gradientView.layer.insertSublayer(gradient, at: 0)
-        gradient.startPoint = CGPoint(x: 0, y: 1)
+        gradient.colors = colors
+        gradient.startPoint =  CGPoint(x: 0.1, y: 0.5)
         gradient.endPoint = CGPoint(x: 1, y: 0)
     }
     
@@ -106,7 +107,7 @@ public class GenericView: UIView, BasicCard  {
     
     private func setImageContainer() {
         imageContainerView.layer.borderWidth = Sizes.imageContainerBorderWith
-        imageContainerView.backgroundColor = .clear
+        imageContainerView.backgroundColor = .white
         imageContainerView.layer.borderColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1).cgColor
     }
     
