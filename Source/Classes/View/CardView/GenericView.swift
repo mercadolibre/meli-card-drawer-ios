@@ -108,7 +108,6 @@ public class GenericView: UIView, BasicCard  {
         imageContainerView.layer.borderWidth = Sizes.imageContainerBorderWith
         imageContainerView.backgroundColor = .clear
         imageContainerView.layer.borderColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1).cgColor
-        imageContainerView.layer.cornerRadius = imageContainerView.frame.height/2
     }
     
     private func setPaymentMethodImage(_ cardUI: GenericCardUI) {
@@ -120,6 +119,7 @@ public class GenericView: UIView, BasicCard  {
                 self.imageView.contentMode = .scaleAspectFit
                 self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
                 self.imageView.clipsToBounds = true
+                self.imageContainerView.layer.cornerRadius = self.imageContainerView.frame.height/2
             }
         }
     }

@@ -46,6 +46,9 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="LAX-1s-9pg">
                                     <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="LAX-1s-9pg" secondAttribute="height" multiplier="1:1" id="ubG-Wr-vh0"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <constraints>
