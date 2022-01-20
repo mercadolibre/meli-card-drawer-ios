@@ -19,4 +19,10 @@ Pod::Spec.new do |s|
     default.source_files = ['Source/Classes/**/*.{h,m,swift}']
     default.resource_bundles = { 'MLCardDrawerResources' => ['Source/Assets/*.xcassets', 'Source/Classes/**/*.xib'] }
   end
+
+  s.test_spec 'MLCardDrawerTests' do |test_spec|
+    test_spec.requires_app_host = false
+    test_spec.source_files = 'MLCardDrawerTests/**/*.{swift}'
+    test_spec.frameworks = 'XCTest'
+  end
 end
