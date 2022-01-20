@@ -240,7 +240,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var defaultUI = false
         var securityCodePattern = 0
-        var labelName = "Novo"
+        var labelName = "NOVO"
         var labelTextColor = "#8DC0B6"
         var labelBackgroundColor = "#1A479AD1"
         var labelWeight = "bold"
@@ -263,7 +263,7 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var defaultUI = false
         var securityCodePattern = 0
-        var labelName = "Novo"
+        var labelName = "NUEVO"
         var labelTextColor = "#8DC0B6"
         var labelBackgroundColor = "#FFFFFF"
         var labelWeight = "bold"

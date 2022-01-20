@@ -15,12 +15,19 @@ public class MediumGenericView: UIView, BasicCard {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var highlightLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var highlightContainerView: UIView!
     
     private struct FontSizes {
         static let title: CGFloat = 14
         static let subtitle: CGFloat = 14
         static let description: CGFloat = 12
         static let badge: CGFloat = 11
+    }
+    
+    private var model: GenericCardUI?
+    
+    override public func layoutSubviews() {
+        setHighlightContainerView()
     }
     
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
@@ -33,94 +40,101 @@ public class MediumGenericView: UIView, BasicCard {
         addGradient()
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
     }
-    
     func setupUI(_ cardUI: CardUI) {
         if let genericUI = cardUI as? GenericCardUI {
-            setTitle(with: genericUI)
-            setSubtitle(with: genericUI)
-            
-            if let gradientColors = genericUI.gradientColors?.map({ UIColor.fromHex($0).cgColor }) {
-                addGradientLayer(colors: gradientColors)
-            }
-            
-            if genericUI.descriptionName != nil {
-                setDescription(with: genericUI)
-            }
-        
-            backgroundColor = genericUI.cardBackgroundColor
-            
-            setHighlightLabel(with: genericUI)
-            
-            setPaymentMethodImage(genericUI)
+            model = genericUI
+
+            backgroundColor = model?.cardBackgroundColor
+
+            setTitle()
+            setSubtitle()
+            addGradientLayer()
+            setDescription()
+            setHighlightLabel()
+            setHighlightContainerView()
+            setPaymentMethodImage()
         }
         
         layer.masksToBounds = true
         setImageContainer()
     }
     
-    private func setImageContainer() {
-        imageContainerView.layer.borderWidth = 2
-        imageContainerView.backgroundColor = .white
-        imageContainerView.layer.borderColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1).cgColor
-        imageContainerView.layer.cornerRadius = imageContainerView.frame.height/2
-    }
-    
-    private func setTitle(with genericUI: GenericCardUI) {
+    private func setTitle() {
+        guard let genericUI = model else { return }
         titleLabel.text = genericUI.titleName
         titleLabel.font = genericUI.titleWeight.getFont(size: FontSizes.title)
         titleLabel.textColor = UIColor.fromHex(genericUI.titleTextColor)
     }
     
-    private func setSubtitle(with genericUI: GenericCardUI) {
+    private func setSubtitle() {
+        guard let genericUI = model else { return }
         subtitleLabel.text = genericUI.subtitleName
         subtitleLabel.font = genericUI.subtitleWeight.getFont(size: FontSizes.subtitle)
         subtitleLabel.textColor = UIColor.fromHex(genericUI.subtitleTextColor)
     }
     
-    private func setDescription(with genericUI: GenericCardUI) {
-        descriptionLabel.isHidden = false
-        descriptionLabel.text = genericUI.descriptionName
-        descriptionLabel.font = genericUI.descriptionWeight?.getFont(size: FontSizes.description)
-        if let descriptionTextColor = genericUI.descriptionTextColor {
-            descriptionLabel.textColor = UIColor.fromHex(descriptionTextColor)
-        }
-    }
-    
-    private func addGradientLayer(colors: [CGColor]) {
+    private func addGradientLayer() {
+        guard let gradientColors = model?.gradientColors?.map({ UIColor.fromHex($0).cgColor }) else { return }
         let gradient = CAGradientLayer()
-        gradient.frame = bounds
+        gradient.frame = self.frame
         gradient.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
-        gradient.colors = colors
+        
         gradientView.layer.insertSublayer(gradient, at: 0)
+        gradient.colors = gradientColors
         gradient.startPoint =  CGPoint(x: 0.1, y: 0.5)
         gradient.endPoint = CGPoint(x: 1, y: 0)
     }
     
-    private func setHighlightLabel(with genericUI: GenericCardUI) {
-        highlightLabel.layer.masksToBounds = true
+    private func setHighlightContainerView() {
+        guard let color = model?.labelBackgroundColor else { return }
+        highlightContainerView.layer.masksToBounds = true
+        highlightContainerView.backgroundColor = UIColor.fromHex(color)
+        let path = UIBezierPath(roundedRect: highlightContainerView.bounds,
+                                byRoundingCorners: [.bottomLeft],
+                                cornerRadii: CGSize(width: highlightContainerView.frame.height/2,
+                                                    height: highlightContainerView.frame.height/2))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        highlightContainerView.layer.mask = mask
+    }
+    
+    private func setDescription() {
+        guard let name = model?.descriptionName, let weight = model?.descriptionWeight, let descriptionTextColor = model?.descriptionTextColor else {
+            return
+        }
+        
+        descriptionLabel.isHidden = false
+        descriptionLabel.text = name
+        descriptionLabel.font = weight.getFont(size: FontSizes.description)
+        descriptionLabel.textColor = UIColor.fromHex(descriptionTextColor)
+    }
+    
+    private func setHighlightLabel() {
+        guard let genericUI = model else { return }
         highlightLabel.isHidden = genericUI.labelName.isEmpty
         highlightLabel.text = genericUI.labelName
         highlightLabel.font = genericUI.labelWeight.getFont(size: FontSizes.badge)
         highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
-        highlightLabel.backgroundColor = UIColor.fromHex(genericUI.labelBackgroundColor)
-        let path = UIBezierPath(roundedRect: highlightLabel.bounds,
-                                byRoundingCorners: [.bottomLeft],
-                                cornerRadii: CGSize(width: highlightLabel.frame.height/2,
-                                                    height: highlightLabel.frame.height/2))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        highlightLabel.layer.mask = mask
     }
     
-    private func setPaymentMethodImage(_ cardUI: GenericCardUI) {
+    private func setImageContainer() {
+        imageContainerView.layer.borderWidth = 2
+        imageContainerView.backgroundColor = .white
+        imageContainerView.layer.borderColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1).cgColor
+    }
+    
+    private func setPaymentMethodImage() {
+        guard let genericUI = model else { return }
+        
         imageView.image = nil
-        UIImageView().getRemoteImage(imageUrl: cardUI.logoImageURL) { image in
+        UIImageView().getRemoteImage(imageUrl: genericUI.logoImageURL) { image in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.imageView.image = image
                 self.imageView.contentMode = .scaleAspectFit
                 self.imageView.layer.cornerRadius = self.imageView.frame.height / 2
                 self.imageView.clipsToBounds = true
+                self.imageContainerView.layer.cornerRadius = self.imageContainerView.frame.height/2
             }
         }
     }
