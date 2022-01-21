@@ -19,4 +19,8 @@ import Foundation
     var subtitleTextColor: String { get }
     var subtitleWeight: String { get }
     var logoImageURL: String { get }
+    @objc optional var descriptionName: String { get }
+    @objc optional var descriptionTextColor: String { get }
+    @objc optional var descriptionWeight: String { get }
+    @objc optional var gradientColors: [String] { get }
 }

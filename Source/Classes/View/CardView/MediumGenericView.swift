@@ -1,32 +1,30 @@
 //
-//  GenericView.swift
-//  MLCardDrawer
+//  MediumGenericView.swift
+//  MLCardDrawer-MLCardDrawerResources
 //
-//  Created by Vinicius De Andrade Silva on 28/04/21.
+//  Created by Gisela Araceli Ramos Carrasco on 17/12/2021.
 //
 
 import UIKit
 
-public class GenericView: UIView, BasicCard  {
-    
+public class MediumGenericView: UIView, BasicCard {
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var highlightLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var highlightContainerView: UIView!
     
-    private var model: GenericCardUI?
-    
-    private struct Sizes {
-        static let titleFont: CGFloat = 14
-        static let subtitleFont: CGFloat = 14
-        static let descriptionFont: CGFloat = 12
-        static let tagFont: CGFloat = 12
-        static let imageContainerBorderWith: CGFloat = 2
+    private struct FontSizes {
+        static let title: CGFloat = 14
+        static let subtitle: CGFloat = 14
+        static let description: CGFloat = 12
+        static let badge: CGFloat = 11
     }
+    
+    private var model: GenericCardUI?
     
     override public func layoutSubviews() {
         setHighlightContainerView()
@@ -37,11 +35,11 @@ public class GenericView: UIView, BasicCard  {
         layer.masksToBounds = true
         layer.isDoubleSided = false
         loadFromNib()
-        descriptionLabel.isHidden = true 
+        descriptionLabel.isHidden = true
         setupUI(cardUI)
+        addGradient()
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
     }
-    
     func setupUI(_ cardUI: CardUI) {
         if let genericUI = cardUI as? GenericCardUI {
             model = genericUI
@@ -64,14 +62,14 @@ public class GenericView: UIView, BasicCard  {
     private func setTitle() {
         guard let genericUI = model else { return }
         titleLabel.text = genericUI.titleName
-        titleLabel.font = genericUI.titleWeight.getFont(size: Sizes.titleFont)
+        titleLabel.font = genericUI.titleWeight.getFont(size: FontSizes.title)
         titleLabel.textColor = UIColor.fromHex(genericUI.titleTextColor)
     }
     
     private func setSubtitle() {
         guard let genericUI = model else { return }
         subtitleLabel.text = genericUI.subtitleName
-        subtitleLabel.font = genericUI.subtitleWeight.getFont(size: Sizes.subtitleFont)
+        subtitleLabel.font = genericUI.subtitleWeight.getFont(size: FontSizes.subtitle)
         subtitleLabel.textColor = UIColor.fromHex(genericUI.subtitleTextColor)
     }
     
@@ -107,7 +105,7 @@ public class GenericView: UIView, BasicCard  {
         
         descriptionLabel.isHidden = false
         descriptionLabel.text = name
-        descriptionLabel.font = weight.getFont(size: Sizes.descriptionFont)
+        descriptionLabel.font = weight.getFont(size: FontSizes.description)
         descriptionLabel.textColor = UIColor.fromHex(descriptionTextColor)
     }
     
@@ -115,18 +113,19 @@ public class GenericView: UIView, BasicCard  {
         guard let genericUI = model else { return }
         highlightLabel.isHidden = genericUI.labelName.isEmpty
         highlightLabel.text = genericUI.labelName
-        highlightLabel.font = genericUI.labelWeight.getFont(size: Sizes.tagFont)
+        highlightLabel.font = genericUI.labelWeight.getFont(size: FontSizes.badge)
         highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
     }
     
     private func setImageContainer() {
-        imageContainerView.layer.borderWidth = Sizes.imageContainerBorderWith
+        imageContainerView.layer.borderWidth = 2
         imageContainerView.backgroundColor = .white
         imageContainerView.layer.borderColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1).cgColor
     }
     
     private func setPaymentMethodImage() {
         guard let genericUI = model else { return }
+        
         imageView.image = nil
         UIImageView().getRemoteImage(imageUrl: genericUI.logoImageURL) { image in
             DispatchQueue.main.async { [weak self] in
@@ -140,9 +139,8 @@ public class GenericView: UIView, BasicCard  {
         }
     }
     
-    
     func isShineEnabled() -> Bool {
-        return false
+        false
     }
     
     func addShineView() {
@@ -158,7 +156,7 @@ public class GenericView: UIView, BasicCard  {
     }
     
     func addGradient() {
-        
+
     }
     
     func setupAnimated(_ cardUI: CardUI) {

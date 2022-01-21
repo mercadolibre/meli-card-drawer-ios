@@ -1,38 +1,29 @@
 //
-//  GenericViewController.swift
+//  DebinViewController.swift
 //  Example_MeliCardDrawer
 //
-//  Created by Vinicius De Andrade Silva on 27/04/21.
-//  Copyright © 2021 Mercadolibre. All rights reserved.
+//  Created by Gisela Araceli Ramos Carrasco on 19/01/2022.
+//  Copyright © 2022 Mercadolibre. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MLCardDrawer
 
-class GenericViewController: UIViewController {
-
+class DebinViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var containerViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var gradientColorsSwitch: UISwitch!
     
     var cardType: MLCardDrawerTypeV3 = .large
-    var cardTemplate = CardUIExamples.Pix()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientColorsSwitch.addTarget(nil, action: #selector(enabledGradientColors), for: .valueChanged)
-        segmentedControl.addTarget(nil, action: #selector(changedValue), for: .valueChanged)
+        segmentedControl.addTarget(nil, action: #selector(valueChanged), for: .valueChanged)
         setupCard(cardType: cardType)
     }
     
-    @objc func enabledGradientColors() {
-        cardTemplate.gradientColors = gradientColorsSwitch.isOn ? ["#132F3B", "#3688AB", "#37B4AA"] : [""]
-        cardTemplate.labelBackgroundColor = gradientColorsSwitch.isOn ? "#FFFFFF" : "#1A479AD1"
-        setupCard(cardType: cardType)
-    }
-    
-    @objc func changedValue() {
+    @objc func valueChanged() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             cardType = .large
@@ -48,11 +39,11 @@ class GenericViewController: UIViewController {
         
         setupCard(cardType: cardType)
     }
-
+    
     private func setupCard(cardType: MLCardDrawerTypeV3) {
         containerView.subviews.forEach { $0.removeFromSuperview() }
         
-        let cardDrawer = MLCardDrawerController(cardUI: cardTemplate, cardType, CardDataHandler())
+        let cardDrawer = MLCardDrawerController(cardUI: CardUIExamples.Debin(), cardType, CardDataHandler())
                 
         let cardView = cardDrawer.getCardView()
         
@@ -61,16 +52,11 @@ class GenericViewController: UIViewController {
         
         containerView.addSubview(cardView)
         
-        cardView.layer.borderColor = UIColor.black.cgColor
-        cardView.layer.borderWidth = 1
-        cardView.layer.cornerRadius = 10
-        
         NSLayoutConstraint.activate([
             cardView.topAnchor.constraint(equalTo: containerView.topAnchor),
             cardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
-        ])
+            cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
     }
 
 }

@@ -240,19 +240,46 @@ struct CardUIExamples {
         var cardFontColor: UIColor = .white
         var defaultUI = false
         var securityCodePattern = 0
-        var labelName = "Novo"
+        var labelName = "NOVO"
         var labelTextColor = "#8DC0B6"
         var labelBackgroundColor = "#1A479AD1"
         var labelWeight = "bold"
-        var titleTextColor = "#CC000000"
+        var titleName = "PIX"
+        var titleTextColor = "#FFFFFF"
         var titleWeight = "bold"
+        var subtitleName = "Aprovação Imediata"
         var subtitleTextColor = "#8DC0B6"
         var subtitleWeight = "regular"
         var securityCodeLocation = MLCardSecurityCodeLocation.none
-        var titleName = "PIX"
-        var subtitleName = "Aprovação Imediata"
         var cardBackgroundColor = UIColor.white
         var logoImageURL = "https://mobile.mercadolibre.com/remote_resources/image/card_drawer_mlb_pm_pix_normal?density=xhdpi&locale=pt_BR&version=1"
+        var gradientColors = [""]
+    }
+    
+    class Debin: NSObject, GenericCardUI {
+        var cardPattern = [4, 4, 4, 4]
+        var placeholderName = ""
+        var placeholderExpiration = ""
+        var cardFontColor: UIColor = .white
+        var defaultUI = false
+        var securityCodePattern = 0
+        var labelName = "NUEVO"
+        var labelTextColor = "#8DC0B6"
+        var labelBackgroundColor = "#FFFFFF"
+        var labelWeight = "bold"
+        var titleName = "Banco BBVA"
+        var titleTextColor = "#FFFFFF"
+        var titleWeight = "bold"
+        var subtitleName = "Apodo cuenta"
+        var subtitleTextColor = "#FFFFFF"
+        var subtitleWeight = "regular"
+        var securityCodeLocation = MLCardSecurityCodeLocation.none
+        var cardBackgroundColor = UIColor.white
+        var logoImageURL = "https://http2.mlstatic.com/storage/logos-api-admin/227062e0-ae66-11eb-9123-2107040a9cba-xl@2x.png"
+        var descriptionName = "CBU: ****333"
+        var descriptionTextColor = "#FFFFFF"
+        var descriptionWeight = "regular"
+        var gradientColors = ["#002444", "#004580", "##0067BE"]
     }
     
     // codebeat:enable[TOO_MANY_IVARS]

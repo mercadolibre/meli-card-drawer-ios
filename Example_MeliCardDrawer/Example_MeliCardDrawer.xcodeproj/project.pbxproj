@@ -22,6 +22,7 @@
 		2365223C2294AB3500FA6F2D /* CardDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2365223A2294AB3500FA6F2D /* CardDataHandler.swift */; };
 		9CAF3384263890C100154AC4 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF3383263890C100154AC4 /* GenericViewController.swift */; };
 		A53677C6841C760D8152D303 /* Pods_Example_MeliCardDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6240D5384635DC53E3B1F2 /* Pods_Example_MeliCardDrawer.framework */; };
+		CCB0935527987AFC0095AF16 /* DebinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0935427987AFC0095AF16 /* DebinViewController.swift */; };
 		F0F2C0BCC5FB973587796923 /* Pods_Example_MeliCardDrawerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82176BF8A1F7C32D9B28395B /* Pods_Example_MeliCardDrawerTests.framework */; };
 		F920061224463E9D00067DB6 /* MLCardDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F920061124463E9D00067DB6 /* MLCardDrawer.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		9CAF3383263890C100154AC4 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		BD6240D5384635DC53E3B1F2 /* Pods_Example_MeliCardDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MeliCardDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AA9811059E31D692DC827A /* Pods-Example_MeliCardDrawerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawerTests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Example_MeliCardDrawerTests/Pods-Example_MeliCardDrawerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CCB0935427987AFC0095AF16 /* DebinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebinViewController.swift; sourceTree = "<group>"; };
 		F920061124463E9D00067DB6 /* MLCardDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MLCardDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			children = (
 				236522362294A99400FA6F2D /* CardViewController.swift */,
 				9CAF3383263890C100154AC4 /* GenericViewController.swift */,
+				CCB0935427987AFC0095AF16 /* DebinViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				230990E42295A0E200FC7A3D /* TypeCollectionCell.swift in Sources */,
 				236522372294A99400FA6F2D /* CardViewController.swift in Sources */,
 				2365223C2294AB3500FA6F2D /* CardDataHandler.swift in Sources */,
+				CCB0935527987AFC0095AF16 /* DebinViewController.swift in Sources */,
 				2365220F2294A88000FA6F2D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
