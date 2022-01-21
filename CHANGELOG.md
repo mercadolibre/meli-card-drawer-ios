@@ -1,3 +1,7 @@
+## [Release (1.8.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.0)
+### 🚀 Feature 🚀
+- Added DEBIN card and gradient in Generic Card
+
 ## [Release (1.7.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.7.3)
 ### 🚀 Feature 🚀
 - Changed disclaimer from String to NSAttributedString
