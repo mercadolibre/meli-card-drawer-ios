@@ -1,3 +1,7 @@
+## [Release (1.8.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.1)
+### 🚀 Feature 🚀
+- Fix layout Generic Card
+
 ## [Release (1.8.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.0)
 ### 🚀 Feature 🚀
 - Added DEBIN card and gradient in Generic Card
