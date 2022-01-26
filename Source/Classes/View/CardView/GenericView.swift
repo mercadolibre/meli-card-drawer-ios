@@ -28,10 +28,6 @@ public class GenericView: UIView, BasicCard  {
         static let imageContainerBorderWith: CGFloat = 2
     }
     
-    override public func layoutSubviews() {
-        setHighlightContainerView()
-    }
-    
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
         self.frame = frame
         layer.masksToBounds = true
@@ -88,13 +84,19 @@ public class GenericView: UIView, BasicCard  {
     }
     
     private func setHighlightContainerView() {
-        guard let color = model?.labelBackgroundColor else { return }
+        guard let genericUI = model else { return }
+        highlightContainerView.isHidden = genericUI.labelName.isEmpty
+        
+        if !genericUI.labelBackgroundColor.isEmpty {
+            highlightContainerView.backgroundColor = UIColor.fromHex(genericUI.labelBackgroundColor)
+        }
+        
         highlightContainerView.layer.masksToBounds = true
-        highlightContainerView.backgroundColor = UIColor.fromHex(color)
+        
         let path = UIBezierPath(roundedRect: highlightContainerView.bounds,
                                 byRoundingCorners: [.bottomLeft],
-                                cornerRadii: CGSize(width: highlightContainerView.frame.height/2,
-                                                    height: highlightContainerView.frame.height/2))
+                                cornerRadii: CGSize(width: highlightContainerView.frame.width/2,
+                                                    height: highlightContainerView.frame.width/2))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         highlightContainerView.layer.mask = mask
@@ -117,6 +119,7 @@ public class GenericView: UIView, BasicCard  {
         highlightLabel.text = genericUI.labelName
         highlightLabel.font = genericUI.labelWeight.getFont(size: Sizes.tagFont)
         highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
+        highlightContainerView.layoutIfNeeded()
     }
     
     private func setImageContainer() {
