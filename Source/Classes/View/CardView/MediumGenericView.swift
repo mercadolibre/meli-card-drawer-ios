@@ -86,9 +86,14 @@ public class MediumGenericView: UIView, BasicCard {
     }
     
     private func setHighlightContainerView() {
-        guard let color = model?.labelBackgroundColor else { return }
+        guard let genericUI = model else { return }
+        highlightContainerView.isHidden = genericUI.labelName.isEmpty
+        
+        if !genericUI.labelBackgroundColor.isEmpty {
+            highlightContainerView.backgroundColor = UIColor.fromHex(genericUI.labelBackgroundColor)
+        }
+        
         highlightContainerView.layer.masksToBounds = true
-        highlightContainerView.backgroundColor = UIColor.fromHex(color)
         let path = UIBezierPath(roundedRect: highlightContainerView.bounds,
                                 byRoundingCorners: [.bottomLeft],
                                 cornerRadii: CGSize(width: highlightContainerView.frame.height/2,
@@ -115,6 +120,7 @@ public class MediumGenericView: UIView, BasicCard {
         highlightLabel.text = genericUI.labelName
         highlightLabel.font = genericUI.labelWeight.getFont(size: FontSizes.badge)
         highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
+        highlightContainerView.layoutIfNeeded()
     }
     
     private func setImageContainer() {
