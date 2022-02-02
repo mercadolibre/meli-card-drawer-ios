@@ -19,6 +19,15 @@ public class GenericView: UIView, BasicCard  {
     @IBOutlet weak var highlightContainerView: UIView!
     
     private var model: GenericCardUI?
+    private var isDisabled: Bool = false
+    
+    private struct Colors {
+        static let disabledHighlightLabel = UIColor.fromHex("#A0A0A0")
+        static let disabledHighlightContainerView = UIColor.fromHex("#F0F0F0")
+        static let disabledGradientColorsStart = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        static let disabledGradientColorsEnd = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
+        static let disabledImageColor = UIColor(red: 191/255, green: 191/255, blue: 191/255, alpha: 1)
+    }
     
     private struct Sizes {
         static let titleFont: CGFloat = 14
@@ -28,8 +37,9 @@ public class GenericView: UIView, BasicCard  {
         static let imageContainerBorderWith: CGFloat = 2
     }
     
-    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
+    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String?) {
         self.frame = frame
+        self.isDisabled = isDisabled
         layer.masksToBounds = true
         layer.isDoubleSided = false
         loadFromNib()
@@ -41,8 +51,10 @@ public class GenericView: UIView, BasicCard  {
     func setupUI(_ cardUI: CardUI) {
         if let genericUI = cardUI as? GenericCardUI {
             model = genericUI
-
-            backgroundColor = model?.cardBackgroundColor
+            
+            if let gradient = model?.gradientColors, gradient.isEmpty {
+                backgroundColor = isDisabled ? Colors.disabledGradientColorsStart : model?.cardBackgroundColor
+            }
 
             setTitle()
             setSubtitle()
@@ -61,24 +73,25 @@ public class GenericView: UIView, BasicCard  {
         guard let genericUI = model else { return }
         titleLabel.text = genericUI.titleName
         titleLabel.font = genericUI.titleWeight.getFont(size: Sizes.titleFont)
-        titleLabel.textColor = UIColor.fromHex(genericUI.titleTextColor)
+        titleLabel.textColor = isDisabled ? UIColor.white : UIColor.fromHex(genericUI.titleTextColor)
     }
     
     private func setSubtitle() {
         guard let genericUI = model else { return }
         subtitleLabel.text = genericUI.subtitleName
         subtitleLabel.font = genericUI.subtitleWeight.getFont(size: Sizes.subtitleFont)
-        subtitleLabel.textColor = UIColor.fromHex(genericUI.subtitleTextColor)
+        subtitleLabel.textColor = isDisabled ? UIColor.white : UIColor.fromHex(genericUI.subtitleTextColor)
     }
     
     private func addGradientLayer() {
-        guard let gradientColors = model?.gradientColors?.map({ UIColor.fromHex($0).cgColor }) else { return }
         let gradient = CAGradientLayer()
         gradient.frame = self.frame
         gradient.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
         gradientView.layer.insertSublayer(gradient, at: 0)
-        gradient.colors = gradientColors
+        let gradientColors = model?.gradientColors?.map({ UIColor.fromHex($0).cgColor })
+
+        gradient.colors = isDisabled ? [Colors.disabledGradientColorsStart.cgColor, Colors.disabledGradientColorsEnd.cgColor] : gradientColors
         gradient.startPoint =  CGPoint(x: 0.1, y: 0.5)
         gradient.endPoint = CGPoint(x: 1, y: 0)
     }
@@ -88,7 +101,7 @@ public class GenericView: UIView, BasicCard  {
         highlightContainerView.isHidden = genericUI.labelName.isEmpty
         
         if !genericUI.labelBackgroundColor.isEmpty {
-            highlightContainerView.backgroundColor = UIColor.fromHex(genericUI.labelBackgroundColor)
+            highlightContainerView.backgroundColor = isDisabled ? UIColor.white : UIColor.fromHex(genericUI.labelBackgroundColor)
         }
         
         highlightContainerView.layer.masksToBounds = true
@@ -110,7 +123,7 @@ public class GenericView: UIView, BasicCard  {
         descriptionLabel.isHidden = false
         descriptionLabel.text = name
         descriptionLabel.font = weight.getFont(size: Sizes.descriptionFont)
-        descriptionLabel.textColor = UIColor.fromHex(descriptionTextColor)
+        descriptionLabel.textColor = isDisabled ? UIColor.white : UIColor.fromHex(descriptionTextColor)
     }
     
     private func setHighlightLabel() {
@@ -118,7 +131,7 @@ public class GenericView: UIView, BasicCard  {
         highlightLabel.isHidden = genericUI.labelName.isEmpty
         highlightLabel.text = genericUI.labelName
         highlightLabel.font = genericUI.labelWeight.getFont(size: Sizes.tagFont)
-        highlightLabel.textColor = UIColor.fromHex(genericUI.labelTextColor)
+        highlightLabel.textColor = isDisabled ? Colors.disabledHighlightLabel : UIColor.fromHex(genericUI.labelTextColor)
         highlightContainerView.layoutIfNeeded()
     }
     
@@ -141,6 +154,19 @@ public class GenericView: UIView, BasicCard  {
                 self.imageContainerView.layer.cornerRadius = self.imageContainerView.frame.height/2
             }
         }
+        
+        if isDisabled {
+            turnGrayLogo()
+        }
+    }
+    
+    private func turnGrayLogo() {
+        let grayLayer = CALayer()
+        grayLayer.frame = bounds
+        grayLayer.compositingFilter = "colorBlendMode"
+        grayLayer.backgroundColor = Colors.disabledImageColor.cgColor
+        imageView.alpha = 0.5
+        imageView.layer.addSublayer(grayLayer)
     }
     
     
