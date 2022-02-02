@@ -36,20 +36,20 @@
                             <rect key="frame" x="0.0" y="0.0" width="70" height="109"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijU-l4-v12">
-                                    <rect key="frame" x="24" y="31.5" width="46" height="46"/>
+                                    <rect key="frame" x="24" y="29.5" width="50" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dDC-An-KJ2">
-                                            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="46" id="D4E-D8-63V"/>
+                                        <constraint firstAttribute="width" constant="50" id="D4E-D8-63V"/>
                                         <constraint firstAttribute="bottom" secondItem="dDC-An-KJ2" secondAttribute="bottom" id="SJ6-gO-KWi"/>
                                         <constraint firstItem="dDC-An-KJ2" firstAttribute="leading" secondItem="ijU-l4-v12" secondAttribute="leading" id="TUw-YK-JL6"/>
                                         <constraint firstAttribute="trailing" secondItem="dDC-An-KJ2" secondAttribute="trailing" id="Xir-AD-JhZ"/>
                                         <constraint firstItem="dDC-An-KJ2" firstAttribute="top" secondItem="ijU-l4-v12" secondAttribute="top" id="hra-h5-gPB"/>
-                                        <constraint firstAttribute="height" constant="46" id="nqP-qN-SHx"/>
+                                        <constraint firstAttribute="height" constant="50" id="nqP-qN-SHx"/>
                                     </constraints>
                                 </view>
                             </subviews>
