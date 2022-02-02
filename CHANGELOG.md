@@ -1,5 +1,5 @@
 ## [Release (1.8.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.2)
-### 🚀 Feature 🚀
+### 🚀 Feature 🚀 
 - Add disabled PIX and DEBIN card UI
 
 ## [Release (1.8.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.1)
