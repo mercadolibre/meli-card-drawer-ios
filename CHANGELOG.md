@@ -1,3 +1,7 @@
+## [Release (1.8.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.3)
+### 🚀 Fix 🚀
+- Fix generic card labels spacing
+
 ## [Release (1.8.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.2)
 ### 🚀 Feature 🚀 
 - Add disabled PIX and DEBIN card UI
