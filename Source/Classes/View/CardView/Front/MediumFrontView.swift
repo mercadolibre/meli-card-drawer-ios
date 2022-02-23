@@ -34,8 +34,13 @@ class MediumFrontView: CardView {
     }
 
     deinit {
-        removeObserver(number, forKeyPath: #keyPath(model.number))
-        removeObserver(nameLabel, forKeyPath: #keyPath(model.name))
+        guard model != nil else { return }
+        number.flatMap {
+            removeObserver($0, forKeyPath: #keyPath(model.number))
+        }
+        nameLabel.flatMap {
+            removeObserver($0, forKeyPath: #keyPath(model.name))
+        }
     }
 }
 
