@@ -1,3 +1,7 @@
+## [Release (1.8.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.4)
+### 🚀 Fix 🚀
+- Fix crash for MediumFrontView
+
 ## [Release (1.8.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.3)
 ### 🚀 Fix 🚀
 - Fix generic card labels spacing
