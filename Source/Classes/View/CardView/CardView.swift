@@ -1,5 +1,6 @@
 import UIKit
 
+@objc(MLCardView)
 public class CardView: UIView, BasicCard {
 
     @IBOutlet weak var animation: UIView!
