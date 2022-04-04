@@ -34,7 +34,6 @@ import UIKit
         self.init(cardUI: cardUI, .large, model, disabledMode)
     }
 
-    
     @available(*, deprecated, message: "Please use MLCardDrawerTypeV3")
     public convenience init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large, _ customLabelFontName: String? = nil) {
         
@@ -52,7 +51,6 @@ import UIKit
         self.init(cardUI: cardUI, newType, model, disabledMode, customLabelFontName)
     }
     
-    
 
     public init(cardUI: CardUI, _ type: MLCardDrawerTypeV3 = .large, _ model: CardData, _ disabledMode: Bool = false, _ customLabelFontName: String? = nil) {
         self.cardUI = cardUI
@@ -69,31 +67,39 @@ import UIKit
     }
     
     public func setupViews() {
-        
-        if  let card = cardUI as? GenericCardUI {
-            
+        // todo - criar um if validando se é debin ou open finance
+        if let card = cardUI as? AccountsBankCardUI {
             backView = CardView()
-            setupGenericView(type: type)
+            setupAccountsBankView(type: type)            
             
             frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
-            
         } else {
+        
+            if  let card = cardUI as? GenericCardUI {
+                
+                backView = CardView()
+                setupGenericView(type: type)
+                
+                frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+                
+            } else {
             
-            if let frontView = frontView, frontView.isDescendant(of: view) {
-                frontView.removeFromSuperview()
+                if let frontView = frontView, frontView.isDescendant(of: view) {
+                    frontView.removeFromSuperview()
+                }
+                
+                if let backView = backView, backView.isDescendant(of: view) {
+                    backView.removeFromSuperview()
+                }
+                
+                setupView(type)
+                
+                backView.setup(cardUI, model, view.frame, disabledMode)
+                frontView.setup(cardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+                
+                setShineCard(enabled: isShineCardEnabled())
+                
             }
-            
-            if let backView = backView, backView.isDescendant(of: view) {
-                backView.removeFromSuperview()
-            }
-            
-            setupView(type)
-            
-            backView.setup(cardUI, model, view.frame, disabledMode)
-            frontView.setup(cardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
-            
-            setShineCard(enabled: isShineCardEnabled())
-            
         }
     }
     
@@ -110,6 +116,21 @@ import UIKit
             frontView = GenericView()
         case .large:
             frontView = GenericView()
+        }
+    }
+    
+    private func setupAccountsBankView(type: MLCardDrawerTypeV3) {
+        switch type {
+        case .mini:
+            frontView = MediumAccountsBankView()
+        case .xSmall:
+            frontView = MediumAccountsBankView()
+        case .small:
+            frontView = MediumAccountsBankView()
+        case .medium:
+            frontView = AccountsBankView()
+        case .large:
+            frontView = AccountsBankView()
         }
     }
     

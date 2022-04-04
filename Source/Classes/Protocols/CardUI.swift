@@ -28,6 +28,14 @@ import UIKit
     
     @objc optional func set(logo: UIImageView)
     @objc optional var fontType: String { get }
+    
+    @objc optional var termsMessage: String { get }
+    @objc optional var termsTextColor: String { get }
+    @objc optional var termsLink: String { get }
+    @objc optional var termsTextLink: String { get }
+    @objc optional var termsColorLink: String { get }
+
+
 }
 
 @objc public protocol CustomCardDrawerUI: CardUI {

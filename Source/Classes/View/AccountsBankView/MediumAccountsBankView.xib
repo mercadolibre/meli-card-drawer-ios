@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="FgK-AE-AOJ">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gu8-Ob-Bsp">
+                    <rect key="frame" x="16" y="16" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="FaR-ZZ-LDQ"/>
+                        <constraint firstAttribute="width" constant="48" id="NOt-Kl-FLb"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-Zx-cq9">
+                    <rect key="frame" x="74" y="24.5" width="105.5" height="31.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo em conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bta-ru-YcJ">
+                            <rect key="frame" x="0.0" y="0.0" width="88" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco Bradesco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiz-2I-GpI">
+                            <rect key="frame" x="0.0" y="14.5" width="105.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ao continuar, você aceita os termos e condições" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4r-oF-3fA">
+                    <rect key="frame" x="16" y="118.5" width="166" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGM-Gk-MbC">
+                    <rect key="frame" x="213" y="126.5" width="91" height="16"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPEN FINANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vh-5a-6vC">
+                            <rect key="frame" x="3.5" y="1" width="84" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="70Y-y3-33L"/>
+                        <constraint firstAttribute="width" constant="91" id="GUh-kp-cZ9"/>
+                        <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerX" secondItem="MGM-Gk-MbC" secondAttribute="centerX" id="ff3-Zu-yVG"/>
+                        <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerY" secondItem="MGM-Gk-MbC" secondAttribute="centerY" id="tUh-Nn-mLL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="dYO-bR-s5J"/>
+            <constraints>
+                <constraint firstItem="Gu8-Ob-Bsp" firstAttribute="leading" secondItem="dYO-bR-s5J" secondAttribute="leading" constant="16" id="30z-SV-Otl"/>
+                <constraint firstItem="Syn-Zx-cq9" firstAttribute="leading" secondItem="Gu8-Ob-Bsp" secondAttribute="trailing" constant="10" id="B4A-xv-VKr"/>
+                <constraint firstItem="MGM-Gk-MbC" firstAttribute="centerY" secondItem="N4r-oF-3fA" secondAttribute="centerY" id="Cl0-Ti-dJX"/>
+                <constraint firstItem="dYO-bR-s5J" firstAttribute="trailing" secondItem="N4r-oF-3fA" secondAttribute="trailing" constant="138" id="NOv-3y-wLP"/>
+                <constraint firstItem="Gu8-Ob-Bsp" firstAttribute="top" secondItem="FgK-AE-AOJ" secondAttribute="top" constant="16" id="OrN-C4-rgt"/>
+                <constraint firstItem="dYO-bR-s5J" firstAttribute="bottom" secondItem="N4r-oF-3fA" secondAttribute="bottom" constant="8" id="YM0-AH-Gdn"/>
+                <constraint firstItem="Syn-Zx-cq9" firstAttribute="centerY" secondItem="Gu8-Ob-Bsp" secondAttribute="centerY" id="hcn-S4-pMH"/>
+                <constraint firstItem="N4r-oF-3fA" firstAttribute="leading" secondItem="dYO-bR-s5J" secondAttribute="leading" constant="16" id="qhX-yQ-JOM"/>
+                <constraint firstItem="dYO-bR-s5J" firstAttribute="trailing" secondItem="MGM-Gk-MbC" secondAttribute="trailing" constant="16" id="tMV-Bf-aR3"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="181.15942028985509" y="207.58928571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
