@@ -9,18 +9,16 @@ import UIKit
 
 class AccountsBankView: UIView, BasicCard {
     
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var accountBalanceLabel: UILabel!
     @IBOutlet weak var bankLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
-    @IBOutlet weak var termsAndConditionsLabel: UILabel? = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        return label
-    }()
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var typeTransactionView: UIView!
+    @IBOutlet weak var termsLabel: UILabel!
     
     private var model: AccountsBankCardUI?
     private var isDisabled: Bool = false
+    
 
     private struct Colors {
         static let disabledHighlightLabel = UIColor.fromHex("#A0A0A0")
@@ -50,6 +48,8 @@ class AccountsBankView: UIView, BasicCard {
     
     func setupUI(_ cardUI: CardUI) {
         layer.masksToBounds = true
+        layer.isDoubleSided = false
+        
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
 
         backgroundColor = isDisabled ? Colors.disabledGradientColorsStart : model?.cardBackgroundColor
@@ -58,6 +58,7 @@ class AccountsBankView: UIView, BasicCard {
         setTitle()
         setImage()
         setTermsAndConditions()
+        typeTransactionView.layer.cornerRadius = 12
     }
     
     private func addGradientLayer() {
@@ -115,10 +116,13 @@ class AccountsBankView: UIView, BasicCard {
     }
     
     private func setTermsAndConditions() {
-        guard let model = model, let textColor = model.termsTextColor else { return }
-        termsAndConditionsLabel?.text = model.termsMessage
-        termsAndConditionsLabel?.textColor = isDisabled ? .white : .fromHex(textColor)
-        termsAndConditionsLabel?.font = model.subtitleWeight.getFont(size: Sizes.subtitleFont)
+        guard let model = model, let termsMessage = model.termsMessage else { return }
+        termsLabel.numberOfLines = 0
+        termsLabel.text = termsMessage
+        termsLabel.textColor = .white
+        termsLabel.font = model.titleWeight.getFont(size: Sizes.titleFont
+        )
+
     }
     
     func isShineEnabled() -> Bool { return false }
