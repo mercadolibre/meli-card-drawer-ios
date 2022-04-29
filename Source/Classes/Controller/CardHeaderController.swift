@@ -1,5 +1,11 @@
 import UIKit
 
+enum MethodID: String {
+    case debin
+    case openFinance
+    case other
+}
+
 @objcMembers public class MLCardDrawerController: UIViewController {
     private var shouldAnimate: Bool = true
     let cardFont = "RobotoMono-Regular"
@@ -9,6 +15,7 @@ import UIKit
     var model: CardData
     private var type: MLCardDrawerTypeV3 = .large
     private var disabledMode = false
+    var methodID: String?
     
     private var aspectLayoutConstraint: NSLayoutConstraint?
 

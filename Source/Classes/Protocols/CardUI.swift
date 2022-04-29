@@ -34,7 +34,7 @@ import UIKit
     @objc optional var termsLink: String { get }
     @objc optional var termsTextLink: String { get }
     @objc optional var termsColorLink: String { get }
-
+    @objc optional var paymentMethodId: PaymentMethod { get }
 
 }
 

@@ -9,77 +9,98 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediumAccountsBankView" customModule="MLCardDrawerResources" customModuleProvider="target">
+            <connections>
+                <outlet property="accountBalanceLabel" destination="bta-ru-YcJ" id="qkh-Gg-mmo"/>
+                <outlet property="bankLabel" destination="yiz-2I-GpI" id="GFt-sm-wD9"/>
+                <outlet property="gradientView" destination="1Da-l8-x8r" id="r4x-gb-wcM"/>
+                <outlet property="imageView" destination="Gu8-Ob-Bsp" id="91M-jB-HKf"/>
+                <outlet property="paymentMethodLabel" destination="6Vh-5a-6vC" id="6RM-AE-M3t"/>
+                <outlet property="termsButton" destination="thz-Dj-hf0" id="Mfv-G4-p6m"/>
+                <outlet property="typeTransactionView" destination="MGM-Gk-MbC" id="ez9-V2-jeW"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="FgK-AE-AOJ">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="335" height="109"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gu8-Ob-Bsp">
-                    <rect key="frame" x="16" y="16" width="48" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="FaR-ZZ-LDQ"/>
-                        <constraint firstAttribute="width" constant="48" id="NOt-Kl-FLb"/>
-                    </constraints>
-                </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-Zx-cq9">
-                    <rect key="frame" x="74" y="24.5" width="105.5" height="31.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-l8-x8r">
+                    <rect key="frame" x="0.0" y="0.0" width="335" height="109"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo em conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bta-ru-YcJ">
-                            <rect key="frame" x="0.0" y="0.0" width="88" height="14.5"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gu8-Ob-Bsp">
+                            <rect key="frame" x="12" y="12" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="9P6-yr-uOY"/>
+                                <constraint firstAttribute="height" constant="32" id="lkX-0q-VH9"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="76w-c2-4Ex">
+                            <rect key="frame" x="52" y="12.5" width="105.5" height="31.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo em conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bta-ru-YcJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="88" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco Bradesco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiz-2I-GpI">
+                                    <rect key="frame" x="0.0" y="14.5" width="105.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGM-Gk-MbC">
+                            <rect key="frame" x="232" y="79.5" width="91" height="16"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPEN FINANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vh-5a-6vC">
+                                    <rect key="frame" x="7" y="2" width="77" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                    <color key="textColor" red="0.0" green="0.61960784313725492" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="70Y-y3-33L"/>
+                                <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerX" secondItem="MGM-Gk-MbC" secondAttribute="centerX" id="9id-Fd-K5k"/>
+                                <constraint firstAttribute="width" constant="91" id="GUh-kp-cZ9"/>
+                                <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerY" secondItem="MGM-Gk-MbC" secondAttribute="centerY" id="iZO-Q6-GB0"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thz-Dj-hf0">
+                            <rect key="frame" x="14" y="74" width="202" height="27"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco Bradesco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiz-2I-GpI">
-                            <rect key="frame" x="0.0" y="14.5" width="105.5" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Termos e condições"/>
+                        </button>
                     </subviews>
-                </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ao continuar, você aceita os termos e condições" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4r-oF-3fA">
-                    <rect key="frame" x="16" y="118.5" width="166" height="31.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGM-Gk-MbC">
-                    <rect key="frame" x="213" y="126.5" width="91" height="16"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPEN FINANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vh-5a-6vC">
-                            <rect key="frame" x="3.5" y="1" width="84" height="13.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="16" id="70Y-y3-33L"/>
-                        <constraint firstAttribute="width" constant="91" id="GUh-kp-cZ9"/>
-                        <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerX" secondItem="MGM-Gk-MbC" secondAttribute="centerX" id="ff3-Zu-yVG"/>
-                        <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerY" secondItem="MGM-Gk-MbC" secondAttribute="centerY" id="tUh-Nn-mLL"/>
+                        <constraint firstItem="thz-Dj-hf0" firstAttribute="leading" secondItem="1Da-l8-x8r" secondAttribute="leading" constant="14" id="0nT-YM-AeN"/>
+                        <constraint firstItem="6Vh-5a-6vC" firstAttribute="centerY" secondItem="thz-Dj-hf0" secondAttribute="centerY" id="G1q-Qc-FHN"/>
+                        <constraint firstItem="Gu8-Ob-Bsp" firstAttribute="leading" secondItem="1Da-l8-x8r" secondAttribute="leading" constant="12" id="IAJ-9M-RPx"/>
+                        <constraint firstAttribute="bottom" secondItem="thz-Dj-hf0" secondAttribute="bottom" constant="8" id="PeC-jR-8dn"/>
+                        <constraint firstItem="MGM-Gk-MbC" firstAttribute="leading" secondItem="thz-Dj-hf0" secondAttribute="trailing" constant="16" id="dUD-8L-fpK"/>
+                        <constraint firstItem="Gu8-Ob-Bsp" firstAttribute="top" secondItem="1Da-l8-x8r" secondAttribute="top" constant="12" id="iq4-o9-Nv6"/>
+                        <constraint firstItem="76w-c2-4Ex" firstAttribute="centerY" secondItem="Gu8-Ob-Bsp" secondAttribute="centerY" id="kJN-Af-M3m"/>
+                        <constraint firstAttribute="trailing" secondItem="MGM-Gk-MbC" secondAttribute="trailing" constant="12" id="unL-iR-eog"/>
+                        <constraint firstItem="76w-c2-4Ex" firstAttribute="leading" secondItem="Gu8-Ob-Bsp" secondAttribute="trailing" constant="8" id="zdC-0h-uAR"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="dYO-bR-s5J"/>
             <constraints>
-                <constraint firstItem="Gu8-Ob-Bsp" firstAttribute="leading" secondItem="dYO-bR-s5J" secondAttribute="leading" constant="16" id="30z-SV-Otl"/>
-                <constraint firstItem="Syn-Zx-cq9" firstAttribute="leading" secondItem="Gu8-Ob-Bsp" secondAttribute="trailing" constant="10" id="B4A-xv-VKr"/>
-                <constraint firstItem="MGM-Gk-MbC" firstAttribute="centerY" secondItem="N4r-oF-3fA" secondAttribute="centerY" id="Cl0-Ti-dJX"/>
-                <constraint firstItem="dYO-bR-s5J" firstAttribute="trailing" secondItem="N4r-oF-3fA" secondAttribute="trailing" constant="138" id="NOv-3y-wLP"/>
-                <constraint firstItem="Gu8-Ob-Bsp" firstAttribute="top" secondItem="FgK-AE-AOJ" secondAttribute="top" constant="16" id="OrN-C4-rgt"/>
-                <constraint firstItem="dYO-bR-s5J" firstAttribute="bottom" secondItem="N4r-oF-3fA" secondAttribute="bottom" constant="8" id="YM0-AH-Gdn"/>
-                <constraint firstItem="Syn-Zx-cq9" firstAttribute="centerY" secondItem="Gu8-Ob-Bsp" secondAttribute="centerY" id="hcn-S4-pMH"/>
-                <constraint firstItem="N4r-oF-3fA" firstAttribute="leading" secondItem="dYO-bR-s5J" secondAttribute="leading" constant="16" id="qhX-yQ-JOM"/>
-                <constraint firstItem="dYO-bR-s5J" firstAttribute="trailing" secondItem="MGM-Gk-MbC" secondAttribute="trailing" constant="16" id="tMV-Bf-aR3"/>
+                <constraint firstItem="1Da-l8-x8r" firstAttribute="leading" secondItem="dYO-bR-s5J" secondAttribute="leading" id="1fk-DE-CqX"/>
+                <constraint firstItem="1Da-l8-x8r" firstAttribute="trailing" secondItem="dYO-bR-s5J" secondAttribute="trailing" id="E9f-W6-eFh"/>
+                <constraint firstItem="1Da-l8-x8r" firstAttribute="top" secondItem="FgK-AE-AOJ" secondAttribute="top" id="gJD-WY-o3w"/>
+                <constraint firstItem="1Da-l8-x8r" firstAttribute="bottom" secondItem="dYO-bR-s5J" secondAttribute="bottom" id="qj7-s5-lEV"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="181.15942028985509" y="207.58928571428569"/>
+            <point key="canvasLocation" x="180.43478260869566" y="207.25446428571428"/>
         </view>
     </objects>
     <resources>

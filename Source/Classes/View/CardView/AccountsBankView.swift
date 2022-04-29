@@ -14,11 +14,11 @@ class AccountsBankView: UIView, BasicCard {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var typeTransactionView: UIView!
-    @IBOutlet weak var termsLabel: UILabel!
+    @IBOutlet weak var termsButton: UIButton!
+    @IBOutlet weak var paymentMethodLabel: UILabel!
     
     private var model: AccountsBankCardUI?
     private var isDisabled: Bool = false
-    
 
     private struct Colors {
         static let disabledHighlightLabel = UIColor.fromHex("#A0A0A0")
@@ -37,8 +37,8 @@ class AccountsBankView: UIView, BasicCard {
     }
     
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
-        guard let model = cardUI as? AccountsBankCardUI else { return }
-        self.model = model
+        guard let cardUI = cardUI as? AccountsBankCardUI else { return }
+        self.model = cardUI
         self.frame = frame
         self.isDisabled = isDisabled
 
@@ -58,6 +58,7 @@ class AccountsBankView: UIView, BasicCard {
         setTitle()
         setImage()
         setTermsAndConditions()
+        setPaymentMethod()
         typeTransactionView.layer.cornerRadius = 12
     }
     
@@ -116,13 +117,28 @@ class AccountsBankView: UIView, BasicCard {
     }
     
     private func setTermsAndConditions() {
-        guard let model = model, let termsMessage = model.termsMessage else { return }
-        termsLabel.numberOfLines = 0
-        termsLabel.text = termsMessage
-        termsLabel.textColor = .white
-        termsLabel.font = model.titleWeight.getFont(size: Sizes.titleFont
-        )
+        guard let model = model else { return }
+        termsButton.titleLabel?.numberOfLines = 0
+        termsButton.titleLabel?.text = model.termsMessage
+        termsButton.titleLabel?.textColor = .white
+        termsButton.titleLabel?.font = model.titleWeight.getFont(size: Sizes.titleFont)
+        termsButton.addTarget(self, action: #selector(openTermsAndConditional), for: .touchUpInside)
+    }
+    
+    private func setPaymentMethod() {
+        guard let model = model  else { return }
+        
+        if model.paymentMethodId == .other {
+            termsButton.isHidden = true
+        } else {
+            paymentMethodLabel.text = model.paymentMethodId.text
+        }
+    }
+    
+    @objc private func openTermsAndConditional() {
+        guard let model = model else { return }
 
+        model.delegate?.didSelectTermsView(url: model.termsLink, title: model.termsTextLink)
     }
     
     func isShineEnabled() -> Bool { return false }

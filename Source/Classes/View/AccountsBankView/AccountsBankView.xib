@@ -14,7 +14,8 @@
                 <outlet property="bankLabel" destination="gyU-Qh-BIT" id="NMd-QC-GUg"/>
                 <outlet property="gradientView" destination="a7B-0u-dZ3" id="VDo-Gh-WTZ"/>
                 <outlet property="imageView" destination="UNV-ph-GVE" id="Xr4-t1-PYT"/>
-                <outlet property="termsLabel" destination="kJM-Lf-3Ti" id="qfM-a5-Cah"/>
+                <outlet property="paymentMethodLabel" destination="aj9-hr-qvR" id="DMZ-fM-TfN"/>
+                <outlet property="termsButton" destination="N5n-pQ-SG9" id="RVa-4g-uED"/>
                 <outlet property="typeTransactionView" destination="A1k-mC-bKs" id="Q9Z-50-PkV"/>
             </connections>
         </placeholder>
@@ -75,25 +76,22 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ao continuar acepto Termos e Condições" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJM-Lf-3Ti">
-                            <rect key="frame" x="20" y="150.66666666666666" width="150" height="36"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="36" id="Axq-pp-ij6"/>
-                            </constraints>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5n-pQ-SG9">
+                            <rect key="frame" x="16" y="155" width="163" height="27"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Ao continuar acepto Termos e Condições"/>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="A1k-mC-bKs" firstAttribute="leading" secondItem="kJM-Lf-3Ti" secondAttribute="trailing" constant="25" id="01Q-g9-OkH"/>
+                        <constraint firstItem="N5n-pQ-SG9" firstAttribute="leading" secondItem="a7B-0u-dZ3" secondAttribute="leading" constant="16" id="2Ab-Fe-IjK"/>
                         <constraint firstAttribute="trailing" secondItem="A1k-mC-bKs" secondAttribute="trailing" constant="16" id="4b1-0l-gDz"/>
                         <constraint firstItem="UNV-ph-GVE" firstAttribute="top" secondItem="a7B-0u-dZ3" secondAttribute="top" constant="16" id="5jL-jU-HWK"/>
-                        <constraint firstItem="kJM-Lf-3Ti" firstAttribute="leading" secondItem="a7B-0u-dZ3" secondAttribute="leading" constant="20" id="BZc-fL-nZq"/>
                         <constraint firstItem="pX5-ZA-wSZ" firstAttribute="leading" secondItem="UNV-ph-GVE" secondAttribute="trailing" constant="10" id="Xd8-z7-ybv"/>
                         <constraint firstAttribute="bottom" secondItem="A1k-mC-bKs" secondAttribute="bottom" constant="20" id="i7t-K1-grC"/>
                         <constraint firstItem="UNV-ph-GVE" firstAttribute="leading" secondItem="a7B-0u-dZ3" secondAttribute="leading" constant="16" id="iI0-pc-O32"/>
-                        <constraint firstItem="kJM-Lf-3Ti" firstAttribute="centerY" secondItem="A1k-mC-bKs" secondAttribute="centerY" id="vMO-B4-R8L"/>
+                        <constraint firstItem="A1k-mC-bKs" firstAttribute="leading" secondItem="N5n-pQ-SG9" secondAttribute="trailing" constant="16" id="iZv-wI-eR0"/>
+                        <constraint firstItem="N5n-pQ-SG9" firstAttribute="centerY" secondItem="aj9-hr-qvR" secondAttribute="centerY" id="q0g-0b-OFR"/>
                         <constraint firstItem="pX5-ZA-wSZ" firstAttribute="centerY" secondItem="UNV-ph-GVE" secondAttribute="centerY" id="zab-fF-KaP"/>
                     </constraints>
                 </view>
