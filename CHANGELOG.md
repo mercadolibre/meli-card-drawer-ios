@@ -1,3 +1,7 @@
+## [Release (1.9.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.9.0)
+### 🚀 Feature 🚀
+- Migration to iOS 13
+
 ## [Release (1.8.5)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.8.5)
 ### 🚀 Fix 🚀
 - Fix renaming CardView for objc classes
