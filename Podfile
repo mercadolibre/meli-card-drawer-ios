@@ -4,7 +4,7 @@ workspace 'MeliCardDrawer'
 project 'Example_MeliCardDrawer/Example_MeliCardDrawer.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
-platform :ios, '1333'
+platform :ios, '13.0'
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
