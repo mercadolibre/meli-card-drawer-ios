@@ -1,7 +1,7 @@
 repos:
   # Websec hook is MANDATORY, DO NOT comment it.
   - repo: https://github.com/mercadolibre/fury_websec-git-hooks
-    rev: v1.0.0
+    rev: v1.0.1
     hooks:
       - id: pre_commit_hook
         stages: [commit]
@@ -12,21 +12,15 @@ repos:
   # If you want them to run on each commit, uncomment them
   # These are OPTIONAL.
   
-  # - repo: https://github.com/mercadolibre/fury_code-quality-pre-commit-ios
-  #   rev: 1.0.0
+  # - repo: https://github.com/mercadolibre/fury_cq-pre-commit-kotlin-test
+  #   rev: e630c993630789a6c1749457255e806ba89dac2e
   #   hooks:
-  #   - id: uncrustify
-  #     args:
-  #       - -l
-  #       - OC
-  #       - -c
-  #       - ./.code_quality/uncrustify.cfg
-  #       - --no-backup
-  #       - --replace
-  # - repo: https://github.com/realm/SwiftLint
-  #   rev: 0.45.1
-  #   hooks:
-  #   - id: swiftlint
-  #     args:
-  #       - --config
-  #       - ./.code_quality/.swiftlint.yml
+  #     - id: ktlint
+  #       args:
+  #         - -F
+  #         - --editorconfig=.code_quality/.editorconfig
+  #     - id: detekt
+  #       args:
+  #         - -c
+  #         - .code_quality/detekt_rules.yml
+  #         - -ac
