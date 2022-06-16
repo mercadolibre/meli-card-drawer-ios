@@ -1,3 +1,7 @@
+## [Release (1.10.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.10.0)
+### 🚀 Feature 🚀
+- Added CustomStringConvertible conformance to MLCardDrawerTypeV3
+
 ## [Release (1.9.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.9.0)
 ### 🚀 Feature 🚀
 - Migration to iOS 13
