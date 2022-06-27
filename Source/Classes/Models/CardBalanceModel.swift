@@ -8,13 +8,13 @@
 import Foundation
 
 public struct CardBalanceModel: Codable {
-    let balanceTitle: Text
-    let balance: Text
-    let coin: Text
+    let title: CardBalanceText
+    let balance: CardBalanceText
+    let hiddenBalance: CardBalanceText
     
     enum CodingKeys: String, CodingKey {
-        case balanceTitle
-        case balance
-        case coin
+        case title = "title"
+        case balance = "value"
+        case hiddenBalance = "hidden_value"
     }
 }

@@ -9,20 +9,34 @@ import UIKit
 
 public class CardBalance: UIView {
     
-    @IBOutlet weak var balanceTitle: UILabel!
-    @IBOutlet weak var balance: UILabel!
-    @IBOutlet weak var coin: UILabel!
-    @IBOutlet weak var eyeButton: UIButton!
+    private var eyeButton: UIButton!
+    private var model: CardBalanceModel
+
+    private let balanceTitle: UILabel! = {
+        let label = UILabel()
+        label.textColor = .white
+        label.backgroundColor = .clear
+        return label
+    }()
+    
+    private let balance: UILabel! = {
+        let label = UILabel()
+        label.textColor = .white
+        label.backgroundColor = .clear
+        return label
+    }()
     
     private var showBalance: Bool{
         didSet{
-            balance.text = showBalance ? model.balance.message : hideBalanceString
+            if (showBalance) {
+                balance.text = model.balance.message
+                setupLabelColors(balance, field: model.balance)
+            } else {
+                balance.text = model.hiddenBalance.message
+                setupLabelColors(balance, field: model.hiddenBalance)
+            }
         }
     }
-    private var model: CardBalanceModel
-    
-    private let defaultTextColor = "#FFFFFF"
-    private let hideBalanceString = "..."
     
     init(model: CardBalanceModel, showBalance: Bool = true) {
         self.model = model
@@ -42,20 +56,16 @@ public class CardBalance: UIView {
     
     private func setupComponents() {
         balanceTitle.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
-        balanceTitle.text = model.balance.message
-        balanceTitle.textColor = UIColor.fromHex(model.balanceTitle.textColor ?? defaultTextColor)
-        balanceTitle.backgroundColor = UIColor.clear
+        balanceTitle.text = model.title.message
         
         balance.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
-        balance.textColor = UIColor.fromHex(model.balance.textColor ?? defaultTextColor)
         balance.backgroundColor = UIColor.clear
         
-        coin.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
-        coin.text = model.coin.message
-        coin.textColor = UIColor.fromHex(model.coin.textColor ?? defaultTextColor)
-        coin.backgroundColor = UIColor.clear
         eyeButton.setImage(UIImage.init(named: "eye"), for: .normal)
+        eyeButton.backgroundColor = .clear
         eyeButton.addTarget(self, action: #selector(self.toggleBalance(sender:)), for: .touchUpInside)
+        
+        setupLabelColors(balanceTitle, field: model.title)
     }
     
     private func setupConstraints() {
@@ -63,12 +73,20 @@ public class CardBalance: UIView {
         balance.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: 2)
         balance.rightAnchor.constraint(equalTo: self.rightAnchor)
         balanceTitle.rightAnchor.constraint(equalTo: self.rightAnchor)
-        coin.rightAnchor.constraint(equalTo: balance.leftAnchor)
-        balanceTitle.leftAnchor.constraint(equalTo: coin.leftAnchor)
         eyeButton.leftAnchor.constraint(equalTo: balance.rightAnchor)
     }
     
     @objc public func toggleBalance(sender: UIButton){
         showBalance = !showBalance
     }
+    
+    private func setupLabelColors(_ label: UILabel, field: CardBalanceText) {
+        if let textColor = field.textColor {
+            label.textColor = UIColor.fromHex(textColor)
+        }
+        if let backgroundColor = field.backgroundColor {
+            label.backgroundColor = UIColor.fromHex(backgroundColor)
+        }
+    }
+    
 }
