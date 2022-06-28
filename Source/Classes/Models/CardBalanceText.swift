@@ -10,8 +10,6 @@ public struct CardBalanceText: Codable {
     let backgroundColor: String?
     let textColor: String?
     let weight: String?
-    let defaultTextColor: UIColor = .white
-    let defaultBackgroundColor: UIColor = .clear
     
     enum CodingKeys: String, CodingKey {
         case message
