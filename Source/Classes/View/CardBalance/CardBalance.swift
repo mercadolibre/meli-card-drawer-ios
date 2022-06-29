@@ -10,7 +10,7 @@ import UIKit
 public class CardBalance: UIView {
     
     private var eyeButton: UIButton!
-    private var model: CardBalanceModel
+    private let model: CardBalanceModel
 
     private let balanceTitle: UILabel! = {
         let label = UILabel()
@@ -19,26 +19,29 @@ public class CardBalance: UIView {
         return label
     }()
     
-    private let balance: UILabel! = {
+    private let balanceLabel: UILabel! = {
         let label = UILabel()
         label.textColor = .white
         label.backgroundColor = .clear
         return label
     }()
     
-    private var showBalance: Bool{
+    private var showBalance: Bool = false {
         didSet{
+            guard let balance = model.balance, let hiddenBalance = model.hiddenBalance else {
+                return
+            }
             if (showBalance) {
-                balance.text = model.balance.message
-                setupLabelColors(balance, field: model.balance)
+                balanceLabel.text = model.balance.message
+                setupLabelColors(balanceLabel, field: balance)
             } else {
-                balance.text = model.hiddenBalance.message
-                setupLabelColors(balance, field: model.hiddenBalance)
+                balanceLabel.text = model.hiddenBalance.message
+                setupLabelColors(balanceLabel, field: hiddenBalance)
             }
         }
     }
     
-    init(model: CardBalanceModel, showBalance: Bool = true) {
+    public init(model: CardBalanceModel, showBalance: Bool) {
         self.model = model
         self.showBalance = showBalance
         super.init(frame: CGRect.zero)
@@ -46,7 +49,7 @@ public class CardBalance: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     private func setupUI() {
@@ -55,11 +58,12 @@ public class CardBalance: UIView {
     }
     
     private func setupComponents() {
+        
         balanceTitle.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         balanceTitle.text = model.title.message
         
-        balance.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
-        balance.backgroundColor = UIColor.clear
+        balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        balanceLabel.backgroundColor = UIColor.clear
         
         eyeButton.setImage(UIImage.init(named: "eye"), for: .normal)
         eyeButton.backgroundColor = .clear
@@ -70,10 +74,10 @@ public class CardBalance: UIView {
     
     private func setupConstraints() {
         balanceTitle.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        balance.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: 2)
-        balance.rightAnchor.constraint(equalTo: self.rightAnchor)
+        balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: 2)
+        balanceLabel.rightAnchor.constraint(equalTo: self.rightAnchor)
         balanceTitle.rightAnchor.constraint(equalTo: self.rightAnchor)
-        eyeButton.leftAnchor.constraint(equalTo: balance.rightAnchor)
+        eyeButton.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor)
     }
     
     @objc public func toggleBalance(sender: UIButton){
