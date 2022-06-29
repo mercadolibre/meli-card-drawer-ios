@@ -32,4 +32,5 @@ import UIKit
 
 @objc public protocol CustomCardDrawerUI: CardUI {
     @objc optional var ownGradient: CAGradientLayer { get }
+    @objc optional var isExperiment: Bool { get }
 }

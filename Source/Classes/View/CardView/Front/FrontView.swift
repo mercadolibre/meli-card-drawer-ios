@@ -278,11 +278,16 @@ extension FrontView {
     }
 
     private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
+        inImageView.alpha = (cardUI as? CustomCardDrawerUI)?.isExperiment ?? false ? 0 : 1
         inImageView.image = UIImage.scale(image: tImage,
                                           by: inImageView.bounds.size.height/tImage.size.height)
         if disabledMode {
             inImageView.image = tImage.imageGreyScale()
         }
+        
+        UIView.animate(withDuration: 0.6, delay: 0.5, options: .curveEaseOut, animations: {
+            inImageView.alpha = 1
+        }, completion: nil)
     }
 }
 
