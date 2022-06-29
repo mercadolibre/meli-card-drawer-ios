@@ -69,7 +69,7 @@ public class CardBalance: UIView {
         balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
         balanceLabel.backgroundColor = UIColor.clear
         
-        eyeButton.setImage(UIImage.init(named: "eye"), for: .normal)
+        eyeButton.setImage(UIImage.init(named: "eye", in: MLCardDrawerBundle.bundle(), compatibleWith: nil), for: .normal)
         eyeButton.backgroundColor = .clear
         eyeButton.addTarget(self, action: #selector(self.toggleBalance(sender:)), for: .touchUpInside)
         
