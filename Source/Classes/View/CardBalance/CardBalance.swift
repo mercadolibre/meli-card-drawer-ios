@@ -10,7 +10,7 @@ import UIKit
 public class CardBalance: UIView {
     
     private var eyeButton: UIButton!
-    private let model: CardBalanceModel
+    private let model: CardBalanceModel?
 
     private let balanceTitle: UILabel! = {
         let label = UILabel()
@@ -28,14 +28,14 @@ public class CardBalance: UIView {
     
     private var showBalance: Bool = false {
         didSet{
-            guard let balance = model.balance, let hiddenBalance = model.hiddenBalance else {
+            guard let balance = model?.balance, let hiddenBalance = model?.hiddenBalance else {
                 return
             }
             if (showBalance) {
-                balanceLabel.text = model.balance.message
+                balanceLabel.text = balance.message
                 setupLabelColors(balanceLabel, field: balance)
             } else {
-                balanceLabel.text = model.hiddenBalance.message
+                balanceLabel.text = hiddenBalance.message
                 setupLabelColors(balanceLabel, field: hiddenBalance)
             }
         }
@@ -49,6 +49,7 @@ public class CardBalance: UIView {
     }
     
     required init?(coder: NSCoder) {
+        model = nil
         super.init(coder: coder)
     }
     
@@ -58,6 +59,9 @@ public class CardBalance: UIView {
     }
     
     private func setupComponents() {
+        guard let model = model else {
+            return
+        }
         
         balanceTitle.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         balanceTitle.text = model.title.message
