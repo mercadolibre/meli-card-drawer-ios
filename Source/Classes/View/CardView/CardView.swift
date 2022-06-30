@@ -83,7 +83,7 @@ public class CardView: UIView, BasicCard {
         cardUI?.set?(bank: container)
     }
     
-    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool) {}
+    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
 }
 
 // MARK: Card View Effects

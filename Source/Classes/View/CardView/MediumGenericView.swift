@@ -197,5 +197,5 @@ public class MediumGenericView: UIView, BasicCard {
         
     }
     
-    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool) {}
+    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
 }

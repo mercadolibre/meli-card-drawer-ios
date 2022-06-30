@@ -11,6 +11,7 @@ public class CardBalance: UIView {
     
     private var eyeButton: UIButton!
     public var model: CardBalanceModel?
+    public var delegate: CardBalanceDelegate?
 
     private let balanceTitle: UILabel! = {
         let label = UILabel()
@@ -75,7 +76,7 @@ public class CardBalance: UIView {
         eyeButton = UIButton()
         eyeButton.setImage(UIImage(named: "eye", in: MLCardDrawerBundle.bundle(), compatibleWith: nil), for: .normal)
         eyeButton.backgroundColor = .clear
-        eyeButton.addTarget(self, action: #selector(self.toggleBalance(sender:)), for: .touchUpInside)
+        eyeButton.addTarget(self, action: #selector(self.buttonAction(sender:)), for: .touchUpInside)
         
         balanceLabel.sizeToFit()
         balanceTitle.sizeToFit()
@@ -86,6 +87,13 @@ public class CardBalance: UIView {
         self.addSubview(balanceTitle)
         self.addSubview(balanceLabel)
         self.addSubview(eyeButton)
+    }
+    
+    @objc private func buttonAction(sender: UIButton){
+        guard let delegate = delegate else {
+            return
+        }
+        showBalance = delegate.toggleBalance()
     }
     
     private func setupConstraints() {
@@ -101,10 +109,6 @@ public class CardBalance: UIView {
             eyeButton.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor)
             
         ])
-    }
-    
-    @objc public func toggleBalance(sender: UIButton){
-        showBalance = !showBalance
     }
     
     private func setupLabelColors(_ label: UILabel, field: CardBalanceText) {

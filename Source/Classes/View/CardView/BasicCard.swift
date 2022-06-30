@@ -26,5 +26,5 @@ protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol
     func removeShineView()
     func removeGradient()
     func addGradient()
-    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool)
+    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate)
 }

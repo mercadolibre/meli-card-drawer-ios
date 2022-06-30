@@ -228,9 +228,10 @@ class FrontView: CardView {
         
     }
     
-    override func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool) {
+    override func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {
         cardBalanceContainer.model = model
         cardBalanceContainer.showBalance = showBalance
+        cardBalanceContainer.delegate = delegate
         cardBalanceContainer.render()
     }
 }
