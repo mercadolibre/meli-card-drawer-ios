@@ -82,6 +82,8 @@ public class CardView: UIView, BasicCard {
 
         cardUI?.set?(bank: container)
     }
+    
+    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool) {}
 }
 
 // MARK: Card View Effects
@@ -153,6 +155,7 @@ extension CardView {
             overlayImage.image = customOverlayImage
         }
     }
+    
 }
 
 extension CardView: CardViewCustomViewProtocol{

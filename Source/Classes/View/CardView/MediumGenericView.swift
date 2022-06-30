@@ -196,4 +196,6 @@ public class MediumGenericView: UIView, BasicCard {
     func setupAnimated(_ cardUI: CardUI) {
         
     }
+    
+    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool) {}
 }
