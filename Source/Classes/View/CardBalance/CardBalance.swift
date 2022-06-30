@@ -96,9 +96,9 @@ public class CardBalance: UIView {
             balanceTitle.topAnchor.constraint(equalTo: self.topAnchor),
             balanceTitle.rightAnchor.constraint(equalTo: self.rightAnchor),
             eyeButton.rightAnchor.constraint(equalTo: self.rightAnchor),
-            eyeButton.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor),
-            balanceLabel.rightAnchor.constraint(equalTo: eyeButton.leftAnchor, constant: -6),
-            balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: 2)
+            eyeButton.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor, constant: 6),
+            balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: 2),
+            eyeButton.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor)
             
         ])
     }
