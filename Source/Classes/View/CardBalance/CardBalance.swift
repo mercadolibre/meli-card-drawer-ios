@@ -8,6 +8,11 @@
 import UIKit
 
 public class CardBalance: UIView {
+    private let imageName = "eye"
+    private let titleFontSize = 12.0
+    private let balanceFontSize = 14.0
+    private let constrainButton = 6
+    private let constrainBalance = 2
     
     private var eyeButton: UIButton!
     public var model: CardBalanceModel?
@@ -68,13 +73,13 @@ public class CardBalance: UIView {
             return
         }
         
-        balanceTitle.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+        balanceTitle.font = UIFont.systemFont(ofSize: titleFontSize, weight: .regular)
         balanceTitle.text = model.title.message
         
-        balanceLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        balanceLabel.font = UIFont.systemFont(ofSize: balanceFontSize, weight: .semibold)
         
         eyeButton = UIButton()
-        eyeButton.setImage(UIImage(named: "eye", in: MLCardDrawerBundle.bundle(), compatibleWith: nil), for: .normal)
+        eyeButton.setImage(UIImage(named: imageName, in: MLCardDrawerBundle.bundle(), compatibleWith: nil), for: .normal)
         eyeButton.backgroundColor = .clear
         eyeButton.addTarget(self, action: #selector(self.buttonAction(sender:)), for: .touchUpInside)
         
@@ -104,8 +109,8 @@ public class CardBalance: UIView {
             balanceTitle.topAnchor.constraint(equalTo: self.topAnchor),
             balanceTitle.rightAnchor.constraint(equalTo: self.rightAnchor),
             eyeButton.rightAnchor.constraint(equalTo: self.rightAnchor),
-            eyeButton.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor, constant: 6),
-            balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: 2),
+            eyeButton.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor, constant: constrainButton),
+            balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: constrainBalance),
             eyeButton.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor)
             
         ])
