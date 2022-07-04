@@ -8,9 +8,9 @@
 import Foundation
 
 public struct CardBalanceModel: Codable {
-    let title: CardBalanceText
-    let balance: CardBalanceText
-    let hiddenBalance: CardBalanceText
+    let title: Text
+    let balance: Text
+    let hiddenBalance: Text
     
     enum CodingKeys: String, CodingKey {
         case title = "title"

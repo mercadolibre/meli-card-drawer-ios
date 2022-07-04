@@ -8,11 +8,11 @@
 import UIKit
 
 public class CardBalance: UIView {
-    private let imageName = "eye"
-    private let titleFontSize = 12.0
-    private let balanceFontSize = 14.0
-    private let constrainButton = 6
-    private let constrainBalance = 2
+    private let imageName: String = "eye"
+    private let titleFontSize: CGFloat = 12.0
+    private let balanceFontSize: CGFloat = 14.0
+    private let constrainButton: CGFloat = 6
+    private let constrainBalance: CGFloat = 2
     
     private var eyeButton: UIButton!
     public var model: CardBalanceModel?
@@ -116,7 +116,7 @@ public class CardBalance: UIView {
         ])
     }
     
-    private func setupLabelColors(_ label: UILabel, field: CardBalanceText) {
+    private func setupLabelColors(_ label: UILabel, field: Text) {
         if let textColor = field.textColor {
             label.textColor = UIColor.fromHex(textColor)
         }
