@@ -18,7 +18,7 @@ public struct Text: Codable {
         case weight
     }
     
-    public init(message: String, textColor: String, weight: String, backgroundColor: String) {
+    public init(message: String?, textColor: String?, weight: String?, backgroundColor: String?) {
         self.message = message
         self.textColor = textColor
         self.weight = weight

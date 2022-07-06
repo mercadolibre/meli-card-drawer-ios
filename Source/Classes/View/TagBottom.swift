@@ -7,52 +7,35 @@
 
 import UIKit
 
-class TagBottom: UIView {
+public class TagBottom: UILabel {
     
-    private var message: Text?
-    
-    private weak var label: UILabel! = {
-        let label = UILabel()
-        label.textColor = .black
-        label.backgroundColor = .clear
-        label.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
-        return label
-    }()
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    let topInset: CGFloat = 7.0
+    let bottomInset: CGFloat = 5.0
+    let leftInset: CGFloat = 8.0
+    let rightInset: CGFloat = 8.0
+      
+    public override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
     }
     
-    public init(message: Text) {
-        super.init(frame: CGRect.zero)
-        self.message = message
-        render()
+    public override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+
+    public override var bounds: CGRect {
+        didSet {
+            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
+        }
     }
     
-    private func render() {
-        guard let message = message else {
-            return
-        }
-        label.text = message.message
-        if let textColor = message.textColor {
-            label.textColor = UIColor.fromHex(textColor)
-        }
-        if let backgroundColor = message.backgroundColor {
-            self.backgroundColor = UIColor.fromHex(backgroundColor)
-        }
-        self.addSubview(label)
-        label.sizeToFit()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 7),
-            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
-            label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
-            label.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 8)
-        ])
-        self.sizeToFit()
-        let path = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: [.bottomLeft, .topLeft], cornerRadii: CGSize(width: self.frame.width/2, height: self.frame.width/2))
+    public override func didMoveToWindow() {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.bounds.height/2, height: self.bounds.height/2))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
     }
+    
 }
