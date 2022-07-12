@@ -29,18 +29,25 @@ public class ComboSwitchLargeView: ComboSwitchView {
     override public func setSwitchModel(_ switchModel: SwitchModel) {
         self.switchModel = switchModel
         switchControl.delegate = self
-        switchControl.backgroundColor = UIColor.fromHex(switchModel.switchBackgroundColor)
+        
+        if let switchBorderColor = switchModel.switchBorderColor {
+            switchControl.containerViewBorderColor = UIColor.fromHex(switchBorderColor).cgColor
+        }
+        switchControl.containerViewBackgroundColor = UIColor.fromHex(switchModel.switchBackgroundColor)
         switchControl.selectorViewColor = UIColor.fromHex(switchModel.pillBackgroundColor)
         switchControl.selectorTextColor = UIColor.fromHex(switchModel.states.checked.textColor)
         switchControl.textColor = UIColor.fromHex(switchModel.states.unchecked.textColor)
-        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont().withSize(18)
-        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont().withSize(18)
+        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont().withSize(13)
+        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont().withSize(13)
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
-        comboLabel.textColor = UIColor.fromHex(switchModel.description.textColor ?? "")
-        comboLabel.text = switchModel.description.message
-        comboLabel.font = switchModel.description.weight?.getFont()
         backgroundColor = UIColor.fromHex(switchModel.safeZoneBackgroundColor)
+        guard let description = switchModel.description else {
+            return
+        }
+        comboLabel.textColor = UIColor.fromHex(description.textColor ?? "")
+        comboLabel.text = description.message
+        comboLabel.font = description.weight?.getFont()
     }
     
     override func change(to index: Int) {

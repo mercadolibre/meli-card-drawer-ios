@@ -16,14 +16,17 @@ public class CustomSwitch: UIView {
     private var options: [SwitchOption]!
     private var buttons: [UIButton]!
     private var selectorView: UIView!
+    var centerDiference: CGFloat = 3
     
+    var containerViewBackgroundColor: UIColor = UIColor.clear
+    var containerViewBorderColor: CGColor = UIColor.black.cgColor
     var selectedOption = ""
     var textColor: UIColor = .white
     var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = UIColor(displayP3Red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     
-    var buttonFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
-    var buttonSelectedFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+    var buttonFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+    var buttonSelectedFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         
     weak var delegate: CustomSwitchDelegate?
     
@@ -35,7 +38,7 @@ public class CustomSwitch: UIView {
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
         updateView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { self.selectDefault() }
+        DispatchQueue.main.asyncAfter(deadline: .now()) { self.selectDefault() }
     }
     
     func setOptions(options: [SwitchOption]) {
@@ -47,6 +50,18 @@ public class CustomSwitch: UIView {
         layer.cornerRadius = frame.height/2
         layer.masksToBounds = true
         createButton()
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        containerView.backgroundColor = containerViewBackgroundColor
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = containerViewBorderColor
+        containerView.layer.cornerRadius = containerView.frame.height/2
+        addSubview(containerView)
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: self.topAnchor),
+            containerView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            containerView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
         configureSelectorView()
         configureStackView()
     }
@@ -67,17 +82,15 @@ public class CustomSwitch: UIView {
     }
     
     private func configureSelectorView() {
-        let selectorWidth = frame.width/1.75
+        let selectorWidth = frame.width * 0.54
         selectorView = UIView(frame: CGRect(x: 0,
                                             y: 0,
                                             width: selectorWidth,
                                             height: self.frame.height))
         selectorView.backgroundColor = selectorViewColor
         selectorView.layer.cornerRadius = selectorView.frame.height/2
-        selectorView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        selectorView.layer.borderWidth = 3
-        selectorView.layer.borderColor = selectorViewColor.cgColor
-        selectorView.addInnerShadow()
+        selectorView.layer.borderWidth = 1
+        selectorView.layer.borderColor = UIColor.blue.cgColor // selectorViewColor.cgColor
         addSubview(selectorView)
     }
     
@@ -89,8 +102,13 @@ public class CustomSwitch: UIView {
     private func createButton() {
         buttons = []
         subviews.forEach({$0.removeFromSuperview()})
-        for buttonTitle in options.map({$0.name}) {
+        for (index, buttonTitle) in options.map({$0.name}).enumerated() {
             let button = UIButton(type: .system)
+           if (index < 1) {
+                button.titleEdgeInsets = UIEdgeInsets(top: 0, left: centerDiference, bottom: 0, right: 0)
+            } else {
+                button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: centerDiference)
+            }
             button.setTitle(buttonTitle, for: .normal)
             button.addTarget(self, action: #selector(self.buttonAction(sender:)),
                              for: .touchUpInside)
@@ -100,6 +118,7 @@ public class CustomSwitch: UIView {
             button.titleLabel?.numberOfLines = 1
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.titleLabel?.lineBreakMode = .byClipping
+            button.tag = index
             
             button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
             
@@ -114,7 +133,13 @@ public class CustomSwitch: UIView {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
                 UIView.animate(withDuration: 0.3) { [weak self] in
-                    self?.selectorView.center.x = button.center.x
+                    if let centerDiference = self?.centerDiference {
+                        if (sender.tag > 0) {
+                            self?.selectorView.center.x = button.center.x - centerDiference
+                        } else {
+                            self?.selectorView.center.x = button.center.x + centerDiference
+                        }
+                    }
                 } completion: { [weak self] _ in
                     self?.delegate?.change(to: buttonIndex)
                 }
@@ -127,7 +152,11 @@ public class CustomSwitch: UIView {
         for button in buttons {
             button.setTitleColor(textColor, for: .normal)
             if button == sender {
-                self.selectorView.center.x = button.center.x
+                if (button.tag > 0) {
+                    self.selectorView.center.x = button.center.x - centerDiference
+                } else {
+                    self.selectorView.center.x = button.center.x + centerDiference
+                }
                 button.setTitleColor(selectorTextColor, for: .normal)
             }
         }
