@@ -25,6 +25,8 @@ class FrontView: CardView {
     
     @IBOutlet weak var nameBottomToSuperviewConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var cardBalanceContainer: CardBalance!
+    
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
@@ -224,6 +226,13 @@ class FrontView: CardView {
             self.customView = nil
         }
         
+    }
+    
+    override func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {
+        cardBalanceContainer.model = model
+        cardBalanceContainer.showBalance = showBalance
+        cardBalanceContainer.delegate = delegate
+        cardBalanceContainer.render()
     }
 }
 

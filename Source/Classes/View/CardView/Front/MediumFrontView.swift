@@ -11,6 +11,8 @@ class MediumFrontView: CardView {
     
     @IBOutlet weak var numberTrailingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var cardBalanceContainer: CardBalance!
+
     private var shineView: ShineView?
     
     override func setupUI(_ cardUI: CardUI) {
@@ -41,6 +43,13 @@ class MediumFrontView: CardView {
         nameLabel.flatMap {
             removeObserver($0, forKeyPath: #keyPath(model.name))
         }
+    }
+    
+    override func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {
+        cardBalanceContainer.model = model
+        cardBalanceContainer.showBalance = showBalance
+        cardBalanceContainer.delegate = delegate
+        cardBalanceContainer.render()
     }
 }
 

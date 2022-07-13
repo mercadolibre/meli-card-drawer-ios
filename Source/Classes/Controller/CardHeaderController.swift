@@ -234,3 +234,9 @@ extension MLCardDrawerController {
         frontView.removeCustomView!()
     }
 }
+
+extension MLCardDrawerController{
+    public func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, delegate: CardBalanceDelegate) {
+        frontView.addCardBalance(model, showBalance, delegate)
+    }
+}
