@@ -9,10 +9,10 @@ import UIKit
 
 public class TagBottom: UILabel {
     
-    let topInset: CGFloat = 7.0
-    let bottomInset: CGFloat = 5.0
-    let leftInset: CGFloat = 8.0
-    let rightInset: CGFloat = 8.0
+    let topInset: CGFloat = Constants.Layout.S_MARGIN
+    let bottomInset: CGFloat = Constants.Layout.XXS_MARGIN
+    let leftInset: CGFloat = Constants.Layout.M_MARGIN
+    let rightInset: CGFloat = Constants.Layout.M_MARGIN
       
     public override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)

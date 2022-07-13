@@ -8,11 +8,6 @@
 import UIKit
 
 public class CardBalance: UIView {
-    private let imageName: String = "eye"
-    private let titleFontSize: CGFloat = 12.0
-    private let balanceFontSize: CGFloat = 14.0
-    private let constrainButton: CGFloat = 6
-    private let constrainBalance: CGFloat = 2
     
     private var eyeButton: UIButton!
     public var model: CardBalanceModel?
@@ -73,13 +68,13 @@ public class CardBalance: UIView {
             return
         }
         
-        balanceTitle.font = UIFont.systemFont(ofSize: titleFontSize, weight: .regular)
+        balanceTitle.font = Constants.Fonts.S_FONT
         balanceTitle.text = model.title.message
         
-        balanceLabel.font = UIFont.systemFont(ofSize: balanceFontSize, weight: .semibold)
+        balanceLabel.font = Constants.Fonts.M_FONT
         
         eyeButton = UIButton()
-        eyeButton.setImage(UIImage(named: imageName, in: MLCardDrawerBundle.bundle(), compatibleWith: nil), for: .normal)
+        eyeButton.setImage(UIImage(named: Constants.Strings.EYE_IMAGE_NAME, in: MLCardDrawerBundle.bundle(), compatibleWith: nil), for: .normal)
         eyeButton.backgroundColor = .clear
         eyeButton.addTarget(self, action: #selector(self.buttonAction(sender:)), for: .touchUpInside)
         
@@ -109,8 +104,8 @@ public class CardBalance: UIView {
             balanceTitle.topAnchor.constraint(equalTo: self.topAnchor),
             balanceTitle.rightAnchor.constraint(equalTo: self.rightAnchor),
             eyeButton.rightAnchor.constraint(equalTo: self.rightAnchor),
-            eyeButton.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor, constant: constrainButton),
-            balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: constrainBalance),
+            eyeButton.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor, constant: Constants.Layout.XS_MARGIN),
+            balanceLabel.topAnchor.constraint(equalTo: balanceTitle.bottomAnchor, constant: Constants.Layout.XXXS_MARGIN),
             eyeButton.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor)
             
         ])
