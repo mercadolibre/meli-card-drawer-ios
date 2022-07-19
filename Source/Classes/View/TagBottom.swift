@@ -45,7 +45,7 @@ public class TagBottom: UILabel {
         
     private func addInsets(to size: CGSize) -> CGSize {
         let width = size.width + leftInset + rightInset
-        let height = size.height + topInset + bottomInset
+        let height = size.height + topInset + bottomInset - 2
         return CGSize(width: width, height: height)
     }
     
