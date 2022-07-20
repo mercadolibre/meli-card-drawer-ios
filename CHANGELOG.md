@@ -1,4 +1,4 @@
-## Unreleased
+## [Release (1.11.1)]
 ## Fix
 - fix error in tagbottom bezierpath when card with tagbottom is removed from screen
 
