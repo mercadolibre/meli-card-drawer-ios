@@ -1,4 +1,4 @@
-## [Release (1.11.1)]
+## [Release (1.11.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.1)
 ## Fix
 - fix error in tagbottom bezierpath when card with tagbottom is removed from screen
 
