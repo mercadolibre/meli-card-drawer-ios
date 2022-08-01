@@ -1,30 +1,10 @@
 import UIKit
 
 class FrontView: CardView {
-    @IBOutlet weak var expirationDate: CardLabel!
-    @IBOutlet weak var name: CardLabel!
     @IBOutlet weak var paymentMethodImage: UIImageView!
     @IBOutlet weak var bankImage: UIImageView!
-    @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var securityCodeCircle: CircleView!
-    
     @IBOutlet weak var safeZone: UIView!
-    
-    // Constraints
-    @IBOutlet weak var numberToNameLeadingConstraint: NSLayoutConstraint!
-    var numberToNameLeadingProgConstraint : NSLayoutConstraint?
-    
-    @IBOutlet weak var nameToNumberTopConstraint: NSLayoutConstraint!
-    var nameToNumberTopProgConstraint : NSLayoutConstraint?
-    
-    @IBOutlet weak var nameLeadingConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var numberTrailingConstraint: NSLayoutConstraint!
-    
-    var numberWidthAnchorProgConstraint : NSLayoutConstraint?
-    
-    @IBOutlet weak var nameBottomToSuperviewConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     
     override func setupUI(_ cardUI: CardUI) {
@@ -49,17 +29,13 @@ class FrontView: CardView {
     
     private func setupFormatters(_ cardUI: CardUI) {
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
-        name.formatter = Mask(placeholder: cardUI.placeholderName)
-        number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
     }
     
     private func setupCardElements(_ cardUI: CardUI) {
-        let input = [model?.name, model?.expiration, model?.securityCode]
-        [name, expirationDate, securityCode].enumerated().forEach({
+        let input = [model?.securityCode]
+        [securityCode].enumerated().forEach({
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI), customLabelFontName: customLabelFontName)
         })
-
-        number.setup(model?.number, FontFactory.font(cardUI, shadow: true), customLabelFontName: customLabelFontName)
     }
     
     private func setupSecurityCode(_ cardUI: CardUI) {
@@ -69,155 +45,29 @@ class FrontView: CardView {
     }
 
     override func addObservers() {
-        addObserver(name, forKeyPath: #keyPath(model.name), options: .new, context: nil)
-        addObserver(number, forKeyPath: #keyPath(model.number), options: .new, context: nil)
         addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
     }
 
     deinit {
-        removeObserver(name, forKeyPath: #keyPath(model.name))
-        removeObserver(number, forKeyPath: #keyPath(model.number))
         removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
     }
     
     func setSafeZoneConstraints () {
-        expirationDate.isHidden = true
-        
         securityCode.isHidden = true
         
-        // Name bottom to Superview constraint
-        nameBottomToSuperviewConstraint.isActive = false
-        
-        // Number To Name Horizontal Constraint
-        numberToNameLeadingConstraint.isActive = false
-        
-        numberToNameLeadingProgConstraint = number.leadingAnchor.constraint(greaterThanOrEqualTo: name.trailingAnchor, constant: 8)
-        
-        numberToNameLeadingProgConstraint?.isActive = true
-        
-        // Name to Number Vertical Constraint
-        nameToNumberTopConstraint.isActive = false
-        
-        nameToNumberTopProgConstraint = name.topAnchor.constraint(equalTo: number.topAnchor)
-        
-        nameToNumberTopProgConstraint?.isActive = true
-        
-        // Name leading constraint
-        nameLeadingConstraint.constant = 12
-        
-        // Number trailing constraint
-        numberTrailingConstraint.constant = 12
-        
-        // Number width change
-        
-        if let cardUI = cardUI, cardUI.cardPattern.count > 0 {
-            
-            number.adjustsFontSizeToFitWidth = false
-            number.lineBreakMode = .byClipping
-            
-            number.font = number.font.withSize(16)
-            
-            number.textAlignment = .right
-            
-            var modifiedCardPattern : [Int], modifiedNumber : String, charCount : Int
-            
-            if cardUI.cardPattern.count > 2 || (cardUI.cardPattern.count == 2 && cardUI.cardPattern.reduce(0,+) > 12) {
-                
-                let font = number.font
-                // If card pattern is still bigger than two it will be modified
-                // If the last group is bigger than 6 chars use this one only, if not use last two groups
-                let offset = cardUI.cardPattern[cardUI.cardPattern.count - 1] > 6 ? 1 : 2
-                
-                // Get only the last two groups of numbers
-                let range = cardUI.cardPattern.index(cardUI.cardPattern.endIndex, offsetBy: -1 * offset) ..< cardUI.cardPattern.endIndex
-                
-                modifiedCardPattern = Array(cardUI.cardPattern[range])
-                
-                cardUI.cardPattern = modifiedCardPattern
-                
-                modifiedNumber = model?.number ?? ""
-                
-                charCount = modifiedCardPattern.reduce(0, +)
-                
-                // Get only the last parts of cardNumber
-                if let cardNumber = model?.number, cardNumber.count > charCount {
-                    let numberRange = cardNumber.index(cardNumber.endIndex, offsetBy: charCount * -1) ..< cardNumber.endIndex
-                    modifiedNumber = String(cardNumber[numberRange])
-                }
-                
-            } else {
-                modifiedNumber = model?.number ?? ""
-                
-                modifiedCardPattern = cardUI.cardPattern
-                
-                charCount = modifiedCardPattern.reduce(0, +)
-            }
-            
-            let slices = min(max(modifiedCardPattern.count - 1, 0), 1)
-            
-            let totalChars = slices + charCount
-            
-            let kerning = number.formatter.attributes[.kern] as? Double ?? 0.0
-            
-            let width = CGFloat(totalChars) * number.font.size(" ", kerning: kerning).width
-            
-            numberWidthAnchorProgConstraint = number.widthAnchor.constraint(equalToConstant: CGFloat(width))
-            
-            numberWidthAnchorProgConstraint?.isActive = true
-            
-            number.layoutIfNeeded()
-            
-            number.formatter = Mask(pattern: modifiedCardPattern, digits: modifiedNumber)
-            
-            model?.number = modifiedNumber
-            
-            
-        }
-        
         // Make SafeZone visible and add customView
-        
         if let customView = self.customView {
             safeZone.addSubview(customView)
-            
             customView.pinEdges(to: safeZone)
-            
             safeZone.isHidden = false
         }
     }
     
     func clearSafeZoneConstraints() {
-        expirationDate.isHidden = false
-        
         securityCode.isHidden = false
         
-        number.adjustsFontSizeToFitWidth = true
-        
-        number.lineBreakMode = .byTruncatingTail
-        
-        // Number width change
-        numberWidthAnchorProgConstraint?.isActive = false
-        
-        // Number To Name Leading Constraint
-        numberToNameLeadingProgConstraint?.isActive = false
-        numberToNameLeadingConstraint.isActive = true
-        
-        // Name to Number Vertical Constraint
-        nameToNumberTopProgConstraint?.isActive = false
-        nameToNumberTopConstraint.isActive = true
-        
-        
-        // Name leading constraint
-        nameLeadingConstraint.constant = 24
-        
-        // Number trailing constraint
-        numberTrailingConstraint.constant = 24
-        
-        // Name bottom to Superview constraint
-        nameBottomToSuperviewConstraint.isActive = true
-        
-        // Make SafeZone hidden
+        // Make SafeZone hidden and remove customView
         safeZone.isHidden = true
-        
         if let customView = customView {
             customView.removeFromSuperview()
             self.customView = nil
@@ -239,7 +89,7 @@ extension FrontView {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
-                             views: [bankImage, paymentMethodImage, name, number, securityCode],
+                             views: [bankImage, paymentMethodImage, securityCode],
                              complete: {[weak self] in
                                 self?.setupUI(cardUI)
             })
