@@ -51,7 +51,6 @@ class FrontView: CardView {
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
         name.formatter = Mask(placeholder: cardUI.placeholderName)
         number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
-        expirationDate.formatter = Mask(placeholder: cardUI.placeholderExpiration)
     }
     
     private func setupCardElements(_ cardUI: CardUI) {
@@ -72,14 +71,12 @@ class FrontView: CardView {
     override func addObservers() {
         addObserver(name, forKeyPath: #keyPath(model.name), options: .new, context: nil)
         addObserver(number, forKeyPath: #keyPath(model.number), options: .new, context: nil)
-        addObserver(expirationDate, forKeyPath: #keyPath(model.expiration), options: .new, context: nil)
         addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
     }
 
     deinit {
         removeObserver(name, forKeyPath: #keyPath(model.name))
         removeObserver(number, forKeyPath: #keyPath(model.number))
-        removeObserver(expirationDate, forKeyPath: #keyPath(model.expiration))
         removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
     }
     
@@ -242,7 +239,7 @@ extension FrontView {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
-                             views: [bankImage, expirationDate, paymentMethodImage, name, number, securityCode],
+                             views: [bankImage, paymentMethodImage, name, number, securityCode],
                              complete: {[weak self] in
                                 self?.setupUI(cardUI)
             })
