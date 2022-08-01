@@ -24,6 +24,8 @@ class MediumFrontView: CardView {
         setupCustomOverlayImage(cardUI)
     }
     
+    override func addObservers() {}
+    
     override func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {
         cardBalanceContainer.model = model
         cardBalanceContainer.showBalance = showBalance
