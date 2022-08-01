@@ -3,14 +3,9 @@ import UIKit
 class MediumFrontView: CardView {
     @IBOutlet weak var paymentMethodImage: UIImageView!
     @IBOutlet weak var issuerImage: UIImageView!
-    @IBOutlet weak var number: CardLabel!
     @IBOutlet weak var debitImage: UIImageView!
-    @IBOutlet weak var nameLabel: CardLabel!
     @IBOutlet weak var chevronIcon: UIImageView!
     @IBOutlet weak var disclaimer: CardLabel!
-    
-    @IBOutlet weak var numberTrailingConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var cardBalanceContainer: CardBalance!
 
     private var shineView: ShineView?
@@ -24,25 +19,9 @@ class MediumFrontView: CardView {
         setDebitImage(cardUI)
         setupCardLabels(cardUI)
         setupChevron(cardUI)
-        setupFormatters(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
         setupCustomOverlayImage(cardUI)
-    }
-    
-    override func addObservers() {
-        addObserver(nameLabel, forKeyPath: #keyPath(model.name), options: .new, context: nil)
-        addObserver(number, forKeyPath: #keyPath(model.number), options: .new, context: nil)
-    }
-
-    deinit {
-        guard model != nil else { return }
-        number.flatMap {
-            removeObserver($0, forKeyPath: #keyPath(model.number))
-        }
-        nameLabel.flatMap {
-            removeObserver($0, forKeyPath: #keyPath(model.name))
-        }
     }
     
     override func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {
@@ -53,21 +32,16 @@ class MediumFrontView: CardView {
     }
 }
 
-// MARK: Publics
 extension MediumFrontView {
     override func setupAnimated(_ cardUI: CardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
-                         views: [issuerImage, paymentMethodImage, debitImage, nameLabel, number, chevronIcon],
+                         views: [issuerImage, paymentMethodImage, debitImage, chevronIcon],
                          complete: {[weak self] in
                             self?.setupUI(cardUI)
         })
     }
     
-    private func setupFormatters(_ cardUI: CardUI) {
-        number.formatter = Mask(pattern: cardUI.cardPattern, digits: model?.lastDigits)
-    }
-
     private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
         if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty  {
@@ -107,7 +81,6 @@ extension MediumFrontView {
     
     private func setupChevron(_ cardUI: CardUI) {
         showChevron(cardUI.showChevron == true)
-        
         chevronIcon.image = chevronIcon.image?.withRenderingMode(.alwaysTemplate)
         chevronIcon.tintColor = getChevronColor(cardUI)
     }
@@ -122,13 +95,6 @@ extension MediumFrontView {
     }
     
     private func setupCardLabels(_ cardUI: CardUI) {
-        nameLabel.setup(model?.name ?? "", FontFactory.font(cardUI), customLabelFontName: self.customLabelFontName)
-        nameLabel.font = nameLabel.font.withSize(12)
-        
-        number.dynamicSlice = false
-        number.setup(model?.number ?? "", FontFactory.font(cardUI, shadow: true), customLabelFontName: self.customLabelFontName)
-        number.font = number.font.withSize(12)
-        
         disclaimer.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         disclaimer.textColor = cardUI.cardFontColor
         disclaimer.attributedText = model?.disclaimer
@@ -149,7 +115,6 @@ private extension MediumFrontView {
     }
     
     func showChevron(_ value: Bool) {
-        numberTrailingConstraint.priority = value ? .defaultLow : .required
         chevronIcon.isHidden = !value
     }
     
