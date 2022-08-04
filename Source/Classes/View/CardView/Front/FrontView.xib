@@ -107,7 +107,7 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4o-xR-CfT" userLabel="SafeZone">
-                    <rect key="frame" x="0.0" y="112" width="256" height="46"/>
+                    <rect key="frame" x="0.0" y="98" width="256" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.15466148739769348" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCI-4F-tTc" customClass="CardBalance" customModule="MLCardDrawer">
@@ -122,7 +122,7 @@
             <constraints>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0si-Gj-xOe"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
-                <constraint firstItem="L4o-xR-CfT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-46" id="1Xh-5H-yAY"/>
+                <constraint firstItem="L4o-xR-CfT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-60" id="1Xh-5H-yAY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="N94-Fg-ynK" secondAttribute="leading" id="3Bk-h4-rS6"/>
                 <constraint firstItem="L4o-xR-CfT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3tQ-5Q-dQp"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
