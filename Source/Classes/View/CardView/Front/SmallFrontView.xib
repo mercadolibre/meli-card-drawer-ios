@@ -85,7 +85,7 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4o-xR-CfT" userLabel="SafeZone">
-                    <rect key="frame" x="0.0" y="47" width="256" height="111"/>
+                    <rect key="frame" x="128" y="47" width="128" height="111"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBB-Aq-UH8" customClass="CardBalance" customModule="MLCardDrawer">
@@ -101,7 +101,6 @@
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0si-Gj-xOe"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="N94-Fg-ynK" secondAttribute="leading" id="3Bk-h4-rS6"/>
-                <constraint firstItem="L4o-xR-CfT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3tQ-5Q-dQp"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstItem="iqG-Eo-eGS" firstAttribute="height" secondItem="hVB-2M-iYt" secondAttribute="height" id="9Yf-sg-dM3"/>
@@ -115,7 +114,6 @@
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OqT-qa-XFw"/>
                 <constraint firstAttribute="trailing" secondItem="OEt-3Q-8ri" secondAttribute="trailing" id="Qc7-uP-wIt"/>
                 <constraint firstItem="N94-Fg-ynK" firstAttribute="centerX" secondItem="HLQ-m9-78F" secondAttribute="centerX" id="QpT-U2-dW4"/>
-                <constraint firstItem="L4o-xR-CfT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="QwL-eM-RI0"/>
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-12" id="ZmV-6D-57z"/>
@@ -127,17 +125,13 @@
                 <constraint firstItem="EBB-Aq-UH8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="p3L-OB-ghg"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="qwy-YV-L6X"/>
+                <constraint firstItem="L4o-xR-CfT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rGR-kx-1uA"/>
                 <constraint firstAttribute="trailing" secondItem="EBB-Aq-UH8" secondAttribute="trailing" constant="16" id="xqX-Ig-sAR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="QwL-eM-RI0"/>
-                </mask>
-            </variation>
             <variation key="heightClass=regular">
                 <mask key="constraints">
                     <exclude reference="lzF-pf-ote"/>
