@@ -17,7 +17,6 @@
                 <outlet property="paymentMethodImage" destination="hVB-2M-iYt" id="Tr2-It-Ho8"/>
                 <outlet property="paymentMethodImageWidthConstraint" destination="hD1-07-weO" id="eYN-ug-Jtw"/>
                 <outlet property="safeZone" destination="L4o-xR-CfT" id="l7R-Vk-asA"/>
-                <outlet property="safeZoneWidthConstraint" destination="QwL-eM-RI0" id="J72-Va-RDY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
