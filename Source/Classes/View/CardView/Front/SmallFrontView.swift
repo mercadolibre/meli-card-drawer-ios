@@ -7,7 +7,6 @@ public class SmallFrontView: CardView {
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     
     // Constraints
-    @IBOutlet weak var safeZoneWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var paymentMethodImageWidthConstraint: NSLayoutConstraint!
     
     override func setupUI(_ cardUI: CardUI) {
@@ -39,12 +38,10 @@ public class SmallFrontView: CardView {
             customView.pinEdges(to: safeZone)
             
             safeZone.isHidden = false
-            safeZoneWidthConstraint.isActive = true
         }
     }
     
     func clearSafeZoneConstraints() {
-        safeZoneWidthConstraint.isActive = false
         
         // Make SafeZone hidden
         safeZone.isHidden = true

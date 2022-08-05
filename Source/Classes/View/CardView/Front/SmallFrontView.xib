@@ -86,7 +86,7 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4o-xR-CfT" userLabel="SafeZone">
-                    <rect key="frame" x="256" y="82" width="0.0" height="76"/>
+                    <rect key="frame" x="256" y="47" width="0.0" height="111"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBB-Aq-UH8" customClass="CardBalance" customModule="MLCardDrawer">
@@ -112,7 +112,7 @@
                 <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="IZx-jY-Fec"/>
                 <constraint firstItem="N94-Fg-ynK" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="JAx-5z-yUI"/>
                 <constraint firstAttribute="bottom" secondItem="L4o-xR-CfT" secondAttribute="bottom" id="JLJ-Ig-NDT"/>
-                <constraint firstAttribute="trailing" secondItem="L4o-xR-CfT" secondAttribute="trailing" id="OZa-Qs-T7s"/>
+                <constraint firstItem="L4o-xR-CfT" firstAttribute="trailing" secondItem="EBB-Aq-UH8" secondAttribute="trailing" constant="16" id="OZa-Qs-T7s"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OqT-qa-XFw"/>
                 <constraint firstAttribute="trailing" secondItem="OEt-3Q-8ri" secondAttribute="trailing" id="Qc7-uP-wIt"/>
                 <constraint firstItem="N94-Fg-ynK" firstAttribute="centerX" secondItem="HLQ-m9-78F" secondAttribute="centerX" id="QpT-U2-dW4"/>
@@ -122,7 +122,7 @@
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-12" id="ZmV-6D-57z"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="height" secondItem="eki-qS-IGB" secondAttribute="height" id="l4O-bB-U3b"/>
-                <constraint firstItem="L4o-xR-CfT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="82" id="lIc-Tz-Wo8"/>
+                <constraint firstItem="L4o-xR-CfT" firstAttribute="top" secondItem="EBB-Aq-UH8" secondAttribute="bottom" id="lIc-Tz-Wo8"/>
                 <constraint firstItem="hVB-2M-iYt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.19" id="lzF-pf-ote"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstItem="EBB-Aq-UH8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="p3L-OB-ghg"/>
