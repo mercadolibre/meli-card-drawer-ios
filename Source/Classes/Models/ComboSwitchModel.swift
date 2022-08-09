@@ -14,6 +14,7 @@ public struct SwitchModel: Codable {
     let safeZoneBackgroundColor: String
     public let options: [SwitchOption]
     let switchBorderColor: String?
+    let selectorBackgroundColor: String?
     
     enum CodingKeys: String, CodingKey {
         case description
@@ -23,10 +24,11 @@ public struct SwitchModel: Codable {
         case pillBackgroundColor = "pill_background_color"
         case safeZoneBackgroundColor = "safe_zone_background_color"
         case options
-        case switchBorderColor = "switchBorderColor"
+        case switchBorderColor = "switch_border_color"
+        case selectorBackgroundColor = "selector_background_color"
     }
     
-    public init(description: Text, states: SwitchStates, defaultState: String, switchBackgroundColor: String, pillBackgroundColor: String, safeZoneBackgroundColor: String, options: [SwitchOption], switchBorderColor: String) {
+    public init(description: Text, states: SwitchStates, defaultState: String, switchBackgroundColor: String, pillBackgroundColor: String, safeZoneBackgroundColor: String, options: [SwitchOption], switchBorderColor: String, selectorBackgroundColor: String) {
         self.description = description
         self.states = states
         self.defaultState = defaultState
@@ -35,5 +37,6 @@ public struct SwitchModel: Codable {
         self.safeZoneBackgroundColor = safeZoneBackgroundColor
         self.options = options
         self.switchBorderColor = switchBorderColor
+        self.selectorBackgroundColor = selectorBackgroundColor
     }
 }

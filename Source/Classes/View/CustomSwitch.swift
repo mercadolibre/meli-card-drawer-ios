@@ -24,6 +24,7 @@ public class CustomSwitch: UIView {
     var textColor: UIColor = .white
     var selectorViewColor: UIColor = .white
     var selectorTextColor: UIColor = UIColor(displayP3Red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+    var pillBorderColor: UIColor = UIColor.blue
     
     var buttonFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
     var buttonSelectedFont = UIFont.systemFont(ofSize: 12.0, weight: .regular)
@@ -90,7 +91,7 @@ public class CustomSwitch: UIView {
         selectorView.backgroundColor = selectorViewColor
         selectorView.layer.cornerRadius = selectorView.frame.height/2
         selectorView.layer.borderWidth = 1
-        selectorView.layer.borderColor = UIColor.blue.cgColor // selectorViewColor.cgColor
+        selectorView.layer.borderColor = pillBorderColor.cgColor
         addSubview(selectorView)
     }
     
