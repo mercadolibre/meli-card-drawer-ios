@@ -1,5 +1,8 @@
-## [Unreleased]
+## Unreleased
+## Fix
+- fix error in tagbottom bezierpath when card with tagbottom is removed from screen
 
+## [Release (1.11.0)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.0)
 ## Added
 - Card Balance Component
 - TagBottom component
