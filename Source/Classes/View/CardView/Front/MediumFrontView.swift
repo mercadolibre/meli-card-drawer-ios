@@ -5,7 +5,6 @@ class MediumFrontView: CardView {
     @IBOutlet weak var issuerImage: UIImageView!
     @IBOutlet weak var debitImage: UIImageView!
     @IBOutlet weak var chevronIcon: UIImageView!
-    @IBOutlet weak var disclaimer: CardLabel!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
 
     private var shineView: ShineView?
@@ -17,7 +16,6 @@ class MediumFrontView: CardView {
         setIssuerImage(cardUI)
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
-        setupCardLabels(cardUI)
         setupChevron(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
@@ -94,12 +92,6 @@ extension MediumFrontView {
             let aspectRatio = tImage.size.height/tImage.size.width
             inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: (inImageView.bounds.size.height+max(-4,min(24*aspectRatio-15,0)))/tImage.size.height) : tImage
         }
-    }
-    
-    private func setupCardLabels(_ cardUI: CardUI) {
-        disclaimer.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        disclaimer.textColor = cardUI.cardFontColor
-        disclaimer.attributedText = model?.disclaimer
     }
 }
 

@@ -6,5 +6,4 @@ import Foundation
     var expiration: String { get set }
     var securityCode: String { get set }
     @objc optional var lastDigits: String { get set}
-    @objc optional var disclaimer: NSAttributedString { get set}
 }
