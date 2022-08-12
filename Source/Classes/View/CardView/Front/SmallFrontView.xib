@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmallFrontView" customModule="MLCardDrawerResources" customModuleProvider="target">
             <connections>
+                <outlet property="PANView" destination="1Rj-WT-VjC" id="j2z-pH-7dG"/>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="bankImage" destination="iqG-Eo-eGS" id="OQn-yr-FpB"/>
                 <outlet property="cardBalanceContainer" destination="EBB-Aq-UH8" id="Did-el-Ax9"/>
@@ -95,6 +96,9 @@
                         <constraint firstAttribute="width" constant="100" id="xLx-9J-67n"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Rj-WT-VjC" userLabel="PAN" customClass="PANView" customModule="MLCardDrawer">
+                    <rect key="frame" x="23" y="117" width="56" height="25"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -117,6 +121,7 @@
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-12" id="ZmV-6D-57z"/>
+                <constraint firstItem="1Rj-WT-VjC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="dm6-MA-FbV"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="height" secondItem="eki-qS-IGB" secondAttribute="height" id="l4O-bB-U3b"/>
                 <constraint firstItem="L4o-xR-CfT" firstAttribute="top" secondItem="EBB-Aq-UH8" secondAttribute="bottom" id="lIc-Tz-Wo8"/>
@@ -126,6 +131,7 @@
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="qwy-YV-L6X"/>
                 <constraint firstItem="L4o-xR-CfT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rGR-kx-1uA"/>
+                <constraint firstItem="1Rj-WT-VjC" firstAttribute="top" secondItem="eki-qS-IGB" secondAttribute="bottom" constant="17" id="sS2-go-xeT"/>
                 <constraint firstAttribute="trailing" secondItem="EBB-Aq-UH8" secondAttribute="trailing" constant="16" id="xqX-Ig-sAR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
