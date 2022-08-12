@@ -144,7 +144,7 @@ extension SmallFrontView {
     }
     
     private func setupCardElements(_ cardUI: CardUI) {
-        if let number = model?.number, number.count > 0 {
+        if let number = model?.number, number.count > 14 {
             let lastFourDigits = String(number.suffix(4))
             PANView.setNumber(lastFourDigits)
         }

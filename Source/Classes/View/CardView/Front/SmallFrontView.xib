@@ -131,7 +131,7 @@
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="qwy-YV-L6X"/>
                 <constraint firstItem="L4o-xR-CfT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="rGR-kx-1uA"/>
-                <constraint firstItem="1Rj-WT-VjC" firstAttribute="top" secondItem="eki-qS-IGB" secondAttribute="bottom" constant="17" id="sS2-go-xeT"/>
+                <constraint firstItem="1Rj-WT-VjC" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-16" id="sS2-go-xeT"/>
                 <constraint firstAttribute="trailing" secondItem="EBB-Aq-UH8" secondAttribute="trailing" constant="16" id="xqX-Ig-sAR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

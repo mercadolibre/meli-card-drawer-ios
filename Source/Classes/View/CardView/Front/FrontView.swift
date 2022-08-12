@@ -40,7 +40,7 @@ class FrontView: CardView {
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI), customLabelFontName: customLabelFontName)
         })
                 
-        if let number = model?.number, number.count > 0 {
+        if let number = model?.number, number.count > 14 {
             let lastFourDigits = String(number.suffix(4))
             PANView.setNumber(lastFourDigits)
         }

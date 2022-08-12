@@ -6,7 +6,6 @@ class PANView: UIView {
         static let labelTextColor: UIColor = .white
         static let labelBackgroundColor: UIColor = .clear
         static let labelFontSize: CGFloat = 14.0
-        static let labelPlaceholder: String = "•••• ••••"
         static let topPadding: CGFloat = 4.0
         static let bottomPadding: CGFloat = -4.0
         static let leftPadding: CGFloat = 8.0
@@ -42,7 +41,6 @@ class PANView: UIView {
     private func setupLabel() {
         PANLabel = UILabel()
         PANLabel.font = UIFont.systemFont(ofSize: PANLabelUI.labelFontSize, weight: .semibold)
-        PANLabel.text = PANLabelUI.labelPlaceholder
         PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
         PANLabel.textColor = PANLabelUI.labelTextColor
         PANLabel.clipsToBounds = true
