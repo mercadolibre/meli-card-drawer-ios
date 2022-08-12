@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediumFrontView" customModule="MLCardDrawerResources" customModuleProvider="target">
             <connections>
+                <outlet property="PANView" destination="IhX-gj-NWy" id="8rb-Di-rV8"/>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="cardBalanceContainer" destination="bpO-8l-NNN" id="fcU-7b-sFy"/>
                 <outlet property="chevronIcon" destination="rTM-5K-tvz" id="mNa-K8-bpb"/>
@@ -122,6 +123,9 @@
                         <constraint firstAttribute="height" constant="35" id="PtP-c2-xEa"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IhX-gj-NWy" userLabel="PANView" customClass="PANView" customModule="MLCardDrawer">
+                    <rect key="frame" x="12" y="70" width="58" height="28"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -135,6 +139,7 @@
                 <constraint firstAttribute="trailing" secondItem="bpO-8l-NNN" secondAttribute="trailing" constant="16" id="9aM-9N-APw"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="trailing" id="Be9-gl-Kp9"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
+                <constraint firstItem="IhX-gj-NWy" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-16" id="FB7-fC-CdH"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="bottom" secondItem="eki-qS-IGB" secondAttribute="bottom" id="HwX-bO-MnW"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="IZx-jY-Fec"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OqT-qa-XFw"/>
@@ -144,6 +149,7 @@
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
                 <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YL9-xQ-wJB"/>
+                <constraint firstItem="IhX-gj-NWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="aMp-14-caL"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fTX-vW-38x"/>
                 <constraint firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" constant="16" id="kz9-Gy-UCb"/>
@@ -157,7 +163,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1337" y="-1633"/>
+            <point key="canvasLocation" x="-1338.4000000000001" y="-1633.1334332833585"/>
         </view>
     </objects>
     <resources>

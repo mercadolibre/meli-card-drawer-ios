@@ -6,19 +6,22 @@ class MediumFrontView: CardView {
     @IBOutlet weak var debitImage: UIImageView!
     @IBOutlet weak var chevronIcon: UIImageView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
-
+    @IBOutlet weak var PANView: PANView!
+    
     private var shineView: ShineView?
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .medium)
         
+        setPAN(cardUI)
         setIssuerImage(cardUI)
         setPaymentMethodImage(cardUI)
         setDebitImage(cardUI)
         setupChevron(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
+        setupCardElements(cardUI)
         setupCustomOverlayImage(cardUI)
     }
     
@@ -40,6 +43,11 @@ extension MediumFrontView {
                          complete: {[weak self] in
                             self?.setupUI(cardUI)
         })
+    }
+    
+    private func setPAN(_ cardUI: CardUI) {
+        PANView.render()
+        PANView.setPANStyle(cardUI)
     }
     
     private func setPaymentMethodImage(_ cardUI: CardUI) {
@@ -91,6 +99,13 @@ extension MediumFrontView {
         } else {
             let aspectRatio = tImage.size.height/tImage.size.width
             inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: (inImageView.bounds.size.height+max(-4,min(24*aspectRatio-15,0)))/tImage.size.height) : tImage
+        }
+    }
+    
+    private func setupCardElements(_ cardUI: CardUI) {
+        if let number = model?.number, number.count > 0 {
+            let lastFourDigits = String(number.suffix(4))
+            PANView.setNumber(lastFourDigits)
         }
     }
 }
