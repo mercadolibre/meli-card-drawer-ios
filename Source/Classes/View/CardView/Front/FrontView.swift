@@ -39,11 +39,6 @@ class FrontView: CardView {
         [securityCode].enumerated().forEach({
             $0.element?.setup(input[$0.offset], FontFactory.font(cardUI), customLabelFontName: customLabelFontName)
         })
-                
-        if let number = model?.number, number.count > 14 {
-            let lastFourDigits = String(number.suffix(4))
-            PANView.setNumber(lastFourDigits)
-        }
     }
     
     private func setupSecurityCode(_ cardUI: CardUI) {
@@ -53,8 +48,12 @@ class FrontView: CardView {
     }
     
     private func setupPAN(_ cardUI: CardUI) {
-        PANView.render()
-        PANView.setPANStyle(cardUI)
+        if let number = model?.number,
+            number.count > 14 {
+            PANView.render()
+            PANView.setPANStyle(cardUI)
+            PANView.setNumber(String(number.suffix(4)))
+        }
     }
 
     override func addObservers() {

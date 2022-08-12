@@ -21,7 +21,6 @@ class MediumFrontView: CardView {
         setupChevron(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
-        setupCardElements(cardUI)
         setupCustomOverlayImage(cardUI)
     }
     
@@ -46,8 +45,12 @@ extension MediumFrontView {
     }
     
     private func setPAN(_ cardUI: CardUI) {
-        PANView.render()
-        PANView.setPANStyle(cardUI)
+        if let number = model?.number,
+            number.count > 14 {
+            PANView.render()
+            PANView.setPANStyle(cardUI)
+            PANView.setNumber(String(number.suffix(4)))
+        }
     }
     
     private func setPaymentMethodImage(_ cardUI: CardUI) {
@@ -99,13 +102,6 @@ extension MediumFrontView {
         } else {
             let aspectRatio = tImage.size.height/tImage.size.width
             inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: (inImageView.bounds.size.height+max(-4,min(24*aspectRatio-15,0)))/tImage.size.height) : tImage
-        }
-    }
-    
-    private func setupCardElements(_ cardUI: CardUI) {
-        if let number = model?.number, number.count > 14 {
-            let lastFourDigits = String(number.suffix(4))
-            PANView.setNumber(lastFourDigits)
         }
     }
 }

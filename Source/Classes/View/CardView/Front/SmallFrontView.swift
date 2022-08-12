@@ -24,7 +24,6 @@ public class SmallFrontView: CardView {
         }
         setupRemoteOrLocalImages(cardUI)
         cardBackground = cardUI.cardBackgroundColor
-        setupCardElements(cardUI)
         setupCustomOverlayImage(cardUI)
         
         layoutIfNeeded()
@@ -77,8 +76,12 @@ extension SmallFrontView {
     }
     
     private func setPAN(_ cardUI: CardUI) {
-        PANView.render()
-        PANView.setPANStyle(cardUI)
+        if let number = model?.number,
+            number.count > 14 {
+            PANView.render()
+            PANView.setPANStyle(cardUI)
+            PANView.setNumber(String(number.suffix(4)))
+        }
     }
 
     public override func showSecurityCode() {}
@@ -141,13 +144,6 @@ extension SmallFrontView {
         let ratio = tImage.size.width / tImage.size.height
         let newWidth = inImageView.frame.height * ratio
         paymentMethodImageWidthConstraint.constant = newWidth
-    }
-    
-    private func setupCardElements(_ cardUI: CardUI) {
-        if let number = model?.number, number.count > 14 {
-            let lastFourDigits = String(number.suffix(4))
-            PANView.setNumber(lastFourDigits)
-        }
     }
 }
 
