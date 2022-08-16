@@ -7,6 +7,9 @@ class FrontView: CardView {
     @IBOutlet weak var safeZone: UIView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     @IBOutlet weak var PANView: PANView!
+
+    @IBOutlet var paymentMethodCenter: NSLayoutConstraint!
+    var paymentMethodBottomSafezone: NSLayoutConstraint?
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
@@ -66,6 +69,10 @@ class FrontView: CardView {
     
     func setSafeZoneConstraints () {
         securityCode.isHidden = true
+        paymentMethodCenter.isActive = false
+        
+        paymentMethodBottomSafezone = paymentMethodImage.bottomAnchor.constraint(equalTo: safeZone.topAnchor, constant: 0)
+        paymentMethodBottomSafezone?.isActive = true
         
         // Make SafeZone visible and add customView
         if let customView = self.customView {
@@ -77,6 +84,8 @@ class FrontView: CardView {
     
     func clearSafeZoneConstraints() {
         securityCode.isHidden = false
+        paymentMethodBottomSafezone?.isActive = false
+        paymentMethodCenter.isActive = true
         
         // Make SafeZone hidden and remove customView
         safeZone.isHidden = true
