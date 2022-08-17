@@ -15,9 +15,9 @@
                 <outlet property="cardBalanceContainer" destination="PCI-4F-tTc" id="3rT-8l-Mjz"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
-                <outlet property="paymentMethodCenter" destination="Id4-46-ZQG" id="7fz-J1-eHo"/>
                 <outlet property="paymentMethodImage" destination="hVB-2M-iYt" id="Tr2-It-Ho8"/>
-                <outlet property="paymentMethodSize" destination="1wl-da-Uz9" id="SUW-eU-QSj"/>
+                <outlet property="paymentMethodImageCenterAnchor" destination="Id4-46-ZQG" id="CGf-hh-9DL"/>
+                <outlet property="paymentMethodImageHeightSize" destination="1wl-da-Uz9" id="Xok-dU-W4p"/>
                 <outlet property="safeZone" destination="L4o-xR-CfT" id="l7R-Vk-asA"/>
                 <outlet property="securityCode" destination="K3c-vy-wcQ" id="ghT-Qi-ZGO"/>
                 <outlet property="securityCodeCircle" destination="89T-PX-cWX" id="Edb-BS-E6z"/>

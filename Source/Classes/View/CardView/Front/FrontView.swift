@@ -7,13 +7,13 @@ class FrontView: CardView {
     @IBOutlet weak var safeZone: UIView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     @IBOutlet weak var PANView: PANView!
-
-    @IBOutlet var paymentMethodCenter: NSLayoutConstraint!
-    var paymentMethodBottomSafezone: NSLayoutConstraint?
     
+    // Constraints
+    @IBOutlet var paymentMethodImageCenterAnchor: NSLayoutConstraint!
+    var paymentMethodImageBottomAnchorSafezone: NSLayoutConstraint?
     
-    @IBOutlet var paymentMethodSize: NSLayoutConstraint!
-    var paymentMethodSizeSafezone: NSLayoutConstraint?
+    @IBOutlet var paymentMethodImageHeightSize: NSLayoutConstraint!
+    var paymentMethodImageHeightSizeSafezone: NSLayoutConstraint?
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
@@ -74,14 +74,14 @@ class FrontView: CardView {
     func setSafeZoneConstraints () {
         securityCode.isHidden = true
         
-        paymentMethodCenter.isActive = false
-        paymentMethodSize.isActive = false
+        paymentMethodImageCenterAnchor.isActive = false
+        paymentMethodImageHeightSize.isActive = false
         
-        paymentMethodBottomSafezone = paymentMethodImage.bottomAnchor.constraint(equalTo: safeZone.topAnchor, constant: 0)
-        paymentMethodSizeSafezone = paymentMethodImage.heightAnchor.constraint(equalToConstant: 43.0)
+        paymentMethodImageBottomAnchorSafezone = paymentMethodImage.bottomAnchor.constraint(equalTo: safeZone.topAnchor, constant: 0)
+        paymentMethodImageHeightSizeSafezone = paymentMethodImage.heightAnchor.constraint(equalToConstant: 43.0)
         
-        paymentMethodSizeSafezone?.isActive = true
-        paymentMethodBottomSafezone?.isActive = true
+        paymentMethodImageBottomAnchorSafezone?.isActive = true
+        paymentMethodImageHeightSizeSafezone?.isActive = true
         
         // Make SafeZone visible and add customView
         if let customView = self.customView {
@@ -94,11 +94,11 @@ class FrontView: CardView {
     func clearSafeZoneConstraints() {
         securityCode.isHidden = false
         
-        paymentMethodBottomSafezone?.isActive = false
-        paymentMethodSizeSafezone?.isActive = false
+        paymentMethodImageBottomAnchorSafezone?.isActive = false
+        paymentMethodImageHeightSizeSafezone?.isActive = false
 
-        paymentMethodCenter.isActive = true
-        paymentMethodSize.isActive = true
+        paymentMethodImageCenterAnchor.isActive = true
+        paymentMethodImageHeightSize.isActive = true
         
         // Make SafeZone hidden and remove customView
         safeZone.isHidden = true
