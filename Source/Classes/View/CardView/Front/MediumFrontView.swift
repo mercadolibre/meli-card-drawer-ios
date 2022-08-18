@@ -17,7 +17,6 @@ class MediumFrontView: CardView {
         setPAN(cardUI)
         setIssuerImage(cardUI)
         setPaymentMethodImage(cardUI)
-        setDebitImage(cardUI)
         setupChevron(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
@@ -80,15 +79,6 @@ extension MediumFrontView {
             setImage(image, inImageView: issuerImage, scaleHeight: true)
         }
     }
-    
-    private func setDebitImage(_ cardUI: CardUI) {
-        debitImage.image = nil
-        if let image = cardUI.debitImage,
-            let dImage = image {
-            setImage(dImage, inImageView: debitImage)
-        }
-    }
-    
     
     private func setupChevron(_ cardUI: CardUI) {
         showChevron(cardUI.showChevron == true)

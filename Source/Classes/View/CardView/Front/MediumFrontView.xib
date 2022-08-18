@@ -13,7 +13,6 @@
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="cardBalanceContainer" destination="bpO-8l-NNN" id="fcU-7b-sFy"/>
                 <outlet property="chevronIcon" destination="rTM-5K-tvz" id="mNa-K8-bpb"/>
-                <outlet property="debitImage" destination="Rno-d9-ED7" id="Hmg-aH-aAi"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
                 <outlet property="issuerImage" destination="DT6-XG-kaD" id="e3a-8s-cug"/>
                 <outlet property="overlayImage" destination="HLQ-m9-78F" id="0tL-aV-K2z"/>
@@ -37,59 +36,41 @@
                     <rect key="frame" x="0.0" y="0.0" width="335" height="109"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="12" y="8" width="8" height="34"/>
+                    <rect key="frame" x="175.5" y="27" width="143.5" height="58"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon">
-                            <rect key="frame" x="0.0" y="2" width="0.0" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer">
+                            <rect key="frame" x="0.0" y="0.0" width="143.5" height="58"/>
                             <constraints>
-                                <constraint firstAttribute="width" priority="250" id="UcB-cb-Yzl"/>
-                                <constraint firstAttribute="height" constant="30" id="myv-g1-EIb"/>
+                                <constraint firstAttribute="height" constant="58" id="myv-g1-EIb"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="NO"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="NO"/>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignBottom" value="NO"/>
                             </userDefinedRuntimeAttributes>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rno-d9-ED7" userLabel="debitImage">
-                            <rect key="frame" x="8" y="2" width="0.0" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" priority="250" id="PFE-ub-zFu"/>
-                                <constraint firstAttribute="height" constant="45" id="qbq-bq-fKE"/>
-                                <constraint firstAttribute="width" constant="62" id="tEd-am-Dms"/>
-                            </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="qbq-bq-fKE"/>
-                                    <exclude reference="tEd-am-Dms"/>
-                                </mask>
-                            </variation>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="oQQ-DA-UJ9" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="153-tP-xOQ"/>
-                        <constraint firstItem="Rno-d9-ED7" firstAttribute="centerY" secondItem="oQQ-DA-UJ9" secondAttribute="centerY" id="PwD-US-ZI3"/>
-                        <constraint firstItem="oQQ-DA-UJ9" firstAttribute="trailing" secondItem="Rno-d9-ED7" secondAttribute="leading" constant="-8" id="cbO-wz-76f"/>
+                        <constraint firstItem="oQQ-DA-UJ9" firstAttribute="trailing" secondItem="eki-qS-IGB" secondAttribute="trailing" id="cbO-wz-76f"/>
                         <constraint firstItem="oQQ-DA-UJ9" firstAttribute="leading" secondItem="eki-qS-IGB" secondAttribute="leading" id="eml-Dl-we2"/>
-                        <constraint firstItem="Rno-d9-ED7" firstAttribute="height" secondItem="oQQ-DA-UJ9" secondAttribute="height" id="jd1-Xh-GYL"/>
-                        <constraint firstAttribute="height" constant="34" id="nXL-am-y6R"/>
-                        <constraint firstItem="Rno-d9-ED7" firstAttribute="trailing" secondItem="eki-qS-IGB" secondAttribute="trailing" id="yQL-3C-ks0"/>
+                        <constraint firstAttribute="height" constant="58" id="nXL-am-y6R"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="319" y="8" width="0.0" height="34"/>
+                    <rect key="frame" x="16" y="20" width="143.5" height="34"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="remoteIssuerIcon">
-                            <rect key="frame" x="0.0" y="2" width="0.0" height="30"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="remoteIssuerIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer">
+                            <rect key="frame" x="0.0" y="0.0" width="143.5" height="34"/>
                             <constraints>
-                                <constraint firstAttribute="width" priority="250" id="m47-dL-SRi"/>
+                                <constraint firstAttribute="height" constant="34" id="INT-mB-qyz"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="NO"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignTop" value="NO"/>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="NO"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignBottom" value="NO"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
@@ -97,6 +78,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="DT6-XG-kaD" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="BT5-rW-LgL"/>
+                        <constraint firstAttribute="height" constant="34" id="a10-B0-vvq"/>
                         <constraint firstAttribute="leading" secondItem="DT6-XG-kaD" secondAttribute="leading" id="cY1-h8-Umf"/>
                         <constraint firstAttribute="trailing" secondItem="DT6-XG-kaD" secondAttribute="trailing" id="uUY-jM-4mL"/>
                     </constraints>
@@ -109,7 +91,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-Kv-9qv" userLabel="LimitView">
-                    <rect key="frame" x="159.5" y="24" width="16" height="2"/>
+                    <rect key="frame" x="159.5" y="55" width="16" height="2"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="Gsh-cC-U6M"/>
@@ -123,8 +105,8 @@
                         <constraint firstAttribute="height" constant="35" id="PtP-c2-xEa"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IhX-gj-NWy" userLabel="PANView" customClass="PANView" customModule="MLCardDrawer">
-                    <rect key="frame" x="12" y="70" width="58" height="28"/>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="58" placeholderIntrinsicHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IhX-gj-NWy" userLabel="PANView" customClass="PANView" customModule="MLCardDrawer">
+                    <rect key="frame" x="16" y="57" width="58" height="28"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,13 +117,12 @@
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
                 <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerY" secondItem="eki-qS-IGB" secondAttribute="centerY" id="7Zg-3b-Pi0"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="Fle-ET-bnW" secondAttribute="top" id="9Ct-vW-n6C"/>
                 <constraint firstAttribute="trailing" secondItem="bpO-8l-NNN" secondAttribute="trailing" constant="16" id="9aM-9N-APw"/>
-                <constraint firstItem="Fle-ET-bnW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="trailing" id="Be9-gl-Kp9"/>
+                <constraint firstItem="Fle-ET-bnW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Be9-gl-Kp9"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
-                <constraint firstItem="IhX-gj-NWy" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-16" id="FB7-fC-CdH"/>
-                <constraint firstItem="Fle-ET-bnW" firstAttribute="bottom" secondItem="eki-qS-IGB" secondAttribute="bottom" id="HwX-bO-MnW"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="IZx-jY-Fec"/>
+                <constraint firstItem="IhX-gj-NWy" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-24" id="FB7-fC-CdH"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-24" id="IZx-jY-Fec"/>
+                <constraint firstItem="Fle-ET-bnW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="L2X-nC-qTu"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OqT-qa-XFw"/>
                 <constraint firstItem="rTM-5K-tvz" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-14" id="Pxi-XN-EGY"/>
                 <constraint firstAttribute="trailing" secondItem="OEt-3Q-8ri" secondAttribute="trailing" id="Qc7-uP-wIt"/>
@@ -151,13 +132,11 @@
                 <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YL9-xQ-wJB"/>
                 <constraint firstItem="IhX-gj-NWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="aMp-14-caL"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fTX-vW-38x"/>
-                <constraint firstAttribute="trailing" secondItem="Fle-ET-bnW" secondAttribute="trailing" constant="16" id="kz9-Gy-UCb"/>
-                <constraint firstItem="Fle-ET-bnW" firstAttribute="height" secondItem="eki-qS-IGB" secondAttribute="height" id="n6u-9H-J8B"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="ydv-Kv-9qv" secondAttribute="trailing" id="fTX-vW-38x"/>
+                <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="ydv-Kv-9qv" secondAttribute="leading" id="kz9-Gy-UCb"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
-                <constraint firstItem="DT6-XG-kaD" firstAttribute="height" secondItem="oQQ-DA-UJ9" secondAttribute="height" id="qYJ-pT-6yJ"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ydv-Kv-9qv" secondAttribute="leading" constant="-80" id="yRo-9y-aW9"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-16" id="yRo-9y-aW9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
