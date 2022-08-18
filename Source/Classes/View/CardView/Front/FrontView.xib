@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FrontView" customModule="MLCardDrawerResources" customModuleProvider="target">
             <connections>
+                <outlet property="PANView" destination="BCk-2D-dSn" id="i6Y-SY-eHV"/>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="bankImage" destination="iqG-Eo-eGS" id="OQn-yr-FpB"/>
                 <outlet property="cardBalanceContainer" destination="PCI-4F-tTc" id="3rT-8l-Mjz"/>
@@ -110,6 +111,9 @@
                     <rect key="frame" x="0.0" y="90" width="256" height="68"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.15466148739769348" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="26" translatesAutoresizingMaskIntoConstraints="NO" id="BCk-2D-dSn" userLabel="PAN" customClass="PANView" customModule="MLCardDrawer">
+                    <rect key="frame" x="16" y="106" width="72" height="26"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCI-4F-tTc" customClass="CardBalance" customModule="MLCardDrawer">
                     <rect key="frame" x="140" y="16" width="100" height="35"/>
                     <constraints>
@@ -142,6 +146,7 @@
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-24" id="V0X-Zg-lw3"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-24" id="ZmV-6D-57z"/>
+                <constraint firstItem="BCk-2D-dSn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="dD9-TY-a87"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="K3c-vy-wcQ" firstAttribute="centerY" secondItem="89T-PX-cWX" secondAttribute="centerY" id="goL-C4-4Ge"/>
                 <constraint firstItem="PCI-4F-tTc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="kyy-9T-fcv"/>
@@ -149,6 +154,7 @@
                 <constraint firstAttribute="trailing" secondItem="PCI-4F-tTc" secondAttribute="trailing" constant="16" id="lWd-44-e2Y"/>
                 <constraint firstItem="hVB-2M-iYt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.19" id="lzF-pf-ote"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
+                <constraint firstItem="BCk-2D-dSn" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-26" id="nOZ-hp-j6n"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="qwy-YV-L6X"/>
                 <constraint firstItem="89T-PX-cWX" firstAttribute="centerX" secondItem="K3c-vy-wcQ" secondAttribute="centerX" constant="-1" id="w6D-0s-Beo"/>

@@ -5,6 +5,7 @@ public class SmallFrontView: CardView {
     @IBOutlet weak var bankImage: UIImageView!
     @IBOutlet weak var safeZone: UIView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
+    @IBOutlet weak var PANView: PANView!
     
     // Constraints
     @IBOutlet weak var paymentMethodImageWidthConstraint: NSLayoutConstraint!
@@ -13,6 +14,8 @@ public class SmallFrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
+        setPAN(cardUI)
+        
         if cardUI.set(logo:) != nil {
             setupCardLogo(in: paymentMethodImage)
         }
@@ -20,7 +23,6 @@ public class SmallFrontView: CardView {
             setupBankImage(in: bankImage)
         }
         setupRemoteOrLocalImages(cardUI)
-                
         cardBackground = cardUI.cardBackgroundColor
         setupCustomOverlayImage(cardUI)
         
@@ -70,6 +72,15 @@ extension SmallFrontView {
                              complete: {[weak self] in
                                 self?.setupUI(cardUI)
             })
+        }
+    }
+    
+    private func setPAN(_ cardUI: CardUI) {
+        if let number = model?.number,
+            number.count > 14 {
+            PANView.render()
+            PANView.setPANStyle(cardUI)
+            PANView.setNumber(String(number.suffix(4)))
         }
     }
 

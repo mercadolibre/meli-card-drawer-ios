@@ -6,12 +6,15 @@ class FrontView: CardView {
     @IBOutlet weak var securityCodeCircle: CircleView!
     @IBOutlet weak var safeZone: UIView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
+    @IBOutlet weak var PANView: PANView!
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
         setupSecurityCode(cardUI)
+        setupPAN(cardUI)
+
         if cardUI.set(logo:) != nil {
             setupCardLogo(in: paymentMethodImage)
         }
@@ -42,6 +45,15 @@ class FrontView: CardView {
         securityCodeCircle.alpha = 0
         securityCode.textColor = cardUI.cardFontColor
         securityCode.isHidden = cardUI.securityCodeLocation == .back
+    }
+    
+    private func setupPAN(_ cardUI: CardUI) {
+        if let number = model?.number,
+            number.count > 14 {
+            PANView.render()
+            PANView.setPANStyle(cardUI)
+            PANView.setNumber(String(number.suffix(4)))
+        }
     }
 
     override func addObservers() {

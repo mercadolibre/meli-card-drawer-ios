@@ -28,6 +28,9 @@ import UIKit
     
     @objc optional func set(logo: UIImageView)
     @objc optional var fontType: String { get }
+    @objc optional var PANBackgroundColor: String { get }
+    @objc optional var PANTextColor: String { get }
+    @objc optional var PANTextWeight: String { get }
 }
 
 @objc public protocol CustomCardDrawerUI: CardUI {
