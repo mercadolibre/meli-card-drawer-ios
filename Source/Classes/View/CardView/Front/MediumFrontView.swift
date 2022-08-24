@@ -43,8 +43,9 @@ extension MediumFrontView {
     }
     
     private func setPAN(_ cardUI: CardUI) {
-        if let number = model?.number,
-            number.count > 14 {
+        if self.PANView.getLabel() == nil,
+           let number = model?.number,
+           number.count > 0 { // TODO: this will be improved when integrating CardForm
             PANView.render()
             PANView.setPANStyle(cardUI)
             PANView.setNumber(String(number.suffix(4)))

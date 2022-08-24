@@ -76,7 +76,11 @@ class PANView: UIView {
 }
 
 extension PANView {
-            
+    
+    public func getLabel() -> UILabel? {
+        return self.PANLabel
+    }
+    
     public func setNumber(_ number: String) {
         PANLabel.text = "•••• " + number
     }

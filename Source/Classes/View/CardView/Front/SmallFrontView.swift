@@ -92,11 +92,12 @@ extension SmallFrontView {
     }
     
     private func setPAN(_ cardUI: CardUI) {
-        if let number = model?.number,
-            number.count > 14 {
-            PANView.render()
-            PANView.setPANStyle(cardUI)
-            PANView.setNumber(String(number.suffix(4)))
+        if self.PANView.getLabel() == nil,
+           let number = model?.number,
+           number.count > 0 { // TODO: this will be improved when integrating CardForm
+            self.PANView.render()
+            self.PANView.setPANStyle(cardUI)
+            self.PANView.setNumber(String(number.suffix(4)))
         }
     }
 
