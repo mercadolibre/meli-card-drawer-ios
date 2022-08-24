@@ -1,4 +1,7 @@
 ## Unreleased
+## Changed
+- changed combo switch redesign
+
 ## Fix
 - fix error in tagbottom bezierpath when card with tagbottom is removed from screen
 
