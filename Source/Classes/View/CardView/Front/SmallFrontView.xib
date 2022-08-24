@@ -38,10 +38,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="256" height="158"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="12" y="4" width="108" height="40"/>
+                    <rect key="frame" x="136" y="100" width="104" height="42"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-2M-iYt" userLabel="remotePaymentMethodImage" customClass="UIImageViewAligned" customModule="MLCardDrawer">
-                            <rect key="frame" x="0.0" y="10" width="40" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="104" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="3wp-Qm-Vp5"/>
                             </constraints>
@@ -59,15 +59,15 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="136" y="4" width="108" height="40"/>
+                    <rect key="frame" x="16" y="12" width="120" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remoteBankImage" customClass="UIImageViewAligned" customModule="MLCardDrawer">
-                            <rect key="frame" x="0.0" y="10" width="108" height="20"/>
+                            <rect key="frame" x="0.0" y="10" width="120" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="5ch-aH-oYG"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="alignLeft" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
@@ -80,7 +80,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N94-Fg-ynK" userLabel="LimitView">
-                    <rect key="frame" x="120" y="19" width="16" height="10"/>
+                    <rect key="frame" x="120" y="74" width="16" height="10"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="Cin-WG-4v2"/>
@@ -107,6 +107,7 @@
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0si-Gj-xOe"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Vb-Vh-OMD"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-16" id="3Bk-h4-rS6"/>
+                <constraint firstItem="Fle-ET-bnW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="3qV-3m-1jr"/>
                 <constraint firstAttribute="trailing" secondItem="W2g-Ht-hY3" secondAttribute="trailing" id="42g-gv-JyA"/>
                 <constraint firstAttribute="bottom" secondItem="HLQ-m9-78F" secondAttribute="bottom" id="8Hh-Yk-8Vu"/>
                 <constraint firstAttribute="bottom" secondItem="W2g-Ht-hY3" secondAttribute="bottom" id="DWY-GP-FQC"/>
@@ -122,6 +123,7 @@
                 <constraint firstItem="N94-Fg-ynK" firstAttribute="centerY" secondItem="HLQ-m9-78F" secondAttribute="centerY" id="XUG-ef-Fgg"/>
                 <constraint firstItem="1Rj-WT-VjC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="dm6-MA-FbV"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
+                <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="N94-Fg-ynK" secondAttribute="trailing" id="glA-ie-rda"/>
                 <constraint firstItem="L4o-xR-CfT" firstAttribute="top" secondItem="EBB-Aq-UH8" secondAttribute="bottom" id="lIc-Tz-Wo8"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstItem="EBB-Aq-UH8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="p3L-OB-ghg"/>
