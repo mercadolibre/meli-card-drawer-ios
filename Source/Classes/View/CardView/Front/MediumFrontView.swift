@@ -3,7 +3,6 @@ import UIKit
 class MediumFrontView: CardView {
     @IBOutlet weak var paymentMethodImage: UIImageView!
     @IBOutlet weak var issuerImage: UIImageView!
-    @IBOutlet weak var debitImage: UIImageView!
     @IBOutlet weak var chevronIcon: UIImageView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     @IBOutlet weak var PANView: PANView!
@@ -37,7 +36,7 @@ extension MediumFrontView {
     override func setupAnimated(_ cardUI: CardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
-                         views: [issuerImage, paymentMethodImage, debitImage, chevronIcon],
+                         views: [issuerImage, paymentMethodImage, chevronIcon],
                          complete: {[weak self] in
                             self?.setupUI(cardUI)
         })

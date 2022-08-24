@@ -145,6 +145,11 @@
             <point key="canvasLocation" x="-1338.4000000000001" y="-1633.1334332833585"/>
         </view>
     </objects>
+    <designables>
+        <designable name="oQQ-DA-UJ9">
+            <size key="intrinsicContentSize" width="0.0" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="MPCLChevron" width="7" height="12"/>
         <image name="Overlay" width="256" height="158"/>
