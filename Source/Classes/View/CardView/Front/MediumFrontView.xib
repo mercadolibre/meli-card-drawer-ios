@@ -60,12 +60,12 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="16" y="12" width="143.5" height="30"/>
+                    <rect key="frame" x="16" y="12" width="143.5" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-XG-kaD" userLabel="remoteIssuerIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer">
-                            <rect key="frame" x="0.0" y="0.0" width="143.5" height="30"/>
+                            <rect key="frame" x="0.0" y="10" width="143.5" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="INT-mB-qyz"/>
+                                <constraint firstAttribute="height" constant="20" id="INT-mB-qyz"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="alignRight" value="NO"/>
@@ -78,7 +78,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="DT6-XG-kaD" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="BT5-rW-LgL"/>
-                        <constraint firstAttribute="height" constant="30" id="a10-B0-vvq"/>
+                        <constraint firstAttribute="height" constant="40" id="a10-B0-vvq"/>
                         <constraint firstAttribute="leading" secondItem="DT6-XG-kaD" secondAttribute="leading" id="cY1-h8-Umf"/>
                         <constraint firstAttribute="trailing" secondItem="DT6-XG-kaD" secondAttribute="trailing" id="uUY-jM-4mL"/>
                     </constraints>
