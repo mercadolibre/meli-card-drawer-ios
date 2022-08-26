@@ -8,6 +8,13 @@ class FrontView: CardView {
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     @IBOutlet weak var PANView: PANView!
     
+    // Constraints
+    @IBOutlet var paymentMethodImageCenterAnchor: NSLayoutConstraint!
+    var paymentMethodImageBottomAnchorSafezone: NSLayoutConstraint?
+    
+    @IBOutlet var paymentMethodImageHeightSize: NSLayoutConstraint!
+    var paymentMethodImageHeightSizeSafezone: NSLayoutConstraint?
+    
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
@@ -48,8 +55,9 @@ class FrontView: CardView {
     }
     
     private func setupPAN(_ cardUI: CardUI) {
-        if let number = model?.number,
-            number.count > 14 {
+        if self.PANView.getLabel() == nil,
+           let number = model?.number,
+           number.count > 0 { // TODO: this will be improved when integrating CardForm
             PANView.render()
             PANView.setPANStyle(cardUI)
             PANView.setNumber(String(number.suffix(4)))
@@ -67,6 +75,15 @@ class FrontView: CardView {
     func setSafeZoneConstraints () {
         securityCode.isHidden = true
         
+        paymentMethodImageCenterAnchor.isActive = false
+        paymentMethodImageHeightSize.isActive = false
+        
+        paymentMethodImageBottomAnchorSafezone = paymentMethodImage.bottomAnchor.constraint(equalTo: safeZone.topAnchor, constant: 0)
+        paymentMethodImageHeightSizeSafezone = paymentMethodImage.heightAnchor.constraint(equalToConstant: 43.0)
+        
+        paymentMethodImageBottomAnchorSafezone?.isActive = true
+        paymentMethodImageHeightSizeSafezone?.isActive = true
+        
         // Make SafeZone visible and add customView
         if let customView = self.customView {
             safeZone.addSubview(customView)
@@ -77,6 +94,12 @@ class FrontView: CardView {
     
     func clearSafeZoneConstraints() {
         securityCode.isHidden = false
+        
+        paymentMethodImageBottomAnchorSafezone?.isActive = false
+        paymentMethodImageHeightSizeSafezone?.isActive = false
+
+        paymentMethodImageCenterAnchor.isActive = true
+        paymentMethodImageHeightSize.isActive = true
         
         // Make SafeZone hidden and remove customView
         safeZone.isHidden = true
@@ -157,12 +180,12 @@ extension FrontView {
 // MARK: SafeArea feature
 extension FrontView {
     
-    override func addCustomView (_ customView: UIView) {
+    override func addCustomView(_ customView: UIView) {
         self.customView = customView
         setSafeZoneConstraints()
     }
     
-    override func removeCustomView () {
+    override func removeCustomView() {
         clearSafeZoneConstraints()
     }
 }

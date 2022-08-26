@@ -2,7 +2,6 @@ import UIKit
 
 @objcMembers public class MLCardDrawerController: UIViewController {
     private var shouldAnimate: Bool = true
-    let cardFont = "RobotoMono-Regular"
     let customLabelFontName: String?
     var frontView: BasicCard!
     var backView: CardView!
@@ -11,6 +10,11 @@ import UIKit
     private var disabledMode = false
     
     private var aspectLayoutConstraint: NSLayoutConstraint?
+    
+    enum CardFonts {
+        static let robotoMonoRegular = "RobotoMono-Regular"
+        static let proximaNovaSemibold = "ProximaNova-Semibold"
+    }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -58,7 +62,8 @@ import UIKit
         self.cardUI = cardUI
         self.customLabelFontName = customLabelFontName
         if customLabelFontName == nil {
-            UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
+            UIFont.registerFont(fontName: CardFonts.robotoMonoRegular, fontExtension: "ttf")
+            UIFont.registerFont(fontName: CardFonts.proximaNovaSemibold, fontExtension: "otf")
         }
         
         self.model = model

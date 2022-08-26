@@ -40,7 +40,7 @@ class PANView: UIView {
     
     private func setupLabel() {
         PANLabel = UILabel()
-        PANLabel.font = UIFont.systemFont(ofSize: PANLabelUI.labelFontSize, weight: .semibold)
+        PANLabel.font = .proximaNovaSemibold(size: PANLabelUI.labelFontSize)
         PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
         PANLabel.textColor = PANLabelUI.labelTextColor
         PANLabel.clipsToBounds = true
@@ -76,7 +76,11 @@ class PANView: UIView {
 }
 
 extension PANView {
-            
+    
+    public func getLabel() -> UILabel? {
+        return self.PANLabel
+    }
+    
     public func setNumber(_ number: String) {
         PANLabel.text = "•••• " + number
     }

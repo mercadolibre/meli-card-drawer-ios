@@ -3,7 +3,6 @@ import UIKit
 class MediumFrontView: CardView {
     @IBOutlet weak var paymentMethodImage: UIImageView!
     @IBOutlet weak var issuerImage: UIImageView!
-    @IBOutlet weak var debitImage: UIImageView!
     @IBOutlet weak var chevronIcon: UIImageView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     @IBOutlet weak var PANView: PANView!
@@ -17,7 +16,6 @@ class MediumFrontView: CardView {
         setPAN(cardUI)
         setIssuerImage(cardUI)
         setPaymentMethodImage(cardUI)
-        setDebitImage(cardUI)
         setupChevron(cardUI)
         
         cardBackground = cardUI.cardBackgroundColor
@@ -38,15 +36,16 @@ extension MediumFrontView {
     override func setupAnimated(_ cardUI: CardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
-                         views: [issuerImage, paymentMethodImage, debitImage, chevronIcon],
+                         views: [issuerImage, paymentMethodImage, chevronIcon],
                          complete: {[weak self] in
                             self?.setupUI(cardUI)
         })
     }
     
     private func setPAN(_ cardUI: CardUI) {
-        if let number = model?.number,
-            number.count > 14 {
+        if self.PANView.getLabel() == nil,
+           let number = model?.number,
+           number.count > 0 { // TODO: this will be improved when integrating CardForm
             PANView.render()
             PANView.setPANStyle(cardUI)
             PANView.setNumber(String(number.suffix(4)))
@@ -80,15 +79,6 @@ extension MediumFrontView {
             setImage(image, inImageView: issuerImage, scaleHeight: true)
         }
     }
-    
-    private func setDebitImage(_ cardUI: CardUI) {
-        debitImage.image = nil
-        if let image = cardUI.debitImage,
-            let dImage = image {
-            setImage(dImage, inImageView: debitImage)
-        }
-    }
-    
     
     private func setupChevron(_ cardUI: CardUI) {
         showChevron(cardUI.showChevron == true)

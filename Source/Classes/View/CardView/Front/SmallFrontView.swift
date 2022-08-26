@@ -8,6 +8,12 @@ public class SmallFrontView: CardView {
     @IBOutlet weak var PANView: PANView!
     
     // Constraints
+    @IBOutlet var paymentMethodImageCenterAnchor: NSLayoutConstraint!
+    var paymentMethodImageBottomAnchorSafezone: NSLayoutConstraint?
+    
+    @IBOutlet var paymentMethodImageHeightSize: NSLayoutConstraint!
+    var paymentMethodImageHeightSizeSafezone: NSLayoutConstraint?
+    
     @IBOutlet weak var paymentMethodImageWidthConstraint: NSLayoutConstraint!
     
     override func setupUI(_ cardUI: CardUI) {
@@ -34,6 +40,15 @@ public class SmallFrontView: CardView {
     deinit {}
     
     func setSafeZoneConstraints () {
+        paymentMethodImageCenterAnchor.isActive = false
+        paymentMethodImageHeightSize.isActive = false
+        
+        paymentMethodImageBottomAnchorSafezone = paymentMethodImage.bottomAnchor.constraint(equalTo: safeZone.topAnchor, constant: 0)
+        paymentMethodImageHeightSizeSafezone = paymentMethodImage.heightAnchor.constraint(equalToConstant: 32.0)
+        
+        paymentMethodImageBottomAnchorSafezone?.isActive = true
+        paymentMethodImageHeightSizeSafezone?.isActive = true
+        
         if let customView = customView {
             safeZone.addSubview(customView)
             
@@ -44,10 +59,14 @@ public class SmallFrontView: CardView {
     }
     
     func clearSafeZoneConstraints() {
+        paymentMethodImageBottomAnchorSafezone?.isActive = false
+        paymentMethodImageHeightSizeSafezone?.isActive = false
+        
+        paymentMethodImageCenterAnchor.isActive = true
+        paymentMethodImageHeightSize.isActive = true
         
         // Make SafeZone hidden
         safeZone.isHidden = true
-        
         if let customView = customView {
             customView.removeFromSuperview()
             self.customView = nil
@@ -76,11 +95,12 @@ extension SmallFrontView {
     }
     
     private func setPAN(_ cardUI: CardUI) {
-        if let number = model?.number,
-            number.count > 14 {
-            PANView.render()
-            PANView.setPANStyle(cardUI)
-            PANView.setNumber(String(number.suffix(4)))
+        if self.PANView.getLabel() == nil,
+           let number = model?.number,
+           number.count > 0 { // TODO: this will be improved when integrating CardForm
+            self.PANView.render()
+            self.PANView.setPANStyle(cardUI)
+            self.PANView.setNumber(String(number.suffix(4)))
         }
     }
 
@@ -106,7 +126,7 @@ extension SmallFrontView {
         }
         
         if let paymentMethodImage = self.paymentMethodImage as? UIImageViewAligned {
-            paymentMethodImage.alignLeft = true
+            paymentMethodImage.alignRight = true
         }
     }
 
@@ -140,10 +160,6 @@ extension SmallFrontView {
         } else {
             inImageView.image = tImage
         }
-
-        let ratio = tImage.size.width / tImage.size.height
-        let newWidth = inImageView.frame.height * ratio
-        paymentMethodImageWidthConstraint.constant = newWidth
     }
 }
 
