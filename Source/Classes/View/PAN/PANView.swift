@@ -1,4 +1,5 @@
 import UIKit
+import MLUI
 
 class PANView: UIView {
    
@@ -40,6 +41,7 @@ class PANView: UIView {
     
     private func setupLabel() {
         PANLabel = UILabel()
+//        PANLabel.font = UIFont.ml_semiboldSystemFont(ofSize: PANLabelUI.labelFontSize)
         PANLabel.font = UIFont.systemFont(ofSize: PANLabelUI.labelFontSize, weight: .semibold)
         PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
         PANLabel.textColor = PANLabelUI.labelTextColor

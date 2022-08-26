@@ -18,5 +18,6 @@ Pod::Spec.new do |s|
     default.resources = ['Source/Assets/*.bundle']
     default.source_files = ['Source/Classes/**/*.{h,m,swift}']
     default.resource_bundles = { 'MLCardDrawerResources' => ['Source/Assets/*.xcassets', 'Source/Classes/**/*.xib'] }
+    s.dependency 'MLUI', '~> 5.0'
   end
 end
