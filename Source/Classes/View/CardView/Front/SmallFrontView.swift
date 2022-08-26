@@ -46,6 +46,9 @@ public class SmallFrontView: CardView {
         paymentMethodImageBottomAnchorSafezone = paymentMethodImage.bottomAnchor.constraint(equalTo: safeZone.topAnchor, constant: 0)
         paymentMethodImageHeightSizeSafezone = paymentMethodImage.heightAnchor.constraint(equalToConstant: 32.0)
         
+        paymentMethodImageBottomAnchorSafezone?.isActive = true
+        paymentMethodImageHeightSizeSafezone?.isActive = true
+        
         if let customView = customView {
             safeZone.addSubview(customView)
             

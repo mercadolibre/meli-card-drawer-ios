@@ -59,10 +59,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-ET-bnW" userLabel="IssuerContainer">
-                    <rect key="frame" x="16" y="12" width="120" height="40"/>
+                    <rect key="frame" x="16" y="12" width="120" height="20"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-Eo-eGS" userLabel="remoteBankImage" customClass="UIImageViewAligned" customModule="MLCardDrawer">
-                            <rect key="frame" x="0.0" y="10" width="120" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="5ch-aH-oYG"/>
                             </constraints>
@@ -75,7 +75,7 @@
                     <constraints>
                         <constraint firstItem="iqG-Eo-eGS" firstAttribute="centerY" secondItem="Fle-ET-bnW" secondAttribute="centerY" id="IpL-Hd-bBF"/>
                         <constraint firstItem="iqG-Eo-eGS" firstAttribute="leading" secondItem="Fle-ET-bnW" secondAttribute="leading" id="LuD-zW-VGl"/>
-                        <constraint firstAttribute="height" constant="40" id="MrQ-s4-9Pa"/>
+                        <constraint firstAttribute="height" constant="20" id="MrQ-s4-9Pa"/>
                         <constraint firstAttribute="trailing" secondItem="iqG-Eo-eGS" secondAttribute="trailing" id="PP4-An-lQe"/>
                     </constraints>
                 </view>
