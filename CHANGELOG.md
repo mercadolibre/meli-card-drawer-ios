@@ -1,3 +1,10 @@
+## [Release (1.11.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.2)
+## fix
+- changed combo switch redesign
+
+## fix
+- fixed the icon when it's supposed to hide the balance available, and expanded it's tappeable area
+
 ## [Release (1.11.1)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.1)
 ## Fix
 - fix error in tagbottom bezierpath when card with tagbottom is removed from screen

@@ -28,12 +28,18 @@ public class ComboSwitchSmallView: ComboSwitchView {
     override public func setSwitchModel(_ switchModel: SwitchModel) {
         self.switchModel = switchModel
         switchControl.delegate = self
-        switchControl.backgroundColor = UIColor.fromHex(switchModel.switchBackgroundColor)
-        switchControl.selectorViewColor = UIColor.fromHex(switchModel.pillBackgroundColor)
+        if let switchBorderColor = switchModel.switchBorderColor {
+            switchControl.containerViewBorderColor = UIColor.fromHex(switchBorderColor).cgColor
+        }
+        if let selectorBackgroundColor = switchModel.selectorBackgroundColor {
+            switchControl.selectorViewColor = UIColor.fromHex(selectorBackgroundColor)
+        }
+        switchControl.pillBorderColor = UIColor.fromHex(switchModel.pillBackgroundColor)
+        switchControl.containerViewBackgroundColor = UIColor.fromHex(switchModel.switchBackgroundColor)
         switchControl.selectorTextColor = UIColor.fromHex(switchModel.states.checked.textColor)
         switchControl.textColor = UIColor.fromHex(switchModel.states.unchecked.textColor)
-        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont()
-        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont()
+        switchControl.buttonFont = switchModel.states.unchecked.weight.getFont().withSize(12)
+        switchControl.buttonSelectedFont = switchModel.states.checked.weight.getFont().withSize(12)
         switchControl.setOptions(options: switchModel.options)
         switchControl.selectedOption = switchModel.defaultState
         backgroundColor = UIColor.clear
