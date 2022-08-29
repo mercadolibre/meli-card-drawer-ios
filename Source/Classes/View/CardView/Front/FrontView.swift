@@ -27,10 +27,11 @@ class FrontView: CardView {
     private func setupCardDesign(_ cardUI: CardUI) {
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
-        if cardUI.fullCardArt == nil {
-            setupDefaultDesign(cardUI)
-        } else {
+        if let fullCardArt = cardUI.fullCardArt?.flatMap({ $0 }),
+           fullCardArt.isEmpty == false {
             setupFullCardArt(cardUI)
+        } else {
+            setupDefaultDesign(cardUI)
         }
     }
 
