@@ -3,6 +3,7 @@ import UIKit
 class FrontView: CardView {
     @IBOutlet weak var paymentMethodImage: UIImageView!
     @IBOutlet weak var bankImage: UIImageView!
+    @IBOutlet weak var fullArt: UIImageView!
     @IBOutlet weak var securityCodeCircle: CircleView!
     @IBOutlet weak var safeZone: UIView!
     @IBOutlet weak var cardBalanceContainer: CardBalance!
@@ -17,24 +18,47 @@ class FrontView: CardView {
     
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
+        setupSecurityCode(cardUI)
+        setupFormatters(cardUI)
+        setupCardElements(cardUI)
+        setupCardDesign(cardUI)
+    }
+    
+    private func setupCardDesign(_ cardUI: CardUI) {
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
-        setupSecurityCode(cardUI)
+        if cardUI.fullCardArt == nil {
+            setupDefaultDesign(cardUI)
+        } else {
+            setupFullCardArt(cardUI)
+        }
+    }
+
+    private func setupDefaultDesign(_ cardUI: CardUI) {
         setupPAN(cardUI)
+        setupCardImages(cardUI)
+        cardBackground = cardUI.cardBackgroundColor
+        setupCustomOverlayImage(cardUI)
+    }
+    
+    private func setupFullCardArt(_ cardUI: CardUI) {
+        bankImage.image = nil
+        paymentMethodImage.image = nil
+        setCardFullArtImage(cardUI)
+    }
+    
+    private func setupCardImages(_ cardUI: CardUI) {
+        fullArt.image = nil
 
         if cardUI.set(logo:) != nil {
             setupCardLogo(in: paymentMethodImage)
         }
+        
         if cardUI.set(bank:) != nil {
             setupBankImage(in: bankImage)
         }
+        
         setupRemoteOrLocalImages(cardUI)
-        
-        setupFormatters(cardUI)
-        setupCardElements(cardUI)
-        
-        cardBackground = cardUI.cardBackgroundColor
-        setupCustomOverlayImage(cardUI)
     }
     
     private func setupFormatters(_ cardUI: CardUI) {
@@ -138,6 +162,18 @@ extension FrontView {
     private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
         setBankImage(cardUI)
         setPaymentMethodImage(cardUI)
+    }
+    
+    private func setCardFullArtImage(_ cardUI: CardUI) {
+        fullArt.image = nil
+        if let imageUrl = cardUI.fullCardArt as? String, !imageUrl.isEmpty {
+            UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.setImage(image, inImageView: self.fullArt)
+                }
+            }
+        }
     }
 
     private func setPaymentMethodImage(_ cardUI: CardUI) {
