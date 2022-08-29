@@ -83,8 +83,8 @@ class FrontView: CardView {
            let number = model?.number,
            number.count > 0 { // TODO: this will be improved when integrating CardForm
             PANView.render()
+            PANView.setNumber(String("•••• " + number.suffix(4)))
             PANView.setPANStyle(cardUI)
-            PANView.setNumber(String(number.suffix(4)))
         }
     }
 

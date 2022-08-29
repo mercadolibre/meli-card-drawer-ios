@@ -82,11 +82,15 @@ extension PANView {
     }
     
     public func setNumber(_ number: String) {
-        PANLabel.text = "•••• " + number
+        PANLabel.text = number
     }
     
     public func setPANStyle(_ cardUI: CardUI) {
         if let pan = cardUI.PAN {
+            if let message = pan?.message {
+               setNumber(message)
+            }
+            
             if let backgroundColor = pan?.backgroundColor {
                 setBackgroundColor(backgroundColor)
             }

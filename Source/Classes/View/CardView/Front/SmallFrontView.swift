@@ -98,9 +98,9 @@ extension SmallFrontView {
         if self.PANView.getLabel() == nil,
            let number = model?.number,
            number.count > 0 { // TODO: this will be improved when integrating CardForm
-            self.PANView.render()
-            self.PANView.setPANStyle(cardUI)
-            self.PANView.setNumber(String(number.suffix(4)))
+            PANView.render()
+            PANView.setNumber(String("•••• " + number.suffix(4)))
+            PANView.setPANStyle(cardUI)
         }
     }
 
