@@ -95,8 +95,8 @@ extension PANView {
                 setBackgroundColor(backgroundColor)
             }
             
-            if let fontColor = pan?.fontColor {
-                setFontColor(fontColor)
+            if let textColor = pan?.textColor {
+                setTextColor(textColor)
             }
             
             if let weight = pan?.weight {
@@ -109,8 +109,8 @@ extension PANView {
         PANContainer.backgroundColor = UIColor.fromHex(backgroundColor)
     }
     
-    private func setFontColor(_ fontColor: String) {
-        PANLabel.textColor = UIColor.fromHex(fontColor)
+    private func setTextColor(_ textColor: String) {
+        PANLabel.textColor = UIColor.fromHex(textColor)
     }
     
     private func setWeight(_ weight: String) {

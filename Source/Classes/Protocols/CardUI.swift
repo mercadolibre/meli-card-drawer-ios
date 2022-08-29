@@ -39,18 +39,18 @@ import UIKit
 @objc public class CustomPAN: NSObject {
     public var message: String?
     public var backgroundColor: String?
-    public var fontColor: String?
+    public var textColor: String?
     public var weight: String?
     
     public init(
         message: String?,
         backgroundColor: String?,
-        fontColor: String?,
+        textColor: String?,
         weight: String?
     ) {
         self.message = message
         self.backgroundColor = backgroundColor
-        self.fontColor = fontColor
+        self.textColor = textColor
         self.weight = weight
     }
 }
