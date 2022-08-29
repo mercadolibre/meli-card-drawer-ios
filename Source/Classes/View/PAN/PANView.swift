@@ -87,15 +87,15 @@ extension PANView {
     
     public func setPANStyle(_ cardUI: CardUI) {
 
-        if let backgroundColor = cardUI.PANBackgroundColor {
+        if let backgroundColor = cardUI.PAN?.backgroundColor {
             setBackgroundColor(backgroundColor)
         }
         
-        if let textColor = cardUI.PANTextColor {
+        if let textColor = cardUI.PAN?.textColor {
             setTextColor(textColor)
         }
         
-        if let textWeight = cardUI.PANTextWeight {
+        if let textWeight = cardUI.PAN?.textWeight {
             setTextWeight(textWeight)
         }
     }
