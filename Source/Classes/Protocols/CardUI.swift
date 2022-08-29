@@ -28,8 +28,8 @@ import UIKit
     
     @objc optional func set(logo: UIImageView)
     @objc optional var fontType: String { get }
-    @objc optional var fullCardArt: String { get }
-    @objc optional var PAN: CustomPAN { get }
+    @objc optional var fullCardArt: String? { get }
+    @objc optional var PAN: CustomPAN? { get }
 }
 
 @objc public protocol CustomCardDrawerUI: CardUI {
