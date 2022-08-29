@@ -86,17 +86,18 @@ extension PANView {
     }
     
     public func setPANStyle(_ cardUI: CardUI) {
-
-        if let backgroundColor = cardUI.PAN?.backgroundColor {
-            setBackgroundColor(backgroundColor)
-        }
-        
-        if let textColor = cardUI.PAN?.textColor {
-            setTextColor(textColor)
-        }
-        
-        if let textWeight = cardUI.PAN?.textWeight {
-            setTextWeight(textWeight)
+        if let pan = cardUI.PAN {
+            if let backgroundColor = pan?.backgroundColor {
+                setBackgroundColor(backgroundColor)
+            }
+            
+            if let fontColor = pan?.fontColor {
+                setFontColor(fontColor)
+            }
+            
+            if let weight = pan?.weight {
+                setWeight(weight)
+            }
         }
     }
     
@@ -104,11 +105,11 @@ extension PANView {
         PANContainer.backgroundColor = UIColor.fromHex(backgroundColor)
     }
     
-    private func setTextColor(_ textColor: String) {
-        PANLabel.textColor = UIColor.fromHex(textColor)
+    private func setFontColor(_ fontColor: String) {
+        PANLabel.textColor = UIColor.fromHex(fontColor)
     }
     
-    private func setTextWeight(_ textWeight: String) {
-        PANLabel.font = textWeight.getFont(size: PANLabelUI.labelFontSize)
+    private func setWeight(_ weight: String) {
+        PANLabel.font = weight.getFont(size: PANLabelUI.labelFontSize)
     }
 }
