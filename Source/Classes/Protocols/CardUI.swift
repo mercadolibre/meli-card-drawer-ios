@@ -28,11 +28,26 @@ import UIKit
     
     @objc optional func set(logo: UIImageView)
     @objc optional var fontType: String { get }
-    @objc optional var PANBackgroundColor: String { get }
-    @objc optional var PANTextColor: String { get }
-    @objc optional var PANTextWeight: String { get }
+    @objc optional var fullCardArt: String { get }
+    @objc optional var PAN: CustomPAN { get }
 }
 
 @objc public protocol CustomCardDrawerUI: CardUI {
     @objc optional var ownGradient: CAGradientLayer { get }
+}
+
+@objc public class CustomPAN: NSObject {
+    var backgroundColor: String?
+    var textColor: String?
+    var textWeight: String?
+    
+    public init(
+        backGroundColor: String?,
+        textColor: String?,
+        textWeight: String?
+    ) {
+        self.backgroundColor = backGroundColor
+        self.textColor = textColor
+        self.textWeight = textWeight
+    }
 }

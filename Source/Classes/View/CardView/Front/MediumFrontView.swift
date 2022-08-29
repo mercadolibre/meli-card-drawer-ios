@@ -36,7 +36,7 @@ extension MediumFrontView {
     override func setupAnimated(_ cardUI: CardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
-                         views: [issuerImage, paymentMethodImage, chevronIcon],
+                         views: [issuerImage, paymentMethodImage, chevronIcon, PANView],
                          complete: {[weak self] in
                             self?.setupUI(cardUI)
         })
