@@ -84,7 +84,7 @@ extension SmallFrontView {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
-                             views: [bankImage, paymentMethodImage],
+                             views: [bankImage, paymentMethodImage, PANView],
                              complete: {[weak self] in
                                 self?.setupUI(cardUI)
             })
