@@ -10,11 +10,13 @@ class PANView: UIView {
         static let bottomPadding: CGFloat = -4.0
         static let leftPadding: CGFloat = 8.0
         static let rightPadding: CGFloat = -8.0
+        static let labelDisabledTextColor: UIColor = .fromHex("#F0F0F0")
     }
     
     enum PANContainerUI {
         static let containerBackgroundColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.55)
         static let containerCornerRadius: CGFloat = 4.0
+        static let containerDisabledColor: UIColor = .fromHex("#A0A0A0")
     }
 
     private var PANLabel: UILabel!
@@ -85,7 +87,7 @@ extension PANView {
         PANLabel.text = number
     }
     
-    public func setPANStyle(_ cardUI: CardUI) {
+    public func setPANStyle(_ cardUI: CardUI, _ disabled: Bool = false) {
         if let pan = cardUI.pan {
             if let message = pan?.message {
                setNumber(message)
@@ -103,6 +105,10 @@ extension PANView {
                 setWeight(weight)
             }
         }
+        
+        if disabled {
+           setDisabledStyle()
+        }
     }
     
     private func setBackgroundColor(_ backgroundColor: String) {
@@ -115,5 +121,10 @@ extension PANView {
     
     private func setWeight(_ weight: String) {
         PANLabel.font = weight.getFont(size: PANLabelUI.labelFontSize)
+    }
+    
+    public func setDisabledStyle() {
+        PANContainer.backgroundColor = PANContainerUI.containerDisabledColor
+        PANLabel.textColor = PANLabelUI.labelDisabledTextColor
     }
 }

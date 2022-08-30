@@ -49,7 +49,7 @@ extension MediumFrontView {
             PANView.render()
             PANView.setNumber(String("•••• " + number.suffix(4)))
         }
-        PANView.setPANStyle(cardUI)
+        PANView.setPANStyle(cardUI, disabledMode)
     }
     
     private func setPaymentMethodImage(_ cardUI: CardUI) {
