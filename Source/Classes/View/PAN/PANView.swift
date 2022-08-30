@@ -79,8 +79,8 @@ class PANView: UIView {
 
 extension PANView {
     
-    public func getLabel() -> UILabel? {
-        return self.PANLabel
+    public func isRendered() -> Bool {
+        return self.PANLabel != nil && self.PANContainer != nil
     }
     
     public func setNumber(_ number: String) {
@@ -88,6 +88,8 @@ extension PANView {
     }
     
     public func setPANStyle(_ cardUI: CardUI, _ disabled: Bool = false) {
+        guard self.isRendered() == true else { return }
+        
         if let pan = cardUI.pan {
             if let message = pan?.message {
                setNumber(message)

@@ -80,7 +80,7 @@ class FrontView: CardView {
     }
     
     private func setupPAN(_ cardUI: CardUI) {
-        if self.PANView.getLabel() == nil,
+        if !PANView.isRendered(),
            let number = model?.number,
            number.count > 0 { // TODO: this will be improved when integrating CardForm
             PANView.render()
