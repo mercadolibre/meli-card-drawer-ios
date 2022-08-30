@@ -86,7 +86,7 @@ extension PANView {
     }
     
     public func setPANStyle(_ cardUI: CardUI) {
-        if let pan = cardUI.PAN {
+        if let pan = cardUI.pan {
             if let message = pan?.message {
                setNumber(message)
             }

@@ -26,7 +26,8 @@ class FrontView: CardView {
     
     private func setupCardDesign(_ cardUI: CardUI) {
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
-        
+        setupPAN(cardUI)
+
         if let fullCardArt = cardUI.fullCardArt?.flatMap({ $0 }),
            fullCardArt.isEmpty == false {
             setupFullCardArt(cardUI)
@@ -36,7 +37,6 @@ class FrontView: CardView {
     }
 
     private func setupDefaultDesign(_ cardUI: CardUI) {
-        setupPAN(cardUI)
         setupCardImages(cardUI)
         cardBackground = cardUI.cardBackgroundColor
         setupCustomOverlayImage(cardUI)
@@ -85,8 +85,8 @@ class FrontView: CardView {
            number.count > 0 { // TODO: this will be improved when integrating CardForm
             PANView.render()
             PANView.setNumber(String("•••• " + number.suffix(4)))
-            PANView.setPANStyle(cardUI)
         }
+        PANView.setPANStyle(cardUI)
     }
 
     override func addObservers() {
