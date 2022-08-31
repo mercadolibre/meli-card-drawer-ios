@@ -27,7 +27,7 @@ class FrontView: CardView {
     private func setupCardDesign(_ cardUI: CardUI) {
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         setupPAN(cardUI)
-
+        
         if let fullCardArt = cardUI.fullCardArt?.flatMap({ $0 }),
            fullCardArt.isEmpty == false {
             setupFullCardArt(cardUI)
@@ -35,7 +35,7 @@ class FrontView: CardView {
             setupDefaultDesign(cardUI)
         }
     }
-
+    
     private func setupDefaultDesign(_ cardUI: CardUI) {
         setupCardImages(cardUI)
         cardBackground = cardUI.cardBackgroundColor
@@ -50,7 +50,7 @@ class FrontView: CardView {
     
     private func setupCardImages(_ cardUI: CardUI) {
         fullArt.image = nil
-
+        
         if cardUI.set(logo:) != nil {
             setupCardLogo(in: paymentMethodImage)
         }
@@ -80,20 +80,25 @@ class FrontView: CardView {
     }
     
     private func setupPAN(_ cardUI: CardUI) {
-        if !PANView.isRendered(),
-           let number = model?.number,
-           number.count > 0 { // TODO: this will be improved when integrating CardForm
-            PANView.render()
+        self.PANView.cardUI = cardUI
+        let number = model?.number ?? "0"
+        let length = cardUI.cardPattern.reduce(0, +)
+        
+        if !PANView.isRendered() { PANView.render() }
+        if number.count == 0 { PANView.isHidden = true }
+        if number.count == length {
             PANView.setNumber(String("•••• " + number.suffix(4)))
         }
         PANView.setPANStyle(cardUI, disabledMode)
     }
-
+    
     override func addObservers() {
+        addObserver(PANView, forKeyPath: #keyPath(model.number), options: .new, context: nil)
         addObserver(securityCode, forKeyPath: #keyPath(model.securityCode), options: .new, context: nil)
     }
-
+    
     deinit {
+        removeObserver(PANView, forKeyPath: #keyPath(model.number))
         removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
     }
     
@@ -122,7 +127,7 @@ class FrontView: CardView {
         
         paymentMethodImageBottomAnchorSafezone?.isActive = false
         paymentMethodImageHeightSizeSafezone?.isActive = false
-
+        
         paymentMethodImageCenterAnchor.isActive = true
         paymentMethodImageHeightSize.isActive = true
         
@@ -151,15 +156,15 @@ extension FrontView {
                              cardUI: cardUI,
                              views: [bankImage, paymentMethodImage, securityCode],
                              complete: {[weak self] in
-                                self?.setupUI(cardUI)
+                self?.setupUI(cardUI)
             })
         }
     }
-
+    
     override func showSecurityCode() {
         securityCodeCircle.alpha = 1
     }
-
+    
     private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
         setBankImage(cardUI)
         setPaymentMethodImage(cardUI)
@@ -176,7 +181,7 @@ extension FrontView {
             }
         }
     }
-
+    
     private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
         if let imageUrl = cardUI.cardLogoImageUrl as? String, !imageUrl.isEmpty {
@@ -190,7 +195,7 @@ extension FrontView {
             setImage(image, inImageView: paymentMethodImage)
         }
     }
-
+    
     private func setBankImage(_ cardUI: CardUI) {
         bankImage.image = nil
         if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty {
@@ -204,7 +209,7 @@ extension FrontView {
             setImage(image, inImageView: bankImage)
         }
     }
-
+    
     private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
         inImageView.image = UIImage.scale(image: tImage,
                                           by: inImageView.bounds.size.height/tImage.size.height)

@@ -1,8 +1,9 @@
 import UIKit
 
 class PANView: UIView {
-   
+    
     enum PANLabelUI {
+        static let labelPlaceHolder = "•••• ••••"
         static let labelTextColor: UIColor = .white
         static let labelBackgroundColor: UIColor = .clear
         static let labelFontSize: CGFloat = 14.0
@@ -11,6 +12,7 @@ class PANView: UIView {
         static let leftPadding: CGFloat = 8.0
         static let rightPadding: CGFloat = -8.0
         static let labelDisabledTextColor: UIColor = .fromHex("#F0F0F0")
+        static let labelLength = 8
     }
     
     enum PANContainerUI {
@@ -18,10 +20,11 @@ class PANView: UIView {
         static let containerCornerRadius: CGFloat = 4.0
         static let containerDisabledColor: UIColor = .fromHex("#A0A0A0")
     }
-
-    private var PANLabel: UILabel!
-    private var PANContainer: UIView!
     
+    var PANLabel: UILabel!
+    var PANContainer: UIView!
+    var cardUI: CardUI?
+
     public init() {
         super.init(frame: CGRect.zero)
     }
@@ -29,7 +32,7 @@ class PANView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     public func render() {
         setupComponents()
         setupConstraints()
@@ -45,6 +48,7 @@ class PANView: UIView {
         PANLabel.font = .proximaNovaSemibold(size: PANLabelUI.labelFontSize)
         PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
         PANLabel.textColor = PANLabelUI.labelTextColor
+        PANLabel.text = PANLabelUI.labelPlaceHolder
         PANLabel.clipsToBounds = true
         PANLabel.sizeToFit()
     }
@@ -83,8 +87,8 @@ extension PANView {
         return self.PANLabel != nil && self.PANContainer != nil
     }
     
-    public func setNumber(_ number: String) {
-        PANLabel.text = number
+    public func setNumber(_ number: String, withPad: Bool = false) {
+        PANLabel.text = withPad ? "•••• " + number : number
     }
     
     public func setPANStyle(_ cardUI: CardUI, _ disabled: Bool = false) {
@@ -92,7 +96,7 @@ extension PANView {
         
         if let pan = cardUI.pan {
             if let message = pan?.message {
-               setNumber(message)
+                setNumber(message)
             }
             
             if let backgroundColor = pan?.backgroundColor {
@@ -109,7 +113,7 @@ extension PANView {
         }
         
         if disabled {
-           setDisabledStyle()
+            setDisabledStyle()
         }
     }
     
@@ -129,4 +133,38 @@ extension PANView {
         PANContainer.backgroundColor = PANContainerUI.containerDisabledColor
         PANLabel.textColor = PANLabelUI.labelDisabledTextColor
     }
+    
+    //MARK: Observer
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+
+        guard let change = change, let new = change[.newKey] else { return }
+
+        isHidden = false
+        setNumber(PANLabelUI.labelPlaceHolder)
+        var numberLength = cardUI?.cardPattern.reduce(0, +)
+        var numberLengthWithoutPan = (numberLength ?? 0)  - PANLabelUI.labelLength
+
+        if let changed = new as? String,
+           let numberLength = numberLength,
+           changed.count > numberLengthWithoutPan,
+           numberLengthWithoutPan > 0 {
+
+            var numberOfCharactersChanged = changed.count
+            var lastCharacterChanged = String(changed.suffix(1))
+            var panStartingPoint = Int((Double(numberLength)/2).rounded(.down))
+            var panSuffix = numberOfCharactersChanged - panStartingPoint
+
+            guard panSuffix >= 0 else { return }
+            var panNumber = String(changed.suffix(panSuffix))
+                .replacingFirstOccurrence(of: "•", with: lastCharacterChanged)
+                .padding(toLength: PANLabelUI.labelLength, withPad: "•", startingAt: 0)
+            panNumber.insert(" ", at: changed.index(changed.startIndex, offsetBy: 4))
+
+            setNumber(panNumber)
+        }
+    }
 }
+
