@@ -20,7 +20,7 @@ public class SmallFrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
-        setPAN(cardUI)
+        setupPAN(cardUI)
         
         if cardUI.set(logo:) != nil {
             setupCardLogo(in: paymentMethodImage)
@@ -34,10 +34,14 @@ public class SmallFrontView: CardView {
         
         layoutIfNeeded()
     }
-
-    override func addObservers() {}
-
-    deinit {}
+    
+    override func addObservers() {
+        addObserver(PANView, forKeyPath: #keyPath(model.number), options: .new, context: nil)
+    }
+    
+    deinit {
+        removeObserver(PANView, forKeyPath: #keyPath(model.number))
+    }
     
     func setSafeZoneConstraints () {
         paymentMethodImageCenterAnchor.isActive = false
@@ -87,30 +91,33 @@ extension SmallFrontView {
         if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
-                             views: [bankImage, paymentMethodImage, PANView],
+                             views: [bankImage, paymentMethodImage],
                              complete: {[weak self] in
-                                self?.setupUI(cardUI)
+                self?.setupUI(cardUI)
             })
         }
     }
     
-    private func setPAN(_ cardUI: CardUI) {
-        if !PANView.isRendered(),
-           let number = model?.number,
-           number.count > 0 { // TODO: this will be improved when integrating CardForm
-            PANView.render()
-            PANView.setNumber(String("•••• " + number.suffix(4)))
+    private func setupPAN(_ cardUI: CardUI) {
+        PANView.cardUI = cardUI
+        let number = model?.number ?? ""
+        let numberLength = cardUI.cardPattern.reduce(0, +)
+        
+        if !PANView.isRendered() { PANView.render() }
+        if number.count == 0 { PANView.isHidden = true }
+        if number.count == numberLength {
+            PANView.setNumber(String(number.suffix(4)), withPad: true)
         }
         PANView.setPANStyle(cardUI, disabledMode)
     }
-
+    
     public override func showSecurityCode() {}
-
+    
     private func setupRemoteOrLocalImages(_ cardUI: CardUI) {
         setBankImage(cardUI)
         setPaymentMethodImage(cardUI)
     }
-
+    
     private func setPaymentMethodImage(_ cardUI: CardUI) {
         paymentMethodImage.image = nil
         
@@ -129,7 +136,7 @@ extension SmallFrontView {
             paymentMethodImage.alignRight = true
         }
     }
-
+    
     private func setBankImage(_ cardUI: CardUI) {
         bankImage.image = nil
         if let imageUrl = cardUI.bankImageUrl as? String, !imageUrl.isEmpty {
@@ -143,7 +150,7 @@ extension SmallFrontView {
             setImage(image, inImageView: bankImage)
         }
     }
-
+    
     private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
         inImageView.image = UIImage.scale(image: tImage,
                                           by: inImageView.bounds.size.height/tImage.size.height)

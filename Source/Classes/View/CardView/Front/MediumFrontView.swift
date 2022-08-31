@@ -13,7 +13,7 @@ class MediumFrontView: CardView {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .medium)
         
-        setPAN(cardUI)
+        setupPAN(cardUI)
         setIssuerImage(cardUI)
         setPaymentMethodImage(cardUI)
         setupChevron(cardUI)
@@ -36,18 +36,21 @@ extension MediumFrontView {
     override func setupAnimated(_ cardUI: CardUI) {
         Animator.overlay(on: self,
                          cardUI: cardUI,
-                         views: [issuerImage, paymentMethodImage, chevronIcon, PANView],
+                         views: [issuerImage, paymentMethodImage, chevronIcon],
                          complete: {[weak self] in
-                            self?.setupUI(cardUI)
+            self?.setupUI(cardUI)
         })
     }
     
-    private func setPAN(_ cardUI: CardUI) {
-        if !PANView.isRendered(),
-           let number = model?.number,
-           number.count > 0 { // TODO: this will be improved when integrating CardForm
-            PANView.render()
-            PANView.setNumber(String("•••• " + number.suffix(4)))
+    private func setupPAN(_ cardUI: CardUI) {
+        PANView.cardUI = cardUI
+        let number = model?.number ?? ""
+        let numberLength = cardUI.cardPattern.reduce(0, +)
+        
+        if !PANView.isRendered() { PANView.render() }
+        if number.count == 0 { PANView.isHidden = true }
+        if number.count == numberLength {
+            PANView.setNumber(String(number.suffix(4)), withPad: true)
         }
         PANView.setPANStyle(cardUI, disabledMode)
     }
