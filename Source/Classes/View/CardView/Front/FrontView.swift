@@ -87,7 +87,7 @@ class FrontView: CardView {
         if !PANView.isRendered() { PANView.render() }
         if number.count == 0 { PANView.isHidden = true }
         if number.count == length {
-            PANView.setNumber(String("•••• " + number.suffix(4)))
+            PANView.setNumber(String(number.suffix(4)), withPad: true)
         }
         PANView.setPANStyle(cardUI, disabledMode)
     }
