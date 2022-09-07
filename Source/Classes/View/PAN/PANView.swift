@@ -145,7 +145,7 @@ extension PANView {
         isHidden = false
         setNumber(PANLabelUI.labelPlaceHolder)
         var numberLength = cardUI?.cardPattern.reduce(0, +)
-        var panStartingPoint = (numberLength ?? 0)  - PANLabelUI.labelLength
+        var panStartingPoint = (numberLength ?? 0) - PANLabelUI.labelLength
 
         if let changed = new as? String,
            let numberLength = numberLength,
@@ -160,8 +160,10 @@ extension PANView {
             var panNumber = String(changed.suffix(panSuffix))
                 .replacingFirstOccurrence(of: "•", with: lastCharacterChanged)
                 .padding(toLength: PANLabelUI.labelLength, withPad: "•", startingAt: 0)
+            
+            if changed.count > 4 {
             panNumber.insert(" ", at: changed.index(changed.startIndex, offsetBy: 4))
-
+            }
             setNumber(panNumber)
         }
     }
