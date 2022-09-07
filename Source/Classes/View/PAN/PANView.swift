@@ -94,20 +94,17 @@ extension PANView {
     public func setPANStyle(_ cardUI: CardUI, _ disabled: Bool = false) {
         guard self.isRendered() == true else { return }
         
-        if let pan = cardUI.pan {
-            if let message = pan?.message {
-                setNumber(message)
-            }
+        if let panStyle = cardUI.panStyle {
             
-            if let backgroundColor = pan?.backgroundColor {
+            if let backgroundColor = panStyle?.backgroundColor {
                 setBackgroundColor(backgroundColor)
             }
             
-            if let textColor = pan?.textColor {
+            if let textColor = panStyle?.textColor {
                 setTextColor(textColor)
             }
             
-            if let weight = pan?.weight {
+            if let weight = panStyle?.weight {
                 setWeight(weight)
             }
         }

@@ -29,7 +29,7 @@ import UIKit
     @objc optional func set(logo: UIImageView)
     @objc optional var fontType: String { get }
     @objc optional var fullCardArt: String? { get }
-    @objc optional var pan: CustomPAN? { get }
+    @objc optional var panStyle: CustomPAN? { get }
 }
 
 @objc public protocol CustomCardDrawerUI: CardUI {
@@ -43,12 +43,10 @@ import UIKit
     public var weight: String?
     
     public init(
-        message: String?,
         backgroundColor: String?,
         textColor: String?,
         weight: String?
     ) {
-        self.message = message
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.weight = weight
