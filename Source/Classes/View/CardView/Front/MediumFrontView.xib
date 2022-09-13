@@ -36,10 +36,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="335" height="109"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eki-qS-IGB" userLabel="PaymentContainer">
-                    <rect key="frame" x="175.5" y="51" width="143.5" height="42"/>
+                    <rect key="frame" x="175.5" y="51" width="125.5" height="42"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-DA-UJ9" userLabel="remotePaymentOptionIcon" customClass="UIImageViewAligned" customModule="MLCardDrawer">
-                            <rect key="frame" x="0.0" y="0.0" width="143.5" height="42"/>
+                            <rect key="frame" x="0.0" y="0.0" width="125.5" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="myv-g1-EIb"/>
                             </constraints>
@@ -84,7 +84,7 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MPCLChevron" translatesAutoresizingMaskIntoConstraints="NO" id="rTM-5K-tvz">
-                    <rect key="frame" x="303" y="93" width="16" height="16"/>
+                    <rect key="frame" x="305" y="79" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="NPk-bW-3Eo"/>
                         <constraint firstAttribute="height" constant="16" id="jYZ-Kw-Ni4"/>
@@ -124,19 +124,19 @@
                 <constraint firstItem="eki-qS-IGB" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-16" id="IZx-jY-Fec"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="L2X-nC-qTu"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OqT-qa-XFw"/>
-                <constraint firstItem="rTM-5K-tvz" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-16" id="Pxi-XN-EGY"/>
                 <constraint firstAttribute="trailing" secondItem="OEt-3Q-8ri" secondAttribute="trailing" id="Qc7-uP-wIt"/>
-                <constraint firstItem="rTM-5K-tvz" firstAttribute="top" secondItem="eki-qS-IGB" secondAttribute="bottom" id="R8U-JB-mLP"/>
                 <constraint firstAttribute="trailing" secondItem="HLQ-m9-78F" secondAttribute="trailing" id="RP9-3G-Afk"/>
                 <constraint firstItem="HLQ-m9-78F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Roz-63-Y1h"/>
                 <constraint firstItem="ydv-Kv-9qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YL9-xQ-wJB"/>
+                <constraint firstItem="rTM-5K-tvz" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-14" id="aCR-So-Hfx"/>
                 <constraint firstItem="IhX-gj-NWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="aMp-14-caL"/>
+                <constraint firstItem="rTM-5K-tvz" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-14" id="ecc-gA-sK9"/>
                 <constraint firstItem="OEt-3Q-8ri" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eq2-Nh-tjE"/>
                 <constraint firstItem="eki-qS-IGB" firstAttribute="leading" secondItem="ydv-Kv-9qv" secondAttribute="trailing" id="fTX-vW-38x"/>
                 <constraint firstItem="Fle-ET-bnW" firstAttribute="trailing" secondItem="ydv-Kv-9qv" secondAttribute="leading" id="kz9-Gy-UCb"/>
                 <constraint firstItem="W2g-Ht-hY3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nHh-K1-jH2"/>
                 <constraint firstAttribute="bottom" secondItem="OEt-3Q-8ri" secondAttribute="bottom" id="qUC-5Y-BgY"/>
-                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-16" id="yRo-9y-aW9"/>
+                <constraint firstItem="eki-qS-IGB" firstAttribute="trailing" secondItem="rTM-5K-tvz" secondAttribute="leading" constant="-4" id="yRo-9y-aW9" userLabel="PaymentContainer.trailing = MPCLChevron.leading"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
