@@ -118,14 +118,10 @@ private extension MediumFrontView {
     
     func showChevron(_ value: Bool) {
         chevronIcon.isHidden = !value
-//        if !value {
-//            paymentMethodTrailing = paymentMethodImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-//            paymentMethodTrailing?.isActive = true
-//        }
         if value {
-            paymentMethodTrailing.isActive = false
             paymentMethodTrailingChevron = paymentMethodImage.trailingAnchor.constraint(equalTo: chevronIcon.leadingAnchor, constant: -4)
             paymentMethodTrailingChevron?.isActive = true
+            paymentMethodTrailing.isActive = false
         }
     }
 }
