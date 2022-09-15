@@ -9,6 +9,10 @@ class MediumFrontView: CardView {
     
     private var shineView: ShineView?
     
+    // Constraints
+    var paymentMethodTrailingChevron: NSLayoutConstraint?
+    @IBOutlet var paymentMethodTrailing: NSLayoutConstraint!
+    
     override func setupUI(_ cardUI: CardUI) {
         super.setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .medium)
@@ -114,6 +118,14 @@ private extension MediumFrontView {
     
     func showChevron(_ value: Bool) {
         chevronIcon.isHidden = !value
+//        if !value {
+//            paymentMethodTrailing = paymentMethodImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+//            paymentMethodTrailing?.isActive = true
+//        }
+        if value {
+            paymentMethodTrailing.isActive = false
+            paymentMethodTrailingChevron = paymentMethodImage.trailingAnchor.constraint(equalTo: chevronIcon.leadingAnchor, constant: -4)
+            paymentMethodTrailingChevron?.isActive = true
+        }
     }
-    
 }
