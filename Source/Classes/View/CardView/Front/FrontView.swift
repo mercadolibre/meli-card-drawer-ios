@@ -9,6 +9,8 @@ class FrontView: CardView {
     @IBOutlet weak var cardBalanceContainer: CardBalance!
     @IBOutlet weak var PANView: PANView!
     
+    var cardShimmer: CardShimmer?
+    
     // Constraints
     @IBOutlet var paymentMethodImageCenterAnchor: NSLayoutConstraint!
     var paymentMethodImageBottomAnchorSafezone: NSLayoutConstraint?
@@ -45,6 +47,8 @@ class FrontView: CardView {
     private func setupFullCardArt(_ cardUI: CardUI) {
         bankImage.image = nil
         paymentMethodImage.image = nil
+        
+        setupCardShimmer()
         setCardFullArtImage(cardUI)
     }
     
@@ -90,6 +94,23 @@ class FrontView: CardView {
             PANView.setNumber(String(number.suffix(4)), withPad: true)
         }
         PANView.setPANStyle(cardUI, disabledMode)
+    }
+    
+    private func setupCardShimmer() {
+        cardShimmer = CardShimmer()
+        if let cardShimmer = cardShimmer {
+            cardShimmer.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(cardShimmer)
+            
+            NSLayoutConstraint.activate([
+                cardShimmer.topAnchor.constraint(equalTo: self.topAnchor),
+                cardShimmer.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                cardShimmer.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                cardShimmer.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                cardShimmer.heightAnchor.constraint(equalTo: self.widthAnchor)
+            ])
+            cardShimmer.showCardShimmer()
+        }
     }
     
     override func addObservers() {
@@ -173,10 +194,21 @@ extension FrontView {
     private func setCardFullArtImage(_ cardUI: CardUI) {
         fullArt.image = nil
         if let imageUrl = cardUI.fullCardArt as? String, !imageUrl.isEmpty {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+                guard let self = self,
+                      self.fullArt.image == nil else { return }
+                self.setupDefaultDesign(cardUI)
+                self.cardShimmer?.hideCardShimmer()
+                self.cardShimmer?.removeFromSuperview()
+            }
+            
             UIImageView().getRemoteImage(imageUrl: imageUrl) { image in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.setImage(image, inImageView: self.fullArt)
+                    self.cardShimmer?.hideCardShimmer()
+                    self.cardShimmer?.removeFromSuperview()
                 }
             }
         }
