@@ -222,7 +222,7 @@ extension CardViewController {
                                       pillBackgroundColor: "#ffffff",
                                       safeZoneBackgroundColor: "#26000000",
                                       options: switchOptions,
-                                      switchBorderColor: "#FFFFFF")
+                                      switchBorderColor: "#FFFFFF", selectorBackgroundColor: "#FFFFFF")
         
         let customView = ComboSwitchView()
         
