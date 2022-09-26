@@ -79,7 +79,6 @@ class PANView: UIView {
     
     private func setupIssuerContainer() {
         PANIssuerContainer = UIImageView()
-        PANIssuerContainer.image = UIImage(named: "debvisa")
         PANIssuerContainer.contentMode = .scaleAspectFill
         PANIssuerContainer.sizeToFit()
     }
@@ -142,6 +141,7 @@ extension PANView {
             if let issuerImage = panStyle?.issuerImage {
                 setIssuerImage(issuerImage)
             } else {
+                self.stackView.removeArrangedSubview(PANIssuerContainer)
                 PANIssuerContainer.isHidden = true
             }
         }
