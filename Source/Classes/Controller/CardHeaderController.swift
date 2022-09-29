@@ -11,6 +11,12 @@ import UIKit
     private var disabledMode = false
     
     private var aspectLayoutConstraint: NSLayoutConstraint?
+    
+    enum CardFonts {
+        static let robotoMonoRegular = "RobotoMono-Regular"
+        static let proximaNovaSemibold = "ProximaNova-Semibold"
+        static let proximaNovaRegular = "ProximaNova-Regular"
+    }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -59,6 +65,9 @@ import UIKit
         self.customLabelFontName = customLabelFontName
         if customLabelFontName == nil {
             UIFont.registerFont(fontName: cardFont, fontExtension: "ttf")
+            UIFont.registerFont(fontName: CardFonts.robotoMonoRegular, fontExtension: "ttf")
+            UIFont.registerFont(fontName: CardFonts.proximaNovaSemibold, fontExtension: "otf")
+            UIFont.registerFont(fontName: CardFonts.proximaNovaRegular, fontExtension: "otf")
         }
         
         self.model = model
@@ -71,13 +80,18 @@ import UIKit
     public func setupViews() {
         
         if  let card = cardUI as? GenericCardUI {
-            
             backView = CardView()
             setupGenericView(type: type)
-            
             frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
-            
-        } else {
+        }
+        
+        if let paymentMethodInfoCardUI = cardUI as? PaymentMethodInfoCardUI {
+            backView = CardView()
+            setupPaymentMethodInfoView(type: type)
+            frontView.setup(paymentMethodInfoCardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+        }
+        
+        else {
             
             if let frontView = frontView, frontView.isDescendant(of: view) {
                 frontView.removeFromSuperview()
@@ -97,6 +111,18 @@ import UIKit
         }
     }
     
+    private func setupPaymentMethodInfoView(type: MLCardDrawerTypeV3) {
+        switch type {
+        case .large:
+            frontView = BasePaymentMethodInfoCard()
+        case .medium:
+            frontView = MediumPaymentMethodInfoCard()
+        case .small:
+            frontView = SmallPaymentMethodInfoCard()
+        default:
+            return
+        }
+    }
     
     private func setupGenericView(type: MLCardDrawerTypeV3) {
         switch type {
