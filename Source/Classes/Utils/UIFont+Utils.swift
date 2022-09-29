@@ -23,4 +23,12 @@ internal extension UIFont {
     func size(_ string: String, kerning: Double = 0) -> CGSize {
         return (string as NSString).size(withAttributes: [.font: self, .kern: kerning])
     }
+    
+    static func proximaNovaSemibold(size: CGFloat) -> UIFont? {
+        return UIFont(name: "ProximaNova-Semibold", size: size)
+    }
+    
+    static func proximaNovaRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "ProximaNova-Regular", size: size)
+    }
 }
