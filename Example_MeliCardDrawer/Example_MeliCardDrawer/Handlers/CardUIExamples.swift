@@ -348,7 +348,7 @@ struct CardUIExamples {
         var overlay = UIImage(named: "amPattern")
         var gradient: CAGradientLayer = {
             let gradient = CAGradientLayer()
-            gradient.colors = [UIColor(red: 0.67, green: 1, blue: 1, alpha: 1).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
+            gradient.colors = [UIColor(red: 0.67, green: 1, blue: 1, alpha: 1).cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor]
             gradient.startPoint = CGPoint(x: 0, y: 1)
             gradient.endPoint = CGPoint(x: 1, y: 0)
             return gradient
