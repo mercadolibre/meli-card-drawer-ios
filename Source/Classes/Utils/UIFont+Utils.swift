@@ -27,4 +27,8 @@ internal extension UIFont {
     static func proximaNovaSemibold(size: CGFloat) -> UIFont? {
         return UIFont(name: "ProximaNova-Semibold", size: size)
     }
+    
+    static func proximaNovaRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "ProximaNova-Regular", size: size)
+    }
 }
