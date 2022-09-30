@@ -1,10 +1,3 @@
-//
-//  String+Font.swift
-//  MLCardDrawer
-//
-//  Created by Vinicius De Andrade Silva on 26/03/21.
-//
-
 internal extension String {
     
     func getFont(size: CGFloat = 16) -> UIFont {
@@ -20,5 +13,10 @@ internal extension String {
         default:
             return UIFont.systemFont(ofSize: size, weight: .regular)
         }
+    }
+    
+    func replacingFirstOccurrence(of target: String, with replacement: String) -> String {
+        guard let range = self.range(of: target) else { return self }
+        return self.replacingCharacters(in: range, with: replacement)
     }
 }
