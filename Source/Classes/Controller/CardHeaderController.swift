@@ -79,16 +79,27 @@ import UIKit
     
     public func setupViews() {
         
-        if  let card = cardUI as? GenericCardUI {
+        if cardUI is GenericCardUI {
             backView = CardView()
             setupGenericView(type: type)
-            frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+            frontView.setup(
+                cardUI,
+                model,
+                view.frame,
+                disabledMode,
+                customLabelFontName: customLabelFontName
+            )
         }
         
-        if let paymentMethodInfoCardUI = cardUI as? PaymentMethodInfoCardUI {
+        else if cardUI is PaymentMethodInfoCardUI {
             backView = CardView()
             setupPaymentMethodInfoView(type: type)
-            frontView.setup(paymentMethodInfoCardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
+            frontView.setup(cardUI,
+                            model,
+                            view.frame,
+                            disabledMode,
+                            customLabelFontName: customLabelFontName
+            )
         }
         
         else {
