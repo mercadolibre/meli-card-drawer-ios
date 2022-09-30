@@ -56,9 +56,9 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     enum Constants {
         static let gradientImage = UIImage(named: "Overlay", in: MLCardDrawerBundle.bundle(), compatibleWith: nil)
         
-        static let entityFontSize = 14.0
-        static let amountFontSize = 16.0
-        static let paymentTypeFontSize = 14.0
+        static let entityFontSize: CGFloat = 14.0
+        static let amountFontSize: CGFloat = 16.0
+        static let paymentTypeFontSize: CGFloat = 14.0
     }
     
     enum ConstraintValues {
