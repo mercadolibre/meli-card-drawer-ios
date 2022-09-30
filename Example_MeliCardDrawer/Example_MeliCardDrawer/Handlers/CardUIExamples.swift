@@ -37,9 +37,6 @@ struct CardUIExamples {
         var securityCodePattern = 3
     }
     
-    
-    
-    
     // Example - American Express
     class AmericanExpress: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"
