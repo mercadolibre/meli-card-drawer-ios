@@ -3,17 +3,17 @@ import Foundation
 class SmallPaymentMethodInfoCard: BasePaymentMethodInfoCard {
     
     enum ConstraintValues {
-        static let amountTopAnchor: Double = 8
-        static let amountTrailingAnchor: Double = -16
-        static let amountWidthAnchor: Double = 195
+        static let amountTopAnchor: CGFloat = 8
+        static let amountTrailingAnchor: CGFloat = -16
+        static let amountWidthAnchor: CGFloat = 195
 
-        static let panLeadingAnchor: Double = 16
-        static let panTopAnchor: Double = 12
-        static let panBottomAnchor: Double = -13
+        static let panLeadingAnchor: CGFloat = 16
+        static let panTopAnchor: CGFloat = 12
+        static let panBottomAnchor: CGFloat = -13
         
-        static let paymentTypeTrailingAnchor: Double = -16
-        static let paymentTypeBottomAnchor: Double = -8
-        static let paymentTypeWidthAnchor: Double = 195
+        static let paymentTypeTrailingAnchor: CGFloat = -16
+        static let paymentTypeBottomAnchor: CGFloat = -8
+        static let paymentTypeWidthAnchor: CGFloat = 195
     }
     
     override func setupCornerRadius() {
