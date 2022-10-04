@@ -81,8 +81,16 @@ public class CardBalance: UIView {
             return
         }
         
-        balanceTitle.font = UIFont.systemFont(ofSize: titleFontSize, weight: .regular)
-        balanceTitle.text = model.title.message
+        if model.title != nil {
+            guard let title = model.title else { return }
+            balanceTitle.font = UIFont.systemFont(ofSize: titleFontSize, weight: .regular)
+            balanceTitle.text = title.message
+            setupLabelColors(balanceTitle, field: title)
+        } else {
+            balanceTitle.text = ""
+        }
+        
+        
         
         balanceLabel.font = UIFont.systemFont(ofSize: balanceFontSize, weight: .semibold)
         
@@ -96,8 +104,6 @@ public class CardBalance: UIView {
         balanceLabel.sizeToFit()
         balanceTitle.sizeToFit()
         eyeImage.sizeToFit()
-        
-        setupLabelColors(balanceTitle, field: model.title)
 
         self.addSubview(balanceTitle)
         self.addSubview(balanceLabel)
