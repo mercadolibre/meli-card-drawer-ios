@@ -1,3 +1,6 @@
+## [Unreleased]
+- hides the available balance label when it's not sent this info
+
 ## [Release (1.11.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.2)
 ## fix
 - changed combo switch redesign
