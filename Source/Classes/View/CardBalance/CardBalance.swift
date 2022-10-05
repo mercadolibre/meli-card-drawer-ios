@@ -81,17 +81,11 @@ public class CardBalance: UIView {
             return
         }
         
-        if model.title != nil {
-            guard let title = model.title else { return }
+        if let title = model.title {
             balanceTitle.font = UIFont.systemFont(ofSize: titleFontSize, weight: .regular)
             balanceTitle.text = title.message
             setupLabelColors(balanceTitle, field: title)
-        } else {
-            balanceTitle.text = ""
         }
-        
-        
-        
         balanceLabel.font = UIFont.systemFont(ofSize: balanceFontSize, weight: .semibold)
         
         eyeImage = UIImageView()
