@@ -3,20 +3,20 @@ import UIKit
 class MediumPaymentMethodInfoCard: BasePaymentMethodInfoCard {
 
     enum ConstraintValues {
-        static let entityLeadingAnchor: Double = 16
-        static let entityTopAnchor: Double = 12
-        static let entityTrailingAnchor: Double = -4
+        static let entityLeadingAnchor: CGFloat = 16
+        static let entityTopAnchor: CGFloat = 12
+        static let entityTrailingAnchor: CGFloat = -4
         
-        static let amountLeadingAnchor: Double = 4
-        static let amountTopAnchor: Double = 12
-        static let amountTrailingAnchor: Double = -16
+        static let amountLeadingAnchor: CGFloat = 4
+        static let amountTopAnchor: CGFloat = 12
+        static let amountTrailingAnchor: CGFloat = -16
         
-        static let panLeadingAnchor: Double = 16
-        static let panBottomAnchor: Double = -12
+        static let panLeadingAnchor: CGFloat = 16
+        static let panBottomAnchor: CGFloat = -12
         
-        static let paymentTypeTrailingAnchor: Double = -16
-        static let paymentTypeBottomAnchor: Double = -12
-        static let paymentTypeWidthAnchor: Double = 195
+        static let paymentTypeTrailingAnchor: CGFloat = -16
+        static let paymentTypeBottomAnchor: CGFloat = -12
+        static let paymentTypeWidthAnchor: CGFloat = 195
     }
     
     override func setupCornerRadius() {

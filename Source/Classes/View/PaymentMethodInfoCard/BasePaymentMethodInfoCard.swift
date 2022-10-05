@@ -56,26 +56,26 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     enum Constants {
         static let gradientImage = UIImage(named: "Overlay", in: MLCardDrawerBundle.bundle(), compatibleWith: nil)
         
-        static let entityFontSize = 14.0
-        static let amountFontSize = 16.0
-        static let paymentTypeFontSize = 14.0
+        static let entityFontSize: CGFloat = 14.0
+        static let amountFontSize: CGFloat = 16.0
+        static let paymentTypeFontSize: CGFloat = 14.0
     }
     
     enum ConstraintValues {
-        static let entityLeadingAnchor: Double = 16
-        static let entityTopAnchor: Double = 16
-        static let entityTrailingAnchor: Double = -4
+        static let entityLeadingAnchor: CGFloat = 16
+        static let entityTopAnchor: CGFloat = 16
+        static let entityTrailingAnchor: CGFloat = -4
     
-        static let amountLeadingAnchor: Double = 4
-        static let amountTopAnchor: Double = 16
-        static let amountTrailingAnchor: Double = -16
+        static let amountLeadingAnchor: CGFloat = 4
+        static let amountTopAnchor: CGFloat = 16
+        static let amountTrailingAnchor: CGFloat = -16
         
-        static let panLeadingAnchor: Double = 16
-        static let panBottomAnchor: Double = -16
+        static let panLeadingAnchor: CGFloat = 16
+        static let panBottomAnchor: CGFloat = -16
         
-        static let paymentTypeTrailingAnchor: Double = -16
-        static let paymentTypeBottomAnchor: Double = -16
-        static let paymentTypeWidthAnchor: Double = 195
+        static let paymentTypeTrailingAnchor: CGFloat = -16
+        static let paymentTypeBottomAnchor: CGFloat = -16
+        static let paymentTypeWidthAnchor: CGFloat = 195
     }
     
     // MARK: - Main setup

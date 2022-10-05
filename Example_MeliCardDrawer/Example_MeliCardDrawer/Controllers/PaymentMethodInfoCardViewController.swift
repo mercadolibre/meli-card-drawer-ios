@@ -1,10 +1,6 @@
 import UIKit
 import MLCardDrawer
 
-
-
-
-
 class PaymentMethodInfoCardViewController: UIViewController {
     @IBOutlet var containerView: UIView!
     @IBOutlet var segmentedControl: UISegmentedControl!
