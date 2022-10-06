@@ -30,7 +30,6 @@ class PANView: UIView {
     var PANLabel: UILabel!
     var PANContainer: UIView!
     var cardUI: CardUI?
-    var customPAN: CustomPAN?
     
     public init() {
         super.init(frame: CGRect.zero)
@@ -48,7 +47,6 @@ class PANView: UIView {
     private func setupComponents() {
         setupLabel()
         setupContainer()
-        configureStackView()
     }
     
     private func setupLabel() {
@@ -73,42 +71,27 @@ class PANView: UIView {
     
     private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(PANLabel)
         stackView.axis = .horizontal
         stackView.spacing = 4.0
         stackView.distribution = .fill
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
     private lazy var PANIssuerContainer: UIImageView = {
         let container = UIImageView()
-        container.contentMode = .scaleAspectFit
         container.translatesAutoresizingMaskIntoConstraints = false
+        container.contentMode = .scaleAspectFit
         container.clipsToBounds = true
         container.sizeToFit()
         return container
     }()
-
-    private func configureStackView() {
-        
-        if let imageURL = customPAN?.issuerImage as? String, !imageURL.isEmpty {
-            containerStackView.insertArrangedSubview(PANIssuerContainer, at: 0)
-            PANIssuerContainer.isHidden = false
-        } else {
-            containerStackView.removeArrangedSubview(PANIssuerContainer)
-            PANIssuerContainer.removeFromSuperview()
-            PANIssuerContainer.isHidden = true
-        }
-    }
     
     private func setupConstraints() {
         
         self.addSubview(PANContainer)
         PANContainer.addSubview(containerStackView)
-        
-        PANLabel.translatesAutoresizingMaskIntoConstraints = false
-        PANContainer.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             
@@ -117,11 +100,11 @@ class PANView: UIView {
             PANContainer.rightAnchor.constraint(equalTo: self.rightAnchor),
             PANContainer.leftAnchor.constraint(equalTo: self.leftAnchor),
             
-            containerStackView.topAnchor.constraint(equalTo: PANContainer.topAnchor, constant: PANLabelUI.topPadding),
-            containerStackView.bottomAnchor.constraint(equalTo: PANContainer.bottomAnchor, constant: PANLabelUI.bottomPadding),
-            containerStackView.rightAnchor.constraint(equalTo: PANContainer.rightAnchor, constant: PANLabelUI.rightPadding),
-            containerStackView.leftAnchor.constraint(equalTo: PANContainer.leftAnchor, constant: PANLabelUI.leftPadding),
-            containerStackView.centerYAnchor.constraint(equalTo: PANContainer.centerYAnchor),
+            containerStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: PANLabelUI.topPadding),
+            containerStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: PANLabelUI.bottomPadding),
+            containerStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: PANLabelUI.rightPadding),
+            containerStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: PANLabelUI.leftPadding),
+            containerStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             containerStackView.heightAnchor.constraint(equalToConstant: IssuerContainerUI.containerHeight)
         ])
     }
@@ -178,12 +161,19 @@ extension PANView {
     
     private func setIssuerImage(_ issuerImage: String) {
         PANIssuerContainer.image = nil
-        if let imageURL = customPAN?.issuerImage as? String, !imageURL.isEmpty {
-            PANIssuerContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.setImage(remoteIssuerImage, inImageView: self.PANIssuerContainer)
+        if let panStyle = cardUI?.panStyle {
+            if let imageURL = panStyle?.issuerImage as? String, !imageURL.isEmpty {
+                PANIssuerContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.containerStackView.insertArrangedSubview(self.PANIssuerContainer, at: 0)
+                        self.PANIssuerContainer.isHidden = false
+                    }
                 }
+            } else {
+                containerStackView.removeArrangedSubview(PANIssuerContainer)
+                PANIssuerContainer.removeFromSuperview()
+                PANIssuerContainer.isHidden = true
             }
         }
     }
