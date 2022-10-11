@@ -139,6 +139,9 @@ extension PANView {
             
             if let issuerImage = panStyle?.issuerImage {
                 setIssuerImage(issuerImage)
+            } else {
+                PANIssuerContainer.isHidden = true
+                PANIssuerContainer.removeFromSuperview()
             }
         }
         
@@ -168,12 +171,13 @@ extension PANView {
                         guard let self = self else { return }
                         self.containerStackView.insertArrangedSubview(self.PANIssuerContainer, at: 0)
                         self.PANIssuerContainer.isHidden = false
+                        self.PANIssuerContainer.image = remoteIssuerImage
                     }
                 }
             } else {
-                containerStackView.removeArrangedSubview(PANIssuerContainer)
-                PANIssuerContainer.removeFromSuperview()
-                PANIssuerContainer.isHidden = true
+                containerStackView.insertArrangedSubview(self.PANIssuerContainer, at: 0)
+                PANIssuerContainer.isHidden = false
+                PANIssuerContainer.image = UIImage.placeholderImage(fromColor: .darkGray)
             }
         }
     }

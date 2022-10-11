@@ -73,4 +73,18 @@ internal extension UIImage {
         let scaledSize = CGSize(width: size.width * scale, height: size.height * scale)
         return UIImage.resize(image: image, targetSize: scaledSize)
     }
+    
+    class func placeholderImage(fromColor color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 10, height: 10)
+
+        let renderer = UIGraphicsImageRenderer(bounds: rect)
+
+        let img = renderer.image { ctx in
+            ctx.cgContext.setFillColor(color.cgColor)
+            ctx.cgContext.fill(rect)
+        }
+
+        return img
+    }
+
 }
