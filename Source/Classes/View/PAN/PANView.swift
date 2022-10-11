@@ -182,11 +182,6 @@ extension PANView {
         }
     }
     
-    private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
-        inImageView.image = UIImage.scale(image: tImage,
-                                          by: inImageView.bounds.size.height/tImage.size.height)
-    }
-    
     public func setDisabledStyle() {
         PANContainer.backgroundColor = PANContainerUI.containerDisabledColor
         PANLabel.textColor = PANLabelUI.labelDisabledTextColor
