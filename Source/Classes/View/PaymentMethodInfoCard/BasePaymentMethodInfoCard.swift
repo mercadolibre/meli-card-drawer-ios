@@ -75,7 +75,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
         
         static let paymentTypeTrailingAnchor: CGFloat = -16
         static let paymentTypeBottomAnchor: CGFloat = -16
-        static let paymentTypeWidthAnchor: CGFloat = 195
+        static let paymentTypeLeadingAnchor: CGFloat = 12
     }
     
     // MARK: - Main setup
@@ -215,7 +215,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
             
             paymentType.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.paymentTypeBottomAnchor),
             paymentType.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
-            paymentType.widthAnchor.constraint(equalToConstant: ConstraintValues.paymentTypeWidthAnchor)
+            paymentType.leadingAnchor.constraint(equalTo: pan.trailingAnchor, constant: ConstraintValues.paymentTypeLeadingAnchor)
         ])
     }
     
