@@ -21,33 +21,34 @@ class PANView: UIView {
         static let containerDisabledColor: UIColor = .fromHex("#A0A0A0")
     }
     
-    enum IssuerContainerUI {
+    enum PANIconContainerUI {
         static let leftPadding: CGFloat = 8.0
         static let rightPadding: CGFloat = -4.0
         static let containerHeight: CGFloat = 15.0
     }
     
-    var PANLabel: UILabel!
-    var PANContainer: UIView!
     var cardUI: CardUI?
+    private var PANLabel: UILabel!
+    private var PANContainer: UIView!
     
-    public init() {
-        super.init(frame: CGRect.zero)
-    }
+    private lazy var containerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(PANLabel)
+        stackView.axis = .horizontal
+        stackView.spacing = 4.0
+        stackView.distribution = .fill
+        return stackView
+    }()
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    public func render() {
-        setupComponents()
-        setupConstraints()
-    }
-    
-    private func setupComponents() {
-        setupLabel()
-        setupContainer()
-    }
+    private lazy var PANIconImageContainer: UIImageView = {
+        let container = UIImageView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.contentMode = .scaleAspectFit
+        container.clipsToBounds = true
+        container.sizeToFit()
+        return container
+    }()
     
     private func setupLabel() {
         PANLabel = UILabel()
@@ -69,24 +70,23 @@ class PANView: UIView {
         PANContainer.sizeToFit()
     }
     
-    private lazy var containerStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(PANLabel)
-        stackView.axis = .horizontal
-        stackView.spacing = 4.0
-        stackView.distribution = .fill
-        return stackView
-    }()
+    public init() {
+        super.init(frame: CGRect.zero)
+    }
     
-    private lazy var PANIssuerContainer: UIImageView = {
-        let container = UIImageView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.contentMode = .scaleAspectFit
-        container.clipsToBounds = true
-        container.sizeToFit()
-        return container
-    }()
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    public func render() {
+        setupComponents()
+        setupConstraints()
+    }
+    
+    private func setupComponents() {
+        setupLabel()
+        setupContainer()
+    }
     
     private func setupConstraints() {
         
@@ -105,7 +105,7 @@ class PANView: UIView {
             containerStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: PANLabelUI.rightPadding),
             containerStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: PANLabelUI.leftPadding),
             containerStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            containerStackView.heightAnchor.constraint(equalToConstant: IssuerContainerUI.containerHeight)
+            containerStackView.heightAnchor.constraint(equalToConstant: PANIconContainerUI.containerHeight)
         ])
     }
 }
@@ -137,11 +137,8 @@ extension PANView {
                 setWeight(weight)
             }
             
-            if let issuerImage = panStyle?.issuerImage {
+            if let issuerImage = panStyle?.panIconImage {
                 setIssuerImage(issuerImage)
-            } else {
-                PANIssuerContainer.isHidden = true
-                PANIssuerContainer.removeFromSuperview()
             }
         }
         
@@ -163,21 +160,16 @@ extension PANView {
     }
     
     private func setIssuerImage(_ issuerImage: String) {
-        PANIssuerContainer.image = nil
+        PANIconImageContainer.image = nil
         if let panStyle = cardUI?.panStyle {
-            if let imageURL = panStyle?.issuerImage as? String, !imageURL.isEmpty {
-                PANIssuerContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
+            if let imageURL = panStyle?.panIconImage, !imageURL.isEmpty {
+                PANIconImageContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
-                        self.containerStackView.insertArrangedSubview(self.PANIssuerContainer, at: 0)
-                        self.PANIssuerContainer.isHidden = false
-                        self.PANIssuerContainer.image = remoteIssuerImage
+                        self.containerStackView.insertArrangedSubview(self.PANIconImageContainer, at: 0)
+                        self.PANIconImageContainer.image = remoteIssuerImage
                     }
                 }
-            } else {
-                containerStackView.insertArrangedSubview(self.PANIssuerContainer, at: 0)
-                PANIssuerContainer.isHidden = false
-                PANIssuerContainer.image = UIImage.placeholderImage(fromColor: .darkGray)
             }
         }
     }
