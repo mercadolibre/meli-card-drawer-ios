@@ -96,6 +96,10 @@ extension PANView {
         
         if let panStyle = cardUI.panStyle {
             
+            if let message = panStyle?.message {
+                setMessage(message)
+            }
+            
             if let backgroundColor = panStyle?.backgroundColor {
                 setBackgroundColor(backgroundColor)
             }
@@ -112,6 +116,10 @@ extension PANView {
         if disabled {
             setDisabledStyle()
         }
+    }
+    
+    private func setMessage(_ message: String) {
+        PANLabel.text = message
     }
     
     private func setBackgroundColor(_ backgroundColor: String) {
