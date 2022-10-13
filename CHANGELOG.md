@@ -1,5 +1,7 @@
-## [Release (1.11.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.3)
-## Fix
+# MLCardDrawer CHANGELOG
+
+## [1.11.3](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.3) - 2022-10-13
+### Fixed
 - Remove the available balance label when this info is not sent
 
 ## [Release (1.11.2)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.2)
