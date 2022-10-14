@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8r3-dH-kNY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8r3-dH-kNY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -276,11 +276,12 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Knq-tu-I6i"/>
                         <segue destination="5wF-ml-7fj" kind="relationship" relationship="viewControllers" id="C89-Fj-sSC"/>
                         <segue destination="ch7-Cc-Srr" kind="relationship" relationship="viewControllers" id="ETz-s5-Jwo"/>
+                        <segue destination="ule-Dx-GXu" kind="relationship" relationship="viewControllers" id="c25-WY-Jol"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57g-Mq-LaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-401" y="124"/>
         </scene>
         <!--Generic-->
         <scene sceneID="zxf-FR-ZPL">
@@ -355,6 +356,60 @@
             </objects>
             <point key="canvasLocation" x="926" y="403"/>
         </scene>
+        <!--PaymentMethodInfoCardViewController-->
+        <scene sceneID="f4E-x6-IAB">
+            <objects>
+                <viewController title="PaymentMethodInfoCardViewController" id="ule-Dx-GXu" customClass="PaymentMethodInfoCardViewController" customModule="Example_MeliCardDrawer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jwj-Uk-EWk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="216" translatesAutoresizingMaskIntoConstraints="NO" id="if3-WI-Kdm">
+                                <rect key="frame" x="16" y="61" width="343" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="Nv7-Oa-Yoq"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meli Card Drawer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9A-r3-ytd">
+                                <rect key="frame" x="16" y="16" width="167" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.1095336294" green="0.1095336294" blue="0.1095336294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-ed-dky">
+                                <rect key="frame" x="78" y="306" width="223" height="32"/>
+                                <segments>
+                                    <segment title="Large"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Small"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bar-ta-xyF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b9A-r3-ytd" firstAttribute="leading" secondItem="Bar-ta-xyF" secondAttribute="leading" constant="16" id="69y-OW-ZPG"/>
+                            <constraint firstItem="b9A-r3-ytd" firstAttribute="top" secondItem="Bar-ta-xyF" secondAttribute="top" constant="16" id="8y1-Gb-YUw"/>
+                            <constraint firstItem="Bar-ta-xyF" firstAttribute="trailing" secondItem="if3-WI-Kdm" secondAttribute="trailing" constant="16" id="UB2-St-jwC"/>
+                            <constraint firstItem="Bar-ta-xyF" firstAttribute="trailing" secondItem="dKI-ed-dky" secondAttribute="trailing" constant="74" id="cwI-I9-Ar2"/>
+                            <constraint firstItem="dKI-ed-dky" firstAttribute="leading" secondItem="Bar-ta-xyF" secondAttribute="leading" constant="78" id="oBR-bH-heg"/>
+                            <constraint firstItem="if3-WI-Kdm" firstAttribute="top" secondItem="b9A-r3-ytd" secondAttribute="bottom" constant="21" id="wwx-8h-R7e"/>
+                            <constraint firstItem="dKI-ed-dky" firstAttribute="top" secondItem="if3-WI-Kdm" secondAttribute="bottom" constant="47" id="x2O-Zs-oHx"/>
+                            <constraint firstItem="if3-WI-Kdm" firstAttribute="leading" secondItem="Bar-ta-xyF" secondAttribute="leading" constant="16" id="xt5-EX-zwO"/>
+                            <constraint firstItem="dKI-ed-dky" firstAttribute="top" secondItem="if3-WI-Kdm" secondAttribute="bottom" constant="47" id="yky-Jf-0yi"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="PMInfo Card" image="creditcard.and.123" catalog="system" id="Mus-iR-YLo" userLabel="PaymentMethodInfoCard"/>
+                    <connections>
+                        <outlet property="containerView" destination="if3-WI-Kdm" id="k63-Px-uh2"/>
+                        <outlet property="containerViewHeightConstraint" destination="Nv7-Oa-Yoq" id="OPY-ys-bXn"/>
+                        <outlet property="segmentedControl" destination="dKI-ed-dky" id="zcn-IQ-l1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mN5-SJ-YVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-983.20000000000005" y="1051.1244377811095"/>
+        </scene>
         <!--Debin-->
         <scene sceneID="Mnd-Gv-XTD">
             <objects>
@@ -413,6 +468,7 @@
     </scenes>
     <resources>
         <image name="credit-card" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="creditcard.and.123" catalog="system" width="128" height="90"/>
         <image name="money" width="21.333333969116211" height="21.333333969116211"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
