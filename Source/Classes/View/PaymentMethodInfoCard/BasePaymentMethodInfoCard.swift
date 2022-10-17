@@ -31,7 +31,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     lazy var entity: UILabel = {
         entity = UILabel()
         entity.translatesAutoresizingMaskIntoConstraints = false
-       return entity
+        return entity
     }()
     
     lazy var amount: UILabel = {
@@ -65,7 +65,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
         static let entityLeadingAnchor: CGFloat = 16
         static let entityTopAnchor: CGFloat = 16
         static let entityTrailingAnchor: CGFloat = -4
-    
+        
         static let amountLeadingAnchor: CGFloat = 4
         static let amountTopAnchor: CGFloat = 16
         static let amountTrailingAnchor: CGFloat = -16
@@ -73,9 +73,9 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
         static let panLeadingAnchor: CGFloat = 16
         static let panBottomAnchor: CGFloat = -16
         
+        static let paymentTypeLeadingAnchor: CGFloat = 12
         static let paymentTypeTrailingAnchor: CGFloat = -16
         static let paymentTypeBottomAnchor: CGFloat = -16
-        static let paymentTypeLeadingAnchor: CGFloat = 12
     }
     
     // MARK: - Main setup
@@ -146,14 +146,16 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
         amount.textAlignment = paymentMethodInfoCardUI?.amount?.alignment ?? .right
         amount.backgroundColor = paymentMethodInfoCardUI?.amount?.backgroundColor ?? .clear
     }
-
+    
     func setupPAN() {
         pan.cardUI = paymentMethodInfoCardUI as? CardUI
         let number = paymentMethodInfoCardData?.number ?? ""
         let length = paymentMethodInfoCardUI?.cardPattern.reduce(0, +)
         
         if !pan.isRendered() { pan.render() }
-        if number.count == 0 { pan.isHidden = true } // Aca validar que este el icono
+        if number.count == 0 {
+            pan.PANLabel.text = nil
+        }
         if number.count == length,
            number.count >= 4 {
             pan.setNumber(String(number.suffix(4)), withPad: true)
@@ -178,13 +180,17 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     
     // MARK: - Constraints
     func setupConstraints() {
+        setupFixedConstraints()
+        setupPaymentTypeConstraintsIfNeeded()
+    }
+    
+    private func setupFixedConstraints() {
         self.addSubview(container)
         container.addSubview(gradient)
         container.addSubview(overlay)
         container.addSubview(entity)
         container.addSubview(amount)
         container.addSubview(pan)
-        container.addSubview(paymentType)
         
         NSLayoutConstraint.activate([
             container.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -211,12 +217,20 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
             amount.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
             
             pan.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: ConstraintValues.panLeadingAnchor),
-            pan.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.panBottomAnchor),
-            
-            paymentType.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.paymentTypeBottomAnchor),
-            paymentType.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
-            paymentType.leadingAnchor.constraint(equalTo: pan.trailingAnchor, constant: ConstraintValues.paymentTypeLeadingAnchor)
+            pan.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.panBottomAnchor)
         ])
+    }
+    
+    private func setupPaymentTypeConstraintsIfNeeded() {
+        if paymentType.text != nil {
+            container.addSubview(paymentType)
+            
+            NSLayoutConstraint.activate([
+                paymentType.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.paymentTypeBottomAnchor),
+                paymentType.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
+                paymentType.leadingAnchor.constraint(equalTo: pan.trailingAnchor, constant: ConstraintValues.paymentTypeLeadingAnchor)
+            ])
+        }
     }
     
     // MARK: - Protocol conformance

@@ -14,9 +14,9 @@ class MediumPaymentMethodInfoCard: BasePaymentMethodInfoCard {
         static let panLeadingAnchor: CGFloat = 16
         static let panBottomAnchor: CGFloat = -12
         
+        static let paymentTypeLeadingAnchor: CGFloat = 12
         static let paymentTypeTrailingAnchor: CGFloat = -16
         static let paymentTypeBottomAnchor: CGFloat = -12
-        static let paymentTypeLeadingAnchor: CGFloat = 12
     }
     
     override func setupCornerRadius() {
@@ -24,13 +24,16 @@ class MediumPaymentMethodInfoCard: BasePaymentMethodInfoCard {
     }
     
     override func setupConstraints() {
+        setupFixedConstraints()
+        setupPaymentTypeConstraintsIfNeeded()
+    }
+    private func setupFixedConstraints() {
         self.addSubview(container)
         container.addSubview(gradient)
         container.addSubview(overlay)
         container.addSubview(entity)
         container.addSubview(amount)
         container.addSubview(pan)
-        container.addSubview(paymentType)
 
         NSLayoutConstraint.activate([
             container.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -57,12 +60,20 @@ class MediumPaymentMethodInfoCard: BasePaymentMethodInfoCard {
             amount.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
             
             pan.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: ConstraintValues.panLeadingAnchor),
-            pan.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.panBottomAnchor),
-            
-            paymentType.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.paymentTypeBottomAnchor),
-            paymentType.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
-            paymentType.leadingAnchor.constraint(equalTo: pan.trailingAnchor, constant: ConstraintValues.paymentTypeLeadingAnchor)
+            pan.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.panBottomAnchor)
         ])
+    }
+    
+    private func setupPaymentTypeConstraintsIfNeeded() {
+        if paymentType.text != nil {
+            container.addSubview(paymentType)
+            
+            NSLayoutConstraint.activate([
+                paymentType.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: ConstraintValues.paymentTypeBottomAnchor),
+                paymentType.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: ConstraintValues.paymentTypeTrailingAnchor),
+                paymentType.leadingAnchor.constraint(equalTo: pan.trailingAnchor, constant: ConstraintValues.paymentTypeLeadingAnchor)
+            ])
+        }
     }
 }
 
