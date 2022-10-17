@@ -51,6 +51,8 @@ class PANView: UIView {
         PANLabel.text = PANLabelUI.labelPlaceHolder
         PANLabel.clipsToBounds = true
         PANLabel.sizeToFit()
+        PANLabel.setContentHuggingPriority(.required, for: .horizontal)
+        PANLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
     private func setupContainer() {
