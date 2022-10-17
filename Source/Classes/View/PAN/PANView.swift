@@ -184,6 +184,9 @@ extension PANView {
                         self.setImage(remoteIssuerImage, inImageView: self.PANIconImageContainer, scaleHeight: true)
                     }
                 }
+            } else {
+                PANIconImageContainer.isHidden = true
+                PANIconImageContainer.removeFromSuperview()
             }
         }
     }
