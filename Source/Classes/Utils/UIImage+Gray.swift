@@ -62,7 +62,7 @@ internal extension UIImage {
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         image.draw(in: rect)
-        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return newImage

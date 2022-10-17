@@ -1,6 +1,7 @@
 import UIKit
 
 class PANView: UIView {
+    
     // MARK: - Subviews
     
     private lazy var containerStackView: UIStackView = {
@@ -21,29 +22,10 @@ class PANView: UIView {
         return container
     }()
     
-    private func setupLabel() {
-        PANLabel = UILabel()
-        PANLabel.translatesAutoresizingMaskIntoConstraints = false
-        PANLabel.font = .proximaNovaSemibold(size: PANLabelUI.labelFontSize)
-        PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
-        PANLabel.textColor = PANLabelUI.labelTextColor
-        PANLabel.text = PANLabelUI.labelPlaceHolder
-        PANLabel.clipsToBounds = true
-        PANLabel.sizeToFit()
-    }
-    
-    private func setupContainer() {
-        PANContainer = UIView()
-        PANContainer.translatesAutoresizingMaskIntoConstraints = false
-        PANContainer.backgroundColor = PANContainerUI.containerBackgroundColor
-        PANContainer.layer.cornerRadius = PANContainerUI.containerCornerRadius
-        PANContainer.clipsToBounds = true
-        PANContainer.sizeToFit()
-    }
     // MARK: - Properties
     
     var cardUI: CardUI?
-    private var PANLabel: UILabel!
+    var PANLabel: UILabel!
     private var PANContainer: UIView!
     
     //MARK: - Enums
@@ -72,6 +54,7 @@ class PANView: UIView {
         static let rightPadding: CGFloat = -4.0
         static let containerHeight: CGFloat = 15.0
     }
+    
     //MARK: - Init
     
     public init() {
@@ -81,7 +64,28 @@ class PANView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     //MARK: - UI
+    
+    private func setupLabel() {
+        PANLabel = UILabel()
+        PANLabel.translatesAutoresizingMaskIntoConstraints = false
+        PANLabel.font = .proximaNovaSemibold(size: PANLabelUI.labelFontSize)
+        PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
+        PANLabel.textColor = PANLabelUI.labelTextColor
+        PANLabel.text = PANLabelUI.labelPlaceHolder
+        PANLabel.clipsToBounds = true
+        PANLabel.sizeToFit()
+    }
+    
+    private func setupContainer() {
+        PANContainer = UIView()
+        PANContainer.translatesAutoresizingMaskIntoConstraints = false
+        PANContainer.backgroundColor = PANContainerUI.containerBackgroundColor
+        PANContainer.layer.cornerRadius = PANContainerUI.containerCornerRadius
+        PANContainer.clipsToBounds = true
+        PANContainer.sizeToFit()
+    }
     
     public func render() {
         setupComponents()
@@ -149,6 +153,8 @@ extension PANView {
             
             if let issuerImageUrl = panStyle?.issuerImageUrl {
                 setIssuerImage(issuerImageUrl)
+            } else {
+                containerStackView.addArrangedSubview(PANLabel)
             }
         }
         
@@ -175,20 +181,30 @@ extension PANView {
     
     private func setIssuerImage(_ issuerImage: String) {
         PANIconImageContainer.image = nil
-        if let panStyle = cardUI?.panStyle {
-            if let imageURL = panStyle?.issuerImageUrl, !imageURL.isEmpty {
-                PANIconImageContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                        self.containerStackView.insertArrangedSubview(self.PANIconImageContainer, at: 0)
-                        self.setImage(remoteIssuerImage, inImageView: self.PANIconImageContainer, scaleHeight: true)
-                    }
+        containerStackView.addArrangedSubview(self.PANIconImageContainer)
+        let imageURL = getIssuerImageUrl()
+        
+        if !imageURL.isEmpty {
+            PANIconImageContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.containerStackView.addArrangedSubview(self.PANLabel)
+                    self.setImage(remoteIssuerImage, inImageView: self.PANIconImageContainer, scaleHeight: true)
                 }
-            } else {
-                PANIconImageContainer.isHidden = true
-                PANIconImageContainer.removeFromSuperview()
             }
+        } else {
+            containerStackView.addArrangedSubview(PANLabel)
+            PANIconImageContainer.isHidden = true
+            PANIconImageContainer.removeFromSuperview()
         }
+    }
+    
+    private func getIssuerImageUrl() -> String {
+        var issuerImageURL: String = ""
+        if let panStyle = cardUI?.panStyle {
+            issuerImageURL = panStyle?.issuerImageUrl ?? String()
+        }
+        return issuerImageURL
     }
     
     private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
