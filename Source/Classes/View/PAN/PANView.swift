@@ -5,7 +5,7 @@ class PANView: UIView {
     // MARK: - Subviews
     
     private lazy var containerStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [PANLabel])
+        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 4.0
@@ -137,6 +137,9 @@ extension PANView {
             
             if let message = panStyle?.message {
                 setMessage(message)
+            } else {
+                PANLabel.isHidden = true
+                PANLabel.removeFromSuperview()
             }
             
             if let backgroundColor = panStyle?.backgroundColor {
