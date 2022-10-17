@@ -1,40 +1,11 @@
 import UIKit
 
 class PANView: UIView {
-    
-    enum PANLabelUI {
-        static let labelPlaceHolder = "•••• ••••"
-        static let labelTextColor: UIColor = .white
-        static let labelBackgroundColor: UIColor = .clear
-        static let labelFontSize: CGFloat = 14.0
-        static let topPadding: CGFloat = 4.0
-        static let bottomPadding: CGFloat = -4.0
-        static let leftPadding: CGFloat = 8.0
-        static let rightPadding: CGFloat = -8.0
-        static let labelDisabledTextColor: UIColor = .fromHex("#F0F0F0")
-        static let labelLength = 8
-    }
-    
-    enum PANContainerUI {
-        static let containerBackgroundColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.55)
-        static let containerCornerRadius: CGFloat = 4.0
-        static let containerDisabledColor: UIColor = .fromHex("#A0A0A0")
-    }
-    
-    enum PANIconContainerUI {
-        static let leftPadding: CGFloat = 8.0
-        static let rightPadding: CGFloat = -4.0
-        static let containerHeight: CGFloat = 15.0
-    }
-    
-    var cardUI: CardUI?
-    private var PANLabel: UILabel!
-    private var PANContainer: UIView!
+    // MARK: - Subviews
     
     private lazy var containerStackView: UIStackView = {
-        let stackView = UIStackView()
+        let stackView = UIStackView(arrangedSubviews: [PANLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(PANLabel)
         stackView.axis = .horizontal
         stackView.spacing = 4.0
         stackView.distribution = .fill
@@ -69,6 +40,39 @@ class PANView: UIView {
         PANContainer.clipsToBounds = true
         PANContainer.sizeToFit()
     }
+    // MARK: - Properties
+    
+    var cardUI: CardUI?
+    private var PANLabel: UILabel!
+    private var PANContainer: UIView!
+    
+    //MARK: - Enums
+    
+    enum PANLabelUI {
+        static let labelPlaceHolder = "•••• ••••"
+        static let labelTextColor: UIColor = .white
+        static let labelBackgroundColor: UIColor = .clear
+        static let labelFontSize: CGFloat = 14.0
+        static let topPadding: CGFloat = 4.0
+        static let bottomPadding: CGFloat = -4.0
+        static let leftPadding: CGFloat = 8.0
+        static let rightPadding: CGFloat = -8.0
+        static let labelDisabledTextColor: UIColor = .fromHex("#F0F0F0")
+        static let labelLength = 8
+    }
+    
+    enum PANContainerUI {
+        static let containerBackgroundColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.55)
+        static let containerCornerRadius: CGFloat = 4.0
+        static let containerDisabledColor: UIColor = .fromHex("#A0A0A0")
+    }
+    
+    enum PANIconContainerUI {
+        static let leftPadding: CGFloat = 8.0
+        static let rightPadding: CGFloat = -4.0
+        static let containerHeight: CGFloat = 15.0
+    }
+    //MARK: - Init
     
     public init() {
         super.init(frame: CGRect.zero)
@@ -77,6 +81,7 @@ class PANView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    //MARK: - UI
     
     public func render() {
         setupComponents()
@@ -109,6 +114,7 @@ class PANView: UIView {
         ])
     }
 }
+    //MARK: - Extensions
 
 extension PANView {
     
@@ -141,8 +147,8 @@ extension PANView {
                 setWeight(weight)
             }
             
-            if let issuerImage = panStyle?.panIconImage {
-                setIssuerImage(issuerImage)
+            if let issuerImageUrl = panStyle?.issuerImageUrl {
+                setIssuerImage(issuerImageUrl)
             }
         }
         
@@ -170,24 +176,30 @@ extension PANView {
     private func setIssuerImage(_ issuerImage: String) {
         PANIconImageContainer.image = nil
         if let panStyle = cardUI?.panStyle {
-            if let imageURL = panStyle?.panIconImage, !imageURL.isEmpty {
+            if let imageURL = panStyle?.issuerImageUrl, !imageURL.isEmpty {
                 PANIconImageContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
                         self.containerStackView.insertArrangedSubview(self.PANIconImageContainer, at: 0)
-                        self.PANIconImageContainer.image = remoteIssuerImage
+                        self.setImage(remoteIssuerImage, inImageView: self.PANIconImageContainer, scaleHeight: true)
                     }
                 }
             }
         }
     }
     
+    private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
+        let aspectRatio = tImage.size.height/tImage.size.width
+        inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: (inImageView.bounds.size.height+max(-4,min(24*aspectRatio-15,0)))/tImage.size.height) : tImage
+    }
+
+    
     public func setDisabledStyle() {
         PANContainer.backgroundColor = PANContainerUI.containerDisabledColor
         PANLabel.textColor = PANLabelUI.labelDisabledTextColor
     }
     
-    //MARK: Observer
+    //MARK: - Observer
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,

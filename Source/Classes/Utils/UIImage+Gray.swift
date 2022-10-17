@@ -45,7 +45,7 @@ internal extension UIImage {
         return nil
     }
     
-    class func resize(image: UIImage, targetSize: CGSize) -> UIImage {
+    class func resize(image: UIImage, targetSize: CGSize) -> UIImage? {
         let size = image.size
         
         let widthRatio  = targetSize.width  / image.size.width
@@ -62,10 +62,10 @@ internal extension UIImage {
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
         UIGraphicsEndImageContext()
         
-        return newImage!
+        return newImage
     }
     
     class func scale(image: UIImage, by scale: CGFloat) -> UIImage? {

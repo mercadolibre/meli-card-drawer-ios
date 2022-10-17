@@ -41,19 +41,19 @@ import UIKit
     public var backgroundColor: String?
     public var textColor: String?
     public var weight: String?
-    public var panIconImage: String?
+    public var issuerImageUrl: String?
     
     public init(
         message: String?,
         backgroundColor: String?,
         textColor: String?,
         weight: String?,
-        panIconImage: String?
+        issuerImageUrl: String?
     ) {
         self.message = message
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.weight = weight
-        self.panIconImage = panIconImage
+        self.issuerImageUrl = issuerImageUrl
     }
 }
