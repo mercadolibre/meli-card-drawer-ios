@@ -5,7 +5,7 @@ class PANView: UIView {
     // MARK: - Subviews
     
     private lazy var containerStackView: UIStackView = {
-        let stackView = UIStackView()
+        let stackView = UIStackView(arrangedSubviews: [PANIconImageContainer,PANLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 4.0
@@ -16,9 +16,11 @@ class PANView: UIView {
     private lazy var PANIconImageContainer: UIImageView = {
         let container = UIImageView()
         container.translatesAutoresizingMaskIntoConstraints = false
+        container.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
         container.contentMode = .scaleAspectFit
         container.clipsToBounds = true
         container.sizeToFit()
+        container.isHidden = true
         return container
     }()
     
@@ -70,6 +72,7 @@ class PANView: UIView {
     private func setupLabel() {
         PANLabel = UILabel()
         PANLabel.translatesAutoresizingMaskIntoConstraints = false
+        PANLabel.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
         PANLabel.font = .proximaNovaSemibold(size: PANLabelUI.labelFontSize)
         PANLabel.backgroundColor = PANLabelUI.labelBackgroundColor
         PANLabel.textColor = PANLabelUI.labelTextColor
@@ -80,6 +83,7 @@ class PANView: UIView {
     
     private func setupContainer() {
         PANContainer = UIView()
+        PANContainer.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
         PANContainer.translatesAutoresizingMaskIntoConstraints = false
         PANContainer.backgroundColor = PANContainerUI.containerBackgroundColor
         PANContainer.layer.cornerRadius = PANContainerUI.containerCornerRadius
@@ -139,7 +143,7 @@ extension PANView {
                 setMessage(message)
             } else {
                 PANLabel.isHidden = true
-                PANLabel.removeFromSuperview()
+                PANIconImageContainer.isHidden = false
             }
             
             if let backgroundColor = panStyle?.backgroundColor {
@@ -156,8 +160,6 @@ extension PANView {
             
             if let issuerImageUrl = panStyle?.issuerImageUrl {
                 setIssuerImage(issuerImageUrl)
-            } else {
-                containerStackView.addArrangedSubview(PANLabel)
             }
         }
         
@@ -184,21 +186,16 @@ extension PANView {
     
     private func setIssuerImage(_ issuerImage: String) {
         PANIconImageContainer.image = nil
-        containerStackView.addArrangedSubview(self.PANIconImageContainer)
-        let imageURL = getIssuerImageUrl()
         
+        let imageURL = getIssuerImageUrl()
         if !imageURL.isEmpty {
             PANIconImageContainer.getRemoteImage(imageUrl: imageURL) { remoteIssuerImage in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.containerStackView.addArrangedSubview(self.PANLabel)
-                    self.setImage(remoteIssuerImage, inImageView: self.PANIconImageContainer, scaleHeight: true)
+                    self.setImage(remoteIssuerImage, inImageView: self.PANIconImageContainer)
+                    self.PANIconImageContainer.isHidden = false
                 }
             }
-        } else {
-            containerStackView.addArrangedSubview(PANLabel)
-            PANIconImageContainer.isHidden = true
-            PANIconImageContainer.removeFromSuperview()
         }
     }
     
@@ -210,11 +207,11 @@ extension PANView {
         return issuerImageURL
     }
     
-    private func setImage(_ tImage: UIImage, inImageView: UIImageView, scaleHeight: Bool = false) {
-        let aspectRatio = tImage.size.height/tImage.size.width
-        inImageView.image = scaleHeight ? UIImage.scale(image: tImage, by: (inImageView.bounds.size.height+max(-4,min(24*aspectRatio-15,0)))/tImage.size.height) : tImage
+    private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
+        inImageView.image = UIImage.scale(image: tImage,
+                                          by: inImageView.bounds.size.height/tImage.size.height)
     }
-
+    
     
     public func setDisabledStyle() {
         PANContainer.backgroundColor = PANContainerUI.containerDisabledColor
