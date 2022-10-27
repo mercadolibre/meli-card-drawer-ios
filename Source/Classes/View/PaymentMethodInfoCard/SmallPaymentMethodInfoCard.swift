@@ -32,11 +32,8 @@ class SmallPaymentMethodInfoCard: BasePaymentMethodInfoCard {
     }
     
     override func setupConstraints() {
-//        pan.setContentHuggingPriority(.required, for: .horizontal)
-//        pan.setContentHuggingPriority(.required, for: .vertical)
         setFixedConstraints()
         setEntityConstraintsIfNeeded()
-//        setAmountAndPaymentTypeConstraints()
         setAmountConstraints()
         setPaymentTypeConstraintsIfNeeded()
         
