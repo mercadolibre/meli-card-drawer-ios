@@ -4,7 +4,7 @@ import Foundation
     @objc optional var entity: CustomText { get }
     @objc optional var amount: CustomText { get }
     @objc optional var paymentType: CustomText { get }
-    @objc optional var gradient: CAGradientLayer { get }
+    @objc optional var gradient: CAGradientLayer? { get }
     @objc optional var overlay: UIImage? { get }
 }
 

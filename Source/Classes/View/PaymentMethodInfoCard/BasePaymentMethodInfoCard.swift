@@ -108,7 +108,8 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     }
     
     func setupGradient() {
-        if let customGradient = paymentMethodInfoCardUI?.gradient {
+        if let layer = paymentMethodInfoCardUI?.gradient,
+           let customGradient = layer {
             customGradient.frame = bounds
             gradient.layer.addSublayer(customGradient)
         } else {
