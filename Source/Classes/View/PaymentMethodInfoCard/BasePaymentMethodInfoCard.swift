@@ -127,8 +127,9 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     func setupOverlay() {
         overlay.backgroundColor = .clear
         overlay.contentMode = .scaleToFill
-        if let customOverlay = paymentMethodInfoCardUI?.overlay {
-            overlay.image = customOverlay }
+        if let customOverlay = paymentMethodInfoCardUI?.overlay,
+           let layer = customOverlay {
+            overlay.image = layer }
         else { overlay.image = Constants.gradientImage }
     }
     
