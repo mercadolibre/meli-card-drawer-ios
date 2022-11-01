@@ -1,3 +1,4 @@
+## [Release (1.11.4)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.4)
 ## Fix
 - Fixed tag bottom corner radius
 
