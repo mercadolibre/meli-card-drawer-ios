@@ -240,3 +240,15 @@ extension MLCardDrawerController{
         frontView.addCardBalance(model, showBalance, delegate)
     }
 }
+
+extension MLCardDrawerController {
+    public func setTagBottom(enabled: Bool) {
+        if enabled {
+            self.addingTagBottom()
+        }
+    }
+    
+    private func addingTagBottom(){
+        frontView.addTagBottom()
+    }
+}

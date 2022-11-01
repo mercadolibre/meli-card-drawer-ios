@@ -17,6 +17,7 @@ final class CardViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var safeAreaSwitch: UISwitch!
+    @IBOutlet weak var didToggleTagButtom: UISwitch!
     
     var type: MLCardDrawerType = .large
     
@@ -222,7 +223,7 @@ extension CardViewController {
                                       pillBackgroundColor: "#ffffff",
                                       safeZoneBackgroundColor: "#26000000",
                                       options: switchOptions,
-                                      switchBorderColor: "#FFFFFF")
+                                      switchBorderColor: "#FFFFFF", selectorBackgroundColor: "#FFFFFF")
         
         let customView = ComboSwitchView()
         
@@ -233,5 +234,13 @@ extension CardViewController {
         }
         
         return customView
+    }
+}
+
+extension CardViewController {
+    @IBAction func didToggleTagButtom(_ sender: UISwitch){
+        if sender.isOn {
+            cardDrawer?.setTagBottom(enabled: sender.isOn)
+        }
     }
 }

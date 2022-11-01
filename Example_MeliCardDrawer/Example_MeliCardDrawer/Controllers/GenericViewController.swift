@@ -72,5 +72,4 @@ class GenericViewController: UIViewController {
             cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
     }
-
 }

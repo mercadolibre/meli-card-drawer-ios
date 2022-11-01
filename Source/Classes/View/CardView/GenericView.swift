@@ -17,6 +17,9 @@ public class GenericView: UIView, BasicCard  {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var highlightContainerView: UIView!
+    @IBOutlet weak var highlightTagBottomView: UIView!
+    @IBOutlet weak var highlightTagBottonLabel: UILabel!
+    
     
     private var model: GenericCardUI?
     private var isDisabled: Bool = false
@@ -37,6 +40,7 @@ public class GenericView: UIView, BasicCard  {
         static let imageContainerBorderWith: CGFloat = 2
     }
     
+
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String?) {
         self.frame = frame
         self.isDisabled = isDisabled
@@ -195,4 +199,10 @@ public class GenericView: UIView, BasicCard  {
     }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
+    
+    func isTagBottomEnabled() -> Bool {
+         false
+        }
+
+    func addTagBottom() {}
 }

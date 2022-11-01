@@ -8,6 +8,7 @@
 import UIKit
 
 public class MediumGenericView: UIView, BasicCard {
+
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -16,6 +17,8 @@ public class MediumGenericView: UIView, BasicCard {
     @IBOutlet weak var highlightLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var highlightContainerView: UIView!
+    @IBOutlet weak var highlightTagBottomView: UIView!
+    @IBOutlet weak var highlightTagBottonLabel: UILabel!
     
     private var model: GenericCardUI?
     private var isDisabled: Bool = false
@@ -66,6 +69,7 @@ public class MediumGenericView: UIView, BasicCard {
             setHighlightLabel()
             setHighlightContainerView()
             setPaymentMethodImage()
+            
         }
         
         layer.masksToBounds = true
@@ -198,4 +202,10 @@ public class MediumGenericView: UIView, BasicCard {
     }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
+    
+    func isTagBottomEnabled() -> Bool {
+        return false
+    }
+    
+    func addTagBottom() {}
 }

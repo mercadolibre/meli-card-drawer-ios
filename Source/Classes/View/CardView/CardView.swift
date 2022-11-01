@@ -7,8 +7,12 @@ public class CardView: UIView, BasicCard {
     @IBOutlet weak var gradient: UIView!
     @IBOutlet weak var securityCode: CardLabel!
     @IBOutlet weak var overlayImage: UIImageView!
+    @IBOutlet weak var highlightTagBottomView: UIView!
+    @IBOutlet weak var highlightTagBottonLabel: UILabel!
     
     private var shineView: ShineView?
+    private var tagBottom: TagBottomView?
+    
     var cardBackground: UIColor = .clear
     var customLabelFontName: String?
     let disabledGray: UIColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
@@ -32,6 +36,10 @@ public class CardView: UIView, BasicCard {
         
         if isShineEnabled() {
             addShineView()
+        }
+        
+        if isTagBottomEnabled() {
+            addTagBottom()
         }
     }
 
@@ -84,10 +92,22 @@ public class CardView: UIView, BasicCard {
     }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
+    
+    func isTagBottomEnabled() -> Bool {
+        disabledMode
+    }
+    
+    func addTagBottom() {
+        if let tagBottom = tagBottom {
+            tagBottom.color = cardBackground
+            tagBottom.addTagBottom()
+        } else {
+            tagBottom?.addTagBottom()
+        }
+    }
 }
 
 // MARK: Card View Effects
-
 extension CardView {
     func removeGradient() {
         guard let sublayers = gradient.layer.sublayers else { return }
