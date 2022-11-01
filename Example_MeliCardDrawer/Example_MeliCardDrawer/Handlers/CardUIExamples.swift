@@ -307,6 +307,13 @@ struct CardUIExamples {
             alignment: nil
         )
         
+        var panStyle: CustomPAN? = CustomPAN(
+            message: nil,
+            issuerLogoUrl: "https://mobile.mercadolibre.com/remote_resources/image/card_drawer_mla_pm_master_white?density/dxxxhdpi/locale/es_AR",
+            backgroundColor: nil,
+            textColor: nil,
+            weight: nil)
+        
         var placeholderName = ""
         var placeholderExpiration = ""
         var cardPattern = [4, 4, 4, 4]
@@ -325,6 +332,13 @@ struct CardUIExamples {
             weight: nil,
             alignment: nil
         )
+        
+        var panStyle: CustomPAN? = CustomPAN(
+            message: nil,
+            issuerLogoUrl: "https://mobile.mercadolibre.com/remote_resources/image/card_drawer_pm_AM?density/dxxxhdpi/locale/es_AR/version/d1",
+            backgroundColor: nil,
+            textColor: nil,
+            weight: nil)
         
         var amount: CustomText = CustomText(
             message: "$40",

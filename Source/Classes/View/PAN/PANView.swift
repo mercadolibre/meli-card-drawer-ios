@@ -9,10 +9,20 @@ class PANView: UIView {
         static let labelFontSize: CGFloat = 14.0
         static let topPadding: CGFloat = 4.0
         static let bottomPadding: CGFloat = -4.0
-        static let leftPadding: CGFloat = 8.0
-        static let rightPadding: CGFloat = -8.0
+        static let leadingPadding: CGFloat = 8.0
+        static let trailingPadding: CGFloat = -8.0
         static let labelDisabledTextColor: UIColor = .fromHex("#F0F0F0")
         static let labelLength = 8
+        static let labelConstraintPriority: Float = 998
+    }
+    
+    enum PANIssuerLogoContainerUI {
+        static let issuerContainerHeight = 15.0
+        static let topPadding: CGFloat = 4.0
+        static let bottomPadding: CGFloat = -4.0
+        static let leadingPadding: CGFloat = 8.0
+        static let trailingPadding: CGFloat = -8.0
+        static let trailingPaddingWithLabel: CGFloat = -4.0
     }
     
     enum PANContainerUI {
@@ -23,8 +33,19 @@ class PANView: UIView {
     
     var PANLabel: UILabel!
     var PANContainer: UIView!
-    var cardUI: CardUI?
+    var PANIssuerLogoContainer: UIImageView = {
+        let container = UIImageView()
+        container.contentMode = .scaleAspectFit
+        container.clipsToBounds = true
+        container.sizeToFit()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.setContentHuggingPriority(.required, for: .horizontal)
+        container.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return container
+    }()
 
+    var cardUI: CardUI?
+    
     public init() {
         super.init(frame: CGRect.zero)
     }
@@ -51,6 +72,7 @@ class PANView: UIView {
         PANLabel.text = PANLabelUI.labelPlaceHolder
         PANLabel.clipsToBounds = true
         PANLabel.sizeToFit()
+        PANLabel.translatesAutoresizingMaskIntoConstraints = false
         PANLabel.setContentHuggingPriority(.required, for: .horizontal)
         PANLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
@@ -61,24 +83,28 @@ class PANView: UIView {
         PANContainer.layer.cornerRadius = PANContainerUI.containerCornerRadius
         PANContainer.clipsToBounds = true
         PANContainer.sizeToFit()
+        PANContainer.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstraints() {
         self.addSubview(PANContainer)
         PANContainer.addSubview(PANLabel)
+                
+        let labelTrailingAnchorConstraint = PANLabel.trailingAnchor.constraint(equalTo: PANContainer.trailingAnchor, constant: PANLabelUI.trailingPadding)
+        labelTrailingAnchorConstraint.priority = UILayoutPriority(PANLabelUI.labelConstraintPriority)
         
-        PANLabel.translatesAutoresizingMaskIntoConstraints = false
-        PANContainer.translatesAutoresizingMaskIntoConstraints = false
+        let labelLeadingAnchorConstraint = PANLabel.leadingAnchor.constraint(equalTo: PANContainer.leadingAnchor, constant: PANLabelUI.leadingPadding)
+        labelLeadingAnchorConstraint.priority = UILayoutPriority(PANLabelUI.labelConstraintPriority)
         
         NSLayoutConstraint.activate([
             PANContainer.topAnchor.constraint(equalTo: self.topAnchor),
             PANContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            PANContainer.rightAnchor.constraint(equalTo: self.rightAnchor),
-            PANContainer.leftAnchor.constraint(equalTo: self.leftAnchor),
+            PANContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            PANContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             PANLabel.topAnchor.constraint(equalTo: PANContainer.topAnchor, constant: PANLabelUI.topPadding),
             PANLabel.bottomAnchor.constraint(equalTo: PANContainer.bottomAnchor, constant: PANLabelUI.bottomPadding),
-            PANLabel.rightAnchor.constraint(equalTo: PANContainer.rightAnchor, constant: PANLabelUI.rightPadding),
-            PANLabel.leftAnchor.constraint(equalTo: PANContainer.leftAnchor, constant: PANLabelUI.leftPadding)
+            labelTrailingAnchorConstraint,
+            labelLeadingAnchorConstraint
         ])
     }
 }
@@ -102,6 +128,10 @@ extension PANView {
                 setMessage(message)
             }
             
+            if let issuerLogoUrl = panStyle?.issuerLogoUrl {
+                setIssuerLogo(issuerLogoUrl)
+            }
+            
             if let backgroundColor = panStyle?.backgroundColor {
                 setBackgroundColor(backgroundColor)
             }
@@ -122,6 +152,39 @@ extension PANView {
     
     private func setMessage(_ message: String) {
         PANLabel.text = message
+    }
+    
+    private func setIssuerLogo(_ url: String) {
+        PANIssuerLogoContainer.image = nil
+        PANIssuerLogoContainer.frame = CGRect(x: 0, y: 0, width: 0, height: PANIssuerLogoContainerUI.issuerContainerHeight)
+            UIImageView().getRemoteImage(imageUrl: url) {  issuerLogoImage in
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.setImage(issuerLogoImage, inImageView: self.PANIssuerLogoContainer)
+                    self.setIssuerLogoConstraints()
+                }
+            }
+        }
+
+    private func setImage(_ tImage: UIImage, inImageView: UIImageView) {
+        inImageView.image = UIImage.scale(image: tImage, by: inImageView.bounds.size.height/tImage.size.height)
+    }
+    
+    private func setIssuerLogoConstraints() {
+        PANContainer.addSubview(PANIssuerLogoContainer)
+        
+        NSLayoutConstraint.activate([
+            PANIssuerLogoContainer.topAnchor.constraint(equalTo: PANContainer.topAnchor, constant: PANIssuerLogoContainerUI.topPadding),
+            PANIssuerLogoContainer.bottomAnchor.constraint(equalTo: PANContainer.bottomAnchor, constant: PANIssuerLogoContainerUI.bottomPadding),
+            PANIssuerLogoContainer.leadingAnchor.constraint(equalTo: PANContainer.leadingAnchor, constant: PANIssuerLogoContainerUI.leadingPadding)
+        ])
+        
+        let issuerLogoContainerTrailingAnchor = PANIssuerLogoContainer.trailingAnchor.constraint(equalTo: PANContainer.trailingAnchor, constant: PANIssuerLogoContainerUI.trailingPadding)
+        let issuerLogoContainerTrailingAnchorWithLabel = PANIssuerLogoContainer.trailingAnchor.constraint(equalTo: PANLabel.leadingAnchor, constant: PANIssuerLogoContainerUI.trailingPaddingWithLabel)
+        
+        if PANLabel.text != nil {
+            issuerLogoContainerTrailingAnchorWithLabel.isActive = true
+        } else { issuerLogoContainerTrailingAnchor.isActive = true }
     }
     
     private func setBackgroundColor(_ backgroundColor: String) {
