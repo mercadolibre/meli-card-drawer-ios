@@ -21,4 +21,21 @@ import Foundation
         }
     }
     
+    public init?(string: String) {
+        switch string {
+        case "mini":
+            self.init(rawValue: MLCardDrawerTypeV3.mini.rawValue)
+        case "xSmall":
+            self.init(rawValue: MLCardDrawerTypeV3.xSmall.rawValue)
+        case "small":
+            self.init(rawValue: MLCardDrawerTypeV3.small.rawValue)
+        case "medium":
+            self.init(rawValue: MLCardDrawerTypeV3.medium.rawValue)
+        case "large":
+            self.init(rawValue: MLCardDrawerTypeV3.large.rawValue)
+        default:
+            self.init(rawValue: MLCardDrawerTypeV3.large.rawValue)
+        }
+    }
+    
 }
