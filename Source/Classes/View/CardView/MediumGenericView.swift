@@ -69,6 +69,7 @@ public class MediumGenericView: UIView, BasicCard {
             setHighlightLabel()
             setHighlightContainerView()
             setPaymentMethodImage()
+            isTagBottomEnabled(true)
             
         }
         
@@ -203,9 +204,33 @@ public class MediumGenericView: UIView, BasicCard {
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
-    func isTagBottomEnabled() -> Bool {
-        return false
+    func isTagBottomEnabled(_ isEnabled: Bool){
+        var tagBottom: Text? = Text(message: "Beneficios", textColor: "#ffffff", weight: "semi_bold")
+        addTagBottom(containerView: self, isDisabled: false, cardType: .small, tagBottom: tagBottom)
     }
     
-    func addTagBottom() {}
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?) {
+        if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
+            if let tagBottom = tagBottom {
+                let bottomPadding = cardType.rawValue > MLCardDrawerTypeV3.small.rawValue ? 16.0 : 24.0
+                let tagBottomLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
+                let tagBottomContainer = UIView()
+                containerView.addSubview(tagBottomContainer)
+               
+                tagBottomContainer.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+
+                tagBottomLabel.translatesAutoresizingMaskIntoConstraints = false
+                tagBottomContainer.addSubview(tagBottomLabel)
+                
+                tagBottomContainer.preencherTagBottom(top: topAnchor,
+                                                      leading: leadingAnchor,
+                                                      trailing: trailingAnchor,
+                                                      bottom: bottomAnchor,
+                                                      padding:.init(top: 60, left: 298, bottom: 0, right: 0),
+                                                      size: CGSize(width: 300, height: 10))
+            
+                tagBottomLabel.center = center
+            }
+        }
+    }
 }

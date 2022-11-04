@@ -27,6 +27,6 @@ protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol
     func removeGradient()
     func addGradient()
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate)
-    func isTagBottomEnabled() -> Bool
-    func addTagBottom()
+    func isTagBottomEnabled(_ isEnabled: Bool)
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?)
 }

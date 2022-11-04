@@ -11,7 +11,6 @@ public class CardView: UIView, BasicCard {
     @IBOutlet weak var highlightTagBottonLabel: UILabel!
     
     private var shineView: ShineView?
-    private var tagBottom: TagBottomView?
     
     var cardBackground: UIColor = .clear
     var customLabelFontName: String?
@@ -36,10 +35,6 @@ public class CardView: UIView, BasicCard {
         
         if isShineEnabled() {
             addShineView()
-        }
-        
-        if isTagBottomEnabled() {
-            addTagBottom()
         }
     }
 
@@ -93,16 +88,34 @@ public class CardView: UIView, BasicCard {
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
-    func isTagBottomEnabled() -> Bool {
-        disabledMode
+    func isTagBottomEnabled(_ isEnabled: Bool){
+        if isEnabled {
+            var tagBottom: Text? = Text(message: "Saldo em conta bancaria", textColor: "#ffffff", weight: "semi_bold")
+            addTagBottom(containerView: self, isDisabled: false, cardType: .small, tagBottom: tagBottom)
+        }
     }
     
-    func addTagBottom() {
-        if let tagBottom = tagBottom {
-            tagBottom.color = cardBackground
-            tagBottom.addTagBottom()
-        } else {
-            tagBottom?.addTagBottom()
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?) {
+        if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
+            if let tagBottom = tagBottom {
+                let bottomPadding = cardType.rawValue > MLCardDrawerTypeV3.small.rawValue ? 16.0 : 24.0
+                let tagBottomLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
+                let tagBottomContainer = UIView()
+                containerView.addSubview(tagBottomContainer)
+               
+                tagBottomContainer.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+
+                tagBottomLabel.translatesAutoresizingMaskIntoConstraints = false
+                tagBottomContainer.addSubview(tagBottomLabel)
+                
+                tagBottomContainer.preencherTagBottom(top: nil,
+                                                      leading: nil,
+                                                      trailing: self.trailingAnchor,
+                                                      bottom: self.bottomAnchor,
+                                                      padding:.init(top: 0, left: 0, bottom: 30, right: 85),
+                                                      size: CGSize(width: 300, height: 10))
+                tagBottomLabel.center = center
+            }
         }
     }
 }
@@ -187,3 +200,15 @@ extension CardView: CardViewInteractProtocol {
     func setupAnimated(_ cardUI: CardUI) {}
     public func showSecurityCode() {}
 }
+
+extension CardView {
+    static public func createTagBottom(_ text: Text, disablemode: Bool) -> UILabel {
+        let tagBottomLabel = TagBottom()
+        tagBottomLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        tagBottomLabel.text =  text.message?.uppercased()
+        tagBottomLabel.textColor = disablemode ? UIColor(red: 132/255.0, green:132/255.0, blue: 132/255.0, alpha: 1.0) : UIColor.white
+        tagBottomLabel.backgroundColor = disablemode ? UIColor.white : UIColor(red: 93/255.0, green:164/255.0, blue: 85/255.0, alpha: 1.0)
+        return tagBottomLabel
+    }
+}
+ 

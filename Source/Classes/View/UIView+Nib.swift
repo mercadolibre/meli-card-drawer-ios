@@ -16,8 +16,6 @@ extension UIView {
     public func roundCorners(cornerRadiuns: CGFloat, typeCorners: CACornerMask) {
         self.layer.cornerRadius = cornerRadiuns
         self.layer.maskedCorners = typeCorners
-        self.layer.masksToBounds = true
-        self.clipsToBounds = true
     }
 }
 
@@ -32,6 +30,7 @@ extension CACornerMask {
 
 extension UIView {
     public func preencherTagBottom(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, trailing: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
+        
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
@@ -47,7 +46,7 @@ extension UIView {
         }
         
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: padding.bottom).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
         }
         
         if size.width != 0 {
