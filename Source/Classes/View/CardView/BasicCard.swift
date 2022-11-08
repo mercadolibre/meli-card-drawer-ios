@@ -18,7 +18,12 @@ import Foundation
     @objc optional func showSecurityCode()
 }
 
-protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol {
+protocol AddTagBottomProtocol {
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool)
+}
+
+
+protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol, AddTagBottomProtocol {
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?)
     func setupUI(_ cardUI: CardUI)
     func isShineEnabled() -> Bool
@@ -28,5 +33,4 @@ protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol
     func addGradient()
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate)
     func isTagBottomEnabled(_ isEnabled: Bool)
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool)
 }
