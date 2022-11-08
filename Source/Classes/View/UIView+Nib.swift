@@ -42,7 +42,7 @@ extension UIView {
         }
         
         if let trailing = trailing {
-            trailingAnchor.constraint(equalTo: trailing, constant: padding.right).isActive = true
+            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
         }
         
         if let bottom = bottom {

@@ -69,4 +69,14 @@ class CardHeaderControllerTest: XCTestCase {
 
         XCTAssertTrue(cardController.frontView.isDescendant(of: cardController.view))
     }
+    
+    func testAddTagBottom() {
+        let tagBottom: Text? = Text(message: "saldo em conta", textColor: "#F0F0F0", weight: "semi_bold")
+        let cardUI = CardUIMock()
+        let model = CardDataMock()
+        cardUI.securityCodeLocation = .back
+        let cardController = MLCardDrawerController(cardUI, model)
+        cardController.frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: .large, tagBottom: tagBottom)
+        XCTAssertTrue(true)
+    }
 }

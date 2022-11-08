@@ -22,6 +22,7 @@ public class MediumGenericView: UIView, BasicCard {
     
     private var model: GenericCardUI?
     private var isDisabled: Bool = false
+    private var isTagBottomEnabled: Bool = false
     
     private struct FontSizes {
         static let title: CGFloat = 14
@@ -70,7 +71,6 @@ public class MediumGenericView: UIView, BasicCard {
             setHighlightContainerView()
             setPaymentMethodImage()
             isTagBottomEnabled(true)
-            
         }
         
         layer.masksToBounds = true
@@ -205,31 +205,34 @@ public class MediumGenericView: UIView, BasicCard {
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
     func isTagBottomEnabled(_ isEnabled: Bool){
-        var tagBottom: Text? = Text(message: "Beneficios", textColor: "#ffffff", weight: "semi_bold")
-        addTagBottom(containerView: self, isDisabled: false, cardType: .small, tagBottom: tagBottom)
+        var tagBottom: Text? = Text(message: "saldo em conta", textColor: "", weight: "semi_bold")
+        addTagBottom(containerView: self, isDisabled: false, cardType: .small, tagBottom: tagBottom, toggleTagBottom: true)
     }
     
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?) {
-        if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
-            if let tagBottom = tagBottom {
-                let bottomPadding = cardType.rawValue > MLCardDrawerTypeV3.small.rawValue ? 16.0 : 24.0
-                let tagBottomLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
-                let tagBottomContainer = UIView()
-                containerView.addSubview(tagBottomContainer)
-               
-                tagBottomContainer.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = true) {
+        if toggleTagBottom {
+            if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
+                if let tagBottom = tagBottom{
+                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
 
-                tagBottomLabel.translatesAutoresizingMaskIntoConstraints = false
-                tagBottomContainer.addSubview(tagBottomLabel)
-                
-                tagBottomContainer.preencherTagBottom(top: topAnchor,
-                                                      leading: leadingAnchor,
-                                                      trailing: trailingAnchor,
-                                                      bottom: bottomAnchor,
-                                                      padding:.init(top: 60, left: 298, bottom: 0, right: 0),
-                                                      size: CGSize(width: 300, height: 10))
-            
-                tagBottomLabel.center = center
+                    highlightTagBottomView.backgroundColor = isHighlightTagBottonLabel.backgroundColor
+                    highlightTagBottonLabel.text = isHighlightTagBottonLabel.text
+                    highlightTagBottonLabel.textColor = isHighlightTagBottonLabel.textColor
+                    highlightTagBottomView.preencherTagBottom(top: nil,
+                                                          leading: nil,
+                                                          trailing: trailingAnchor,
+                                                          bottom: bottomAnchor,
+                                                          padding:.init(top: 0, left: 0, bottom: 20, right: 0),
+                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + Constants.SPACING, height: Constants.HEIGHT))
+                    
+                    highlightTagBottonLabel.preencherTagBottom(top: nil,
+                                                          leading: nil,
+                                                          trailing: trailingAnchor,
+                                                          bottom: bottomAnchor,
+                                                          padding:.init(top: 0, left: 0, bottom: 10, right: 10),
+                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: Constants.HEIGHT))
+                    highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+                }
             }
         }
     }

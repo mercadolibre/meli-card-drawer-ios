@@ -244,13 +244,7 @@ extension MLCardDrawerController{
 extension MLCardDrawerController {
     public func setTagBottom(enabled: Bool) {
         if enabled {
-            self.addingTagBottom(isEnabled: enabled)
-        }else {
-            removeShine()
+            frontView.isTagBottomEnabled(enabled)
         }
-    }
-    
-    private func addingTagBottom(isEnabled: Bool){
-        frontView.isTagBottomEnabled(isEnabled)
     }
 }

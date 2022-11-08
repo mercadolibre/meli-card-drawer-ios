@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +14,8 @@
                 <outlet property="gradientView" destination="LK1-Fn-7xE" id="FFM-Hy-c6v"/>
                 <outlet property="highlightContainerView" destination="LIi-bM-QZE" id="asg-fc-9Nn"/>
                 <outlet property="highlightLabel" destination="VJy-dg-7uq" id="ytu-g0-DxE"/>
+                <outlet property="highlightTagBottomView" destination="hlG-Lj-G62" id="CaM-m5-gdS"/>
+                <outlet property="highlightTagBottonLabel" destination="MxF-XK-pBY" id="id6-82-oEm"/>
                 <outlet property="imageContainerView" destination="7eo-cX-cpU" id="2mT-gX-vGg"/>
                 <outlet property="imageView" destination="LAX-1s-9pg" id="H1Q-hF-WnN"/>
                 <outlet property="subtitleLabel" destination="j4e-NU-Ng3" id="dLI-qc-h9h"/>
@@ -46,6 +48,21 @@
                         <constraint firstItem="VJy-dg-7uq" firstAttribute="top" secondItem="LIi-bM-QZE" secondAttribute="top" constant="7" id="RaZ-0t-Kjm"/>
                         <constraint firstItem="VJy-dg-7uq" firstAttribute="leading" secondItem="LIi-bM-QZE" secondAttribute="leading" constant="8" id="RnA-GF-Q49"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlG-Lj-G62" userLabel="TagBottomView">
+                    <rect key="frame" x="265" y="165" width="62" height="34.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" text="------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxF-XK-pBY">
+                            <rect key="frame" x="12" y="7" width="39" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                            <color key="textColor" red="0.27803280949999998" green="0.55781114099999995" blue="0.98204308750000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HKk-TR-sNO">
                     <rect key="frame" x="97.5" y="31" width="136" height="139.5"/>
