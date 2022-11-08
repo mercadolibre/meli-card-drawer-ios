@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Constants {
+struct ConstantsValues {
     static let WIDTH: CGFloat = 100
     static let HEIGHT:CGFloat = 24.0
     static let SPACING = 24.0

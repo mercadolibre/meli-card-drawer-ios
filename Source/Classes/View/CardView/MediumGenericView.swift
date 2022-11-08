@@ -223,14 +223,14 @@ public class MediumGenericView: UIView, BasicCard {
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
                                                           padding:.init(top: 0, left: 0, bottom: 20, right: 0),
-                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + Constants.SPACING, height: Constants.HEIGHT))
+                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING, height: ConstantsValues.HEIGHT))
                     
                     highlightTagBottonLabel.preencherTagBottom(top: nil,
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
                                                           padding:.init(top: 0, left: 0, bottom: 10, right: 10),
-                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: Constants.HEIGHT))
+                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: ConstantsValues.HEIGHT))
                     highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
                 }
             }
