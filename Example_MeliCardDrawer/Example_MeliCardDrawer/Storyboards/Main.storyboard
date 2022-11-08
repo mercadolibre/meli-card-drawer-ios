@@ -201,7 +201,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFC-f5-0Pe">
-                                <rect key="frame" x="84.5" y="487" width="206" height="32"/>
+                                <rect key="frame" x="84.5" y="529" width="206" height="32"/>
                                 <segments>
                                     <segment title="Large"/>
                                     <segment title="Medium"/>
@@ -225,7 +225,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select CardUI protocol type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXB-56-CHd">
-                                <rect key="frame" x="87" y="524" width="212" height="20"/>
+                                <rect key="frame" x="87" y="505" width="212" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.1095336294" green="0.1095336294" blue="0.1095336294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -238,17 +238,17 @@
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="leading" secondItem="fnz-oe-xwh" secondAttribute="leading" id="3qA-JU-Kr7"/>
                             <constraint firstItem="f2w-Kh-IVu" firstAttribute="centerY" secondItem="mKO-Bt-ll9" secondAttribute="centerY" id="4FP-2O-dhY"/>
                             <constraint firstItem="mKO-Bt-ll9" firstAttribute="top" secondItem="7Ge-ld-a7R" secondAttribute="bottom" constant="15" id="4sZ-BW-WJN"/>
+                            <constraint firstItem="jXB-56-CHd" firstAttribute="leading" secondItem="lBW-Vi-3Bx" secondAttribute="leading" constant="71" id="Bmr-Sx-f78"/>
                             <constraint firstItem="Aba-wa-YXR" firstAttribute="trailing" secondItem="H4v-jI-QID" secondAttribute="trailing" id="CVH-B4-qYH"/>
-                            <constraint firstItem="jXB-56-CHd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Cfa-UU-ipJ"/>
                             <constraint firstItem="05j-0j-UkX" firstAttribute="centerY" secondItem="QAf-u5-LrJ" secondAttribute="centerY" id="FE2-UV-O67"/>
                             <constraint firstItem="7Ge-ld-a7R" firstAttribute="leading" secondItem="H4v-jI-QID" secondAttribute="leading" id="L6e-IY-vdy"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="top" secondItem="m5K-ZN-qPP" secondAttribute="bottom" constant="15" id="MWc-J7-mgL"/>
                             <constraint firstItem="f2w-Kh-IVu" firstAttribute="trailing" secondItem="Aba-wa-YXR" secondAttribute="trailing" id="N9z-Ua-OYV"/>
-                            <constraint firstItem="jXB-56-CHd" firstAttribute="top" secondItem="bFC-f5-0Pe" secondAttribute="bottom" constant="6" id="Oke-nj-DS1"/>
                             <constraint firstItem="05j-0j-UkX" firstAttribute="trailing" secondItem="Aba-wa-YXR" secondAttribute="trailing" id="PH4-HP-cef"/>
                             <constraint firstItem="AE5-O9-kPy" firstAttribute="trailing" secondItem="f2w-Kh-IVu" secondAttribute="trailing" id="RCE-r0-huP"/>
-                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="centerX" secondItem="lBW-Vi-3Bx" secondAttribute="centerX" id="SXJ-6f-rRX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" constant="16" id="YXl-OH-1QX"/>
                             <constraint firstItem="mKO-Bt-ll9" firstAttribute="leading" secondItem="7Ge-ld-a7R" secondAttribute="leading" id="Ytu-9z-u7w"/>
+                            <constraint firstItem="bFC-f5-0Pe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z4e-Uj-Nf5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lBW-Vi-3Bx" secondAttribute="bottom" constant="16" id="Z7n-7a-X3I"/>
                             <constraint firstItem="RcP-n3-xIP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="a0E-p7-2Bl"/>
                             <constraint firstItem="QAf-u5-LrJ" firstAttribute="top" secondItem="H4v-jI-QID" secondAttribute="bottom" constant="20" id="aAY-H6-fNS"/>
@@ -262,7 +262,7 @@
                             <constraint firstItem="fnz-oe-xwh" firstAttribute="top" secondItem="RcP-n3-xIP" secondAttribute="bottom" constant="16" id="swQ-jF-Jm7"/>
                             <constraint firstItem="lBW-Vi-3Bx" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="t1W-zC-jPQ"/>
                             <constraint firstItem="m5K-ZN-qPP" firstAttribute="leading" secondItem="mKO-Bt-ll9" secondAttribute="leading" id="vCp-mz-V9r"/>
-                            <constraint firstItem="lBW-Vi-3Bx" firstAttribute="top" secondItem="bFC-f5-0Pe" secondAttribute="bottom" constant="4" id="y2e-Bd-gDa"/>
+                            <constraint firstItem="jXB-56-CHd" firstAttribute="bottom" secondItem="lBW-Vi-3Bx" secondAttribute="topMargin" constant="-5" id="vok-zw-0Q1"/>
                             <constraint firstItem="m5K-ZN-qPP" firstAttribute="centerY" secondItem="AE5-O9-kPy" secondAttribute="centerY" id="yV0-NU-Ujt"/>
                             <constraint firstItem="H4v-jI-QID" firstAttribute="trailing" secondItem="fnz-oe-xwh" secondAttribute="trailing" id="zOH-v8-UpJ"/>
                         </constraints>
