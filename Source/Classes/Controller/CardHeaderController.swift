@@ -7,6 +7,7 @@ import UIKit
     var frontView: BasicCard!
     var backView: CardView!
     var model: CardData
+    var functionOff: Bool = true
     private var type: MLCardDrawerTypeV3 = .large
     private var disabledMode = false
     
@@ -76,9 +77,6 @@ import UIKit
             setupGenericView(type: type)
             
             frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
-            
-            var tagBottomFake: Text? = Text(message:  "Label Fake Generic", textColor: "", weight: "semi_bold")
-            frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: .small, tagBottom: tagBottomFake, toggleTagBottom: true)
             
         } else {
             
@@ -244,13 +242,8 @@ extension MLCardDrawerController{
     }
 }
 
-extension MLCardDrawerController {
-    public func setTagBottom(enabled: Bool) {
-        var tagBottomFake: Text? = Text(message: "Label Fake front Toogle", textColor: "", weight: "semi_bold")
-        if enabled {
-            frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: .small, tagBottom: tagBottomFake, toggleTagBottom: true)
-        } else {
-            frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: tagBottomFake, toggleTagBottom: false)
-        }
+extension MLCardDrawerController: AddTagBottomProtocol {
+    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool) {
+            frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: .small, tagBottom: tagBottom, toggleTagBottom: toggleTagBottom)
     }
 }

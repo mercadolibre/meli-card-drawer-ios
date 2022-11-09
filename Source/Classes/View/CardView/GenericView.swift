@@ -201,16 +201,18 @@ public class GenericView: UIView, BasicCard  {
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
 
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false) {
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false){
         if toggleTagBottom {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
                     var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
-
-                    highlightTagBottomView.backgroundColor = isHighlightTagBottonLabel.backgroundColor
+                    guard let isHighlightTagBottomView = highlightTagBottomView else { return }
+                    isHighlightTagBottomView.isHidden = false
+                    highlightTagBottonLabel.isHidden = false
+                    isHighlightTagBottomView.backgroundColor = isHighlightTagBottonLabel.backgroundColor
                     highlightTagBottonLabel.text = isHighlightTagBottonLabel.text
                     highlightTagBottonLabel.textColor = isHighlightTagBottonLabel.textColor
-                    highlightTagBottomView.preencherTagBottom(top: nil,
+                    isHighlightTagBottomView.preencherTagBottom(top: nil,
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
@@ -223,9 +225,12 @@ public class GenericView: UIView, BasicCard  {
                                                           bottom: bottomAnchor,
                                                           padding:.init(top: 0, left: 0, bottom: 20, right: 10),
                                                                size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: ConstantsValues.HEIGHT))
-                    highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+                    isHighlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
                 }
             }
+        } else {
+            highlightTagBottomView.isHidden = true
+            highlightTagBottonLabel.isHidden = true
         }
     }
 }
