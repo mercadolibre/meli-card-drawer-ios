@@ -77,6 +77,9 @@ import UIKit
             
             frontView.setup(card, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
             
+            var tagBottomFake: Text? = Text(message:  "Label Fake Generic", textColor: "", weight: "semi_bold")
+            frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: .small, tagBottom: tagBottomFake, toggleTagBottom: true)
+            
         } else {
             
             if let frontView = frontView, frontView.isDescendant(of: view) {
@@ -243,8 +246,11 @@ extension MLCardDrawerController{
 
 extension MLCardDrawerController {
     public func setTagBottom(enabled: Bool) {
+        var tagBottomFake: Text? = Text(message: "Label Fake front Toogle", textColor: "", weight: "semi_bold")
         if enabled {
-            frontView.isTagBottomEnabled(enabled)
+            frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: .small, tagBottom: tagBottomFake, toggleTagBottom: true)
+        } else {
+            frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: tagBottomFake, toggleTagBottom: false)
         }
     }
 }

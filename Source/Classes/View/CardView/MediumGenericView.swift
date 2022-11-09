@@ -70,7 +70,6 @@ public class MediumGenericView: UIView, BasicCard {
             setHighlightLabel()
             setHighlightContainerView()
             setPaymentMethodImage()
-            isTagBottomEnabled(true)
         }
         
         layer.masksToBounds = true
@@ -203,13 +202,9 @@ public class MediumGenericView: UIView, BasicCard {
     }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
+
     
-    func isTagBottomEnabled(_ isEnabled: Bool){
-        var tagBottom: Text? = Text(message: "saldo em conta", textColor: "", weight: "semi_bold")
-        addTagBottom(containerView: self, isDisabled: false, cardType: .small, tagBottom: tagBottom, toggleTagBottom: true)
-    }
-    
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = true) {
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false) {
         if toggleTagBottom {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
@@ -229,7 +224,7 @@ public class MediumGenericView: UIView, BasicCard {
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
-                                                          padding:.init(top: 0, left: 0, bottom: 10, right: 10),
+                                                          padding:.init(top: 0, left: 0, bottom: 20, right: 10),
                                                                size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: ConstantsValues.HEIGHT))
                     highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
                 }

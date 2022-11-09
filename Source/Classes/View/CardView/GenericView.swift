@@ -67,7 +67,6 @@ public class GenericView: UIView, BasicCard  {
             setHighlightLabel()
             setHighlightContainerView()
             setPaymentMethodImage()
-            isTagBottomEnabled(true)
         }
         
         layer.masksToBounds = true
@@ -201,12 +200,8 @@ public class GenericView: UIView, BasicCard  {
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
-    func isTagBottomEnabled(_ isEnabled: Bool){
-        var tagBottom: Text? = Text(message:  "saldo em conta", textColor: "", weight: "semi_bold")
-        addTagBottom(containerView: self, isDisabled: false, cardType: .small, tagBottom: tagBottom, toggleTagBottom: true)
-    }
 
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = true) {
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false) {
         if toggleTagBottom {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{

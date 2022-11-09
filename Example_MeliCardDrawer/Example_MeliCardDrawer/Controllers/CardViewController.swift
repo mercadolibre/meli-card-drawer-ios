@@ -243,6 +243,8 @@ extension CardViewController {
         print("Desligado", sender)
         if sender.isOn {
             cardDrawer?.setTagBottom(enabled: sender.isOn)
+        } else {
+            cardDrawer?.setTagBottom(enabled: false)
         }
     }
 }
