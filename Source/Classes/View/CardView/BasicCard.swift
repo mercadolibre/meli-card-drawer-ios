@@ -18,7 +18,7 @@ import Foundation
     @objc optional func showSecurityCode()
 }
 
-protocol AddTagBottomProtocol {
+public protocol AddTagBottomProtocol: class {
     func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool)
 }
 

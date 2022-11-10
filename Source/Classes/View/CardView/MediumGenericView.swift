@@ -204,7 +204,7 @@ public class MediumGenericView: UIView, BasicCard {
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
 
     
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false){
+    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false){
         if toggleTagBottom {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
