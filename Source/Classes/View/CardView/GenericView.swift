@@ -17,8 +17,6 @@ public class GenericView: UIView, BasicCard  {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var highlightContainerView: UIView!
-    @IBOutlet weak var highlightTagBottomView: UIView!
-    @IBOutlet weak var highlightTagBottonLabel: UILabel!
     
     
     private var model: GenericCardUI?
@@ -201,36 +199,5 @@ public class GenericView: UIView, BasicCard  {
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
 
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false){
-        if toggleTagBottom {
-            if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
-                if let tagBottom = tagBottom{
-                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
-                    guard let isHighlightTagBottomView = highlightTagBottomView else { return }
-                    isHighlightTagBottomView.isHidden = false
-                    highlightTagBottonLabel.isHidden = false
-                    isHighlightTagBottomView.backgroundColor = isHighlightTagBottonLabel.backgroundColor
-                    highlightTagBottonLabel.text = isHighlightTagBottonLabel.text
-                    highlightTagBottonLabel.textColor = isHighlightTagBottonLabel.textColor
-                    isHighlightTagBottomView.preencherTagBottom(top: nil,
-                                                          leading: nil,
-                                                          trailing: trailingAnchor,
-                                                          bottom: bottomAnchor,
-                                                          padding:.init(top: 0, left: 0, bottom: 20, right: 0),
-                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING, height: ConstantsValues.HEIGHT))
-                    
-                    highlightTagBottonLabel.preencherTagBottom(top: nil,
-                                                          leading: nil,
-                                                          trailing: trailingAnchor,
-                                                          bottom: bottomAnchor,
-                                                          padding:.init(top: 0, left: 0, bottom: 20, right: 10),
-                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: ConstantsValues.HEIGHT))
-                    isHighlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
-                }
-            }
-        } else {
-            highlightTagBottomView.isHidden = true
-            highlightTagBottonLabel.isHidden = true
-        }
-    }
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool){}
 }

@@ -241,5 +241,6 @@ extension CardViewController {
 extension CardViewController {
     @IBAction func didToggleTagButtom(_ sender: UISwitch){
         print("Desligado", sender)
+        cardDrawer?.setTagBottom()
     }
 }

@@ -244,6 +244,14 @@ extension MLCardDrawerController{
 
 extension MLCardDrawerController: AddTagBottomProtocol {
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool) {
-            frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: .small, tagBottom: tagBottom, toggleTagBottom: toggleTagBottom)
+            frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, toggleTagBottom: toggleTagBottom)
+        }
+}
+
+
+extension MLCardDrawerController {
+    public func setTagBottom() {
+        var textFake: Text = Text(message: "Fake aqui não rola de jeito nenhum", textColor: "#fojoorfor", weight: "", backgroundColor: "")
+        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: textFake, toggleTagBottom: true)
     }
 }
