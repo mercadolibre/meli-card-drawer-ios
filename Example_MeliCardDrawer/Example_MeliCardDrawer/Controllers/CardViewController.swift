@@ -241,7 +241,7 @@ extension CardViewController {
 extension CardViewController {
     @IBAction func didToggleTagButtom(_ sender: UISwitch){
         if sender.isOn {
-            var textFake = Text(message: "mercado pago wallet", textColor: "#F8F8FF", weight: "semi_bold", backgroundColor: "#008000")
+            var textFake = Text(message: "mercado pago wallet", textColor: "", weight: "semi_bold", backgroundColor: "")
             cardDrawer?.setTagBottom(text_fake: textFake)
         }
     }

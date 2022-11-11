@@ -4,6 +4,7 @@
 //
 //  Created by Jonathan Scaramal on 31/01/2021.
 //
+import UIKit
 
 public struct Text: Codable {
     var textColor: String?
@@ -42,14 +43,14 @@ public struct Text: Codable {
    }
     
     func getTextColor() -> UIColor {
-        guard let color = self.textColor else {
+        guard let color = self.textColor, !color.isEmpty else {
             return defaultTextColor
         }
         return UIColor.fromHex(color)
     }
     
     public func getBackgroundColor() -> UIColor {
-        guard let color = self.backgroundColor else {
+        guard let color = self.backgroundColor, !color.isEmpty else {
             return defaultBackgroundColor
         }
         return UIColor.fromHex(color)
@@ -68,5 +69,9 @@ public struct Text: Codable {
         default:
             return UIFont.systemFont(ofSize: size, weight: .regular)
         }
+    }
+    
+    private var isNotEmpty: Bool {
+        return false
     }
 }
