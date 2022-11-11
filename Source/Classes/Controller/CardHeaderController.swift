@@ -12,6 +12,7 @@ import UIKit
     private var disabledMode = false
     
     private var aspectLayoutConstraint: NSLayoutConstraint?
+    var textFake: Text = Text(message: "Fake", textColor: "#F8F8FF", weight: "semi_bold", backgroundColor: "#008000")
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -243,15 +244,16 @@ extension MLCardDrawerController{
 }
 
 extension MLCardDrawerController: AddTagBottomProtocol {
-    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool) {
-            frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, toggleTagBottom: toggleTagBottom)
+    
+    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
+        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: textFake, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
         }
 }
 
 
 extension MLCardDrawerController {
     public func setTagBottom() {
-        var textFake: Text = Text(message: "Fake aqui não rola de jeito nenhum", textColor: "#F8F8FF", weight: "semi_bold", backgroundColor: "#008000")
-        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: textFake, toggleTagBottom: true)
+        textFake = Text(message: "Fake News aqui nao rapaz Fake News aqui", textColor: "#F8F8FF", weight: "semi_bold", backgroundColor: "#008000")
+        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: textFake, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
     }
 }

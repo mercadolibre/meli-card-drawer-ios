@@ -2,7 +2,7 @@ import UIKit
 
 @objc(MLCardView)
 public class CardView: UIView, BasicCard {
-    
+
     @IBOutlet weak var animation: UIView!
     @IBOutlet weak var gradient: UIView!
     @IBOutlet weak var securityCode: CardLabel!
@@ -88,8 +88,7 @@ public class CardView: UIView, BasicCard {
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
-    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool = false){
-        if toggleTagBottom {
+    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
                     var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
@@ -103,17 +102,16 @@ public class CardView: UIView, BasicCard {
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
-                                                          padding:.init(top: 0, left: 0, bottom: 40, right: 0),
-                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING, height: ConstantsValues.HEIGHT))
+                                                                padding: padding,
+                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING_W, height: ConstantsValues.HEIGHT))
                     
                     highlightTagBottonLabel.preencherTagBottom(top: nil,
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
-                                                          padding:.init(top: 0, left: 0, bottom: 40, right: 10),
-                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width, height: ConstantsValues.HEIGHT))
+                                                               padding: padding,
+                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING_L, height: ConstantsValues.HEIGHT))
                     isHighlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
-                }
             }
         } else {
             highlightTagBottomView.isHidden = true

@@ -8,7 +8,7 @@
 import UIKit
 
 public class GenericView: UIView, BasicCard  {
-
+    
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -199,5 +199,5 @@ public class GenericView: UIView, BasicCard  {
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
 
-    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, toggleTagBottom: Bool){}
+    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets) {}
 }
