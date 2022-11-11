@@ -206,11 +206,10 @@ extension CardView: CardViewInteractProtocol {
 extension CardView {
     static public func createTagBottom(_ text: Text, disablemode: Bool) -> UILabel {
         let tagBottomLabel = TagBottom()
-        tagBottomLabel.font = UIFont.systemFont(ofSize: 20)
+        tagBottomLabel.font = text.getFont()
         tagBottomLabel.text =  text.message?.uppercased()
-        tagBottomLabel.textColor = disablemode ? UIColor.fromHex("#A0A0A0") : UIColor.white
-        tagBottomLabel.backgroundColor = disablemode ? UIColor.fromHex("#F0F0F0") : UIColor(red: 93/255.0, green:164/255.0, blue: 85/255.0, alpha: 1.0)
-        tagBottomLabel.translatesAutoresizingMaskIntoConstraints = false
+        tagBottomLabel.textColor = text.getTextColor()
+        tagBottomLabel.backgroundColor = text.getBackgroundColor()
         tagBottomLabel.sizeToFit()
         return tagBottomLabel
     }

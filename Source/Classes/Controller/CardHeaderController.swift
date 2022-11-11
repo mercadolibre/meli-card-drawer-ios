@@ -251,7 +251,7 @@ extension MLCardDrawerController: AddTagBottomProtocol {
 
 extension MLCardDrawerController {
     public func setTagBottom() {
-        var textFake: Text = Text(message: "Fake aqui não rola de jeito nenhum", textColor: "#fojoorfor", weight: "", backgroundColor: "")
+        var textFake: Text = Text(message: "Fake aqui não rola de jeito nenhum", textColor: "#F8F8FF", weight: "semi_bold", backgroundColor: "#008000")
         frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: textFake, toggleTagBottom: true)
     }
 }
