@@ -100,8 +100,12 @@ extension CardView {
     func addGradient() {
         if let currentCardUI = cardUI, let customCardUI = currentCardUI as? CustomCardDrawerUI {
             if let customGradient = customCardUI.ownGradient {
-                customGradient.frame = frame
-                self.gradient.layer.addSublayer(customGradient)
+                let gradient = CAGradientLayer()
+                gradient.frame = frame
+                gradient.colors = customGradient.colors
+                gradient.startPoint = customGradient.startPoint
+                gradient.endPoint = customGradient.endPoint
+                self.gradient.layer.addSublayer(gradient)
             } else {
                 // Default gradient for custom card.
                 let gradient = CAGradientLayer()
