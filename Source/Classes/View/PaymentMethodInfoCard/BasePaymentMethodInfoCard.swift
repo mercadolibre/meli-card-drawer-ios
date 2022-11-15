@@ -54,7 +54,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     
     // MARK: - Constants
     enum Constants {
-        static let gradientImage = UIImage(named: "Overlay", in: MLCardDrawerBundle.bundle(), compatibleWith: nil)
+        static let overlayImage = UIImage(named: "Overlay", in: MLCardDrawerBundle.bundle(), compatibleWith: nil)
         
         static let entityFontSize: CGFloat = 14.0
         static let amountFontSize: CGFloat = 16.0
@@ -81,6 +81,8 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     // MARK: - Main setup
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?) {
         self.frame = frame
+		self.layer.masksToBounds = true
+		self.layer.isDoubleSided = false
         self.disabledMode = isDisabled
         self.paymentMethodInfoCardData = model
         self.paymentMethodInfoCardUI = cardUI as? PaymentMethodInfoCardUI
@@ -96,10 +98,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
         setupAmount()
         setupPAN()
         setupPaymentType()
-        
         setupCornerRadius()
-        layer.masksToBounds = true
-        layer.isDoubleSided = false
     }
     // MARK: - Components
     func setupContainer() {
@@ -110,8 +109,13 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
     func setupGradient() {
         if let layer = paymentMethodInfoCardUI?.gradient,
            let customGradient = layer {
-            customGradient.frame = bounds
-            gradient.layer.addSublayer(customGradient)
+			let gradient = CAGradientLayer()
+			gradient.frame = bounds
+			gradient.colors = customGradient.colors
+			gradient.startPoint = customGradient.startPoint
+			gradient.endPoint = customGradient.endPoint
+			gradient.compositingFilter = customGradient.compositingFilter
+			self.gradient.layer.addSublayer(gradient)
         } else {
             let layer = CAGradientLayer()
             let end = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1).cgColor
@@ -130,7 +134,7 @@ class BasePaymentMethodInfoCard: UIView, BasicCard {
         if let customOverlay = paymentMethodInfoCardUI?.overlay,
            let layer = customOverlay {
             overlay.image = layer }
-        else { overlay.image = Constants.gradientImage }
+        else { overlay.image = Constants.overlayImage }
     }
     
     func setupEntity() {
