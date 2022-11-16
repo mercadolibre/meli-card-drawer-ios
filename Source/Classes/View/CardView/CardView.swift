@@ -7,9 +7,9 @@ public class CardView: UIView, BasicCard {
     @IBOutlet weak var gradient: UIView!
     @IBOutlet weak var securityCode: CardLabel!
     @IBOutlet weak var overlayImage: UIImageView!
+
     @IBOutlet weak var highlightTagBottomView: UIView!
     @IBOutlet weak var highlightTagBottonLabel: UILabel!
-    
     private var shineView: ShineView?
     
     var cardBackground: UIColor = .clear

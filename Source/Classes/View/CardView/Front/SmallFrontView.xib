@@ -10,11 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmallFrontView" customModule="MLCardDrawerResources" customModuleProvider="target">
             <connections>
-                <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="bankImage" destination="iqG-Eo-eGS" id="OQn-yr-FpB"/>
                 <outlet property="cardBalanceContainer" destination="EBB-Aq-UH8" id="Did-el-Ax9"/>
                 <outlet property="expirationDate" destination="AMu-xJ-OI6" id="uGb-Mm-U1i"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
+                <outlet property="highlightTagBottomView" destination="OEt-3Q-8ri" id="hAU-tl-97X"/>
+                <outlet property="highlightTagBottonLabel" destination="fJo-aA-XZw" id="AD0-Vc-6aQ"/>
                 <outlet property="name" destination="ZMN-U6-Lcy" id="YHC-Uc-QhK"/>
                 <outlet property="nameBottomToSuperviewConstraint" destination="Zqi-vG-kju" id="scP-g1-TgR"/>
                 <outlet property="nameLeadingConstraint" destination="47K-ZK-WHj" id="vgY-kj-uiS"/>
@@ -161,15 +162,15 @@
                     <rect key="frame" x="154" y="110" width="102" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beneficios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJo-aA-XZw">
-                            <rect key="frame" x="16" y="4" width="68" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJo-aA-XZw">
+                            <rect key="frame" x="16" y="4" width="17" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -233,14 +234,11 @@
                     <exclude reference="lzF-pf-ote"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-1418.840579710145" y="-1610.4910714285713"/>
+            <point key="canvasLocation" x="-1400" y="-1642"/>
         </view>
     </objects>
     <resources>
         <image name="Overlay" width="256" height="158"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,8 +14,8 @@
                 <outlet property="cardBalanceContainer" destination="PCI-4F-tTc" id="3rT-8l-Mjz"/>
                 <outlet property="expirationDate" destination="AMu-xJ-OI6" id="uGb-Mm-U1i"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
-                <outlet property="highlightTagBottomView" destination="7NK-fI-0Tk" id="SkY-zL-dCt"/>
-                <outlet property="highlightTagBottonLabel" destination="Oe4-Uw-RDo" id="eFI-5s-tGd"/>
+                <outlet property="highlightTagBottomView" destination="7NK-fI-0Tk" id="jbx-id-8N5"/>
+                <outlet property="highlightTagBottonLabel" destination="Oe4-Uw-RDo" id="Eov-1H-LQS"/>
                 <outlet property="name" destination="ZMN-U6-Lcy" id="YHC-Uc-QhK"/>
                 <outlet property="nameBottomToSuperviewConstraint" destination="Zqi-vG-kju" id="scP-g1-TgR"/>
                 <outlet property="nameLeadingConstraint" destination="47K-ZK-WHj" id="vgY-kj-uiS"/>
@@ -132,7 +132,7 @@
                             <rect key="frame" x="26" y="-2" width="42" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
