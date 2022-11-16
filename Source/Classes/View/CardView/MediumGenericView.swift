@@ -206,31 +206,28 @@ public class MediumGenericView: UIView, BasicCard {
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
-                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom)
-                    guard let isHighlightTagBottomView = highlightTagBottomView else { return }
-                    isHighlightTagBottomView.isHidden = false
-                    highlightTagBottonLabel.isHidden = false
-                    isHighlightTagBottomView.backgroundColor = isHighlightTagBottonLabel.backgroundColor
-                    highlightTagBottonLabel.text = isHighlightTagBottonLabel.text
-                    highlightTagBottonLabel.textColor = isHighlightTagBottonLabel.textColor
-                    isHighlightTagBottomView.preencherTagBottom(top: nil,
+                    let customlabelTagBottom = CardView.createTagBottom(tagBottom)
+                    
+                    containerView.addSubview(highlightTagBottomView)
+                    highlightTagBottomView.backgroundColor = customlabelTagBottom.backgroundColor
+                    highlightTagBottonLabel.text = customlabelTagBottom.text
+                    highlightTagBottonLabel.textColor = customlabelTagBottom.textColor
+                    
+                    highlightTagBottomView.bottomTagAlignment(top: nil,
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
                                                                 padding: padding,
-                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING_W, height: ConstantsValues.HEIGHT))
-                    
-                    highlightTagBottonLabel.preencherTagBottom(top: nil,
+                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.spacingWidth, height: ConstantsValues.heightBottom))
+
+                    highlightTagBottonLabel.bottomTagAlignment(top: nil,
                                                           leading: nil,
                                                           trailing: trailingAnchor,
                                                           bottom: bottomAnchor,
                                                                padding: padding,
-                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.SPACING_L, height: ConstantsValues.HEIGHT))
-                    isHighlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
-            }
-        } else {
-            highlightTagBottomView.isHidden = true
-            highlightTagBottonLabel.isHidden = true
+                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.sideSpacing, height: ConstantsValues.heightBottom))
+                    highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+             }
         }
     }
 }

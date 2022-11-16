@@ -129,6 +129,15 @@ Using `CardUI` protocol to customize: position of security code, card background
 }
 ```
 
+
+### 🎨 AddTagBottomProtocol protocol
+Using `AddTagBottomProtocol` protocol to customize: position bottom tag, background color, font color, place holders.
+```
+public protocol AddTagBottomProtocol: class {
+    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets)
+}
+```
+
 ### 😉 Next steps
 * [x] Bitrise for releases
 * [x] Codebeat integration
@@ -137,6 +146,7 @@ Using `CardUI` protocol to customize: position of security code, card background
 * [ ] Migration to Swift 5
 * [ ] Native support to display card in disabled mode (card disabled)
 * [ ] Version 2.0 SwiftUI compatible 😈
+* [x] Create a bottom tag capability
 
 
 ### 🔮 Project Example
