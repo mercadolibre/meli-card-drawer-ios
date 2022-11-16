@@ -1,3 +1,7 @@
+## [Unreleased]
+### Fixed
+- Fixed the card view's renderezation when has custom gradient.
+
 ## [Release (1.11.5)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.5)
 ## Fix
 - Fixed tag bottom corner radius
