@@ -91,7 +91,7 @@ public class CardView: UIView, BasicCard {
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
-                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
+                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom)
                     guard let isHighlightTagBottomView = highlightTagBottomView else { return }
                     isHighlightTagBottomView.isHidden = false
                     highlightTagBottonLabel.isHidden = false
@@ -202,7 +202,7 @@ extension CardView: CardViewInteractProtocol {
 }
 
 extension CardView {
-    static public func createTagBottom(_ text: Text, disablemode: Bool) -> UILabel {
+    static public func createTagBottom(_ text: Text) -> UILabel {
         let tagBottomLabel = TagBottom()
         tagBottomLabel.font = text.getFont()
         tagBottomLabel.text =  text.message?.uppercased()

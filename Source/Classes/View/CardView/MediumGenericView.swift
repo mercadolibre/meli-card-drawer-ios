@@ -206,7 +206,7 @@ public class MediumGenericView: UIView, BasicCard {
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
             if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
                 if let tagBottom = tagBottom{
-                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom, disablemode: isDisabled)
+                    var isHighlightTagBottonLabel = CardView.createTagBottom(tagBottom)
                     guard let isHighlightTagBottomView = highlightTagBottomView else { return }
                     isHighlightTagBottomView.isHidden = false
                     highlightTagBottonLabel.isHidden = false

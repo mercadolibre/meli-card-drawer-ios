@@ -245,13 +245,13 @@ extension MLCardDrawerController{
 extension MLCardDrawerController: AddTagBottomProtocol {
     
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
-        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: cardType, tagBottom: tagBottom, padding: padding)
+        frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, padding: padding)
         }
 }
 
 
 extension MLCardDrawerController {
     public func setTagBottom(text_fake: Text) {
-        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .small, tagBottom: text_fake, padding: .init(top: 0, left: 0, bottom: 20, right: 0))
+        frontView.addTagBottom(containerView: UIView(), isDisabled: false, cardType: .medium, tagBottom: text_fake, padding: .init(top: 0, left: 0, bottom: 10, right: 0))
     }
 }
