@@ -29,3 +29,7 @@ class CardUIMock: NSObject, CardUI {
     var defaultUI: Bool = true
     var securityCodePattern = 3
 }
+
+class CustomCardDrawerUIMock: CardUIMock, CustomCardDrawerUI {
+    var ownGradient = CAGradientLayer()
+}
