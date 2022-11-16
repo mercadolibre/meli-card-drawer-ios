@@ -1,3 +1,7 @@
+## [Release (1.11.5)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.5)
+## Fix
+- Fixed tag bottom corner radius
+
 ## [Release (1.11.3)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.3)
 ## Fix
 - Remove the available balance label when this info is not sent
