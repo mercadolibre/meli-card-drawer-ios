@@ -22,6 +22,7 @@
 		2365223C2294AB3500FA6F2D /* CardDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2365223A2294AB3500FA6F2D /* CardDataHandler.swift */; };
 		9CAF3384263890C100154AC4 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF3383263890C100154AC4 /* GenericViewController.swift */; };
 		A53677C6841C760D8152D303 /* Pods_Example_MeliCardDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6240D5384635DC53E3B1F2 /* Pods_Example_MeliCardDrawer.framework */; };
+		B2253AAB29250CA500803C21 /* CardViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2253AAA29250CA500803C21 /* CardViewTests.swift */; };
 		CCB0935527987AFC0095AF16 /* DebinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0935427987AFC0095AF16 /* DebinViewController.swift */; };
 		F0F2C0BCC5FB973587796923 /* Pods_Example_MeliCardDrawerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82176BF8A1F7C32D9B28395B /* Pods_Example_MeliCardDrawerTests.framework */; };
 		F920061224463E9D00067DB6 /* MLCardDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F920061124463E9D00067DB6 /* MLCardDrawer.framework */; };
@@ -73,6 +74,7 @@
 		82176BF8A1F7C32D9B28395B /* Pods_Example_MeliCardDrawerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MeliCardDrawerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1B35180A0B46CEE4E8461F /* Pods-Example_MeliCardDrawer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawer.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer.debug.xcconfig"; sourceTree = "<group>"; };
 		9CAF3383263890C100154AC4 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		B2253AAA29250CA500803C21 /* CardViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewTests.swift; sourceTree = "<group>"; };
 		BD6240D5384635DC53E3B1F2 /* Pods_Example_MeliCardDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MeliCardDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9AA9811059E31D692DC827A /* Pods-Example_MeliCardDrawerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawerTests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Example_MeliCardDrawerTests/Pods-Example_MeliCardDrawerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCB0935427987AFC0095AF16 /* DebinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebinViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				230990DD2295790500FC7A3D /* FrontViewTest.swift */,
 				230990D72295776600FC7A3D /* FormatterTests.swift */,
 				230990D92295782100FC7A3D /* ControllerTests.swift */,
+				B2253AAA29250CA500803C21 /* CardViewTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			files = (
 				230990D82295776600FC7A3D /* FormatterTests.swift in Sources */,
 				230990DF2295790500FC7A3D /* FrontViewTest.swift in Sources */,
+				B2253AAB29250CA500803C21 /* CardViewTests.swift in Sources */,
 				230990DE2295790500FC7A3D /* BackViewTest.swift in Sources */,
 				230990D32295752F00FC7A3D /* TestMock.swift in Sources */,
 				230990DA2295782100FC7A3D /* ControllerTests.swift in Sources */,
