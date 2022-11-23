@@ -14,16 +14,10 @@ import Foundation
 
 @objc protocol CardViewInteractProtocol {
     @objc func setupAnimated(_ cardUI: CardUI)
-    
     @objc optional func showSecurityCode()
 }
 
-public protocol AddTagBottomProtocol: class {
-    func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets)
-}
-
-
-protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol, AddTagBottomProtocol {
+protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol {
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?)
     func setupUI(_ cardUI: CardUI)
     func isShineEnabled() -> Bool

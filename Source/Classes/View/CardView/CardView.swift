@@ -86,34 +86,6 @@ public class CardView: UIView, BasicCard {
     }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
-    
-    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
-            if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
-                if let tagBottom = tagBottom{
-                    let customlabelTagBottom = CardView.createTagBottom(tagBottom)
-                    
-                    containerView.addSubview(highlightTagBottomView)
-                    highlightTagBottomView.backgroundColor = customlabelTagBottom.backgroundColor
-                    highlightTagBottonLabel.text = customlabelTagBottom.text
-                    highlightTagBottonLabel.textColor = customlabelTagBottom.textColor
-                    
-                    highlightTagBottomView.bottomTagAlignment(top: nil,
-                                                          leading: nil,
-                                                          trailing: trailingAnchor,
-                                                          bottom: bottomAnchor,
-                                                                padding: padding,
-                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.spacingWidth, height: ConstantsValues.heightBottom))
-
-                    highlightTagBottonLabel.bottomTagAlignment(top: nil,
-                                                          leading: nil,
-                                                          trailing: trailingAnchor,
-                                                          bottom: bottomAnchor,
-                                                               padding: padding,
-                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.sideSpacing, height: ConstantsValues.heightBottom))
-                    highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
-             }
-        }
-    }
 }
 
 // MARK: Card View Effects
@@ -189,6 +161,15 @@ extension CardView {
         }
     }
     
+    static public func createTagBottom(_ text: Text) -> UILabel {
+        let tagBottomLabel = TagBottom()
+        tagBottomLabel.font = text.getFont()
+        tagBottomLabel.text =  text.message?.uppercased()
+        tagBottomLabel.textColor = text.getTextColor()
+        tagBottomLabel.backgroundColor = text.getBackgroundColor()
+        tagBottomLabel.sizeToFit()
+        return tagBottomLabel
+    }
 }
 
 extension CardView: CardViewCustomViewProtocol{
@@ -201,15 +182,32 @@ extension CardView: CardViewInteractProtocol {
     public func showSecurityCode() {}
 }
 
-extension CardView {
-    static public func createTagBottom(_ text: Text) -> UILabel {
-        let tagBottomLabel = TagBottom()
-        tagBottomLabel.font = text.getFont()
-        tagBottomLabel.text =  text.message?.uppercased()
-        tagBottomLabel.textColor = text.getTextColor()
-        tagBottomLabel.backgroundColor = text.getBackgroundColor()
-        tagBottomLabel.sizeToFit()
-        return tagBottomLabel
+extension CardView: CapabilitiesComponentsViewProtocol {
+    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
+            if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
+                if let tagBottom = tagBottom{
+                    let customlabelTagBottom = CardView.createTagBottom(tagBottom)
+                    
+                    containerView.addSubview(highlightTagBottomView)
+                    highlightTagBottomView.backgroundColor = customlabelTagBottom.backgroundColor
+                    highlightTagBottonLabel.text = customlabelTagBottom.text
+                    highlightTagBottonLabel.textColor = customlabelTagBottom.textColor
+                    
+                    highlightTagBottomView.bottomTagAlignment(top: nil,
+                                                          leading: nil,
+                                                          trailing: trailingAnchor,
+                                                          bottom: bottomAnchor,
+                                                                padding: padding,
+                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.spacingWidth, height: ConstantsValues.heightBottom))
+
+                    highlightTagBottonLabel.bottomTagAlignment(top: nil,
+                                                          leading: nil,
+                                                          trailing: trailingAnchor,
+                                                          bottom: bottomAnchor,
+                                                               padding: padding,
+                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.sideSpacing, height: ConstantsValues.heightBottom))
+                    highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
+             }
+        }
     }
 }
- 

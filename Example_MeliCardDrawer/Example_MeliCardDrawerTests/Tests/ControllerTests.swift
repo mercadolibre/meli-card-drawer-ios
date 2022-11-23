@@ -12,8 +12,6 @@ import XCTest
 @testable import MLCardDrawer
 
 class CardHeaderControllerTest: XCTestCase {
-    
-    let tagBottom: Text? = Text(message: "saldo em conta", textColor: "#F0F0F0", weight: "semi_bold")
 
     func testShow() {
         let cardUI = CardUIMock()
@@ -73,46 +71,66 @@ class CardHeaderControllerTest: XCTestCase {
     }
     
     func test_valid_type_medium() {
-        let padding: UIEdgeInsets = .init(top: 0, left: 0, bottom: 40, right: 0)
-        let carTypeSpy: MLCardDrawerTypeV3 = .medium
-        let cardUI = CardUIMock()
-        let model = CardDataMock()
-        cardUI.securityCodeLocation = .front
-        let cardController = MLCardDrawerController(cardUI, model)
-        cardController.frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: carTypeSpy, tagBottom: tagBottom, padding: padding)
-        XCTAssertEqual(carTypeSpy, MLCardDrawerTypeV3.medium)
+        let sut = makeSut()
+        let carTypeSpy = makeTypeV3(cardTypeSpy: .medium)
+        let addTagBottomSpy = AddTagBottomSpy()
+        addTagBottomSpy.addTagBottom(containerView: sut.getCardView(), isDisabled: false, cardType: carTypeSpy, tagBottom: makeBottomTag(), padding: .zero)
+        XCTAssertEqual(addTagBottomSpy.cardType, carTypeSpy)
+        XCTAssertEqual(addTagBottomSpy.isDisabled, false)
     }
-    
+
     func test_valid_type_large(){
-        let padding: UIEdgeInsets = .init(top: 0, left: 0, bottom: 40, right: 0)
-        let carTypeSpy: MLCardDrawerTypeV3 = .large
-        let cardUI = CardUIMock()
-        let model = CardDataMock()
-        cardUI.securityCodeLocation = .front
-        let cardController = MLCardDrawerController(cardUI, model)
-        cardController.frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: carTypeSpy, tagBottom: tagBottom, padding: padding)
-        XCTAssertEqual(carTypeSpy, MLCardDrawerTypeV3.large)
+        let sut = makeSut()
+        let carTypeSpy = makeTypeV3(cardTypeSpy: .large)
+        let addTagBottomSpy = AddTagBottomSpy()
+        addTagBottomSpy.addTagBottom(containerView: sut.getCardView(), isDisabled: false, cardType: carTypeSpy, tagBottom: makeBottomTag(), padding: .zero)
+        XCTAssertEqual(addTagBottomSpy.cardType, carTypeSpy)
+        XCTAssertEqual(addTagBottomSpy.isDisabled, false)
     }
-    
+
     func test_valid_type_mini() {
-        let padding: UIEdgeInsets = .init(top: 0, left: 0, bottom: 40, right: 0)
-        let carTypeSpy: MLCardDrawerTypeV3 = .mini
-        let cardUI = CardUIMock()
-        let model = CardDataMock()
-        cardUI.securityCodeLocation = .front
-        let cardController = MLCardDrawerController(cardUI, model)
-        cardController.frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: carTypeSpy, tagBottom: tagBottom, padding: padding)
-        XCTAssertEqual(carTypeSpy, MLCardDrawerTypeV3.mini)
+        let sut = makeSut()
+        let carTypeSpy = makeTypeV3(cardTypeSpy: .mini)
+        let addTagBottomSpy = AddTagBottomSpy()
+        addTagBottomSpy.addTagBottom(containerView: sut.getCardView(), isDisabled: false, cardType: carTypeSpy, tagBottom: makeBottomTag(), padding: .zero)
+        XCTAssertEqual(addTagBottomSpy.cardType, carTypeSpy)
+        XCTAssertEqual(addTagBottomSpy.isDisabled, false)
     }
     
     func test_valid_type_xSmall() {
-        let padding: UIEdgeInsets = .init(top: 0, left: 0, bottom: 40, right: 0)
-        let carTypeSpy: MLCardDrawerTypeV3 = .xSmall
+        let sut = makeSut()
+        let carTypeSpy = makeTypeV3(cardTypeSpy: .xSmall)
+        let addTagBottomSpy = AddTagBottomSpy()
+        addTagBottomSpy.addTagBottom(containerView: sut.getCardView(), isDisabled: false, cardType: carTypeSpy, tagBottom: makeBottomTag(), padding: .zero)
+        XCTAssertEqual(addTagBottomSpy.cardType, carTypeSpy)
+        XCTAssertEqual(addTagBottomSpy.isDisabled, false)
+    }
+}
+
+extension CardHeaderControllerTest {
+    func makeTypeV3(cardTypeSpy: MLCardDrawerTypeV3) -> MLCardDrawerTypeV3{
+        return cardTypeSpy
+    }
+    
+    func makeSut() -> MLCardDrawerController{
         let cardUI = CardUIMock()
         let model = CardDataMock()
-        cardUI.securityCodeLocation = .front
-        let cardController = MLCardDrawerController(cardUI, model)
-        cardController.frontView.addTagBottom(containerView: UIView(), isDisabled: true, cardType: carTypeSpy, tagBottom: tagBottom, padding: padding)
-        XCTAssertEqual(carTypeSpy, MLCardDrawerTypeV3.xSmall)
+        return MLCardDrawerController(cardUI, model)
+    }
+    
+    func makeBottomTag() -> Text?{
+        return Text(message: "saldo em conta", textColor: "#F0F0F0", weight: "semi_bold")
+    }
+    
+    class AddTagBottomSpy: CapabilitiesComponentsViewProtocol {
+        var isDisabled: Bool?
+        var cardType:MLCardDrawerTypeV3?
+        var tagBottom: Text?
+        
+        func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawer.MLCardDrawerTypeV3, tagBottom: MLCardDrawer.Text?, padding: UIEdgeInsets) {
+            self.cardType = cardType
+            self.tagBottom = tagBottom
+            self.isDisabled = isDisabled
+        }
     }
 }

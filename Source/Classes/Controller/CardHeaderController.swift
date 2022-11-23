@@ -6,6 +6,7 @@ import UIKit
     let customLabelFontName: String?
     var frontView: BasicCard!
     var backView: CardView!
+    var capabilities: CapabilitiesComponentsViewProtocol?
     var model: CardData
     var functionOff: Bool = true
     private var type: MLCardDrawerTypeV3 = .large
@@ -242,17 +243,17 @@ extension MLCardDrawerController{
     }
 }
 
-extension MLCardDrawerController: AddTagBottomProtocol {
+extension MLCardDrawerController: CapabilitiesComponentsViewProtocol {
     
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
-        frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, padding: padding)
-        }
+        capabilities?.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, padding: padding)
+    }
 }
-
 
 extension MLCardDrawerController {
     public func setTagBottom(text_fake: Text) {
         let cardView = getCardView()
-        frontView.addTagBottom(containerView: cardView, isDisabled: false, cardType: .large, tagBottom: text_fake, padding: .init(top: 0, left: 0, bottom: 10, right: 0))
+        capabilities = self
+        capabilities?.addTagBottom(containerView: cardView, isDisabled: false, cardType: .large, tagBottom: text_fake, padding: .init(top: 0, left: 0,bottom: 10, right: 0))
     }
 }

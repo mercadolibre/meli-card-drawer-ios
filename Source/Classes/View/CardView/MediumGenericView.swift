@@ -202,32 +202,4 @@ public class MediumGenericView: UIView, BasicCard {
     }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
-
-    public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
-            if cardType.rawValue >= MLCardDrawerTypeV3.small.rawValue {
-                if let tagBottom = tagBottom{
-                    let customlabelTagBottom = CardView.createTagBottom(tagBottom)
-                    
-                    containerView.addSubview(highlightTagBottomView)
-                    highlightTagBottomView.backgroundColor = customlabelTagBottom.backgroundColor
-                    highlightTagBottonLabel.text = customlabelTagBottom.text
-                    highlightTagBottonLabel.textColor = customlabelTagBottom.textColor
-                    
-                    highlightTagBottomView.bottomTagAlignment(top: nil,
-                                                          leading: nil,
-                                                          trailing: trailingAnchor,
-                                                          bottom: bottomAnchor,
-                                                                padding: padding,
-                                                              size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.spacingWidth, height: ConstantsValues.heightBottom))
-
-                    highlightTagBottonLabel.bottomTagAlignment(top: nil,
-                                                          leading: nil,
-                                                          trailing: trailingAnchor,
-                                                          bottom: bottomAnchor,
-                                                               padding: padding,
-                                                               size: CGSize(width: highlightTagBottonLabel.intrinsicContentSize.width + ConstantsValues.sideSpacing, height: ConstantsValues.heightBottom))
-                    highlightTagBottomView.roundCorners(cornerRadiuns: 12, typeCorners: [.topLeft,.lowerLeft])
-             }
-        }
-    }
 }

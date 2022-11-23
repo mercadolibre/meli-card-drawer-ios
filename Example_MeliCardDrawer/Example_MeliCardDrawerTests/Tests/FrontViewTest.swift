@@ -21,7 +21,6 @@ class FrontViewTest: XCTestCase {
         XCTAssert(frontView.securityCode.text! == "1**")
         XCTAssert(frontView.expirationDate.text! == "10/19")
         XCTAssert(frontView.securityCode.alpha == 1)
-        
     }
 
     func testCardUIDidChange() {
