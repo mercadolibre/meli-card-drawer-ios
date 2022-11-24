@@ -58,5 +58,4 @@ class DebinViewController: UIViewController {
             cardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             cardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
     }
-
 }

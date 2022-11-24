@@ -6,7 +6,6 @@ import UIKit
     let customLabelFontName: String?
     var frontView: BasicCard!
     var backView: CardView!
-    var capabilities: CapabilitiesComponentsViewProtocol?
     var model: CardData
     var functionOff: Bool = true
     private var type: MLCardDrawerTypeV3 = .large
@@ -36,7 +35,6 @@ import UIKit
         self.init(cardUI: cardUI, .large, model, disabledMode)
     }
 
-    
     @available(*, deprecated, message: "Please use MLCardDrawerTypeV3")
     public convenience init(_ cardUI: CardUI, _ model: CardData, _ disabledMode: Bool = false, _ type: MLCardDrawerType = .large, _ customLabelFontName: String? = nil) {
         
@@ -54,8 +52,6 @@ import UIKit
         self.init(cardUI: cardUI, newType, model, disabledMode, customLabelFontName)
     }
     
-    
-
     public init(cardUI: CardUI, _ type: MLCardDrawerTypeV3 = .large, _ model: CardData, _ disabledMode: Bool = false, _ customLabelFontName: String? = nil) {
         self.cardUI = cardUI
         self.customLabelFontName = customLabelFontName
@@ -91,14 +87,13 @@ import UIKit
             
             setupView(type)
             
-            backView.setup(cardUI, model, view.frame, disabledMode)
+            backView.setup(cardUI, model, view.frame, disabledMode, customLabelFontName: nil)
             frontView.setup(cardUI, model, view.frame, disabledMode, customLabelFontName: customLabelFontName)
             
             setShineCard(enabled: isShineCardEnabled())
             
         }
     }
-    
     
     private func setupGenericView(type: MLCardDrawerTypeV3) {
         switch type {
@@ -160,7 +155,6 @@ import UIKit
         inView.addSubview(view)
         return self
     }
-    
     
     public func getCardView() -> UIView {
         self.aspectLayoutConstraint?.isActive = false
@@ -246,14 +240,13 @@ extension MLCardDrawerController{
 extension MLCardDrawerController: CapabilitiesComponentsViewProtocol {
     
     public func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets = .zero) {
-        capabilities?.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, padding: padding)
+        frontView.addTagBottom(containerView: containerView, isDisabled: isDisabled, cardType: cardType, tagBottom: tagBottom, padding: padding)
     }
 }
 
 extension MLCardDrawerController {
     public func setTagBottom(text_fake: Text) {
         let cardView = getCardView()
-        capabilities = self
-        capabilities?.addTagBottom(containerView: cardView, isDisabled: false, cardType: .large, tagBottom: text_fake, padding: .init(top: 0, left: 0,bottom: 10, right: 0))
+        frontView?.addTagBottom(containerView: cardView, isDisabled: false, cardType: .large, tagBottom: text_fake, padding: .init(top: 0, left: 0,bottom: 10, right: 0))
     }
 }

@@ -17,18 +17,6 @@ extension UIView {
         self.layer.cornerRadius = cornerRadiuns
         self.layer.maskedCorners = typeCorners
     }
-}
-
-
-extension CACornerMask {
-    static public let lowerRigth: CACornerMask = .layerMaxXMaxYCorner
-    static public let lowerLeft: CACornerMask = .layerMinXMaxYCorner
-    static public let topRight: CACornerMask = .layerMaxXMinYCorner
-    static public let topLeft: CACornerMask = .layerMinXMinYCorner
-}
-
-
-extension UIView {
     
     public func bottomTagAlignment(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, trailing: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         
@@ -58,4 +46,12 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+}
+
+
+extension CACornerMask {
+    static public let lowerRigth: CACornerMask = .layerMaxXMaxYCorner
+    static public let lowerLeft: CACornerMask = .layerMinXMaxYCorner
+    static public let topRight: CACornerMask = .layerMaxXMinYCorner
+    static public let topLeft: CACornerMask = .layerMinXMinYCorner
 }
