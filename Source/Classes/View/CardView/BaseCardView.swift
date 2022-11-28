@@ -80,7 +80,37 @@ public class BaseCardView: UIView, BasicCard {
     
     func removeGradient() {}
     
-    func addGradient() {}
+    func addGradient() {
+            if let currentCardUI = cardUI, let customCardUI = currentCardUI as? CustomCardDrawerUI {
+                if let customGradient = customCardUI.ownGradient {
+                    let gradient = CAGradientLayer()
+                    gradient.frame = frame
+                    gradient.colors = customGradient.colors
+                    gradient.startPoint = customGradient.startPoint
+                    gradient.endPoint = customGradient.endPoint
+                    self.gradient.layer.addSublayer(gradient)
+                } else {
+                    // Default gradient for custom card.
+                    let gradient = CAGradientLayer()
+                    gradient.frame = frame
+                    let mainColor = disabledMode ? disabledGray.cgColor : customCardUI.cardBackgroundColor.cgColor
+                    gradient.colors = [mainColor, UIColor.white.cgColor]
+                    gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+                    gradient.endPoint = CGPoint(x: 1.6, y: 0.5)
+                    self.gradient.layer.addSublayer(gradient)
+                }
+            } else {
+                // Our default card gradients
+                let layer = CAGradientLayer()
+                let end = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1).cgColor
+                layer.colors = [UIColor.black.cgColor, end]
+                layer.frame = frame
+                layer.startPoint = CGPoint(x: 0, y: 1)
+                layer.endPoint = CGPoint(x: 1, y: 0)
+                self.gradient.layer.addSublayer(layer)
+                self.gradient.layer.compositingFilter = "overlayBlendMode"
+            }
+        }
     
     func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
     
