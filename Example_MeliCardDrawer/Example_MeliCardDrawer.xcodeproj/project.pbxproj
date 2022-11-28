@@ -20,6 +20,7 @@
 		236522372294A99400FA6F2D /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236522362294A99400FA6F2D /* CardViewController.swift */; };
 		2365223B2294AB3500FA6F2D /* CardUIExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236522392294AB3500FA6F2D /* CardUIExamples.swift */; };
 		2365223C2294AB3500FA6F2D /* CardDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2365223A2294AB3500FA6F2D /* CardDataHandler.swift */; };
+		3EEF001928E5D6A3008AA7B9 /* PaymentMethodInfoCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF001828E5D6A3008AA7B9 /* PaymentMethodInfoCardViewController.swift */; };
 		9CAF3384263890C100154AC4 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF3383263890C100154AC4 /* GenericViewController.swift */; };
 		A53677C6841C760D8152D303 /* Pods_Example_MeliCardDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6240D5384635DC53E3B1F2 /* Pods_Example_MeliCardDrawer.framework */; };
 		B2253AAB29250CA500803C21 /* CardViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2253AAA29250CA500803C21 /* CardViewTests.swift */; };
@@ -71,6 +72,7 @@
 		236522392294AB3500FA6F2D /* CardUIExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUIExamples.swift; sourceTree = "<group>"; };
 		2365223A2294AB3500FA6F2D /* CardDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDataHandler.swift; sourceTree = "<group>"; };
 		3A3ACD780E9D0EB29C920728 /* Pods-Example_MeliCardDrawerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawerTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Example_MeliCardDrawerTests/Pods-Example_MeliCardDrawerTests.release.xcconfig"; sourceTree = "<group>"; };
+		3EEF001828E5D6A3008AA7B9 /* PaymentMethodInfoCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodInfoCardViewController.swift; sourceTree = "<group>"; };
 		82176BF8A1F7C32D9B28395B /* Pods_Example_MeliCardDrawerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MeliCardDrawerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1B35180A0B46CEE4E8461F /* Pods-Example_MeliCardDrawer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_MeliCardDrawer.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Example_MeliCardDrawer/Pods-Example_MeliCardDrawer.debug.xcconfig"; sourceTree = "<group>"; };
 		9CAF3383263890C100154AC4 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				236522362294A99400FA6F2D /* CardViewController.swift */,
 				9CAF3383263890C100154AC4 /* GenericViewController.swift */,
+				3EEF001828E5D6A3008AA7B9 /* PaymentMethodInfoCardViewController.swift */,
 				CCB0935427987AFC0095AF16 /* DebinViewController.swift */,
 			);
 			path = Controllers;
@@ -390,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EEF001928E5D6A3008AA7B9 /* PaymentMethodInfoCardViewController.swift in Sources */,
 				9CAF3384263890C100154AC4 /* GenericViewController.swift in Sources */,
 				2365223B2294AB3500FA6F2D /* CardUIExamples.swift in Sources */,
 				230990E42295A0E200FC7A3D /* TypeCollectionCell.swift in Sources */,

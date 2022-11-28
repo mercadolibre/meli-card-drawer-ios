@@ -1,13 +1,5 @@
-//
-//  UIImageView+Remote.swift
-//  MLCardDrawer
-//
-//  Created by Juan sebastian Sanzone on 10/22/19.
-//
-
 import Foundation
 
-// codebeat:disable
 internal extension UIImageView {
     func getRemoteImage(imageUrl: String, success:((UIImage)->Void)? = nil) {
         guard let url = URL(string: imageUrl) else { return }
