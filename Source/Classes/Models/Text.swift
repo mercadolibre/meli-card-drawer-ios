@@ -11,8 +11,8 @@ public struct Text: Codable {
     let backgroundColor: String?
     var message: String?
     var weight: String?
-    var defaultTextColor: UIColor = .clear
-    var defaultBackgroundColor: UIColor = .clear
+    var defaultTextColor: UIColor = .black
+    var defaultBackgroundColor: UIColor = .black
     
     enum CodingKeys: String, CodingKey {
         case textColor = "text_color"
