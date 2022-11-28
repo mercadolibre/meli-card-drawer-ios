@@ -8,7 +8,7 @@
 import Foundation
 
 public struct CardBalanceModel: Codable {
-    let title: Text
+    let title: Text?
     let balance: Text
     let hiddenBalance: Text
     

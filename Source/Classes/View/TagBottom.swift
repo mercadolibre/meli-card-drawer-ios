@@ -36,10 +36,9 @@ public class TagBottom: UILabel {
     }
 
     public override func draw(_ rect: CGRect) {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: self.bounds.height/2, height: self.bounds.height/2))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        self.layer.mask = mask
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.bounds.height/2
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         drawText(in: rect)
     }
 
