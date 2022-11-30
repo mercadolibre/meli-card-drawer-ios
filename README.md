@@ -131,9 +131,9 @@ Using `CardUI` protocol to customize: position of security code, card background
 
 
 ### 🎨 AddTagBottomProtocol protocol
-Using `AddTagBottomProtocol` protocol to customize: position bottom tag, background color, font color, place holders.
+Using `addTagBottom` protocol to customize: position bottom tag, background color, font color, place holders.
 ```
-public protocol AddTagBottomProtocol: class {
+public protocol CapabilitiesComponentsViewProtocol: NSObject {
     func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets)
 }
 ```
