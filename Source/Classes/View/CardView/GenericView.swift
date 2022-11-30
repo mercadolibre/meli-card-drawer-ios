@@ -7,8 +7,8 @@
 
 import UIKit
 
-public class GenericView: UIView, BasicCard  {
-
+public class GenericView: BaseCardView {
+    
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,7 +18,8 @@ public class GenericView: UIView, BasicCard  {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var highlightContainerView: UIView!
     
-    private var model: GenericCardUI?
+    
+    private var modelGenericCard: GenericCardUI?
     private var isDisabled: Bool = false
     
     private struct Colors {
@@ -37,25 +38,25 @@ public class GenericView: UIView, BasicCard  {
         static let imageContainerBorderWith: CGFloat = 2
     }
     
-    func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String?) {
+
+    override func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool = false, customLabelFontName: String?) {
         self.frame = frame
         self.isDisabled = isDisabled
         layer.masksToBounds = true
         layer.isDoubleSided = false
         loadFromNib()
-        descriptionLabel.isHidden = true 
+        descriptionLabel.isHidden = true
         setupUI(cardUI)
         layer.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
     }
     
-    func setupUI(_ cardUI: CardUI) {
+    override func setupUI(_ cardUI: CardUI) {
         if let genericUI = cardUI as? GenericCardUI {
-            model = genericUI
+            modelGenericCard = genericUI
             
-            if let gradient = model?.gradientColors, gradient.isEmpty {
-                backgroundColor = isDisabled ? Colors.disabledGradientColorsStart : model?.cardBackgroundColor
+            if let gradient = modelGenericCard?.gradientColors, gradient.isEmpty {
+                backgroundColor = isDisabled ? Colors.disabledGradientColorsStart : modelGenericCard?.cardBackgroundColor
             }
-
             setTitle()
             setSubtitle()
             addGradientLayer()
@@ -70,14 +71,14 @@ public class GenericView: UIView, BasicCard  {
     }
     
     private func setTitle() {
-        guard let genericUI = model else { return }
+        guard let genericUI = modelGenericCard else { return }
         titleLabel.text = genericUI.titleName
         titleLabel.font = genericUI.titleWeight.getFont(size: Sizes.titleFont)
         titleLabel.textColor = isDisabled ? UIColor.white : UIColor.fromHex(genericUI.titleTextColor)
     }
     
     private func setSubtitle() {
-        guard let genericUI = model else { return }
+        guard let genericUI = modelGenericCard else { return }
         subtitleLabel.text = genericUI.subtitleName
         subtitleLabel.font = genericUI.subtitleWeight.getFont(size: Sizes.subtitleFont)
         subtitleLabel.textColor = isDisabled ? UIColor.white : UIColor.fromHex(genericUI.subtitleTextColor)
@@ -89,7 +90,7 @@ public class GenericView: UIView, BasicCard  {
         gradient.cornerRadius = CardCornerRadiusManager.getCornerRadius(from: .large)
         
         gradientView.layer.insertSublayer(gradient, at: 0)
-        let gradientColors = model?.gradientColors?.map({ UIColor.fromHex($0).cgColor })
+        let gradientColors = modelGenericCard?.gradientColors?.map({ UIColor.fromHex($0).cgColor })
 
         gradient.colors = isDisabled ? [Colors.disabledGradientColorsStart.cgColor, Colors.disabledGradientColorsEnd.cgColor] : gradientColors
         gradient.startPoint =  CGPoint(x: 0.1, y: 0.5)
@@ -97,7 +98,7 @@ public class GenericView: UIView, BasicCard  {
     }
     
     private func setHighlightContainerView() {
-        guard let genericUI = model else { return }
+        guard let genericUI = modelGenericCard else { return }
         highlightContainerView.isHidden = genericUI.labelName.isEmpty
         
         if !genericUI.labelBackgroundColor.isEmpty {
@@ -116,7 +117,7 @@ public class GenericView: UIView, BasicCard  {
     }
     
     private func setDescription() {
-        guard let name = model?.descriptionName, let weight = model?.descriptionWeight, let descriptionTextColor = model?.descriptionTextColor else {
+        guard let name = modelGenericCard?.descriptionName, let weight = modelGenericCard?.descriptionWeight, let descriptionTextColor = modelGenericCard?.descriptionTextColor else {
             return
         }
         
@@ -127,7 +128,7 @@ public class GenericView: UIView, BasicCard  {
     }
     
     private func setHighlightLabel() {
-        guard let genericUI = model else { return }
+        guard let genericUI = modelGenericCard else { return }
         highlightLabel.isHidden = genericUI.labelName.isEmpty
         highlightLabel.text = genericUI.labelName
         highlightLabel.font = genericUI.labelWeight.getFont(size: Sizes.tagFont)
@@ -142,7 +143,7 @@ public class GenericView: UIView, BasicCard  {
     }
     
     private func setPaymentMethodImage() {
-        guard let genericUI = model else { return }
+        guard let genericUI = modelGenericCard else { return }
         imageView.image = nil
         UIImageView().getRemoteImage(imageUrl: genericUI.logoImageURL) { image in
             DispatchQueue.main.async { [weak self] in
@@ -168,31 +169,4 @@ public class GenericView: UIView, BasicCard  {
         imageView.alpha = 0.5
         imageView.layer.addSublayer(grayLayer)
     }
-    
-    
-    func isShineEnabled() -> Bool {
-        return false
-    }
-    
-    func addShineView() {
-        
-    }
-    
-    func removeShineView() {
-        
-    }
-    
-    func removeGradient() {
-        
-    }
-    
-    func addGradient() {
-        
-    }
-    
-    func setupAnimated(_ cardUI: CardUI) {
-        
-    }
-    
-    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
 }

@@ -14,11 +14,10 @@ import Foundation
 
 @objc protocol CardViewInteractProtocol {
     @objc func setupAnimated(_ cardUI: CardUI)
-    
     @objc optional func showSecurityCode()
 }
 
-protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol {
+protocol BasicCard: UIView, CardViewInteractProtocol, CardViewCustomViewProtocol, CapabilitiesComponentsViewProtocol {
     func setup(_ cardUI: CardUI, _ model: CardData, _ frame: CGRect, _ isDisabled: Bool, customLabelFontName: String?)
     func setupUI(_ cardUI: CardUI)
     func isShineEnabled() -> Bool

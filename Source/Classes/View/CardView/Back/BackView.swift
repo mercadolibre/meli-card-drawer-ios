@@ -12,6 +12,6 @@ class BackView: CardView {
     }
 
     deinit {
-        removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
+         removeObserver(securityCode, forKeyPath: #keyPath(model.securityCode))
     }
 }
