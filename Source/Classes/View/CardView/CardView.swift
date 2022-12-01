@@ -33,12 +33,6 @@ public class CardView: BaseCardView {
         }
         cardUI?.set?(bank: container)
     }
-    
-    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
-    
-    func toggleCardBalance() {}
-    
-    func isCardBalanceHidden() -> Bool { false }
 }
 
 // MARK: Card View Effects

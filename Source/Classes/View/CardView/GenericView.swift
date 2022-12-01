@@ -169,35 +169,4 @@ public class GenericView: BaseCardView {
         imageView.alpha = 0.5
         imageView.layer.addSublayer(grayLayer)
     }
-    
-    
-    func isShineEnabled() -> Bool {
-        return false
-    }
-    
-    func addShineView() {
-        
-    }
-    
-    func removeShineView() {
-        
-    }
-    
-    func removeGradient() {
-        
-    }
-    
-    func addGradient() {
-        
-    }
-    
-    func setupAnimated(_ cardUI: CardUI) {
-        
-    }
-    
-    func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, _ delegate: CardBalanceDelegate) {}
-    
-    func toggleCardBalance() {}
-    
-    func isCardBalanceHidden() -> Bool { false }
 }
