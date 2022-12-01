@@ -9,7 +9,7 @@ class BackViewTest: XCTestCase {
         let model = CardDataMock()
         let backView = BackView()
 
-        backView.setup(cardUI, model, .zero)
+        backView.setup(cardUI, model, .zero, true, customLabelFontName: nil)
         backView.model?.securityCode = "1"
 
         XCTAssertNotNil(backView.model)
@@ -21,7 +21,7 @@ class BackViewTest: XCTestCase {
         let model = CardDataMock()
         let backView = BackView()
 
-        backView.setup(cardUI, model, .zero)
+        backView.setup(cardUI, model, .zero, true, customLabelFontName: nil)
         cardUI.securityCodePattern = 3
         backView.setupUI(cardUI)
 

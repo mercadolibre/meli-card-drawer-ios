@@ -24,7 +24,7 @@ class CardViewTests: XCTestCase {
         let expectedFrame: CGRect = .init(x: 2, y: 2, width: 100, height: 100)
         
         // When
-        cardView.setup(customCardUI, dataMock, expectedFrame)
+        cardView.setup(customCardUI, dataMock, expectedFrame, true, customLabelFontName: nil)
         
         // Then
         XCTAssertNotNil(cardView.layer.sublayers)
