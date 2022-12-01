@@ -17,6 +17,7 @@ final class CardViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var safeAreaSwitch: UISwitch!
+    @IBOutlet weak var didToggleTagButtom: UISwitch!
     
     var type: MLCardDrawerType = .large
     
@@ -234,5 +235,14 @@ extension CardViewController {
         }
         
         return customView
+    }
+}
+
+extension CardViewController {
+    @IBAction func didToggleTagButtom(_ sender: UISwitch){
+        if sender.isOn {
+            var textFake = Text(message: "mercado pago wallet", textColor: "#ffffff", weight: "semi_bold", backgroundColor: "#008000")
+            cardDrawer?.setTagBottom(text_fake: textFake)
+        }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +15,8 @@
                 <outlet property="gradientView" destination="aps-R3-bty" id="66a-Xl-ZN8"/>
                 <outlet property="highlightContainerView" destination="Bwv-7Y-OHw" id="OKY-u3-5WA"/>
                 <outlet property="highlightLabel" destination="lpq-eD-Nz5" id="U84-zc-yd5"/>
+                <outlet property="highlightTagBottomView" destination="fsj-ZN-wPx" id="2Lg-VZ-Jip"/>
+                <outlet property="highlightTagBottonLabel" destination="eRC-qV-YfR" id="b7r-MY-rwD"/>
                 <outlet property="imageContainerView" destination="ijU-l4-v12" id="IFz-ni-c7r"/>
                 <outlet property="imageView" destination="dDC-An-KJ2" id="l6R-KI-YRT"/>
                 <outlet property="subtitleLabel" destination="QHo-Np-A19" id="gu8-s8-7YC"/>
@@ -92,6 +94,22 @@
                         <constraint firstItem="lpq-eD-Nz5" firstAttribute="top" secondItem="Bwv-7Y-OHw" secondAttribute="top" constant="3" id="87I-y6-8Xg"/>
                         <constraint firstItem="lpq-eD-Nz5" firstAttribute="leading" secondItem="Bwv-7Y-OHw" secondAttribute="leading" constant="6" id="BkV-Cy-EdJ"/>
                         <constraint firstAttribute="trailing" secondItem="lpq-eD-Nz5" secondAttribute="trailing" constant="6" id="YTF-T5-Hbx"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsj-ZN-wPx" userLabel="TagBottomView">
+                    <rect key="frame" x="290" y="80" width="42.5" height="22"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRC-qV-YfR">
+                            <rect key="frame" x="6" y="3" width="30.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="eRC-qV-YfR" firstAttribute="centerX" secondItem="fsj-ZN-wPx" secondAttribute="centerX" id="q9M-pP-dc6"/>
+                        <constraint firstItem="eRC-qV-YfR" firstAttribute="centerY" secondItem="fsj-ZN-wPx" secondAttribute="centerY" id="zBh-V9-tCF"/>
                     </constraints>
                 </view>
             </subviews>

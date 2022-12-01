@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediumFrontView" customModule="MLCardDrawerResources" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediumFrontView" customModule="MLCardDrawerResources">
             <connections>
                 <outlet property="animation" destination="OEt-3Q-8ri" id="0bW-HL-KCE"/>
                 <outlet property="cardBalanceContainer" destination="bpO-8l-NNN" id="fcU-7b-sFy"/>
@@ -15,6 +15,8 @@
                 <outlet property="debitImage" destination="Rno-d9-ED7" id="Hmg-aH-aAi"/>
                 <outlet property="disclaimer" destination="8Sm-pj-7B1" id="cIY-dG-mPV"/>
                 <outlet property="gradient" destination="W2g-Ht-hY3" id="gsv-Yn-Xxg"/>
+                <outlet property="highlightTagBottomView" destination="FL2-ag-5Iu" id="rRJ-W5-t27"/>
+                <outlet property="highlightTagBottonLabel" destination="PQN-5c-dNw" id="PmO-xC-yh3"/>
                 <outlet property="issuerImage" destination="DT6-XG-kaD" id="e3a-8s-cug"/>
                 <outlet property="nameLabel" destination="jHm-dQ-yxg" id="uPG-Zu-22n"/>
                 <outlet property="number" destination="EUo-1b-VQe" id="db1-YE-CVB"/>
@@ -147,6 +149,20 @@
                         <constraint firstAttribute="height" constant="35" id="PtP-c2-xEa"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FL2-ag-5Iu" userLabel="TagBottomView">
+                    <rect key="frame" x="218" y="45" width="116" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQN-5c-dNw">
+                            <rect key="frame" x="23" y="3" width="80" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -191,7 +207,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1337" y="-1633"/>
+            <point key="canvasLocation" x="-1338.4000000000001" y="-1633.1334332833585"/>
         </view>
     </objects>
     <resources>
