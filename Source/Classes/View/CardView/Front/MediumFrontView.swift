@@ -51,6 +51,10 @@ class MediumFrontView: CardView {
         cardBalanceContainer.delegate = delegate
         cardBalanceContainer.render()
     }
+    
+    override func toggleCardBalance() {
+        cardBalanceContainer.showBalance.toggle()
+    }
 }
 
 // MARK: Publics

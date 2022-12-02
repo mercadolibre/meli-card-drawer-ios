@@ -37,6 +37,22 @@ class FrontViewTest: XCTestCase {
         
         XCTAssertTrue(cardBalanceDelegateSpy.handlerToggleBalance)
     }
+    
+    func testToggleBalance() {
+        let cardView = FrontView()
+        let cardUI = CardUIMock()
+        cardView.setup(cardUI, sutCardData, .zero, false, customLabelFontName: nil)
+        
+        let cardBalanceDelegateSpy = CardBalanceDelegateSpy()
+        
+        cardView.addCardBalance(cardBalanceModel, true, cardBalanceDelegateSpy)
+        
+        XCTAssertTrue(cardView.cardBalanceContainer.showBalance)
+        
+        cardView.toggleCardBalance()
+        
+        XCTAssertFalse(cardView.cardBalanceContainer.showBalance)
+    }
 
     func testModelObservers() {
         let cardUI = CardUIMock()
