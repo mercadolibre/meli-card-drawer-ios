@@ -11,41 +11,6 @@ import XCTest
 @testable import MLCardDrawer
 
 class CardViewTests: XCTestCase {
-    var sutCardData: CardData!
-    
-    override func setUp() {
-        super.setUp()
-        sutCardData = CardDataMock()
-    }
-    
-    func testAddCardBalance() {
-        let cardView = FrontView()
-        let cardUI = CardUIMock()
-        cardView.setup(cardUI, sutCardData, .zero, false, customLabelFontName: nil)
-        
-        let cardBalanceModel = CardBalanceModel(title: nil,
-                                                balance: .init(message: "Show",
-                                                               textColor: "#FFFFF",
-                                                               weight: "normal"),
-                                                hiddenBalance: .init(message: "Hide",
-                                                                     textColor: "#FFFFF",
-                                                                     weight: "normal"))
-        let cardBalanceDelegateSpy = CardBalanceDelegateSpy()
-        
-        XCTAssertNil(cardView.cardBalanceContainer.model)
-        XCTAssertFalse(cardBalanceDelegateSpy.handlerToggleBalance)
-        
-        cardView.addCardBalance(cardBalanceModel, true, cardBalanceDelegateSpy)
-        
-        XCTAssertEqual(cardView.cardBalanceContainer.model?.hiddenBalance.message, "Hide")
-        XCTAssertEqual(cardView.cardBalanceContainer.model?.balance.message, "Show")
-        XCTAssertTrue(cardView.cardBalanceContainer.showBalance)
-        
-        _ = cardView.cardBalanceContainer.delegate?.toggleBalance()
-        
-        XCTAssertTrue(cardBalanceDelegateSpy.handlerToggleBalance)
-    }
-    
     func testAddGradientCustomCardAndOwnGradient() {
         // Given
         let expectedGradient = CAGradientLayer()
@@ -55,10 +20,11 @@ class CardViewTests: XCTestCase {
         let customCardUI = CustomCardDrawerUIMock()
         customCardUI.ownGradient = expectedGradient
         let cardView = FrontView()
+        let cardData = CardDataMock()
         let expectedFrame: CGRect = .init(x: 2, y: 2, width: 100, height: 100)
         
         // When
-        cardView.setup(customCardUI, sutCardData, expectedFrame, true, customLabelFontName: nil)
+        cardView.setup(customCardUI, cardData, expectedFrame, true, customLabelFontName: nil)
         
         // Then
         XCTAssertNotNil(cardView.layer.sublayers)
@@ -74,15 +40,6 @@ class CardViewTests: XCTestCase {
         XCTAssertEqual(gradientAdded.colors?.last as? UIColor, expectedGradient.colors?.last as? UIColor)
         XCTAssertEqual(gradientAdded.endPoint, expectedGradient.endPoint)
         XCTAssertEqual(gradientAdded.startPoint, expectedGradient.startPoint)
-    }
-    
-    class CardBalanceDelegateSpy: CardBalanceDelegate {
-        var handlerToggleBalance = false
-
-        func toggleBalance() -> Bool {
-            handlerToggleBalance = true
-            return true
-        }
     }
 }
     
