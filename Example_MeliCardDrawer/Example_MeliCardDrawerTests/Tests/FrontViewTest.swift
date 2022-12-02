@@ -45,13 +45,15 @@ class FrontViewTest: XCTestCase {
         
         let cardBalanceDelegateSpy = CardBalanceDelegateSpy()
         
-        cardView.addCardBalance(cardBalanceModel, true, cardBalanceDelegateSpy)
+        cardView.addCardBalance(cardBalanceModel, false, cardBalanceDelegateSpy)
         
-        XCTAssertTrue(cardView.cardBalanceContainer.showBalance)
+        XCTAssertFalse(cardView.cardBalanceContainer.showBalance)
+        XCTAssertFalse(cardBalanceDelegateSpy.handlerToggleBalance)
         
         cardView.toggleCardBalance()
         
-        XCTAssertFalse(cardView.cardBalanceContainer.showBalance)
+        XCTAssertTrue(cardView.cardBalanceContainer.showBalance)
+        XCTAssertTrue(cardBalanceDelegateSpy.handlerToggleBalance)
     }
 
     func testModelObservers() {

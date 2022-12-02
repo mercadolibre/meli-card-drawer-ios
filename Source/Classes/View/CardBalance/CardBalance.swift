@@ -76,6 +76,14 @@ public class CardBalance: UIView {
         setupConstraints()
     }
     
+    public func toggleBalance() {
+        guard let delegate = delegate else {
+            return
+        }
+        
+        showBalance = delegate.toggleBalance()
+    }
+    
     private func setupComponents() {
         guard let model = model else {
             return
@@ -106,10 +114,7 @@ public class CardBalance: UIView {
     }
     
     @objc private func buttonAction(sender: UIButton){
-        guard let delegate = delegate else {
-            return
-        }
-        showBalance = delegate.toggleBalance()
+        toggleBalance()
     }
     
     private func setupConstraints() {

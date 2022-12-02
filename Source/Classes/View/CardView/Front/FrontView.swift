@@ -236,7 +236,7 @@ class FrontView: CardView {
     }
     
     override func toggleCardBalance() {
-        cardBalanceContainer.showBalance.toggle()
+        cardBalanceContainer.toggleBalance()
     }
 }
 
