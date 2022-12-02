@@ -235,14 +235,6 @@ extension MLCardDrawerController{
     public func addCardBalance(_ model: CardBalanceModel, _ showBalance: Bool, delegate: CardBalanceDelegate) {
         frontView.addCardBalance(model, showBalance, delegate)
     }
-    
-    public func toggleCardBalance() {
-        frontView.toggleCardBalance()
-    }
-    
-    public func isCardBalanceHidden() -> Bool {
-        frontView.isCardBalanceHidden()
-    }
 }
 
 extension MLCardDrawerController: CapabilitiesComponentsViewProtocol {
