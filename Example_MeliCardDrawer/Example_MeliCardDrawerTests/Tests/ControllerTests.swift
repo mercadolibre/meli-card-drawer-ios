@@ -122,12 +122,12 @@ extension CardHeaderControllerTest {
         return Text(message: "saldo em conta", textColor: "#F0F0F0", weight: "semi_bold")
     }
     
-    class AddTagBottomSpy: CapabilitiesComponentsViewProtocol {
+    class AddTagBottomSpy: NSObject, CapabilitiesComponentsViewProtocol {
         var isDisabled: Bool?
         var cardType:MLCardDrawerTypeV3?
         var tagBottom: Text?
         
-        func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawer.MLCardDrawerTypeV3, tagBottom: MLCardDrawer.Text?, padding: UIEdgeInsets) {
+        func addTagBottom(containerView: UIView, isDisabled: Bool, cardType: MLCardDrawerTypeV3, tagBottom: Text?, padding: UIEdgeInsets) {
             self.cardType = cardType
             self.tagBottom = tagBottom
             self.isDisabled = isDisabled
