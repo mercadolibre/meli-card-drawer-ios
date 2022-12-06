@@ -1,10 +1,17 @@
 ## [Unreleased]
 
+## [Release (1.11.8)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.8)
+### Fixed
+- Fixed constants values
+- Fix and improve tests
+## Added
+- Add Accessibility (Account money)
+
 ## [Release (1.11.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.7)
 ### Fixed
-Fix and improve tests
+- Fix and improve tests
 ## Added
-Add Accessibility (Account money)
+- Add Accessibility (Account money)
 
 ## [Release (1.11.6)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.6)
 ### Fixed
