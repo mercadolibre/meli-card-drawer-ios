@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [Release (1.11.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.7)
+### Fixed
+Fix and improve tests
+## Added
+Add Accessibility (Account money)
+
 ## [Release (1.11.6)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.6)
 ### Fixed
 - Fixed the card view's renderezation when has custom gradient.
