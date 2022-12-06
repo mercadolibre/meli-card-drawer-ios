@@ -234,6 +234,10 @@ class FrontView: CardView {
         cardBalanceContainer.delegate = delegate
         cardBalanceContainer.render()
     }
+    
+    override func toggleCardBalance() {
+        cardBalanceContainer.toggleBalance()
+    }
 }
 
 // MARK: Publics
