@@ -1,4 +1,6 @@
 ## [Unreleased]
+## Added
+- Added string init for MLCardDrawerTypeV3
 
 ## [Release (1.11.7)](https://github.com/mercadolibre/meli-card-drawer-ios/releases/tag/1.11.7)
 ### Fixed
