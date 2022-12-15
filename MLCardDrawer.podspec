@@ -19,4 +19,7 @@ Pod::Spec.new do |s|
     default.source_files = ['Source/Classes/**/*.{h,m,swift}']
     default.resource_bundles = { 'MLCardDrawerResources' => ['Source/Assets/*.xcassets', 'Source/Classes/**/*.xib'] }
   end
+  
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  
 end
